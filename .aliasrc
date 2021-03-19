@@ -18,12 +18,6 @@ alias d='exit'
 
 alias clock='tty-clock -c -f %a:%d/%m/%y'
 
-alias cf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias cfa='cf add'
-alias cfc='cf commit -m'
-alias cfp='cf push'
-alias cfs='cf status'
-
 alias ddg='ddgr'                            # ddg search and open in qutebrowser
 alias dg='duckgo'                           # ddg search and open in lynx
 
@@ -47,6 +41,7 @@ alias gotop='gotop -a'
 alias grep='grep --color=auto'
 alias kmon='kmon -c green'
 alias less='less -R'
+alias lg='lazygit'
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
 alias n='nnn -c -H -T v'                    # filemanager
 alias nn='nvim -c startinsert Notes/new.md' # open new note in nvim, sn to saveas in Notes
@@ -58,7 +53,6 @@ alias server="python3 -m http.server"
 alias sudo='sudo '
 alias uc='ucollage'
 alias upd='sudo pacman -Syu'
-alias updfvb='cd ~/Websites/fvb_1.0; lftp ftp://fvb@multiweb.nl@homedrive.ziggo.nl'
 
 alias v='nvim'
 alias vf='./.config/vifm/scripts/vifmrun'

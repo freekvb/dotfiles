@@ -143,6 +143,7 @@ command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! ln !ln -s %d/%f %D
 command! mv !mv %d/%f %D
+command! lg !lazygit %d
 
 " ------------------------------------------------------------------------------
 
