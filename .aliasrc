@@ -37,25 +37,30 @@ alias gc='git commit -m'
 alias gp='git push'
 alias gs='git status'
 
-alias gotop='gotop -a'
+alias gotop='gotop -a'                      # system monitor
 alias grep='grep --color=auto'
-alias kmon='kmon -c green'
+alias kmon='kmon -c green'                  # kernel manager and monitor
 alias less='less -R'
-alias lg='lazygit'
+
+alias lg='lazygit'                          # lazygit
+alias lgd='cd .dotfiles && lazygit'         # lazygit .dotfiles
+alias lgw='cd Websites/fvb && lazygit'      # lazygit website fvb
+
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
-alias n='nnn -c -H -T v'                    # filemanager
+alias n='nnn -c -H -T v'                    # file manager
 alias nn='nvim -c startinsert Notes/new.md' # open new note in nvim, sn to saveas in Notes
 
 alias pacman='sudo pacman --color=always'
-alias pacs='sudo pacs'
+alias pacs='sudo pacs'                      # pacman -S with fzf
 
-alias server="python3 -m http.server"
+alias server='python3 -m http.server'       # simple server
 alias sudo='sudo '
-alias uc='ucollage'
-alias upd='sudo pacman -Syu'
+alias sz='source ~/.zshrc'
+alias uc='ucollage'                         # image viewer
+alias upd='sudo pacman -Syu'                # system upgrade
 
 alias v='nvim'
-alias vf='./.config/vifm/scripts/vifmrun'
+alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
 
 alias yt='pipe-viewer'                      # youtube video search and view
 alias ytf='ytfzf'                           # youtube fzf search and view
