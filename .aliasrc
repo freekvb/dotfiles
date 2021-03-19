@@ -1,0 +1,109 @@
+#-----------------------------------------------------------------------------#
+# File:     ~/.aliasrc  (archlinux - 'silent')
+# Date:     Thu 23 Apr 2020 12:06
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+# ---------- alias -----------------------------------------------------------#
+
+alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first'
+alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+
+alias c='clear'
+alias d='exit'
+
+alias clock='tty-clock -c -f %a:%d/%m/%y'
+
+alias cf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias cfa='cf add'
+alias cfc='cf commit -m'
+alias cfp='cf push'
+alias cfs='cf status'
+
+alias ddg='ddgr'                            # ddg search and open in qutebrowser
+alias dg='duckgo'                           # ddg search and open in lynx
+
+alias diff='diff --color=auto'
+
+alias f='fzf'                               # fzf
+alias fc='cd_with_fzf'                      # fzf and cd in directory
+alias ff='fif'                              # fzf find in files
+alias fm='macho'                            # fzf man pages
+alias fo='open_with_fzf'                    # fzf and open with default app
+alias fp='fzp'                              # fzf --preview
+alias fv='v $(fzf)'                         # fzf and open in nvim
+alias fu='fu.py'                            # search commandlinefu,com
+
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gs='git status'
+
+alias gotop='gotop -a'
+alias grep='grep --color=auto'
+alias kmon='kmon -c green'
+alias less='less -R'
+alias moc='mocp -T /usr/share/moc/themes/transparent-background'
+alias n='nnn -c -H -T v'                    # filemanager
+alias nn='nvim -c startinsert Notes/new.md' # open new note in nvim, sn to saveas in Notes
+
+alias pacman='sudo pacman --color=always'
+alias pacs='sudo pacs'
+
+alias server="python3 -m http.server"
+alias sudo='sudo '
+alias uc='ucollage'
+alias upd='sudo pacman -Syu'
+alias updfvb='cd ~/Websites/fvb_1.0; lftp ftp://fvb@multiweb.nl@homedrive.ziggo.nl'
+
+alias v='nvim'
+alias vf='./.config/vifm/scripts/vifmrun'
+
+alias yt='pipe-viewer'                      # youtube video search and view
+alias ytf='ytfzf'                           # youtube fzf search and view
+alias ytm='straw-viewer -C -n'              # youtube music search and listen
+alias ytv='straw-viewer -C'                 # youtube video search and view
+
+
+#----------- exports - thnx to gotbletu --------------------------------------#
+
+#----------- set default programs --------------------------------------------#
+
+# DESC: check and choose the first program in the array installed as the default
+# find alternative apps if it is installed on your system
+find_alt() { for i;do which "$i" >/dev/null &&
+    { echo "$i"; return 0;};done;return 1; }
+
+# set the default program
+# the first program in the array detected on your system will be the default
+
+export OPENER=$(find_alt xdg-open)
+
+export BROWSER=$(find_alt qutebrowser chromium $OPENER)
+export BROWSERCLI=$(find_alt lynx w3m links2 links elinks $OPENER )
+#export BROWSERTOR=$(find_alt tor-browser-en)
+export EDITOR=$(find_alt nvim vim vi nano $OPENER)
+#export FILEMANAGER=$(find_alt nemo $OPENER)
+export FILEMANAGERCLI=$(find_alt vifm ranger lf $OPENER)
+export IMAGEVIEWER=$(find_alt feh sxiv $OPENER)
+export MUSICER=$(find_alt moc mpv $OPENER)
+export PAGER=$(find_alt less more most)
+export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
+export READER=$(find_alt zathura apvlv mupdf evince $OPENER)
+export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
+#export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
+export MANPAGER="nvim +set\ filetype=man -"
+
+#----------- other exports ---------------------------------------------------#
+
+export PATH=$PATH:/bin
+export PATH=$PATH:/home/fvb/.local/bin
+export PATH=$PATH:/home/fvb/Scripts
+export PATH=$PATH:/home/fvb/.gem/ruby/2.7.0/bin
+export PATH=$PATH:/home/fvb/go/bin
+export PATH=$PATH:/home/fvb/.cargo/bin
+

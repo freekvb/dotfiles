@@ -1,0 +1,163 @@
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/sxhkd/sxhkdrc (archlinux @ 'silent')
+# Date:     Thu 23 Apr 2020 12:09
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+    st
+
+# qutebrowser
+super + q
+    qutebrowser
+
+# chromium
+super + c
+    chromium
+
+# program launcher
+alt + @space
+    dmenu_run -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+
+# clipboard manager
+super + y
+    clipmenu -i -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+
+# tdrop terminal
+alt + d
+    tdrop -m -w 1916 -a st
+
+# passmenu copy pass from dmenu
+super + p
+    passmenu -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd; dunstify 'sxhkd: config reloaded'
+super + shift + r
+    pkill -usr1 -x sxhkd; dunstify 'sxhkd: config reloaded'
+
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+    bspc {quit,wm -r}; dunstify 'bspwm: config reloaded'
+
+# alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+# close one or all nodes
+super + {_,shift + }w
+    bspc node -{c,k}
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+alt + {j,k}
+    bspc desktop -f {prev,next}.local
+
+# focus the next/previous occupied desktop in the current monitor
+alt + {h,l}
+    bspc desktop -f {prev.occupied,next.occupied}.local
+
+# focus the last node/desktop
+super + Tab
+    bspc desktop -f last
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# swap in direction
+alt + ctrl + {h,j,k,l}
+      bspc node --swap {west,south,north,east}
+
+# rotate node tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
+# rotate layout
+alt + shift + {d,a}
+    bspc node @/ --rotate 90
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# misc
+#
+
+# control sound
+
+super + {slash,comma,period}
+    amixer -q set Master {toggle,5%- unmute,5%+ unmute}
+
+# toggle pause/play moc
+super + x
+    mocp -G
+
+# date time notification
+alt + t
+    dunstify $(date +'%R')
+
+# chrome  - youtube (link yanked) in mpv
+alt + v
+    ./Scripts/yt_mpv
+
+# trade screenshots
+alt + c
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/trade/shots/' && dunstify "chart screenshot  >>  trade notes"
+
+# review screenshots
+alt + s
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/reviews/' && dunstify "chart screenshot  >>  market reviews"
+
