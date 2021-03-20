@@ -1,0 +1,35 @@
+#!/usr/bin/sh
+
+export FZF_DEFAULT_OPTS='
+--height=30%
+--layout=reverse
+--prompt="Manual: "
+--preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
+
+while getopts ":s:" opt; do
+    case $opt in
+        s ) SECTION=$OPTARG; shift; shift;;
+        \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;
+        : ) echo "Option -$OPTARG requires an argument" >&2; exit 1;;
+    esac
+done
+
+manual=$(apropos -s ${SECTION:-''} ${@:-.} | \
+    grep -v -E '^.+ \(0\)' |\
+    awk '{print $2 "    " $1}' | \
+    sort | \
+    fzf  | \
+    sed -E 's/^\((.+)\)/\1/')
+
+[ -z "$manual" ] && exit 0
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;40;36m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+man $manual
+

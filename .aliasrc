@@ -13,6 +13,10 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
 
+alias md='mkdir'
+alias mf='touch'
+alias ms='./Scripts/mkscript'
+
 alias c='clear'
 alias d='exit'
 
