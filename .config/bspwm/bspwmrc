@@ -35,7 +35,7 @@ bspc config automatic_scheme        spiral
 bspc config initial_polarity        first_child
 
 bspc rule -a apvlv                  state=tiled
-bspc rule -a mpv -name "video0"     state=floating
+bspc rule -a mpv -name "video0"     state=fullscreen
 bspc rule -a guvcview               state=floating rectangle=480x270+1428+798 sticky=on layer=above
 bspc rule -a Zathura                state=tiled
 
