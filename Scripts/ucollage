@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 config_error() {
     echo "Configuration error [${1}]: \"${2}\" ${3}"
 }

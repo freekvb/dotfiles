@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 pacman -Syu $(pacman -Ssq | fzf -m --height 40% --border --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
 
