@@ -441,8 +441,11 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 nnoremap ; :
 nnoremap : ;
 
-"Open all images in current directory in sxiv thumbnail mode
+" Open all images in current directory in sxiv thumbnail mode
 nnoremap sx :!sxiv -t %d & <cr>
+
+" Open lazygit in current directory
+nnoremap Lg :lg<cr>
 
 " Start shell in current directory
 nnoremap s :shell<cr>
