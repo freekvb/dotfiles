@@ -245,12 +245,12 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ {View in feh}
+        \ feh -F %f &,
         \ {View in sxiv}
         \ sxiv -bia %f &,
         \ {View in imv}
         \ imv -b 1D2330 -d %d &,
-        \ {View in feh}
-        \ feh %d &,
         \ {View in cacaview}
         \ cacaview %c &,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
