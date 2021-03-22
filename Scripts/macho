@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 export FZF_DEFAULT_OPTS='
 --height=30%
