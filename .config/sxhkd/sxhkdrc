@@ -23,11 +23,11 @@ super + c
 
 # program launcher
 alt + @space
-    dmenu_run -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+    dmenu_run
 
 # clipboard manager
 super + y
-    clipmenu -i -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+    clipmenu -i
 
 # tdrop terminal
 alt + d
@@ -35,7 +35,7 @@ alt + d
 
 # passmenu copy pass from dmenu
 super + p
-    passmenu -fn Terminus:size=10 -nb '#222222' -nf '#eeeeee' -sb '#555555' -sf '#eeeeee' -p ' >'
+    passmenu
 
 # make sxhkd reload its configuration files:
 super + Escape
