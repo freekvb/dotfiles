@@ -1,8 +1,8 @@
-"------------------------------------------------------------------------------"
+"-----------------------------------------------------------------------------"
 " File:     ~/.config/vifm/vifmrc (archlinux @ 'silent')
 " Date:     Wed 30 Sep 2020 22:31
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
-"------------------------------------------------------------------------------"
+"-----------------------------------------------------------------------------"
 
 
 " Set colors
@@ -498,7 +498,7 @@ nnoremap gp :cd ~/Pictures<cr>
 nnoremap gt :cd ~/Torrents<cr>
 
 " fzf
-command! FZFlocate :set quickview | :execute 'goto' fnameescape(term('locate $HOME | fzf --height 30 2>/dev/tty'))
+command! FZFlocate :set quickview | :execute 'goto' fnameescape(term('locate / | fzf --height 30 2>/dev/tty'))
 command! FZFfind :set quickview | :execute 'goto' fnameescape(term('find | fzf --height 30 2>/dev/tty'))
 nnoremap <c-l> :FZFlocate<cr>
 nnoremap <c-f> :FZFfind<cr>
