@@ -108,6 +108,6 @@ export PATH=$PATH:/bin
 export PATH=$PATH:/home/fvb/.local/bin
 export PATH=$PATH:/home/fvb/Scripts
 export PATH=$PATH:/home/fvb/.gem/ruby/2.7.0/bin
-export PATH=$PATH:/home/fvb/go/bin
+export PATH=$PATH:/home/fvb/Go/bin
 export PATH=$PATH:/home/fvb/.cargo/bin
 
