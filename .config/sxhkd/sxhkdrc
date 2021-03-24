@@ -21,6 +21,10 @@ super + q
 super + c
     chromium
 
+# tdrop terminal
+alt + d
+    tdrop -m -w 1916 -a st
+
 # program launcher
 alt + @space
     dmenu_run
@@ -28,10 +32,6 @@ alt + @space
 # clipboard manager
 super + y
     clipmenu -i
-
-# tdrop terminal
-alt + d
-    tdrop -m -w 1916 -a st
 
 # passmenu copy pass from dmenu
 super + p
