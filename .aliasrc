@@ -20,6 +20,7 @@ alias ms='./Scripts/mkscript'
 alias c='clear'
 alias d='exit'
 
+alias be='v ~/Websites/fvb/blog.html'
 alias bkb='./Scripts/bspwm_keybindings'
 alias clock='tty-clock -c -f %a:%d/%m/%y'
 
