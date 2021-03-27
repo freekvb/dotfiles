@@ -104,6 +104,10 @@ set showmode
 nnoremap gp a<CR><Esc>PkJxJx
 
 
+" blog entry
+nnoremap be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
+
+
 " notes
 " save notes (nn in terminal to open new note)
 nnoremap sn :saveas ~/Notes/
@@ -154,6 +158,7 @@ Plug 'itchyny/lightline.vim'             " statusbar
 Plug 'dylanaraps/wal.vim'                " colorscheme wal
 Plug 'mhinz/vim-startify'                " startup screen
 Plug 'junegunn/goyo.vim'                 " distraction free writing
+" markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
