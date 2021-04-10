@@ -28,6 +28,7 @@ alias ddg='ddgr'                            # ddg search and open in qutebrowser
 alias dg='duckgo'                           # ddg search and open in lynx
 
 alias diff='diff --color=auto'
+alias dvtm='dvtm -M'
 
 alias f='fzf'                               # fzf
 alias fc='cd_with_fzf'                      # fzf and cd in directory
@@ -70,8 +71,6 @@ alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
 
 alias yt='pipe-viewer'                      # youtube video search and view
 alias ytf='ytfzf'                           # youtube fzf search and view
-alias ytm='straw-viewer -C -n'              # youtube music search and listen
-alias ytv='straw-viewer -C'                 # youtube video search and view
 
 
 #----------- exports - thnx to gotbletu --------------------------------------#
@@ -95,13 +94,13 @@ export EDITOR=$(find_alt nvim vim vi nano $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
 export FILEMANAGERCLI=$(find_alt vifm ranger lf $OPENER)
 export IMAGEVIEWER=$(find_alt feh sxiv $OPENER)
+export MANPAGER="nvim +set\ filetype=man -"
 export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
 export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
 export READER=$(find_alt zathura apvlv mupdf evince $OPENER)
 export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
-export MANPAGER="nvim +set\ filetype=man -"
 
 #----------- other exports ---------------------------------------------------#
 
@@ -109,6 +108,6 @@ export PATH=$PATH:/bin
 export PATH=$PATH:/home/fvb/.local/bin
 export PATH=$PATH:/home/fvb/Scripts
 export PATH=$PATH:/home/fvb/.gem/ruby/2.7.0/bin
-export PATH=$PATH:/home/fvb/Go/bin
+export PATH=$PATH:/home/fvb/go/bin
 export PATH=$PATH:/home/fvb/.cargo/bin
 
