@@ -9,7 +9,7 @@ xrandr --output HDMI-1 --mode 1920x1080
 xsetroot -cursor_name left_ptr
 setxkbmap -option caps:escape
 xset dpms 600 600 600
-xset r rate 300 50
+xset r rate 600 50
 
 udiskie &
 dunst &
