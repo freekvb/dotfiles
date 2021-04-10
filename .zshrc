@@ -210,9 +210,6 @@ fi
 #    command man "$@"
 #}
 
-# "nvim" as manpager
-export MANPAGER="nvim -c 'set ft=man' -"
-
 
 # fzf - alias: fz
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
