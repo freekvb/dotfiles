@@ -12,25 +12,18 @@ alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-d
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
-
-alias md='mkdir'
-alias mf='touch'
-alias ms='./Scripts/mkscript'
-
 alias c='clear'
+alias cc='cd && clear'
 alias d='exit'
-
 alias al='./Scripts/alias'
 alias be='v ~/Websites/fvb/blog.html'
 alias bkb='./Scripts/bspwm_keybindings'
-alias clock='tty-clock -c -f %a:%d/%m/%y'
-
 alias ddg='ddgr'                            # ddg search and open in qutebrowser
 alias dg='duckgo'                           # ddg search and open in lynx
-
 alias diff='diff --color=auto'
+alias dkb='./Scripts/dwm_keybindings'
+alias dt='tty-clock -c -f %a:%d/%m/%y'
 alias dvtm='dvtm -M'
-
 alias f='fzf'                               # fzf
 alias fc='cd_with_fzf'                      # fzf and cd in directory
 alias ff='fif'                              # fzf find in files
@@ -39,37 +32,32 @@ alias fo='open_with_fzf'                    # fzf and open with default app
 alias fp='fzp'                              # fzf --preview
 alias fv='v $(fzf)'                         # fzf and open in nvim
 alias fu='fu.py'                            # search commandlinefu,com
-
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push'
 alias gs='git status'
-
 alias gotop='gotop -a'                      # system monitor
 alias grep='grep --color=auto'
 alias kmon='kmon -c green'                  # kernel manager and monitor
 alias less='less -R'
-
 alias lg='lazygit'                          # lazygit
 alias lgd='cd .dotfiles && lazygit'         # lazygit .dotfiles
 alias lgw='cd Websites/fvb && lazygit'      # lazygit website fvb
-
+alias md='mkdir'
+alias mf='touch'
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
+alias ms='./Scripts/mkscript'
 alias n='nnn -c -H -T v'                    # file manager
 alias nn='nvim -c startinsert Notes/new.md' # open new note in nvim, sn to saveas in Notes
-
 alias pacman='sudo pacman --color=always'
 alias pacs='sudo pacs'                      # pacman -S with fzf
-
 alias server='python3 -m http.server'       # simple server
 alias sudo='sudo '
 alias sz='source ~/.zshrc'
 alias uc='ucollage'                         # image viewer
 alias upd='sudo pacman -Syu'                # system upgrade
-
 alias v='nvim'
 alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
-
 alias yt='pipe-viewer'                      # youtube video search and view
 alias ytf='ytfzf'                           # youtube fzf search and view
 
