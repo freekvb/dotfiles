@@ -84,7 +84,7 @@ function +vi-git-untracked() {
 # history in cache directory:
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=$HOME/.cache/zsh/history
 
 
 # basic auto/tab complete:
@@ -96,7 +96,7 @@ _comp_options+=(globdots)                                   # Include hidden fil
 
 
 # enable autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # autocd
 setopt autocd
@@ -106,6 +106,7 @@ setopt correctall
 
 # ignore dot file names as spelling corrections
 export CORRECT_IGNORE_FILE='.*'
+
 
 # vim mode
 bindkey -v
@@ -196,7 +197,7 @@ fi
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background
 # ( ) #  hide shell job control messages
-(cat ~/.cache/wal/sequences & )
+(cat $HOME/.cache/wal/sequences & )
 
 
 ## man colored in less
