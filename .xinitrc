@@ -23,5 +23,6 @@ sxhkd &
 
 exec bspwm
 
-#xsetroot -name "$( date +"%a %d %b %Y %H:%M" )"
+#slstatus &
+##xsetroot -name "$( date +"%a %d %b %Y %H:%M" )"
 #exec dwm
