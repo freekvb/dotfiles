@@ -107,6 +107,8 @@ nnoremap gp a<CR><Esc>PkJxJx
 " blog entry
 nnoremap be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
 
+" shebang
+nnoremap sb i#!/bin/sh<CR><CR>
 
 " notes
 " save notes (nn in terminal to open new note)
@@ -156,7 +158,7 @@ call plug#begin()
 " list of plugins
 Plug 'itchyny/lightline.vim'             " statusbar
 Plug 'dylanaraps/wal.vim'                " colorscheme wal
-Plug 'mhinz/vim-startify'                " startup screen
+"Plug 'mhinz/vim-startify'                " startup screen
 Plug 'junegunn/goyo.vim'                 " distraction free writing
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -188,34 +190,34 @@ let g:lightline = {
       \ }
 
 
-" startify ascii
-let s:startify_ascii_header = [
-            \'                                                    ',
-            \'  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
-            \'  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
-            \'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
-            \'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-            \'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
-            \'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
-            \'',
-            \]
-let g:startify_custom_header = map(s:startify_ascii_header +
-            \ startify#fortune#quote(), '"   ".v:val')
-let g:startify_lists = [
-            \ { 'type': 'files',     'header': ['   Files']            },
-            \ { 'type': 'dir',       'header': ['   Directories '. getcwd()] },
-            \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-            \ ]
-let g:startify_bookmarks = [
-            \ { 'h': '~/' },
-            \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.zshrc' },
-            \ { 'c': '~/.config' },
-            \ { 'n': '~/Notes' },
-            \ { 's': '~/Scripts' },
-            \ { 'w': '~/Websites/fvb' },
-            \ ]
+"" startify ascii
+"let s:startify_ascii_header = [
+"            \'                                                    ',
+"            \'  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+"            \'  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+"            \'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+"            \'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+"            \'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+"            \'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+"            \'',
+"            \]
+"let g:startify_custom_header = map(s:startify_ascii_header +
+"            \ startify#fortune#quote(), '"   ".v:val')
+"let g:startify_lists = [
+"            \ { 'type': 'files',     'header': ['   Files']            },
+"            \ { 'type': 'dir',       'header': ['   Directories '. getcwd()] },
+"            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+"            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+"            \ ]
+"let g:startify_bookmarks = [
+"            \ { 'h': '~/' },
+"            \ { 'i': '~/.config/nvim/init.vim' },
+"            \ { 'z': '~/.zshrc' },
+"            \ { 'c': '~/.config' },
+"            \ { 'n': '~/Notes' },
+"            \ { 's': '~/Scripts' },
+"            \ { 'w': '~/Websites/fvb' },
+"            \ ]
 
 
 " toggle goyo
@@ -314,7 +316,6 @@ set cmdheight=1                          " height of command bar
 
 set shortmess+=F                         " no file name in the cmd bar
 set shortmess+=A                         " ignore annoying swapfile messages
-set shortmess+=I                         " no splash screen
 set shortmess+=O                         " file-read message overwrites previous
 set shortmess+=T                         " truncate non-file messages in middle
 set shortmess+=a                         " abbreviations [RO] instead of [readonly]
