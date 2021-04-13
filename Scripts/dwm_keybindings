@@ -1,3 +1,0 @@
-#!/bin/sh
-
-awk 'NR>68 && NR<106' $HOME/Programs/dwm/config.h
