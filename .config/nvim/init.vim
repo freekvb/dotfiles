@@ -56,6 +56,15 @@ set completeopt=menuone,longest
 
 " switch colon to semicolon
 nnoremap ; :
+nnoremap : ;
+
+" lazy write / quit
+nnoremap w   :w<CR>
+nnoremap q   :q<CR>
+nnoremap wq  :wq<CR>
+nnoremap W   :w!<CR>
+nnoremap Q   :q!<CR>
+nnoremap WQ  :wq!<CR>
 
 " jump to start or end of line
 nnoremap H ^
@@ -119,6 +128,8 @@ nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 nnoremap si :saveas ~/Notes/ict/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 " save trade notes (timestamp)
 nnoremap st :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %a %H:%M")<CR>.md<CR>
+" paste screenshot in trade note (fern yy pic)
+nnoremap pp gp0cw![<Esc>ldwy$$gp2Tgcw](./shots/<Esc>$cw)<CR><CR><Esc>
 
 
 " markdown
@@ -158,7 +169,7 @@ call plug#begin()
 " list of plugins
 Plug 'itchyny/lightline.vim'             " statusbar
 Plug 'dylanaraps/wal.vim'                " colorscheme wal
-"Plug 'mhinz/vim-startify'                " startup screen
+Plug 'mhinz/vim-startify'                " startup screen
 Plug 'junegunn/goyo.vim'                 " distraction free writing
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -190,34 +201,34 @@ let g:lightline = {
       \ }
 
 
-"" startify ascii
-"let s:startify_ascii_header = [
-"            \'                                                    ',
-"            \'  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
-"            \'  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
-"            \'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
-"            \'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-"            \'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
-"            \'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
-"            \'',
-"            \]
-"let g:startify_custom_header = map(s:startify_ascii_header +
-"            \ startify#fortune#quote(), '"   ".v:val')
-"let g:startify_lists = [
-"            \ { 'type': 'files',     'header': ['   Files']            },
-"            \ { 'type': 'dir',       'header': ['   Directories '. getcwd()] },
-"            \ { 'type': 'sessions',  'header': ['   Sessions']       },
-"            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-"            \ ]
-"let g:startify_bookmarks = [
-"            \ { 'h': '~/' },
-"            \ { 'i': '~/.config/nvim/init.vim' },
-"            \ { 'z': '~/.zshrc' },
-"            \ { 'c': '~/.config' },
-"            \ { 'n': '~/Notes' },
-"            \ { 's': '~/Scripts' },
-"            \ { 'w': '~/Websites/fvb' },
-"            \ ]
+" startify ascii
+let s:startify_ascii_header = [
+            \'                                                    ',
+            \'  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+            \'  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+            \'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+            \'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+            \'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+            \'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+            \'',
+            \]
+let g:startify_custom_header = map(s:startify_ascii_header +
+             \ startify#fortune#quote(), '"   ".v:val')
+let g:startify_lists = [
+            \ { 'type': 'files',     'header': ['   Files']            },
+            \ { 'type': 'dir',       'header': ['   Directories '. getcwd()] },
+            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ ]
+let g:startify_bookmarks = [
+            \ { 'h': '~/' },
+            \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'z': '~/.zshrc' },
+            \ { 'c': '~/.config' },
+            \ { 'n': '~/Notes' },
+            \ { 's': '~/Scripts' },
+            \ { 'w': '~/Websites/fvb' },
+            \ ]
 
 
 " toggle goyo

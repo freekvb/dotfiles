@@ -36,9 +36,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+-----+-----+-----+-----|  	   |------+------+-----+-----+--------|
  * | SHFT/Z |  X  |  C  |  V  |  B  |      |  N   |  M   |  <  |  >  | SHFT/? |
  * `--------------------------------'  	   `----------------------------------'
- *   .------------------------------.      .-------------------------------.
- *   | ESC/META | ENT/ALT | SPC/SYM |      | SPC/NUM | ENT/SHFT | ESC/CTRL |
- *   '------------------------------'      '-------------------------------'
+ *   .------------------------------.      .------------------------------.
+ *   | ESC/META | ENT/ALT | SPC/SYM |      | SPC/NUM | ENT/ALT | ESC/META |
+ *   '------------------------------'      '------------------------------'
  */
 [BASE] = LAYOUT_gergoplex(
     KC_Q, 		       KC_W, KC_E, KC_R, KC_T,  	KC_Y, KC_U, KC_I,    KC_O, 	 KC_P,
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MT(MOD_RSFT, KC_Z),KC_X, KC_C, KC_V, KC_B,  	KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RSFT, KC_SLSH),
 
  		MT(MOD_LGUI, KC_ESC), MT(MOD_LALT, KC_ENT), LT(SYMB, KC_SPC),		// Left
-		LT(NUMB, KC_SPC), MT(MOD_LSFT, KC_ENT), MT(MOD_LCTL, KC_ESC)		// Right
+		LT(NUMB, KC_SPC), MT(MOD_LALT, KC_ENT), MT(MOD_LGUI, KC_ESC)		// Right
     ),
 /* Keymap 1: Symbols layer
  * ,--------------------------------.      ,----------------------------------.

@@ -216,7 +216,7 @@ fi
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='--height 40% --border'
+export FZF_DEFAULT_OPTS='--height 40% --margin=0,0,0,4 --reverse --no-info'
 export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -228,8 +228,9 @@ open_with_fzf() {
 
 # fzf and cd in directory - alias: fc
 cd_with_fzf() {
-    cd $HOME && cdl "$(fd -t d -H | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+    cd $HOME && cdl "$(fd -t d -H | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
 }
+# --preview-window=:hidden
 
 # find-in-file - usage: fif <SEARCH_TERM>
 fif() {

@@ -22,20 +22,16 @@ super + c
     chromium
 
 # tdrop terminal
-alt + d
+super + d
     tdrop -m -w 1916 -a st
 
 # program launcher
-alt + @space
+super + @space
     dmenu_run
 
 # clipboard manager
 super + y
     clipmenu -i
-
-# passmenu copy pass from dmenu
-super + p
-    passmenu
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -72,7 +68,7 @@ super + {t,shift + t,s,f}
 # focus/swap
 #
 
-# focus the node in the given direction
+# focus or swap the node in the given direction
 super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
@@ -92,17 +88,13 @@ super + Tab
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# swap in direction
-alt + ctrl + {h,j,k,l}
-      bspc node --swap {west,south,north,east}
-
 # rotate node tree
-super + shift + {d,a}
-    bspc node @/ -C {forward,backward}
+super + shift + {comma,period}
+    bspc node @/ -C {backward,forward}
 
 # rotate layout
-alt + shift + {d,a}
-    bspc node @/ --rotate 90
+alt + shift + {comma,period}
+    bspc node @/ --rotate -90
 
 #
 # preselect
@@ -138,8 +130,9 @@ super + {Left,Down,Up,Right}
 
 # control sound
 
-super + {slash,comma,period}
-    amixer -q set Master {toggle,5%- unmute,5%+ unmute}
+super + {comma,period,slash}
+    amixer -q set Master {5%- unmute,5%+ unmute,toggle}
+#    pamixer --allow-boost {-d 5,-i 5,-t}
 
 # toggle pause/play moc
 super + x

@@ -190,10 +190,10 @@ filextype *.ps,*.eps,*.ps.gz
 
 " Djvu
 filextype *.djvu
-        \ {View in apvlv}
-        \ apvlv %f,
         \ {View in zathura}
         \ zathura %f,
+        \ {View in apvlv}
+        \ apvlv %f,
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
@@ -440,6 +440,9 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Switch colon and semicolon
 nnoremap ; :
 nnoremap : ;
+
+" Lazy quit
+nnoremap q :q<cr>
 
 " Open all images in current directory in sxiv thumbnail mode
 nnoremap sx :!sxiv -t %d & <cr>

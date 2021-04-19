@@ -1,3 +1,3 @@
 #!/bin/sh
 
-awk '{sub(/alias/,a)} NR>8 && NR<63' $HOME/.aliasrc
+awk '{sub(/alias/,a)} NR>8 && NR<62' $HOME/.aliasrc

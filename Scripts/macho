@@ -1,9 +1,12 @@
 #!/bin/sh
 
 export FZF_DEFAULT_OPTS='
---height=30%
+--height=40%
+--margin 0,0,0,2
+--no-info
+--border
 --layout=reverse
---prompt="Manual: "
+--prompt="Man: "
 --preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
 
 while getopts ":s:" opt; do
