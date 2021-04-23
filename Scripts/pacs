@@ -1,4 +1,4 @@
 #!/bin/sh
 
-pacman -Syu $(pacman -Ssq | fzf -m --height 40% --border --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
+pacman -Syu $(pacman -Ssq | fzf -m --height 50% --margin=1,0,0,4 --reverse --no-info --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
 
