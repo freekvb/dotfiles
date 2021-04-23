@@ -44,6 +44,10 @@ super + shift + r
 # bspwm hotkeys
 #
 
+# set layout to stack
+super + shift + l
+    bsp-layout set tall
+
 # quit/restart bspwm
 super + alt + {q,r}
     bspc {quit,wm -r}; dunstify 'bspwm: config reloaded'
