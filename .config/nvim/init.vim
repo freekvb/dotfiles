@@ -215,13 +215,14 @@ let s:startify_ascii_header = [
 let g:startify_custom_header = map(s:startify_ascii_header +
              \ startify#fortune#quote(), '"   ".v:val')
 let g:startify_lists = [
-            \ { 'type': 'files',     'header': ['   Files']            },
+            \ { 'type': 'files',     'header': ['   Files'] },
             \ { 'type': 'dir',       'header': ['   Directories '. getcwd()] },
-            \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ { 'type': 'sessions',  'header': ['   Sessions'] },
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
+            \ { 'type': 'commands',  'header': ['   Commands'] },
             \ ]
 let g:startify_bookmarks = [
-            \ { 'h': '~/' },
+            \ { '~': '~/' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ { 'c': '~/.config' },
@@ -229,6 +230,15 @@ let g:startify_bookmarks = [
             \ { 's': '~/Scripts' },
             \ { 'w': '~/Websites/fvb' },
             \ ]
+let g:startify_commands = [
+            \ { 'h': ['neovim reference', 'h ref'] },
+            \ { 'r': ['find file in /', 'Files /'] },
+            \ { 'f': ['find file in /home', 'Files ~/'] },
+            \ { '!': ['my magical function 😜', 'quit'] },
+            \ ]
+
+" (re)open startify
+nnoremap <leader>x :Startify<CR>
 
 
 " toggle goyo
