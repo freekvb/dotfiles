@@ -12,7 +12,6 @@ autoload -U colors && colors
 TERM=xterm-256color
 # TERM=screen-256color
 
-
 # prompt
 autoload -Uz promptinit
 promptinit
@@ -216,7 +215,7 @@ fi
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='--height 40% --margin=0,0,0,4 --reverse --no-info'
+export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
 export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -247,3 +246,8 @@ duckgo () {
     lynx "https://duckduckgo.com/lite?q=$*"
 }
 
+# Set window title to command just before running it.
+preexec() { printf "\x1b]0;%s\x07" "$1"; }
+
+# Set window title to terninal (st) after returning from a command.
+precmd() { printf "\x1b]0;%s\x07" "$TERM" }
