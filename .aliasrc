@@ -49,6 +49,8 @@ alias nn='nvim -c startinsert Notes/new.md' # open new note in nvim, sn to save
 alias nt='nvim ~/Notes/trade/-template.md'  # open new trade note, ts to save
 alias pacman='sudo pacman --color=always'
 alias pacf='./Scripts/pacf'                 # pacman -Qq (installed) with fzf
+alias pacr='sudo pacman -Rns '              # pacman remove pack (incl deps & confs)
+alias pacro='pacman -Qtdq | pacman -Rns -'  # pacman remove orphans
 alias pacs='sudo pacs'                      # pacman -S with fzf
 alias pm='passmenu'
 alias server='python3 -m http.server'       # simple server

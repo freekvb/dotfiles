@@ -33,24 +33,36 @@ super + @space
 super + y
     clipmenu -i
 
+# lock screen
+super + z
+    slock
+
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd; dunstify 'sxhkd: config reloaded'
-super + shift + r
-    pkill -usr1 -x sxhkd; dunstify 'sxhkd: config reloaded'
+# super + shift + r
+#     pkill -usr1 -x sxhkd; dunstify 'sxhkd: config reloaded'
 
 
 #
 # bspwm hotkeys
 #
 
-# set layout to stack
-super + shift + l
-    bsp-layout set tall
+# restart bspwm
+super + alt + r
+    bspc wm -r; dunstify 'bspwm: config reloaded'
 
-# quit/restart bspwm
-super + alt + {q,r}
-    bspc {quit,wm -r}; dunstify 'bspwm: config reloaded'
+# quit bspwm
+super + alt + q
+    bspc quit
+
+# toggle top padding for lemonbar
+super + alt + {p,n}
+    bspc config top_padding {16,1}
+
+# toggle gaps
+super + alt + {g,h,o}
+    bspc config window_gap {8,4,0}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -60,6 +72,7 @@ super + m
 super + {_,shift + }w
     bspc node -{c,k}
 
+
 #
 # state/flags
 #
@@ -67,6 +80,7 @@ super + {_,shift + }w
 # set the window state
 super + {t,shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
 
 #
 # focus/swap
@@ -100,6 +114,7 @@ super + shift + {comma,period}
 alt + shift + {comma,period}
     bspc node @/ --rotate -90
 
+
 #
 # preselect
 #
@@ -111,6 +126,7 @@ super + ctrl + {h,j,k,l}
 # cancel the preselection for the focused node
 super + ctrl + space
     bspc node -p cancel
+
 
 #
 # move/resize
@@ -127,6 +143,7 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
+
 
 #
 # misc
