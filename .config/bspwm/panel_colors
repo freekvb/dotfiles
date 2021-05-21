@@ -44,8 +44,8 @@
         COLOR_FREE_BG=$color0
         COLOR_FOCUSED_FREE_FG=$color4
         COLOR_FOCUSED_FREE_BG=$color2
-        COLOR_OCCUPIED_FG=$color7
-        COLOR_OCCUPIED_BG=$color1
+        COLOR_OCCUPIED_FG=$color4
+        COLOR_OCCUPIED_BG=$color0
         COLOR_FOCUSED_OCCUPIED_FG=$color4
         COLOR_FOCUSED_OCCUPIED_BG=$color2
         COLOR_URGENT_FG=$color0
