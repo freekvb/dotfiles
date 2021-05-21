@@ -34,7 +34,7 @@ xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 #-------- panel left ---------------------------------------------------------#
 
 clock() {
-    clock=$(date +'%a %d %b %Y %H:%M:%S')
+    clock=$(date +'%a %d %b %H:%M')
     echo -n "$clock"
 }
 
@@ -62,10 +62,15 @@ cputemp() {
     echo -n "$cputemp"°C
 }
 
-#load() {
-#    load=$(cat /proc/loadavg | awk '{print $1" "$2" "$3}')
-#    echo -n "$load"
+#loadavg() {
+#    loadavg=$(cat /proc/loadavg | awk '{print $1" "$2" "$3}')
+#    echo -n "$loadavg"
 #}
+
+load() {
+    load=$(cat /proc/loadavg | awk '{print $1}')
+    echo -n "$load"
+}
 
 mem() {
     mem=$(free -m | egrep Mem | awk '{printf "%.f%\n", ($3+$5)/$2*100}')
@@ -95,7 +100,7 @@ mem() {
 # up:$(upK)Kb/s
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | temp:$(cputemp) | mem:$(mem) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | load:$(load) | temp:$(cputemp) | mem:$(mem) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
         sleep 1
 done > "$PANEL_FIFO" &
 
