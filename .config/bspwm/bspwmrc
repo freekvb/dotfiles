@@ -40,7 +40,6 @@ bspc config initial_polarity        first_child
 bspc config focus_follows_pointer   false
 bspc config pointer_follows_focus   true
 
-bspc rule -a guvcview               state=floating rectangle=480x270+1428+798 sticky=on layer=above
 bspc rule -a mpv -name "video0"     state=tiled
 bspc rule -a Zathura                state=tiled
 
@@ -49,5 +48,5 @@ wal -R
 
 #~/.fehbg &
 sleep 1 &&
-feh --no-fehbg --bg-fill '/home/fvb/Pictures/cara.jpg' &
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/scream_mirror.jpg' &
 
