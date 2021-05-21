@@ -251,3 +251,4 @@ preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
 # Set window title to terninal (st) after returning from a command.
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
+
