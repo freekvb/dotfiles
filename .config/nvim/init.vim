@@ -83,8 +83,8 @@ nnoremap j gj
 nnoremap k gk
 
 " maintaining visual mode after shifting > and <
-vmap > >gv
-vmap < <gv
+vnoremap > >gv
+vnoremap < <gv
 
 
 " split windows
@@ -102,6 +102,7 @@ nnoremap <C-H> <C-W><C-H>
 " open terminal in split below
 nnoremap <leader>st :sp<bar>resize15<bar>term<CR>
 autocmd TermOpen * startinsert
+tnoremap <Esc> <C-\><C-n>
 
 
 " paste
@@ -154,10 +155,10 @@ map <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 autocmd BufWritePre * %s/\s\+$//e
 
 " write file if you forgot to give it sudo permission
-cmap w!! w !sudo tee %
+cnoremap w!! w !sudo tee %
 
-" auto source when writing
-au! BufWritePost $MYVIMRC source %
+"" auto source when writing
+"au! BufWritePost $MYVIMRC source %
 
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
@@ -167,15 +168,13 @@ let g:python3_host_prog = '/usr/bin/python3'
 " plugins with vim-plug
 call plug#begin()
 " list of plugins
-Plug 'itchyny/lightline.vim'             " statusbar
+Plug 'doums/barow'                       " barow statusbar
 Plug 'dylanaraps/wal.vim'                " colorscheme wal
 Plug 'mhinz/vim-startify'                " startup screen
 Plug 'junegunn/goyo.vim'                 " distraction free writing
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'                  " fzf
 Plug 'lambdalisue/fern.vim'              " fern file manager
 " list ends here, initialize plugin system
 call plug#end()
@@ -194,11 +193,6 @@ hi CursorColumn ctermbg=237
 " set colored column
 set colorcolumn=79
 hi ColorColumn ctermbg=237
-
-" lightline colorscheme
-let g:lightline = {
-      \ 'colorscheme': 'wal',
-      \ }
 
 
 " startify ascii
@@ -237,12 +231,9 @@ let g:startify_commands = [
             \ { '!': ['my magical function 😜', 'quit'] },
             \ ]
 
-" (re)open startify
-nnoremap <leader>x :Startify<CR>
-
 
 " toggle goyo
-nmap <leader>g :Goyo<CR>
+nnoremap <leader>g :Goyo<CR>
 function! s:goyo_enter()
     set scrolloff=999
     set nocursorline
@@ -311,7 +302,7 @@ let g:fern#disable_default_mappings   = 1
         \   "\<Plug>(fern-action-collapse)",
         \ )
   nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
-  nmap <buffer> l <Plug>(fern-open-or-expand)
+  nmap <buffer> l <Plug>(fern-action-open-or-expand)
   nmap <buffer> M <Plug>(fern-action-mark-toggle)
   nmap <buffer> n <Plug>(fern-action-new-file)
   nmap <buffer> d <Plug>(fern-action-new-dir)
@@ -320,7 +311,7 @@ let g:fern#disable_default_mappings   = 1
   nmap <buffer> s <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
   nmap <buffer> R <Plug>(fern-action-reload)
-  nmap <buffer> <nowait> H <Plug>(fern-action-hidden-toggle)
+  nmap <buffer> <nowait> H <Plug>(fern-action-hidden:toggle)
   nmap <buffer> <nowait> h <Plug>(fern-action-leave)
 endfunction
 
@@ -333,15 +324,9 @@ augroup END
 " statusbar
 set laststatus=2
 set noshowmode                           " hide default mode text
+set noshowcmd                            " hide commands
 set cmdheight=1                          " height of command bar
-
-set shortmess+=F                         " no file name in the cmd bar
-set shortmess+=A                         " ignore annoying swapfile messages
-set shortmess+=O                         " file-read message overwrites previous
-set shortmess+=T                         " truncate non-file messages in middle
-set shortmess+=a                         " abbreviations [RO] instead of [readonly]
-set shortmess+=o                         " overwrite file-written messages
-set shortmess+=t                         " truncate file messages at start
+set shortmess=atF                        " abbreviation, truncate no file info
 
 set secure
 
