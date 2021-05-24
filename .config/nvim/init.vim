@@ -157,8 +157,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " write file if you forgot to give it sudo permission
 cnoremap w!! w !sudo tee %
 
-"" auto source when writing
-"au! BufWritePost $MYVIMRC source %
 
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
