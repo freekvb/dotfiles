@@ -17,7 +17,7 @@ alias cc='cd && clear'
 alias clock='tty-clock -c -f "%a %d %b %Y"'
 alias d='exit'
 alias al='./Scripts/alias'
-alias be='v ~/Websites/fvb/blog.html'
+alias be='nv ~/Websites/fvb/blog.html'
 alias bkb='./Scripts/bspwm_keybindings'
 alias ddg='ddgr'                            # ddg search and open in qutebrowser
 alias dg='duckgo'                           # ddg search and open in lynx
@@ -29,7 +29,7 @@ alias ff='fif'                              # fzf find in files
 alias fm='macho'                            # fzf man pages
 alias fo='open_with_fzf'                    # fzf and open with default app
 alias fp='fzp'                              # fzf --preview
-alias fv='v $(fzf)'                         # fzf and open in nvim
+alias fv='nv $(fzf)'                         # fzf and open in nvim
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push'
@@ -62,6 +62,7 @@ alias tm='tty-clock -c -f "%a %d %b %Y"'
 alias uc='ucollage'                         # image viewer
 alias upd='sudo pacman -Syu'                # system upgrade
 alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
+alias yf='ytfzf'                            # youtube video fzf search and view
 alias yt='pipe-viewer'                      # youtube video search and view
 
 
