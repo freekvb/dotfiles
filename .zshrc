@@ -220,24 +220,85 @@ export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# fzf and open with default app - alias: fo
-open_with_fzf() {
-    fd -t f -H -I | fzf -m --preview="xdg-mime query filetype {}" | xargs -ro -d "\n" xdg-open 2>&-
-}
-
 # fzf and cd in directory - alias: fc
 cd_with_fzf() {
     cd $HOME && cdl "$(fd -t d -H | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
 }
 # --preview-window=:hidden
 
-# find-in-file - usage: fif <SEARCH_TERM>
+# fzf and open with default app - alias: fo
+open_with_fzf() {
+    fd -t f -H -I | fzf -m --preview="xdg-mime query filetype {}" | xargs -ro -d "\n" xdg-open 2>&-
+}
+
+## find-in-file - usage: fif <SEARCH_TERM>
+#fif() {
+#  if [ ! "$#" -gt 0 ]; then
+#    echo "Need a string to search for!";
+#    return 1;
+#  fi
+#  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+#}
+
+
+# fkill - kill processes - list only the ones you can kill.
+fkill() {
+	local pid
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi
+
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi
+}
+
+# find all git repos, select one and cd to its parent dir
+fcg() {
+  local file
+  local dir
+  file=$(fd -H -g .git | fzf) && dir=$(dirname "$file") && cdl "$dir"
+}
+
+# for `vh` find nvim files
+fiv() {
+  rg "$1" --ignore-case --files-with-matches --no-messages ~/.dotfiles/ ~/.vim/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
+}
+
+# for `vg` grep- find-in-file(s)
 fif() {
-  if [ ! "$#" -gt 0 ]; then
-    echo "Need a string to search for!";
-    return 1;
-  fi
-  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
+}
+
+# search for local nvim help using fvh
+fivo() {
+	local file
+	file=$(fiv $1)
+	if [[ -n $file ]]
+	then
+		nvim $file -c /$1 -c 'norm! n zz'
+	fi
+}
+
+# find in files - open in nvim - go to 1st search result
+# vim - grep - takes a query to grep
+fifo() {
+	local file
+	file=$(fif $1)
+	if [[ -n $file ]]
+	then
+		nvim $file -c /$1 -c 'norm! n zz'
+	fi
+}
+
+# find a file and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc
+fafo() {
+	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --query="$1" --no-info --multi --select-1 --exit-0))
+	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
 
