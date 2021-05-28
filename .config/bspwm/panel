@@ -34,23 +34,24 @@ xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 #-------- panel left ---------------------------------------------------------#
 
 clock() {
-    clock=$(date +'%a %d %b %H:%M')
+    clock=$(date +'%a %d %b  %H:%M')
     echo -n "$clock"
 }
 
 #root() {
 #    root=$(df -h | awk 'NR==4 { print "/:"$5 }')
-#	echo -n "$root"
+#    echo -n "$root"
 #}
 
 #home() {
 #    home=$(df -h | awk 'NR==7 { print "/home:"$5 }')
-#	echo -n "$home"
+#    echo -n "$home"
 #}
 
-#volume() {
-#    amixer get Master | sed -n 'N;s/^.*\[\([0-9]\+%\).*$/\1/p'
-#}
+volume() {
+    volume=$(amixer get Master | sed -n 'N;s/^.*\[\([0-9]\+%\).*$/\1/p')
+    echo -n "$volume"
+}
 
 cpu() {
     cpu=$({ head -n1 /proc/stat;sleep 0.2;head -n1 /proc/stat; } | awk '/^cpu /{u=$2-u;s=$4-s;i=$5-i;w=$6-w}END{printf "%.1f%\n", (0.5+100*(u+s+w)/(u+s+i+w))}')
@@ -100,7 +101,7 @@ mem() {
 # up:$(upK)Kb/s
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | load:$(load) | temp:$(cputemp) | mem:$(mem) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | load:$(load) | temp:$(cputemp) | mem:$(mem) | vol:$(volume) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
         sleep 1
 done > "$PANEL_FIFO" &
 
@@ -138,8 +139,13 @@ hbar() {
     echo -n "$hbar"
 }
 
+cro() {
+    cro=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=crypto-com-chain&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.2f\n", $1}')
+    echo -n "$cro"
+}
+
 while true; do
-    echo -e "C%{F#B5C1BE}%{B#1c1b1b}| btc:$(btc) | xmr:$(xmr) | hbar:$(hbar) |%{F-}%{B-}"
+    echo -e "C%{F#B5C1BE}%{B#1c1b1b}| btc:$(btc) | xmr:$(xmr) | hbar:$(hbar) | cro:$(cro) |%{F-}%{B-}"
         sleep 60
 done > "$PANEL_FIFO" &
 
