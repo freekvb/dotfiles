@@ -48,5 +48,5 @@ wal -R
 
 #~/.fehbg &
 sleep 1 &&
-feh --no-fehbg --bg-fill '/home/fvb/Pictures/scream_mirror.jpg' &
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/scream.jpg' &
 
