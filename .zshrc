@@ -263,18 +263,18 @@ fcg() {
   file=$(fd -H -g .git | fzf) && dir=$(dirname "$file") && cdl "$dir"
 }
 
-# for `vh` find nvim files
+# for `fivo` find nvim files
 fiv() {
   rg "$1" --ignore-case --files-with-matches --no-messages ~/.dotfiles/ ~/.vim/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
 }
 
-# for `vg` grep- find-in-file(s)
+# for `fifo` grep- find-in-file(s)
 fif() {
 	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
 	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
 }
 
-# search for local nvim help using fvh
+# search for local nvim help using `fif`
 fivo() {
 	local file
 	file=$(fiv $1)
@@ -285,7 +285,7 @@ fivo() {
 }
 
 # find in files - open in nvim - go to 1st search result
-# vim - grep - takes a query to grep
+# nvim - grep - takes a query to grep
 fifo() {
 	local file
 	file=$(fif $1)
