@@ -12,6 +12,11 @@ autoload -U colors && colors
 TERM=xterm-256color
 # TERM=screen-256color
 
+
+# load aliases and shortcuts if existent.
+[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
+
+
 # prompt
 autoload -Uz promptinit
 promptinit
@@ -21,9 +26,9 @@ NEWLINE=$'\n'
 
 # left prompt
 if [[ -n "$TMUX" ]]; then
-    local LVL=$(($SHLVL - 2))
+    local LVL=$(($SHLVL - 3))
 else
-    local LVL=$(($SHLVL - 1))
+    local LVL=$(($SHLVL - 2))
 fi
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}%B%~  ${SUFFIX}  %b'
@@ -43,8 +48,8 @@ zstyle ':vcs_info:*' stagedstr "%F{green} ●%f"              # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{yellow} ●%f"           # default 'U'
 zstyle ':vcs_info:*' use-simple false
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:git*:*' formats '[%b%m%c%u ]'            # default ' (%s)-[%b]%c%u-'
-zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u ]'   # default ' (%s)-[%b|%a]%c%u-'
+zstyle ':vcs_info:git*:*' formats '[%b%m%c%u ]'             # default ' (%s)-[%b]%c%u-'
+zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u ]'    # default ' (%s)-[%b|%a]%c%u-'
 zstyle ':vcs_info:hg*:*' formats '(%m%b ) '
 zstyle ':vcs_info:hg*:*' actionformats '(%b|%a%m ) '
 zstyle ':vcs_info:hg*:*' branchformat '%b'
@@ -85,6 +90,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$HOME/.cache/zsh/history
 
+# command execution time stamp shown in the history command output
+HIST_STAMPS="dd.mm.yyyy"
+
 
 # basic auto/tab complete:
 autoload -U compinit
@@ -92,7 +100,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)                                   # Include hidden files.
-
 
 # enable autosuggestions
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -107,7 +114,7 @@ setopt correctall
 export CORRECT_IGNORE_FILE='.*'
 
 
-# vim mode
+# nvim mode
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -115,15 +122,15 @@ export KEYTIMEOUT=1
 bindkey -a '^l' clear
 bindkey -a '^d' exit
 
-# add missing vim hotkeys
+# add missing nvim hotkeys
 bindkey -a u undo
 bindkey -a '^R' redo
 
-# edit line in vim with ctrl-e:
+# edit line in nvim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# vi-mode indicator
+# nvim mode indicator
 # updates editor information when the keymap changes
 function zle-keymap-select() {
   zle reset-prompt
@@ -132,21 +139,14 @@ function zle-keymap-select() {
 
 zle -N zle-keymap-select
 
-function vi_mode_prompt_info() {
+function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
 
 # define right prompt, regardless of whether the theme defined it
-RPS1='$vcs_info_msg_0_''$(vi_mode_prompt_info)'
+RPS1='$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
 RPS2=$RPS1
 
-
-# load aliases and shortcuts if existent.
-[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
-
-
-# command execution time stamp shown in the history command output
-HIST_STAMPS="dd.mm.yyyy"
 
 # exit shell with Ctrl+d
 exit_zsh() { exit }
@@ -215,6 +215,7 @@ fi
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# fzf defaults
 export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
 export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
@@ -224,36 +225,16 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 cd_with_fzf() {
     cd $HOME && cdl "$(fd -t d -H | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
 }
-# --preview-window=:hidden
 
-# fzf and open with default app - alias: fo
+# fzf file and open with default app - alias: fo
 open_with_fzf() {
-    fd -t f -H -I | fzf -m --preview="xdg-mime query filetype {}" | xargs -ro -d "\n" xdg-open 2>&-
+    fd -t f -H -I "$1" | fzf -m --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0 | xargs -ro -d "\n" xdg-open 2>&-
 }
 
-## find-in-file - usage: fif <SEARCH_TERM>
-#fif() {
-#  if [ ! "$#" -gt 0 ]; then
-#    echo "Need a string to search for!";
-#    return 1;
-#  fi
-#  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
-#}
-
-
-# fkill - kill processes - list only the ones you can kill.
-fkill() {
-	local pid
-	if [ "$UID" != "0" ]; then
-		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-	else
-		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-	fi
-
-	if [ "x$pid" != "x" ]
-	then
-		echo $pid | xargs kill -${1:-9}
-	fi
+# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc
+fzf_open_with_nvim() {
+	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60%  --query="$1" --multi --select-1 --exit-0))
+	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
 # find all git repos, select one and cd to its parent dir
@@ -263,21 +244,21 @@ fcg() {
   file=$(fd -H -g .git | fzf) && dir=$(dirname "$file") && cdl "$dir"
 }
 
-# for `fivo` find nvim files
-fiv() {
-  rg "$1" --ignore-case --files-with-matches --no-messages ~/.dotfiles/ ~/.vim/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
+# find local nvim help
+fin() {
+  rg "$1" --ignore-case --files-with-matches --no-messages ~/Notes/ ~/.dotfiles/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
 }
 
 # for `fifo` grep- find-in-file(s)
 fif() {
 	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --no-info --multi --select-1 --exit-0
+	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
 }
 
-# search for local nvim help using `fif`
-fivo() {
+# find in local nvim help using `fin`
+fino() {
 	local file
-	file=$(fiv $1)
+	file=$(fin $1)
 	if [[ -n $file ]]
 	then
 		nvim $file -c /$1 -c 'norm! n zz'
@@ -285,7 +266,7 @@ fivo() {
 }
 
 # find in files - open in nvim - go to 1st search result
-# nvim - grep - takes a query to grep
+# vim - grep - takes a query to grep
 fifo() {
 	local file
 	file=$(fif $1)
@@ -295,10 +276,18 @@ fifo() {
 	fi
 }
 
-# find a file and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc
-fafo() {
-	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --query="$1" --no-info --multi --select-1 --exit-0))
-	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+# fkill - kill processes - list only the ones you can kill.
+fkill() {
+	local pid
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi
 }
 
 
@@ -306,6 +295,7 @@ duckgo () {
     declare url=$*
     lynx "https://duckduckgo.com/lite?q=$*"
 }
+
 
 # Set window title to command just before running it.
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
