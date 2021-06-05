@@ -8,6 +8,7 @@
 
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x panel > /dev/null || panel &
 
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
