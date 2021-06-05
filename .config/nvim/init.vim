@@ -157,6 +157,8 @@ autocmd BufWritePre * %s/\s\+$//e
 " write file if you forgot to give it sudo permission
 cnoremap w!! w !sudo tee %
 
+" diff since last save
+nnoremap <leader>d :w !diff % -<CR>
 
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
@@ -317,6 +319,14 @@ augroup FernGroup
   autocmd!
   autocmd FileType fern call FernInit()
 augroup END
+
+
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+au CursorHoldI * stopinsert
+
+ " set 'updatetime' to 5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+au InsertLeave * let &updatetime=updaterestore
 
 
 " statusbar
