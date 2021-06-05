@@ -34,7 +34,7 @@ xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 #-------- panel left ---------------------------------------------------------#
 
 clock() {
-    clock=$(date +'%a %d %b  %H:%M')
+    clock=$(date +'%a %d %b - %H:%M')
     echo -n "$clock"
 }
 
