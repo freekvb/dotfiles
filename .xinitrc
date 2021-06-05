@@ -18,7 +18,5 @@ clipmenud &
 mega-cmd-server &
 unclutter --timeout 2 &
 
-sxhkd &
-panel &
 exec bspwm
 
