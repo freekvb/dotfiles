@@ -44,7 +44,7 @@ let python_highlight_all = 1             " all python syntax highlight features
 " search
 set smartcase                            " enable smart-case search
 set ignorecase                           " always case-insensitive
-nnoremap <CR> :noh<CR><CR>               " clear highlighting from the search
+nnoremap <CR> :nohlsearch<CR>            " clear highlighting from the search
 
 " fuzzy file finding
 set path+=**                             " search subfolders and tabcompletion
