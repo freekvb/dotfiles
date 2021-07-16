@@ -120,12 +120,12 @@ btc() {
 }
 
 #xmr() {
-#    xmr=$(curl -s cli.fyi/XMR | awk 'NR==4 { printf "%0.2f\n", $3 }')
+#    xmr=$(curl -s cli.fyi/XMR | awk 'NR==4 { printf "%.0f\n", $3 }')
 #    echo -n "$xmr"
 #}
 
 xmr() {
-    xmr=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.2f\n", $1}')
+    xmr=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.0f\n", $1}')
     echo -n "$xmr"
 }
 
@@ -135,12 +135,12 @@ xmr() {
 #}
 
 hbar() {
-    hbar=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=hedera-hashgraph&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.2f\n", $1}')
+    hbar=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=hedera-hashgraph&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.3f\n", $1}')
     echo -n "$hbar"
 }
 
 cro() {
-    cro=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=crypto-com-chain&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.2f\n", $1}')
+    cro=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=crypto-com-chain&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.3f\n", $1}')
     echo -n "$cro"
 }
 
