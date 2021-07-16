@@ -63,7 +63,7 @@ alias tm='tty-clock -c -f "%a %d %b %Y"'
 alias uc='ucollage'                         # image viewer
 alias upd='sudo pacman -Syu'                # system upgrade
 alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
-alias yf='ytfzf'                            # youtube video fzf search and view
+alias yf='ytfzf -t'                         # youtube video fzf search and view
 alias yp='pipe-viewer'                      # youtube video search and view
 alias yt='./Scripts/yt'                     # simple youtube fzf search and view
 
