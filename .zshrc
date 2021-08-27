@@ -13,7 +13,7 @@ TERM=xterm-256color
 # TERM=screen-256color
 
 
-# load aliases and shortcuts if existent.
+# load aliases and shortcuts if existent
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
 
@@ -58,7 +58,6 @@ zstyle ':vcs_info:hg*:*' get-revision true
 zstyle ':vcs_info:hg*:*' get-mq false
 zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
 zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
-
 function +vi-hg-bookmarks() {
   emulate -L zsh
   if [[ -n "${hook_com[hg-active-bookmark]}" ]]; then
@@ -66,17 +65,15 @@ function +vi-hg-bookmarks() {
     ret=1
   fi
 }
-
 function +vi-hg-message() {
   emulate -L zsh
 
-  # Suppress hg branch display if we can display a bookmark instead.
+  # Suppress hg branch display if we can display a bookmark instead
   if [[ -n "${hook_com[misc]}" ]]; then
     hook_com[branch]=''
   fi
   return 0
 }
-
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
@@ -85,7 +82,7 @@ function +vi-git-untracked() {
 }
 
 
-# history in cache directory:
+# history in cache directory
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$HOME/.cache/zsh/history
@@ -94,12 +91,12 @@ HISTFILE=$HOME/.cache/zsh/history
 HIST_STAMPS="dd.mm.yyyy"
 
 
-# basic auto/tab complete:
+# basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)                                   # Include hidden files.
+_comp_options+=(globdots)                                   # Include hidden files
 
 # enable autosuggestions
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -126,9 +123,16 @@ bindkey -a '^d' exit
 bindkey -a u undo
 bindkey -a '^R' redo
 
-# edit line in nvim with ctrl-e:
+# edit line in nvim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+# use vim keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
 
 # nvim mode indicator
 # updates editor information when the keymap changes
@@ -136,9 +140,7 @@ function zle-keymap-select() {
   zle reset-prompt
   zle -R
 }
-
 zle -N zle-keymap-select
-
 function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
@@ -211,7 +213,7 @@ fi
 #}
 
 
-# fzf - alias: fz
+# fzf - alias: f
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -231,7 +233,7 @@ open_with_fzf() {
     fd -t f -H -I "$1" | fzf -m --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0 | xargs -ro -d "\n" xdg-open 2>&-
 }
 
-# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc
+# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc - alias: fn
 fzf_open_with_nvim() {
 	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60%  --query="$1" --multi --select-1 --exit-0))
 	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
@@ -249,7 +251,7 @@ fin() {
   rg "$1" --ignore-case --files-with-matches --no-messages ~/Notes/ ~/.dotfiles/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
 }
 
-# for `fifo` grep- find-in-file(s)
+# for `fifo` grep- find-in-file(s) - alias: ff
 fif() {
 	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
 	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
@@ -276,7 +278,7 @@ fifo() {
 	fi
 }
 
-# fkill - kill processes - list only the ones you can kill.
+# fkill - kill processes - list only the ones you can kill - alias: fk
 fkill() {
 	local pid
 	if [ "$UID" != "0" ]; then
@@ -291,15 +293,16 @@ fkill() {
 }
 
 
+# ddg search and open in lynx - alias: dg
 duckgo () {
     declare url=$*
     lynx "https://duckduckgo.com/lite?q=$*"
 }
 
 
-# Set window title to command just before running it.
+# set window title to command just before running it
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
-# Set window title to terninal (st) after returning from a command.
+# set window title to terninal (st) after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
