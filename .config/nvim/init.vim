@@ -5,20 +5,19 @@
 "-----------------------------------------------------------------------------"
 
 
-" set <leader> key
-let mapleader='/'
-
+"{{{ general settings
 
 " general settings
 set clipboard+=unnamedplus               " copy(y) paste(p) to/from systembuffer
 set number relativenumber                " show line numbers relative
 set numberwidth=5                        " width 'gutter' column numbering
-set scrolloff=10                         " keep cursor away from top and bottom
+set scrolloff=999                        " keep cursor away from top and bottom
 set virtualedit=all                      " keep cursor from wobbeling around ..
 set nostartofline                        " .. when scrolling up and down
 set undolevels=100                       " number of undo levels
 set hidden                               " allow switch to/from unsaved buffer
 set wildmode=longest,full                " autocompleet like shell
+set foldmethod=marker                    " folding with markers (curly brackets)
 
 " disable backup and swap files
 set nobackup
@@ -53,6 +52,13 @@ set path+=**                             " search subfolders and tabcompletion
 set complete+=kspell
 set completeopt=menuone,longest
 
+"}}}
+
+
+"{{{ keybindings
+
+" set <leader> key
+let mapleader='/'
 
 " switch colon to semicolon
 nnoremap ; :
@@ -86,6 +92,8 @@ nnoremap k gk
 vnoremap > >gv
 vnoremap < <gv
 
+" switch last two buffers
+nnoremap <space><space> <c-^>
 
 " split windows
 set splitbelow                           " 'split' horizontal below
@@ -100,10 +108,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " open terminal in split below
-nnoremap <leader>st :sp<bar>resize15<bar>term<CR>
+nnoremap st :sp<bar>resize15<bar>term<CR>
 autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
 
+"}}}
+
+
+"{{{ special settings
 
 " paste
 " toggle paste unmodified (code)
@@ -113,25 +125,11 @@ set showmode
 " paste yanked line without line breaks before/after cursor position
 nnoremap gp a<CR><Esc>PkJxJx
 
+" timestamp
+inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
 
-" blog entry
-nnoremap be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
-
-" shebang
-nnoremap sb i#!/bin/sh<CR><CR>
-
-" notes
-" save notes (nn in terminal to open new note)
-nnoremap sn :saveas ~/Notes/
-" save daily notes (timestamp)
-nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
-" save ict notes (timestamp)
-nnoremap si :saveas ~/Notes/ict/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
-" save trade notes (timestamp)
-nnoremap st :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %a %H:%M")<CR>.md<CR>
-" paste screenshot in trade note (fern yy pic)
-nnoremap pp gp0cw![<Esc>ldwy$$gp2Tgcw](./shots/<Esc>$cw)<CR><CR><Esc>
-
+" toggle spell checking
+map <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 
 " markdown
 " set proper extension for markdown files (.md)
@@ -144,13 +142,6 @@ let g:instant_markdown_autostart = 0
 nnoremap md :InstantMarkdownPreview<CR>
 nnoremap mds :InstantMarkdownStop<CR>
 
-
-" timestamp
-inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
-
-" toggle spell checking
-map <leader>s :setlocal spell! spelllang=en_us,nl<CR>
-
 " remove trailing white space
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -160,10 +151,38 @@ cnoremap w!! w !sudo tee %
 " diff since last save
 nnoremap <leader>d :w !diff % -<CR>
 
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+au CursorHoldI * stopinsert
+
+ " set 'updatetime' to 5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+au InsertLeave * let &updatetime=updaterestore
+
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
+"}}}
+
+
+"{{{ personal settings
+
+" blog entry
+nnoremap be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
+
+" shebang
+nnoremap sb i#!/bin/sh<CR><CR>
+
+" notes
+" save notes (nn in terminal to open new note)
+nnoremap sn :saveas ~/Notes/
+" save daily notes (timestamp)
+nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+
+"}}}
+
+
+"{{{ plugins
 
 " plugins with vim-plug
 call plug#begin()
@@ -171,7 +190,6 @@ call plug#begin()
 Plug 'doums/barow'                       " barow statusbar
 Plug 'dylanaraps/wal.vim'                " colorscheme wal
 Plug 'mhinz/vim-startify'                " startup screen
-Plug 'junegunn/goyo.vim'                 " distraction free writing
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'junegunn/fzf.vim'                  " fzf
@@ -179,6 +197,12 @@ Plug 'lambdalisue/fern.vim'              " fern file manager
 " list ends here, initialize plugin system
 call plug#end()
 
+"}}}
+
+
+"{{{ plugins settings
+
+"{{{ colors
 
 " colorscheme
 colorscheme wal
@@ -194,6 +218,9 @@ hi CursorColumn ctermbg=237
 set colorcolumn=79
 hi ColorColumn ctermbg=237
 
+"}}}
+
+"{{{ startify
 
 " startify ascii
 let s:startify_ascii_header = [
@@ -231,28 +258,9 @@ let g:startify_commands = [
             \ { '!': ['my magical function 😜', 'quit'] },
             \ ]
 
+"}}}
 
-" toggle goyo
-nnoremap <leader>g :Goyo<CR>
-function! s:goyo_enter()
-    set scrolloff=999
-    set nocursorline
-    set nocursorcolumn
-    set colorcolumn=0
-endfunction
-function! s:goyo_leave()
-    set scrolloff=10
-    set cursorline
-    hi CursorLine cterm=NONE ctermfg=NONE ctermbg=237
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
-    set cursorcolumn
-    hi CursorColumn ctermbg=237
-    set colorcolumn=79
-    hi ColorColumn ctermbg=237
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
+"{{{ fzf
 
 " fzf
 " find files by name in home directory
@@ -287,13 +295,16 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+"}}}
+
+"{{{ fern
 
 " fern
 nnoremap <leader>t :Fern ~ -drawer -width=40 -toggle<CR><C-w>=
 nnoremap <leader>td :Fern . -reveal=% -drawer -width=40 -toggle<CR><C-w>=
 let g:fern#disable_default_mappings   = 1
 
- function! FernInit() abort
+function! FernInit() abort
   nmap <buffer><expr>
         \ <Plug>(fern-my-open-expand-collapse)
         \ fern#smart#leaf(
@@ -320,14 +331,12 @@ augroup FernGroup
   autocmd FileType fern call FernInit()
 augroup END
 
+"}}}
 
-" automatically leave insert mode after 'updatetime' milliseconds of inaction
-au CursorHoldI * stopinsert
+"}}}
 
- " set 'updatetime' to 5 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
-au InsertLeave * let &updatetime=updaterestore
 
+"{{{ statusbar
 
 " statusbar
 set laststatus=2
@@ -335,6 +344,9 @@ set noshowmode                           " hide default mode text
 set noshowcmd                            " hide commands
 set cmdheight=1                          " height of command bar
 set shortmess=atF                        " abbreviation, truncate no file info
+
+"}}}
+
 
 set secure
 
