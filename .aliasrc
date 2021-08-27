@@ -23,7 +23,7 @@ alias ddg='ddgr'                            # ddg search and open in qutebrowser
 alias dg='duckgo'                           # ddg search and open in lynx
 alias diff='diff --color=auto'
 alias dvtm='dvtm-status -M'
-alias fz='fzf'                              # fzf
+alias f='fzf'                               # fzf
 alias fc='cd_with_fzf'                      # fzf and cd in directory
 alias ff='fif'                              # fzf find in files
 alias fk='fkill'                            # fzf and kill proces
@@ -52,7 +52,7 @@ alias nt='nvim ~/Notes/trade/-template.md'  # open new trade note, ts to save
 alias nv='nvim'
 alias pacman='sudo pacman --color=always'
 alias pacf='./Scripts/pacf'                 # pacman -Qq (installed) with fzf
-alias pacr='sudo pacman -Rns '              # pacman remove pack (incl deps & confs)
+alias pacr='pacman -Rns '                   # pacman remove pack (incl deps & confs)
 alias pacro='pacman -Qtdq | pacman -Rns -'  # pacman remove orphans
 alias pacs='sudo pacs'                      # pacman -S with fzf
 alias pm='passmenu'
@@ -61,7 +61,7 @@ alias sudo='sudo '
 alias sz='source ~/.zshrc'
 alias tm='tty-clock -c -f "%a %d %b %Y"'
 alias uc='ucollage'                         # image viewer
-alias upd='sudo pacman -Syu'                # system upgrade
+alias upd='pacman -Syu'                     # system upgrade
 alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
 alias yf='ytfzf -t'                         # youtube video fzf search and view
 alias yp='pipe-viewer'                      # youtube video search and view
