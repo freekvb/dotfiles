@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# pacman -S (install) with fzf
-pacman -Syu $(pacman -Ssq | fzf -m --height 50% --margin=1,0,0,4 --reverse --no-info --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)
+# pacman fzf search with preview install selected
+pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
 
