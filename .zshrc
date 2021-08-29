@@ -5,17 +5,10 @@
 #-----------------------------------------------------------------------------#
 
 
-# enable colors
-autoload -U colors && colors
-
-# more colors in terminal
-TERM=xterm-256color
-# TERM=screen-256color
-
-
 # load aliases and shortcuts if existent
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
+#{{{ prompt
 
 # prompt
 autoload -Uz promptinit
@@ -81,6 +74,9 @@ function +vi-git-untracked() {
   fi
 }
 
+#}}}
+
+#{{{ history
 
 # history in cache directory
 HISTSIZE=1000
@@ -90,6 +86,9 @@ HISTFILE=$HOME/.cache/zsh/history
 # command execution time stamp shown in the history command output
 HIST_STAMPS="dd.mm.yyyy"
 
+#}}}
+
+#{{{
 
 # basic auto/tab complete
 autoload -U compinit
@@ -110,6 +109,9 @@ setopt correctall
 # ignore dot file names as spelling corrections
 export CORRECT_IGNORE_FILE='.*'
 
+#}}}
+
+#{{{ nvim mode
 
 # nvim mode
 bindkey -v
@@ -149,17 +151,9 @@ function nvim_mode_prompt_info() {
 RPS1='$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
 RPS2=$RPS1
 
+#}}}
 
-# exit shell with Ctrl+d
-exit_zsh() { exit }
-zle -N exit_zsh
-bindkey '^D' exit_zsh
-
-# cd & lsa
-cdl() {
-        cd "$@" && lsa;
-}
-
+#{{{ extract
 
 # extract all compressed files with 'extract'
 function extract {
@@ -193,6 +187,16 @@ echo "$1 - file does not exist"
 fi
 }
 
+#}}}
+
+#{{{ color
+
+# enable colors
+autoload -U colors && colors
+
+# more colors in terminal
+TERM=xterm-256color
+# TERM=screen-256color
 
 # color by 'wal'
 # Import colorscheme from 'wal' asynchronously
@@ -212,6 +216,9 @@ fi
 #    command man "$@"
 #}
 
+#}}}
+
+#{{{ fzf
 
 # fzf - alias: f
 fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
@@ -219,9 +226,43 @@ fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 
 # fzf defaults
 export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
-export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
+export FZF_DEFAULT_COMMAND='fd --type f --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# use ** as the trigger sequence
+export FZF_COMPLETION_TRIGGER='**'
+
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
 
 # fzf and cd in directory - alias: fc
 cd_with_fzf() {
@@ -292,6 +333,19 @@ fkill() {
 	fi
 }
 
+#}}}
+
+#{{{ misc
+
+# exit shell with Ctrl+d
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+
+# cd & lsa
+cdl() {
+        cd "$@" && lsa;
+}
 
 # ddg search and open in lynx - alias: dg
 duckgo () {
@@ -299,10 +353,11 @@ duckgo () {
     lynx "https://duckduckgo.com/lite?q=$*"
 }
 
-
 # set window title to command just before running it
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
 # set window title to terninal (st) after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
+
+#}}}
 
