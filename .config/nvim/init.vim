@@ -58,7 +58,7 @@ set completeopt=menuone,longest
 "{{{ keybindings
 
 " set <leader> key
-let mapleader='/'
+let mapleader=','
 
 " switch colon to semicolon
 nnoremap ; :
@@ -85,8 +85,6 @@ inoremap <up>    <nop>
 inoremap <down>  <nop>
 inoremap <left>  <nop>
 inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
 
 " maintaining visual mode after shifting > and <
 vnoremap > >gv
@@ -112,6 +110,16 @@ nnoremap st :sp<bar>resize15<bar>term<CR>
 autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
 
+" scrolling command-line history
+cnoremap <C-j> <C-n>
+cnoremap <C-k> <C-p>
+
+" close current buffer
+nnoremap <leader>q :bd<CR>
+
+" easy folding
+nnoremap z za
+
 "}}}
 
 
@@ -129,7 +137,7 @@ nnoremap gp a<CR><Esc>PkJxJx
 inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
 
 " toggle spell checking
-map <leader>s :setlocal spell! spelllang=en_us,nl<CR>
+noremap <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 
 " markdown
 " set proper extension for markdown files (.md)
@@ -150,13 +158,6 @@ cnoremap w!! w !sudo tee %
 
 " diff since last save
 nnoremap <leader>d :w !diff % -<CR>
-
-" automatically leave insert mode after 'updatetime' milliseconds of inaction
-au CursorHoldI * stopinsert
-
- " set 'updatetime' to 5 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
-au InsertLeave * let &updatetime=updaterestore
 
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
@@ -187,13 +188,20 @@ nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 " plugins with vim-plug
 call plug#begin()
 " list of plugins
-Plug 'doums/barow'                       " barow statusbar
-Plug 'dylanaraps/wal.vim'                " colorscheme wal
-Plug 'mhinz/vim-startify'                " startup screen
+
+" barow statusbar
+Plug 'doums/barow'
+" colorscheme wal
+Plug 'dylanaraps/wal.vim'
+" startup screen
+Plug 'mhinz/vim-startify'
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'junegunn/fzf.vim'                  " fzf
-Plug 'lambdalisue/fern.vim'              " fern file manager
+" fzf
+Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+" fern file manager
+Plug 'lambdalisue/fern.vim'
+
 " list ends here, initialize plugin system
 call plug#end()
 
@@ -201,6 +209,14 @@ call plug#end()
 
 
 "{{{ plugins settings
+
+"{{{ barow
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+au CursorHoldI * stopinsert
+ " set 'updatetime' to 5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+au InsertLeave * let &updatetime=updaterestore
+"}}}
 
 "{{{ colors
 
@@ -264,7 +280,7 @@ let g:startify_commands = [
 
 " fzf
 " find files by name in home directory
-nnoremap <leader>f :Files ~/<CR>
+nnoremap <leader>fh :Files ~/<CR>
 " find files by name in root directory
 nnoremap <leader>fr :Files /<CR>
 " find files by name in working directory
@@ -272,7 +288,9 @@ nnoremap <leader>fd :Files .<CR>
 " find and switch buffers
 nnoremap <leader>fb :Buffers<CR>
 " find content in current file
-nnoremap <leader>fl :BLines<CR>
+nnoremap <leader>f :BLines<CR>
+" find content in all buffers
+nnoremap <leader>fa :Lines
 " find content in all files
 nnoremap <leader>fg :Rg<CR>
 " complete line
@@ -348,5 +366,6 @@ set shortmess=atF                        " abbreviation, truncate no file info
 "}}}
 
 
+" prohibit unsecure vimscript
 set secure
 
