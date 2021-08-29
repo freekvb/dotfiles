@@ -118,5 +118,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}${crypto}%{c}${title}%{r}${sys}"
+	printf "%s\n" "%{c}${title}%{l}${wm}${crypto}%{r}${sys}"
 done
