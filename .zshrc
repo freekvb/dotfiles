@@ -8,6 +8,13 @@
 # load aliases and shortcuts if existent
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
+# load exports (default programs and paths) if existent
+[ -f "$HOME/.exportrc" ] && source "$HOME/.exportrc"
+
+# enable colors
+autoload -U colors && colors
+
+
 #{{{ prompt
 
 # prompt
@@ -23,9 +30,25 @@ if [[ -n "$TMUX" ]]; then
 else
     local LVL=$(($SHLVL - 2))
 fi
+
+# random changing emojis
+declare -a PROMPTS
+PROMPTS=(
+    "😀"
+    "😎"
+    "😂"
+    "😘"
+    "😜"
+    "🤔"
+    "🙄"
+    "😞"
+)
+RANDOM=$$$(date +%s)
+EMOJI=${PROMPTS[$RANDOM % ${#RANDOM[*]}]}
+
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}%B%~  ${SUFFIX}  %b'
-PROMPT='${NEWLINE} %B%~ %b%F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE}$EMOJI  %B%1~ %b%F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 
 # right prompt
 autoload -Uz vcs_info
@@ -88,11 +111,13 @@ HIST_STAMPS="dd.mm.yyyy"
 
 #}}}
 
-#{{{
+#{{{ auto
 
 # basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+  '+l:|?=** r:|?=**'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)                                   # Include hidden files
@@ -189,35 +214,6 @@ fi
 
 #}}}
 
-#{{{ color
-
-# enable colors
-autoload -U colors && colors
-
-# more colors in terminal
-TERM=xterm-256color
-# TERM=screen-256color
-
-# color by 'wal'
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background
-# ( ) #  hide shell job control messages
-(cat $HOME/.cache/wal/sequences & )
-
-
-## man colored in less
-#man() {
-#    LESS_TERMCAP_md=$'\e[01;31m' \
-#    LESS_TERMCAP_me=$'\e[0m' \
-#    LESS_TERMCAP_se=$'\e[0m' \
-#    LESS_TERMCAP_so=$'\e[01;40;36m' \
-#    LESS_TERMCAP_ue=$'\e[0m' \
-#    LESS_TERMCAP_us=$'\e[01;32m' \
-#    command man "$@"
-#}
-
-#}}}
-
 #{{{ fzf
 
 # fzf - alias: f
@@ -226,7 +222,7 @@ fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 
 # fzf defaults
 export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
-export FZF_DEFAULT_COMMAND='fd --type f --no-ignore-vcs -H -E '.git/''
+export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -274,7 +270,7 @@ open_with_fzf() {
     fd -t f -H -I "$1" | fzf -m --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0 | xargs -ro -d "\n" xdg-open 2>&-
 }
 
-# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc - alias: fn
+# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc - alias: fv
 fzf_open_with_nvim() {
 	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60%  --query="$1" --multi --select-1 --exit-0))
 	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
@@ -287,32 +283,30 @@ fcg() {
   file=$(fd -H -g .git | fzf) && dir=$(dirname "$file") && cdl "$dir"
 }
 
-# find local nvim help
-fin() {
-  rg "$1" --ignore-case --files-with-matches --no-messages ~/Notes/ ~/.dotfiles/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
-}
-
 # for `fifo` grep- find-in-file(s) - alias: ff
 fif() {
 	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
 	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
 }
-
-# find in local nvim help using `fin`
-fino() {
+# find in files using 'fif' - open in nvim - go to 1st search result
+# vim - grep - takes a query to grep
+fifo() {
 	local file
-	file=$(fin $1)
+	file=$(fif $1)
 	if [[ -n $file ]]
 	then
 		nvim $file -c /$1 -c 'norm! n zz'
 	fi
 }
 
-# find in files - open in nvim - go to 1st search result
-# vim - grep - takes a query to grep
-fifo() {
+# find local nvim help
+fin() {
+  rg "$1" --ignore-case --files-with-matches --no-messages ~/Notes/ ~/.dotfiles/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
+}
+# find in local nvim help using `fin`
+fino() {
 	local file
-	file=$(fif $1)
+	file=$(fin $1)
 	if [[ -n $file ]]
 	then
 		nvim $file -c /$1 -c 'norm! n zz'
@@ -332,6 +326,27 @@ fkill() {
 		echo $pid | xargs kill -${1:-9}
 	fi
 }
+
+#}}}
+
+#{{{ color
+
+# color by 'wal'
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background
+# ( ) #  hide shell job control messages
+(cat $HOME/.cache/wal/sequences & )
+
+## man colored in less
+#man() {
+#    LESS_TERMCAP_md=$'\e[01;31m' \
+#    LESS_TERMCAP_me=$'\e[0m' \
+#    LESS_TERMCAP_se=$'\e[0m' \
+#    LESS_TERMCAP_so=$'\e[01;40;36m' \
+#    LESS_TERMCAP_ue=$'\e[0m' \
+#    LESS_TERMCAP_us=$'\e[01;32m' \
+#    command man "$@"
+#}
 
 #}}}
 
