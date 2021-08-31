@@ -487,18 +487,17 @@ nnoremap md :mkdir<space>
 " Key mappings
 nnoremap <space> :select<cr>j
 nnoremap gh :cd<cr>
-nnoremap gtr :cd ~/.local/share/Trash/files<cr>
 nnoremap ge :cd /etc<cr>
-nnoremap gu. :cd /usr<cr>
-nnoremap gus :cd /usr/share<cr>
+nnoremap gu :cd /usr<cr>
 nnoremap gc :cd ~/.config<cr>
 nnoremap gl :cd ~/.local<cr>
-nnoremap gls :cd ~/.local/share<cr>
-nnoremap gd :cd ~/Downloads<cr>
 nnoremap gD :cd ~/Documents<cr>
+nnoremap gd :cd ~/Downloads<cr>
 nnoremap gn :cd ~/Notes<cr>
-nnoremap gp :cd ~/Pictures<cr>
+nnoremap gP :cd ~/Pictures<cr>
+nnoremap gp :cd ~/Programs<cr>
 nnoremap gt :cd ~/Torrents<cr>
+nnoremap gtr :cd ~/.local/share/vifm/Trash<cr>
 
 " fzf
 command! FZFlocate :set quickview | :execute 'goto' fnameescape(term('locate / | fzf --height 30 2>/dev/tty'))
