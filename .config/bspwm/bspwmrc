@@ -12,36 +12,36 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
-bspc config border_width            1
-bspc config window_gap              4
-bspc config top_padding             1
-bspc config right_padding           0
-bspc config bottom_padding          0
-bspc config left_padding            1
+bspc config border_width                    1
+bspc config window_gap                      4
+bspc config top_padding                     1
+bspc config right_padding                   0
+bspc config bottom_padding                  0
+bspc config left_padding                    1
 
 # source the colors.
 . "${HOME}/.cache/wal/colors.sh"
 
 # Set the border colors.
-bspc config normal_border_color     "$color1"
-bspc config active_border_color     "$color2"
-bspc config focused_border_color    "$color4"
-bspc config presel_feedback_color   "$color1"
+bspc config normal_border_color             "$color1"
+bspc config active_border_color             "$color2"
+bspc config focused_border_color            "$color4"
+bspc config presel_feedback_color           "$color1"
 
-bspc config split_ratio             0.50
-bspc config borderless_monocle      false
-bspc config gapless_monocle         false
+bspc config split_ratio                     0.50
+bspc config borderless_monocle              false
+bspc config gapless_monocle                 false
 
-bspc config presel_feedback_color   '#333333'
+bspc config presel_feedback_color           '#333333'
 
-bspc config automatic_scheme        spiral
-bspc config initial_polarity        first_child
+bspc config automatic_scheme                spiral
+bspc config initial_polarity                first_child
 
-bspc config focus_follows_pointer   false
-bspc config pointer_follows_focus   true
+bspc config focus_follows_pointer           false
+bspc config pointer_follows_focus           true
 
-bspc rule -a mpv -name "video0"     state=tiled
-bspc rule -a Zathura                state=tiled
+bspc rule -a mpv -name "video0"             state=tiled
+bspc rule -a Zathura                        state=tiled
 
 
 wal -R
