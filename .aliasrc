@@ -28,9 +28,9 @@ alias fc='cd_with_fzf'                      # fzf and cd in directory
 alias ff='fif'                              # fzf find in files
 alias fk='fkill'                            # fzf and kill proces
 alias fm='macho'                            # fzf man pages
-alias fn='fzf_open_with_nvim'               # fzf and open in nvim
 alias fo='open_with_fzf'                    # fzf and open with default app
 alias fp='fzp'                              # fzf --preview
+alias fv='fzf_open_with_nvim'               # fzf and open in nvim
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push'
@@ -59,7 +59,7 @@ alias pm='passmenu'
 alias server='python3 -m http.server'       # simple server
 alias sudo='sudo '
 alias sz='source ~/.zshrc'
-alias tm='tty-clock -c -f "%a %d %b %Y"'
+alias tm='tty-clock -C4 -c -f "%a %d %b %Y"'
 alias uc='ucollage'                         # image viewer
 alias upd='pacman -Syu'                     # system upgrade
 alias v='nvim'
@@ -67,69 +67,4 @@ alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
 alias yf='ytfzf -t'                         # youtube video fzf search and view
 alias yp='pipe-viewer'                      # youtube video search and view
 alias yt='./Scripts/yt'                     # simple youtube fzf search and view
-
-
-#----------- exports - thnx to gotbletu --------------------------------------#
-
-#----------- set default programs --------------------------------------------#
-
-# DESC: check and choose the first program in the array installed as the default
-# find alternative apps if it is installed on your system
-find_alt() { for i;do which "$i" >/dev/null &&
-    { echo "$i"; return 0;};done;return 1; }
-
-# set the default program
-# the first program in the array detected on your system will be the default
-
-export OPENER=$(find_alt xdg-open)
-
-export BROWSER=$(find_alt qutebrowser chromium $OPENER)
-export BROWSERCLI=$(find_alt lynx w3m links2 links elinks $OPENER )
-#export BROWSERTOR=$(find_alt tor-browser-en)
-export EDITOR=$(find_alt nvim vim vi nano $OPENER)
-#export FILEMANAGER=$(find_alt nemo $OPENER)
-export FILEMANAGERCLI=$(find_alt vifm ranger lf $OPENER)
-export IMAGEVIEWER=$(find_alt feh sxiv $OPENER)
-export MANPAGER="nvim +set\ filetype=man -"
-export MUSICER=$(find_alt moc mpv $OPENER)
-export PAGER=$(find_alt less more most)
-export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
-export READER=$(find_alt zathura apvlv mupdf evince $OPENER)
-export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
-#export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
-
-#----------- other exports ---------------------------------------------------#
-
-if [[ ! "$PATH" == */bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.local/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.local/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/go/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/go/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/Scripts* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/Scripts"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.gem/ruby/2.7.0/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.gem/ruby/2.7.0/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.cargo/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.cargo/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.fzf/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.config/bspwm* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.config/bspwm"
-fi
-
 
