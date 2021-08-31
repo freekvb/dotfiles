@@ -9,7 +9,7 @@
 
 " general settings
 set clipboard+=unnamedplus               " copy(y) paste(p) to/from systembuffer
-set number relativenumber                " show line numbers relative
+set number relativenumber                " show column number relativenumber
 set numberwidth=5                        " width 'gutter' column numbering
 set scrolloff=999                        " keep cursor away from top and bottom
 set virtualedit=all                      " keep cursor from wobbeling around ..
@@ -64,6 +64,16 @@ let mapleader=','
 nnoremap ; :
 nnoremap : ;
 
+" no arrows, move the vim way
+nnoremap <up>    <nop>
+nnoremap <down>  <nop>
+nnoremap <left>  <nop>
+nnoremap <right> <nop>
+inoremap <up>    <nop>
+inoremap <down>  <nop>
+inoremap <left>  <nop>
+inoremap <right> <nop>
+
 " lazy write / quit
 nnoremap w   :w<CR>
 nnoremap q   :q<CR>
@@ -75,16 +85,6 @@ nnoremap WQ  :wq!<CR>
 " jump to start or end of line
 nnoremap H ^
 nnoremap L $
-
-" no arrows, move the vim way
-nnoremap <up>    <nop>
-nnoremap <down>  <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
-inoremap <up>    <nop>
-inoremap <down>  <nop>
-inoremap <left>  <nop>
-inoremap <right> <nop>
 
 " maintaining visual mode after shifting > and <
 vnoremap > >gv
@@ -118,7 +118,10 @@ cnoremap <C-k> <C-p>
 nnoremap <leader>q :bd<CR>
 
 " easy folding
-nnoremap z za
+nnoremap z za                            " toggle fold under cursor
+
+" toggle relativenumber
+nnoremap <leader>r :set invrnu<CR>
 
 "}}}
 
@@ -210,7 +213,7 @@ call plug#end()
 
 "{{{ plugins settings
 
-"{{{ barow
+"{{{ barow statusbar
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
  " set 'updatetime' to 5 seconds when in insert mode
@@ -293,8 +296,6 @@ nnoremap <leader>f :BLines<CR>
 nnoremap <leader>fa :Lines
 " find content in all files
 nnoremap <leader>fg :Rg<CR>
-" complete line
-nnoremap <C-x><C-l> <plug> (fzf-complete-line)
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
