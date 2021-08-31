@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------#
-# File:     ~.zprofile (archlinux @ 'silent'
+# File:     ~/.zprofile (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
