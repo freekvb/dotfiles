@@ -1,4 +1,5 @@
 #!/bin/sh
+
 config_error() {
     echo "Configuration error [${1}]: \"${2}\" ${3}"
 }

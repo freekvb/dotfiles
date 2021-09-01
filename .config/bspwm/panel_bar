@@ -1,6 +1,13 @@
 #! /bin/sh
-#
-# Example panel for lemonbar
+
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/bspwm/panel_bar  (archlinux - 'silent')
+# Date:     Wed 21 Apr 2021 19:48
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+# panel for lemonbar
 
 . panel_colors
 

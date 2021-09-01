@@ -1,8 +1,12 @@
-#!/bin/sh
-#
-#
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/bspwm/panel_colors  (archlinux - 'silent')
+# Date:     Wed 21 Apr 2021 19:54
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
 
 #    *-dark*)
+#
 #        COLOR_DEFAULT_FG=#ebe5d9
 #        COLOR_DEFAULT_BG=#1c1b1b
 #        COLOR_MONITOR_FG=#1c1b1b
