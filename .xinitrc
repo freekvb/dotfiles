@@ -7,18 +7,8 @@
 #-----------------------------------------------------------------------------#
 
 
-xrandr --output HDMI-1 --mode 1920x1080
-xsetroot -cursor_name left_ptr
-setxkbmap -option caps:escape
-xset dpms 600 600 600
-xset r rate 750 50
+[ -f ~/.xprofile ] && . ~/.xprofile
 
-udiskie &
-dunst &
-picom &
-clipmenud &
-mega-cmd-server &
-unclutter --timeout 2 &
 
 exec bspwm
 
