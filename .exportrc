@@ -9,6 +9,7 @@
 
 #----------- exports - thnx to gotbletu --------------------------------------#
 
+
 #----------- default programs ------------------------------------------------#
 
 # DESC: check and choose the first program in the array installed as the default
@@ -37,7 +38,9 @@ export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 
 
+
 #----------- other exports ---------------------------------------------------#
+
 
 #----------- XDG paths -------------------------------------------------------#
 
@@ -45,9 +48,16 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-#----------- paths -----------------------------------------------------------#
-
 export GOPATH="$XDG_DATA_HOME"/go
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+
+#----------- paths -----------------------------------------------------------#
 
 if [[ ! "$PATH" == */bin* ]]; then
   export PATH="${PATH:+${PATH}:}/bin"
@@ -80,6 +90,7 @@ fi
 if [[ ! "$PATH" == */home/fvb/.config/bspwm* ]]; then
   export PATH="${PATH:+${PATH}:}/home/fvb/.config/bspwm"
 fi
+
 
 #----------- disable files ---------------------------------------------------#
 
