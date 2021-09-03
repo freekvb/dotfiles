@@ -264,7 +264,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { '~': '~/' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.zshrc' },
+            \ { 'z': '~/.config/zsh/zshrc' },
             \ { 'c': '~/.config' },
             \ { 'n': '~/Notes' },
             \ { 's': '~/Scripts' },
