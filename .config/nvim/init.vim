@@ -182,6 +182,8 @@ nnoremap sb i#!/bin/sh<CR><CR>
 nnoremap sn :saveas ~/Notes/
 " save daily notes (timestamp)
 nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+" save ttrade notes (timestamp)
+nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
 "}}}
 
