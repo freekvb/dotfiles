@@ -3,6 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel_bar  (archlinux - 'silent')
 # Date:     Wed 21 Apr 2021 19:48
+# Update:   Wed 08 Sep 2021 00:41
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -52,7 +53,7 @@ while read -r line ; do
 								;;
 						esac
 						[ $num_mon -lt 2 ] && shift && continue
-   					wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
+   				    wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
 						;;
 					[fFoOuU]*)
 						case $item in
@@ -116,10 +117,10 @@ while read -r line ; do
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
 						;;
-					[LTG]*)
-						# layout, state and flags
-						# wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG}  ${name}%{B-}%{F-}"
-						;;
+#					[LTG]*)
+#						layout, state and flags
+#						wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG}  ${name}%{B-}%{F-}"
+#						;;
 				esac
 				shift
 			done

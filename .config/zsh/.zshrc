@@ -1,6 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
+# Update:   Wed 08 Sep 2021 00:55
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -49,7 +50,7 @@ fi
 
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}%B%~  ${SUFFIX}  %b'
-PROMPT='${NEWLINE} %B%1~ %b%F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE} %B%1~ %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 
 # right prompt
 autoload -Uz vcs_info

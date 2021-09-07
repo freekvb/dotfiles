@@ -1,6 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel_colors  (archlinux - 'silent')
 # Date:     Wed 21 Apr 2021 19:54
+# Update:   Wed 08 Sep 2021 00:42
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -40,9 +41,9 @@
 
         COLOR_DEFAULT_FG=$color8
         COLOR_DEFAULT_BG=$color0
-        COLOR_MONITOR_FG=$color0
+        COLOR_MONITOR_FG=$color2
         COLOR_MONITOR_BG=$color0
-        COLOR_FOCUSED_MONITOR_FG=$color0
+        COLOR_FOCUSED_MONITOR_FG=$color2
         COLOR_FOCUSED_MONITOR_BG=$color0
         COLOR_FREE_FG=$color7
         COLOR_FREE_BG=$color0
@@ -60,7 +61,7 @@
         COLOR_STATE_BG=$color0
         COLOR_TITLE_FG=$color2
         COLOR_TITLE_BG=$color0
-        COLOR_SYS_FG=$color8
+        COLOR_SYS_FG=$color7
         COLOR_SYS_BG=$color0
 #    *)
 

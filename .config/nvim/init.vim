@@ -1,6 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
+" Update:   Wed 08 Sep 2021 00:36
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -114,9 +115,6 @@ tnoremap <Esc> <C-\><C-n>
 cnoremap <C-j> <C-n>
 cnoremap <C-k> <C-p>
 
-" close current buffer
-nnoremap <leader>q :bd<CR>
-
 " easy folding
 nnoremap z za                            " toggle fold under cursor
 
@@ -132,9 +130,6 @@ nnoremap <leader>r :set invrnu<CR>
 " toggle paste unmodified (code)
 set pastetoggle=<leader>p
 set showmode
-
-" paste yanked line without line breaks before/after cursor position
-nnoremap gp a<CR><Esc>PkJxJx
 
 " timestamp
 inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
@@ -171,8 +166,11 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 "{{{ personal settings
 
+" header update
+nnoremap <leader>h gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>
+
 " blog entry
-nnoremap be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
+nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
 
 " shebang
 nnoremap sb i#!/bin/sh<CR><CR>
@@ -266,7 +264,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { '~': '~/' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.config/zsh/zshrc' },
+            \ { 'z': '~/.config/zsh/.zshrc' },
             \ { 'c': '~/.config' },
             \ { 'n': '~/Notes' },
             \ { 's': '~/Scripts' },
