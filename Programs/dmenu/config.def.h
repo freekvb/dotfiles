@@ -5,17 +5,17 @@
 /* -b  option; if 0, dmenu appears at bottom */
 static int topbar = 1;
 /* -fn option overrides fonts[0]; default X11 font or font set */
-static const char *fonts[] = {"Terminus:pixelsize=14"};
+static const char *fonts[] = {"Terminus:pixelsize=14", "JoyPixels:pixelsize=10"};
 /* -p  option; prompt to the left of input field */
 static const char *prompt      = " >";
-/* #include "/home/fvb/.cache/wal/colors-wal-dmenu.h" */
-static const char *colors[SchemeLast][2] = {
-/*                   fg         bg       */
-	[SchemeNorm] = { "#c7c9cb", "#1f221c" },
-    [SchemeSel] =  { "#1f221c", "#98876B" },
-	[SchemeOut] =  { "#847C74", "#1f221c" },
-};
-
+#include "/home/fvb/.cache/wal/colors-wal-dmenu.h"
+/* static const char *colors[SchemeLast][2] = { */
+	/*     fg         bg       */
+/*	[SchemeNorm] = { "#eeeeee", "#222222" },
+ *   [SchemeSel] = { "#eeeeee", "#555555" },
+ *   [SchemeOut] = { "#000000", "#00ffff" },
+ *};
+ */
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
 
