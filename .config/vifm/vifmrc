@@ -443,7 +443,7 @@ nnoremap ; :
 nnoremap : ;
 
 " Lazy quit
-nnoremap q :q<cr>
+nnoremap ,q :q<cr>
 
 " Open all images in current directory in sxiv thumbnail mode
 nnoremap sx :!sxiv -t %d & <cr>

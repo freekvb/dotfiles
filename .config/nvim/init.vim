@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Wed 08 Sep 2021 00:36
+" Update:   Thu 09 Sep 2021 23:25
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -42,8 +42,8 @@ set fileformat=unix                      " just because linux
 let python_highlight_all = 1             " all python syntax highlight features
 
 " search
-set smartcase                            " enable smart-case search
 set ignorecase                           " always case-insensitive
+set smartcase                            " enable smart-case search
 nnoremap <CR> :nohlsearch<CR>            " clear highlighting from the search
 
 " fuzzy file finding
@@ -76,16 +76,29 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 
 " lazy write / quit
-nnoremap w   :w<CR>
-nnoremap q   :q<CR>
-nnoremap wq  :wq<CR>
-nnoremap W   :w!<CR>
-nnoremap Q   :q!<CR>
-nnoremap WQ  :wq!<CR>
+"nnoremap <leader>w   :w<CR>
+nnoremap <leader>q   :q<CR>
+"nnoremap <leader>wq  :wq<CR>
+"nnoremap <leader>W   :w!<CR>
+nnoremap <leader>Q   :q!<CR>
+"nnoremap <leader>WQ  :wq!<CR>
+
+" lazy header update write / quit
+nnoremap <leader>w   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w<CR>
+nnoremap <leader>wq  gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:wq<CR>
+nnoremap <leader>W   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w!<CR>
+nnoremap <leader>WQ  gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:wq!<CR>
+
+" navigate properly when lines are wrapped
+nnoremap j gj
+nnoremap k gk
 
 " jump to start or end of line
 nnoremap H ^
 nnoremap L $
+
+" fix Y behaviour
+nnoremap Y y$
 
 " maintaining visual mode after shifting > and <
 vnoremap > >gv
@@ -137,6 +150,9 @@ inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
 " toggle spell checking
 noremap <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 
+" search and replace all
+nnoremap <C-s> :%s//gI<Left><Left><Left>
+
 " markdown
 " set proper extension for markdown files (.md)
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -153,6 +169,9 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " write file if you forgot to give it sudo permission
 cnoremap w!! w !sudo tee %
+
+" source nvim config file init.vim
+nnoremap sv :source ~/.config/nvim/init.vim <CR>
 
 " diff since last save
 nnoremap <leader>d :w !diff % -<CR>
@@ -319,9 +338,10 @@ let g:fzf_colors =
 "{{{ fern
 
 " fern
-nnoremap <leader>t :Fern ~ -drawer -width=40 -toggle<CR><C-w>=
-nnoremap <leader>td :Fern . -reveal=% -drawer -width=40 -toggle<CR><C-w>=
-let g:fern#disable_default_mappings   = 1
+nnoremap <leader>t :Fern ~ -drawer -width=30 -toggle<CR><C-w>=
+nnoremap <leader>td :Fern . -reveal=% -drawer -width=30 -toggle<CR><C-w>=
+let g:fern#disable_default_mappings     = 1
+let g:fern#default_hidden               = 1
 
 function! FernInit() abort
   nmap <buffer><expr>

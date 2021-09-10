@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Wed 08 Sep 2021 00:55
+# Update:   Thu 09 Sep 2021 20:39
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -99,6 +99,10 @@ function +vi-git-untracked() {
   fi
 }
 
+# define right prompt, regardless of whether the theme defined it
+RPS1='$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
+RPS2=$RPS1
+
 #}}}
 
 #{{{ history
@@ -164,7 +168,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# nvim mode indicator
+# nvim mode indicator for in right prompt
 # updates editor information when the keymap changes
 function zle-keymap-select() {
   zle reset-prompt
@@ -175,9 +179,6 @@ function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
 
-# define right prompt, regardless of whether the theme defined it
-RPS1='$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
-RPS2=$RPS1
 
 #}}}
 
@@ -225,7 +226,7 @@ fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 
 # fzf defaults
 export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
-export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
+export FZF_DEFAULT_COMMAND='fd ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
