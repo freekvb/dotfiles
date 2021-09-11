@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/sxhkd/sxhkdrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:09
-# Update:   Wed 08 Sep 2021 00:46
+# Update:   Fri 10 Sep 2021 23:32
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -173,9 +173,13 @@ alt + v
 
 # trade screenshots
 alt + t
-    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/trade/shots/' && dunstify "chart screenshot  >>  trade notes"
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/trades/shots/' && dunstify "chart screenshot  >>  trades"
 
 # review screenshots
 alt + s
-    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/reviews/' && dunstify "chart screenshot  >>  market reviews"
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/reviews/' && dunstify "chart screenshot  >>  reviews"
+
+# forum screenshots
+alt + f
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/forums/' && dunstify "chart screenshot  >>  forums"
 
