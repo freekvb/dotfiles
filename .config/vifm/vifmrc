@@ -497,6 +497,7 @@ nnoremap gd :cd ~/Downloads<cr>
 nnoremap gn :cd ~/Notes<cr>
 nnoremap gP :cd ~/Pictures<cr>
 nnoremap gp :cd ~/Programs<cr>
+nnoremap gs :cd ~/Scripts<cr>
 nnoremap gt :cd ~/Torrents<cr>
 nnoremap gtr :cd ~/.local/share/vifm/Trash<cr>
 
