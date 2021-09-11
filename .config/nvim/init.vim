@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Thu 09 Sep 2021 23:25
+" Update:   Fri 10 Sep 2021 23:10
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -76,18 +76,15 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 
 " lazy write / quit
-"nnoremap <leader>w   :w<CR>
+nnoremap <leader>w   :w<CR>
 nnoremap <leader>q   :q<CR>
-"nnoremap <leader>wq  :wq<CR>
-"nnoremap <leader>W   :w!<CR>
+nnoremap <leader>wq  :wq<CR>
+nnoremap <leader>W   :w!<CR>
 nnoremap <leader>Q   :q!<CR>
-"nnoremap <leader>WQ  :wq!<CR>
+nnoremap <leader>WQ  :wq!<CR>
 
-" lazy header update write / quit
-nnoremap <leader>w   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w<CR>
-nnoremap <leader>wq  gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:wq<CR>
-nnoremap <leader>W   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w!<CR>
-nnoremap <leader>WQ  gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:wq!<CR>
+" header update
+nnoremap <leader>h   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w<CR>
 
 " navigate properly when lines are wrapped
 nnoremap j gj
@@ -118,6 +115,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" equalize splits
+autocmd VimResized * wincmd =
 
 " open terminal in split below
 nnoremap st :sp<bar>resize15<bar>term<CR>
