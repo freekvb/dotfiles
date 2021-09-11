@@ -59,6 +59,7 @@ alias pacs='./Scripts/pacs'                 # pacman fzf install
 alias pars='./Scripts/pars'                 # paru aur fzf install
 alias pm='passmenu'
 alias server='python3 -m http.server'       # simple server
+alias stud='cd ~/Programs/st ; rm -f config.h ; sudo make install'
 alias sudo='sudo '
 alias sz='source ~/.config/zsh/.zshrc'
 alias tm='tty-clock -C4 -c -f "%a %d %b %Y"'
