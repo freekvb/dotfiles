@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.aliasrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Wed 08 Sep 2021 00:51
+# Update:   Thu 23 Sep 2021 23:55
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -38,6 +38,7 @@ alias gp='git push'
 alias gs='git status'
 alias gotop='gotop -a'                      # system monitor
 alias grep='grep --color=auto'
+alias ik='./Scripts/ict_mt4_indicators'     # indicator keybindings (ict mt4)
 alias kmon='kmon -c green'                  # kernel manager and monitor
 alias less='less -R'
 alias lg='lazygit'                          # lazygit
@@ -66,6 +67,7 @@ alias tm='tty-clock -C4 -c -f "%a %d %b %Y"'
 alias uc='ucollage'                         # image viewer
 alias upd='pacman -Syu'                     # system upgrade
 alias v='nvim'
+alias vc='nvim ~/.config/nvim/init.vim'     # open nvim config (init.vim)
 alias vf='./.config/vifm/scripts/vifmrun'   # the file manager
 alias yf='ytfzf -t'                         # youtube video fzf search and view
 alias yp='pipe-viewer'                      # youtube video search and view
