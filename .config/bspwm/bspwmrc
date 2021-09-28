@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/bspwmrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:07
-# Update:   Wed 08 Sep 2021 00:40
+# Update:   Tue 14 Sep 2021 11:09
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -41,6 +41,8 @@ bspc config initial_polarity                first_child
 bspc config focus_follows_pointer           false
 bspc config pointer_follows_focus           true
 
+bspc rule -a guvcview                       state=floating rectangle=480x270+1428+798 sticky=on layer=above
+
 bspc rule -a mpv -name "video0"             state=tiled
 bspc rule -a Zathura                        state=tiled
 
@@ -49,7 +51,7 @@ wal -R
 
 #~/.fehbg &
 sleep 1 &&
-feh --no-fehbg --bg-fill '/home/fvb/Pictures/scream.jpg' &
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/red_girl_mirror.jpg' &
 
 panel &
 
