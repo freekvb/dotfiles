@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Thu 09 Sep 2021 20:39
+# Update:   Tue 14 Sep 2021 03:01
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -179,7 +179,6 @@ function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
 
-
 #}}}
 
 #{{{ extract
@@ -226,7 +225,7 @@ fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
 
 # fzf defaults
 export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
-export FZF_DEFAULT_COMMAND='fd ignore-vcs -H -E '.git/''
+export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
