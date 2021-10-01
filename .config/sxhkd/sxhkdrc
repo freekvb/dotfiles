@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/sxhkd/sxhkdrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:09
-# Update:   Tue 14 Sep 2021 02:59
+# Update:   Wed 29 Sep 2021 14:06
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -13,6 +13,10 @@
 # terminal emulator
 super + Return
     st
+
+# program launcher
+super + @space
+    dmenu_run
 
 # qutebrowser
 super + q
@@ -26,10 +30,6 @@ super + c
 super + d
     tdrop -m -w 1916 -a st
 
-# program launcher
-super + @space
-    dmenu_run
-
 # clipboard manager
 super + y
     clipmenu -i
@@ -41,13 +41,6 @@ super + z
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd; dunstify 'sxhkd: config reloaded'
-# super + shift + r
-#     pkill -usr1 -x sxhkd; dunstify 'sxhkd: config reloaded'
-
-
-#
-# bspwm hotkeys
-#
 
 # restart bspwm
 super + alt + r
@@ -56,6 +49,12 @@ super + alt + r
 # quit bspwm
 super + alt + q
     bspc quit
+
+
+#
+# bspwm hotkeys
+#
+
 
 # toggle top padding for lemonbar
 super + alt + {p,n}

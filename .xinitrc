@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.xinitrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:05
-# Update:   Wed 08 Sep 2021 00:38
+# Update:   Fri 01 Oct 2021 01:12
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -11,14 +11,17 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 
-## Statusbar loop
-#while true; do
-#   xsetroot -name "$( date +"%F %R" )"
-#   sleep 1m    # Update time every minute
-#done &
+## dwm ##
+
+# background
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/red_girl_mirror.jpg' &
+# status bar
+slstatus &
+
+exec dwm
+
+
+### bspwm ##
 #
-#exec dwm
-
-
-exec bspwm
+#exec bspwm
 
