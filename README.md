@@ -1,10 +1,10 @@
 # dotfiles
 
 ## Arch Linux
-Installed Arch Linux as default to boot system on my main machine 'silent' (dualboot with Linux Mint)
+Installed arch linux as default to boot system on my main machine 'silent'
 
 #### New Arch new .dotfiles
-A new Arch install deserves new .dotfiles so I created new .dotfiles (based on my old .dotfiles of course)
+A new arch install deserves new .dotfiles so I created new .dotfiles (based on my old .dotfiles of course)
 
 ### Desktop PC 'silent'
 
@@ -14,8 +14,9 @@ A new Arch install deserves new .dotfiles so I created new .dotfiles (based on m
 - 250GB SSD 550MB/s read 520MB/s write, 500GB HDD 7200rpm
 
 #### Software
-- distro:           [**Arch Linux**](https://www.archlinux.org/ "Arch Linux")
-- windowmanager:    [**bspwm**](https://github.com/baskerville/bspwm "bspwm - tiling window manager")
+- distro:           [**arch linux**](https://www.archlinux.org/ "arch linux")
+- windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm") and [**bspwm**](https://github.com/baskerville/bspwm "bspwm - tiling window manager")
+- statusbar         [**slstatus**](https://tools.suckless.org/slstatus/ "slstatus") and [**lemonbar**](https://gitlab.com/protesilaos/lemonbar-xft "lemonbar")
 - shell:            [**zsh**](https://www.zsh.org "zsh")
 - terminal:         [**st**](https://st.suckless.org/ "st - suckless terminal")
 - editor:           [**neovim**](https://neovim.io/ "neovim")
@@ -28,11 +29,13 @@ A new Arch install deserves new .dotfiles so I created new .dotfiles (based on m
 - theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal - colorschemes on the fly")
 
 #### Screenshot
-Arch Linux @ 'silent'
+arch linux @ 'silent'
 
-![screenshot](https://freekvb.github.io/fvb/bspwm/silent_bspwm_1.png "Arch Linux @ 'silent'")
+![screenshot](https://freekvb.github.io/fvb/dwm/silent_dwm_1.png "arch linux @ 'silent'")
 
-[**more screenshots**](https://freekvb.github.io/fvb/screenshots_bspwm.html "fvb /screenshots_bspwm")
+[**more bspwm screenshots**](https://freekvb.github.io/fvb/screenshots_bspwm.html "fvb /screenshots_bspwm")
+
+[**more dwm screenshots**](https://freekvb.github.io/fvb/screenshots_dwm.html "fvb /screenshots_dwm")
 
 ---
 
