@@ -753,8 +753,8 @@ drawbars(void)
 		drawbar(m);
 }
 
-/*
- * void
+
+/*void
  *enternotify(XEvent *e)
  *{
  *	Client *c;
