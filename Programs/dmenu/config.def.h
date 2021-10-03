@@ -10,10 +10,10 @@ static const char *fonts[] = {"Terminus:pixelsize=14", "JoyPixels:pixelsize=10"}
 static const char *prompt      = " >";
 #include "/home/fvb/.cache/wal/colors-wal-dmenu.h"
 /* static const char *colors[SchemeLast][2] = { */
-	/*     fg         bg       */
-/*	[SchemeNorm] = { "#eeeeee", "#222222" },
- *   [SchemeSel] = { "#eeeeee", "#555555" },
- *   [SchemeOut] = { "#000000", "#00ffff" },
+	/*               fg         bg       */
+/*	[SchemeNorm] = { "#ebe5d9", "#1c1b1b" },
+ *   [SchemeSel] = { "#ebe5d9", "#827E83" },
+ *   [SchemeOut] = { "#1c1b1b", "#E4CEAB" },
  *};
  */
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
