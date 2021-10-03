@@ -17,6 +17,9 @@ xset r rate 750 50
 udiskie &
 dunst &
 picom &
+slstatus &
 clipmenud &
 mega-cmd-server &
 unclutter --timeout 2 &
+pamixer --set-volume 35 &
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/red_girl_mirror.jpg' &
