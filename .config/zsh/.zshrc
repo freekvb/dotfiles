@@ -26,9 +26,9 @@ NEWLINE=$'\n'
 
 # left prompt
 if [[ -n "$TMUX" ]]; then
-    local LVL=$(($SHLVL - 3))
-else
     local LVL=$(($SHLVL - 2))
+else
+    local LVL=$(($SHLVL - 1))
 fi
 
 ## random changing emojis in prompt
@@ -49,7 +49,7 @@ fi
 
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}%B%~  ${SUFFIX}  %b'
-PROMPT='${NEWLINE} %B%~ %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE} %B%1~ %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 
 # right prompt
 autoload -Uz vcs_info
