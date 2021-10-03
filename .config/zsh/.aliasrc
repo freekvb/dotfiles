@@ -23,6 +23,7 @@ alias bkb='./Scripts/bspwm_keybindings'
 alias ddg='ddgr'                                 # ddg search and open in qutebrowser
 alias dg='duckgo'                                # ddg search and open in lynx
 alias diff='diff --color=auto'
+alias dkb='./Scripts/dwm_keybindings'
 alias dvtm='dvtm-status -M'
 alias f='fzf'                                    # fzf
 alias fc='cd_with_fzf'                           # fzf and cd in directory
@@ -60,6 +61,7 @@ alias pacs='./Scripts/pacs'                      # pacman fzf install
 alias pars='./Scripts/pars'                      # paru aur fzf install
 alias pm='passmenu'
 alias server='python3 -m http.server'            # simple server
+alias su='su -'
 alias suck='rm -f config.h ; sudo make install'  # source suckless programs
 alias sudo='sudo '
 alias sz='source ~/.config/zsh/.zshrc'
