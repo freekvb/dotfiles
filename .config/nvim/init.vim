@@ -14,9 +14,7 @@ set number relativenumber                " show column number relativenumber
 set numberwidth=5                        " width 'gutter' column numbering
 set scrolloff=999                        " keep cursor away from top and bottom
 set virtualedit=all                      " keep cursor from wobbeling around ..
-set nostartofline                        " .. when scrolling up and down
 set undolevels=100                       " number of undo levels
-set hidden                               " allow switch to/from unsaved buffer
 set wildmode=longest,full                " autocompleet like shell
 set foldmethod=marker                    " folding with markers (curly brackets)
 
@@ -214,6 +212,8 @@ call plug#begin()
 Plug 'doums/barow'
 " colorscheme wal
 Plug 'dylanaraps/wal.vim'
+" show color colorcodes
+Plug 'ap/vim-css-color'
 " startup screen
 Plug 'mhinz/vim-startify'
 " markdown
@@ -377,11 +377,10 @@ augroup END
 "{{{ statusbar
 
 " statusbar
-set laststatus=2
 set noshowmode                           " hide default mode text
 set noshowcmd                            " hide commands
 set cmdheight=1                          " height of command bar
-set shortmess=atF                        " abbreviation, truncate no file info
+set shortmess=at                        " abbreviation, truncate
 
 "}}}
 
