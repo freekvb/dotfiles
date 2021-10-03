@@ -30,7 +30,7 @@ export EDITOR=$(find_alt nvim vim vi nano $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
 export FILEMANAGERCLI=$(find_alt vifm ranger lf $OPENER)
 export IMAGEVIEWER=$(find_alt feh sxiv $OPENER)
-export MANPAGER="nvim +set\ filetype=man -"
+export MANPAGER="nvim +Man!"
 export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
 export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
