@@ -68,16 +68,19 @@ static const struct arg args[] = {
 /* function             format              argument  */
 /*   { netspeed_rx,       " [down %s] ",      "enp0s31f6" },  */
 /*   { netspeed_tx,       "[up %s] ",         "enp0s31f6" },  */
-   { cpu_perc,          " [cpu %s%%] ",     NULL },
-   { run_command,       "[temp %s°C] ",     "sudo cat /sys/class/thermal/thermal_zone2/temp | awk '{printf $1/1000}' " },
-   { load_avg,          "[load %s] ",       NULL },
-   { ram_perc,          "[ram %s%%] ",      NULL },
-/*   { ram_used,          "[ram %s",          NULL },  */
-/*   { ram_total,         "/%s] ",            NULL },  */
+   { cpu_perc,          "  [cpu %s%%] ",     NULL },
+   { run_command,       "[temp %s°C] ",     "sensors | awk '/^Package/ { print $4+0 }' " },
+/*   { run_command,       "[load %s] ",       "cat /proc/loadavg | awk '{print $1}' " },  */
+   { run_command,       "[load %s] ",       "cat /proc/loadavg | awk '{print $1, $2, $3}' " },
+/*   { load_avg,          "[load %s] ",       NULL },  */
+/*   { ram_perc,          "[ram %s%%] ",      NULL },  */
+   { run_command,       "[ram %s] ",        "free -h | awk '/^Mem/ { print $3, $2 }' " },
+/*   { ram_used,          "[ram %s",          NULL }, */
+/*   { ram_total,         "/%s] ",            NULL }, */
 /*   { run_command,       "[/home %s] ",      "df -H /home | grep -vE '^Filesystem' | awk '{print $5}' " },  */
 /*   { run_command,       "[/ %s] ",          "df -H / | grep -vE '^Filesystem' | awk '{print $5}' " },  */
    { run_command,       "[upd %s] ",        "checkupdates | wc -l " },
    { run_command,       "[mail %s] ",       "mail_check " },
-   { run_command,       "[vol %s] ",        "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1 " },
-   { datetime,          "[%s]",             "%a %d %b %H:%M" },
+   { run_command,       "[vol %s] ",       "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1 " },
+   { datetime,          "[%s]",            "%a %d %b %H:%M" },
 };
