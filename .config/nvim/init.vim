@@ -10,7 +10,8 @@
 
 " general settings
 set clipboard+=unnamedplus               " copy(y) paste(p) to/from systembuffer
-set number relativenumber                " show column number relativenumber
+set number                               " numbers
+set relativenumber                       " relative number
 set numberwidth=5                        " width 'gutter' column numbering
 set scrolloff=999                        " keep cursor away from top and bottom
 set virtualedit=all                      " keep cursor from wobbeling around ..
