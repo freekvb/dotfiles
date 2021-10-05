@@ -54,8 +54,16 @@ volume() {
     echo -n "$volume"
 }
 
+mail() {
+    mail=$(curl -u freekvb:gm4fvb --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p" | wc -l)
+    echo -n "$mail"
+
+upd() {
+    upd=$(checkupdates)
+    echo -n "$upd"
+
 cpu() {
-    cpu=$({ head -n1 /proc/stat;sleep 0.2;head -n1 /proc/stat; } | awk '/^cpu /{u=$2-u;s=$4-s;i=$5-i;w=$6-w}END{printf "%.1f%\n", (0.5+100*(u+s+w)/(u+s+i+w))}')
+    cpu=$({head -n1 /proc/stat;sleep 0.2;head -n1 /proc/stat; } | awk '/^cpu /{u=$2-u;s=$4-s;i=$5-i;w=$6-w}END{printf "%.1f%\n", (0.5+100*(u+s+w)/(u+s+i+w))}')
     echo -n "$cpu"
 }
 
@@ -102,7 +110,8 @@ mem() {
 # up:$(upK)Kb/s
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | load:$(load) | temp:$(cputemp) | mem:$(mem) | vol:$(volume) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | temp:$(cputemp) |
+        load:$(load) | mem:$(mem) | upd:$(upd) | mail:$(mail) | vol:$(volume) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
         sleep 1
 done > "$PANEL_FIFO" &
 
