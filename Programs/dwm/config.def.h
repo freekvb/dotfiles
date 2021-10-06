@@ -8,13 +8,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Terminus:pixelsize=14:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Terminus:pixelsize=14";
 static const char col_gray1[]       = "#1c1b1b";
-static const char col_gray2[]       = "#827E83";
+/* static const char col_gray2[]       = "#827E83";  */
+ static const char col_gray2[]       = "#CDB392";
 static const char col_gray3[]       = "#ebe5d9";
 static const char col_gray4[]       = "#1c1b1b";
+static const char col_gray5[]       = "#728B99";
 static const char col_cyan[]        = "#E4CEAB";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray5 },
 	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
 };
 
@@ -94,16 +96,17 @@ static Key keys[] = {
 
     { Mod4Mask,            XK_q,       spawn,             SHCMD("qutebrowser") },
     { Mod4Mask,            XK_c,       spawn,             SHCMD("chromium") },
+    { Mod4Mask,            XK_m,       spawn,             SHCMD("mt4") },
     { Mod4Mask,            XK_y,       spawn,             SHCMD("clipmenu -i") },
     { Mod4Mask,            XK_comma,   spawn,             SHCMD("pamixer --allow-boost -d 5") },
     { Mod4Mask,            XK_period,  spawn,             SHCMD("pamixer --allow-boost -i 5") },
     { Mod4Mask,            XK_slash,   spawn,             SHCMD("pamixer -t") },
     { Mod4Mask,            XK_x,       spawn,             SHCMD("mocp -G") },
-    { MODKEY,              XK_e,       spawn,             SHCMD("st -e zsh ~/Scripts/emojis") },
-    { MODKEY,              XK_v,       spawn,             SHCMD("st -e zsh ~/Scripts/yt_mpv") },
-    { MODKEY,              XK_t,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/trades/' && dunstify 'chart screenshot  >>  trades'") },
-    { MODKEY,              XK_s,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/reviews/' && dunstify 'chart screenshot  >>  reviews'") },
-    { MODKEY,              XK_f,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/forums/' && dunstify 'chart screenshot  >>  forums'") },
+    { MODKEY,              XK_e,       spawn,             SHCMD("st -e zsh $HOME/Scripts/emojis") },
+    { MODKEY,              XK_v,       spawn,             SHCMD("st -e zsh $HOME/Scripts/yt_mpv") },
+    { MODKEY,              XK_t,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f $HOME/Notes/trades/' && dunstify 'chart screenshot  >>  trades'") },
+    { MODKEY,              XK_s,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f $HOME/Notes/ict/reviews/' && dunstify 'chart screenshot  >>  reviews'") },
+    { MODKEY,              XK_f,       spawn,             SHCMD("scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f $HOME/Notes/ict/forums/' && dunstify 'chart screenshot  >>  forums'") },
 
 	TAGKEYS(               XK_1,                           0)
 	TAGKEYS(               XK_2,                           1)
