@@ -17,7 +17,8 @@ xset r rate 750 50
 udiskie &
 dunst &
 picom &
-slstatus &
+#slstatus &
+dwmblocks &
 clipmenud &
 mega-cmd-server &
 unclutter --timeout 2 &
