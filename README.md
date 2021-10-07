@@ -29,9 +29,9 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 - theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal - colorschemes on the fly")
 
 #### Screenshot
-arch linux @ 'silent'
+arch linux dwm @ 'silent'
 
-![screenshot](https://freekvb.github.io/fvb/dwm/silent_dwm_1.png "arch linux @ 'silent'")
+![screenshot](https://freekvb.github.io/fvb/dwm/silent_dwm_1.png "arch linux dwm @ 'silent'")
 
 [**more bspwm screenshots**](https://freekvb.github.io/fvb/screenshots_bspwm.html "fvb /screenshots_bspwm")
 
