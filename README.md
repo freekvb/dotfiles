@@ -15,8 +15,8 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 
 #### Software
 - distro:           [**arch linux**](https://www.archlinux.org/ "arch linux")
-- windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm") and [**bspwm**](https://github.com/baskerville/bspwm "bspwm - tiling window manager")
-- statusbar         [**dwmblocks**](https://github.com/torrinfail/dwmblocks "dwmblocks"), [**slstatus**](https://tools.suckless.org/slstatus/ "slstatus") and [**lemonbar**](https://gitlab.com/protesilaos/lemonbar-xft "lemonbar")
+- windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm") or [**bspwm**](https://github.com/baskerville/bspwm "bspwm - tiling window manager")
+- statusbar         [**dwmblocks**](https://github.com/torrinfail/dwmblocks "dwmblocks"), [**slstatus**](https://tools.suckless.org/slstatus/ "slstatus") or [**lemonbar**](https://gitlab.com/protesilaos/lemonbar-xft "lemonbar")
 - shell:            [**zsh**](https://www.zsh.org "zsh")
 - terminal:         [**st**](https://st.suckless.org/ "st - suckless terminal")
 - editor:           [**neovim**](https://neovim.io/ "neovim")
