@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.xprofile (archlinux @ 'silent')
 # Date:     Wed 01 Sep 2021 22:18
-# Update:   Wed 08 Sep 2021 00:29
+# Update:   Sat 09 Oct 2021 02:51
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -18,9 +18,9 @@ udiskie &
 dunst &
 picom &
 #slstatus &
-dwmblocks &
 clipmenud &
+dwmblocks &
 mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 35 &
-feh --no-fehbg --bg-fill '/home/fvb/Pictures/red_girl_mirror.jpg' &
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/wallpapers/scream.jpg' &
