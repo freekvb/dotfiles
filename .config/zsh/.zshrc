@@ -26,9 +26,9 @@ NEWLINE=$'\n'
 
 # left prompt
 if [[ -n "$TMUX" ]]; then
-    local LVL=$(($SHLVL - 2))
+    local LVL=$(($SHLVL - 3))
 else
-    local LVL=$(($SHLVL - 1))
+    local LVL=$(($SHLVL - 2))
 fi
 
 ## random changing emojis in prompt
