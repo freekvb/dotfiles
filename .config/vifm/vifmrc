@@ -473,8 +473,11 @@ nnoremap yd :!echo %d | xclip %i<cr>
 " Yank current file path into the clipboard
 nnoremap yf :!echo %c:p | xclip %i<cr>
 
-" Set wallpaper
-nnoremap bg :!feh --bg-fill %f<cr>
+" Set wallpaper and colorscheme (cli & wm only)
+nnoremap bg :!wal -i %f && (cd /home/fvb/Programs/dwm && rm -f config.h ; sudo make install) && dunstify " -_-   you may now restart dwm " <cr>
+
+" Set wallpaper and colorscheme (gtk, cli & wm)
+nnoremap ,bg :!wpg -s %f ; wait 1 ; timeout 0.5s xsettingsd -c ~/.config/xsettingsd/xsettingsd.conf && (cd /home/fvb/Programs/dwm && rm -f config.h ; sudo  make install) && dunstify " -_- you may now restart dwm "
 
 " Mappings for faster renaming
 nnoremap I cw<c-a>
