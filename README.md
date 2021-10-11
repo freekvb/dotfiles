@@ -27,6 +27,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 - musicplayer:      [**moc**](https://moc.daper.net/ "moc - music on console")
 - mediaplayer:      [**mpv**](https://mpv.io/ "mpv")
 - theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal - colorschemes on the fly")
+- wallpaper:        [**wallpaper**](https://wallhaven.cc/w/49jgek "wallpaper @ wallheaven")
 
 #### Screenshot
 arch linux dwm @ 'silent'
