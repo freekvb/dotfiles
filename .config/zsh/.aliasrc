@@ -70,6 +70,7 @@ alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'
 alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim)
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # the file manager
+alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
 alias yf='ytfzf -t'                                 # youtube video fzf search and view
 alias yp='pipe-viewer'                              # youtube video search and view
 alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
