@@ -180,41 +180,59 @@ function nvim_mode_prompt_info() {
 
 #}}}
 
-#{{{ extract
+##{{{ extract / compress
 
-# extract all compressed files with 'extract'
-function extract {
- if [ -z "$1" ]; then
-     # display usage if no parameters given
-    echo "Usage: extract ."
- else
-if [ -f $1 ] ; then
-        # NAME=${1%.*}
-        # mkdir $NAME && cd $NAME
-        case $1 in
-          *.tar.bz2) tar xvjf ../$1 ;;
-          *.tar.gz) tar xvzf ../$1 ;;
-          *.tar.xz) tar xvJf ../$1 ;;
-          *.lzma) unlzma ../$1 ;;
-          *.bz2) bunzip2 ../$1 ;;
-          *.rar) unrar x -ad ../$1 ;;
-          *.gz) gunzip ../$1 ;;
-          *.tar) tar xvf ../$1 ;;
-          *.tbz2) tar xvjf ../$1 ;;
-          *.tgz) tar xvzf ../$1 ;;
-          *.zip) unzip ../$1 ;;
-          *.Z) uncompress ../$1 ;;
-          *.7z) p7zip ../$1 ;;
-          *.xz) unxz ../$1 ;;
-          *) echo "extract: '$1' - unknown archive method" ;;
-        esac
+## extract all compressed files with 'extract'
+## usage: extract <file>
+
+extract ()
+{
+        if [[ -f "$1" ]]
+        then
+                case "$1" in
+                        *.tar.bz2)  bzip2 -v -d "$1" ;;
+                        *.tar.gz)   tar -xvzf "$1"   ;;
+                        *.tar.xz)   tar xvf "$1"     ;;
+                        *.ace)      unace e "$1"     ;;
+                        *.rar)      unrar x "$1"     ;;
+                        *.deb)      ar -x "$1"       ;;
+                        *.bz2)      bzip2 -d "$1"    ;;
+                        *.lzh)      lha x "$1"       ;;
+                        *.gz)       gunzip -d "$1"   ;;
+                        *.tar)      tar -xvf "$1"    ;;
+                        *.tgz)      gunzip -d "$1"   ;;
+                        *.tbz2)     tar -jxvf "$1"   ;;
+                        *.zip)      unzip "$1"       ;;
+                        *.Z)        uncompress "$1"  ;;
+                        *.shar)     sh "$1"          ;;
+                        *)          echo "'"$1"' Error. Please go away" ;;
+                esac
+        else
+                echo "'"$1"' is not a valid file"
+        fi
+}
+
+# compress files or a directory (defaults to tar.gz)
+# usage: compress <file> (<type>)
+compress()
+{
+if [ '$2' ]; then
+case '$2' in
+tgz | tar.gz)   tar -zcvf$1.$2 '$1' ;;
+tbz2 | tar.bz2) tar -jcvf$1.$2 '$1' ;;
+                        tar.Z)          tar -Zcvf$1.$2 '$1' ;;
+                        tar)            tar -cvf$1.$2  '$1' ;;
+                        gz | gzip)      gzip           '$1' ;;
+                        bz2 | bzip2)    bzip2          '$1' ;;
+*)
+echo "Error: $2 is not a valid compression type" ;;
+esac
 else
-echo "$1 - file does not exist"
-    fi
+compress '$1' tar.gz
 fi
 }
 
-#}}}
+##}}}
 
 #{{{ fzf
 
