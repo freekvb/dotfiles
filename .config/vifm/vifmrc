@@ -519,6 +519,14 @@ nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
 
+" Extract archives
+command! extract extract %a %f %n
+command! extract! extract -f %a %f %n
+" Examples:
+" :extract - extracts archive under cursor into current directory
+" :extract %D - extracts archive under cursor into directory of other pane
+" :extract! sub - extracts archive under cursor into sub/ inside current directory
+
 " Example of standard two-panel file managers mappings
 nnoremap <f3> :!less %f<cr>
 nnoremap <f4> :edit<cr>
