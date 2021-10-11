@@ -25,9 +25,9 @@
 #    dwm >/dev/null 2>&1
 #done
 
-#while :; do
-#	ssh-agent dwm
-#done
+while :; do
+	ssh-agent dwm
+done
 
-exec dwm
+#exec dwm
 
