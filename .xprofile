@@ -18,10 +18,7 @@ xset r rate 750 50
 udiskie &
 dunst &
 picom &
-#slstatus &
 clipmenud &
-dwmblocks &
 mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 35 &
-#feh --no-fehbg --bg-fill '/home/fvb/Pictures/wallpapers/scream.jpg' &
