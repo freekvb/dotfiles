@@ -1,0 +1,153 @@
+#!/bin/sh
+
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/zsh/fzfrc  (archlinux - 'silent')
+# Date:     Thu 14 Oct 2021 17:10
+# Update:   Thu 14 Oct 2021 17:11
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+# fzfrc - some cool fzf functions thnx to Jitesh voidstarsh - https://github.com/voidstarsh
+
+
+# don't source this file if fzf is not installed
+command -v fzf >/dev/null 2>&1 || return 0
+
+# default fzf options
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height '50%' --margin=1,0,0,4 --reverse --no-info"
+# vi like navigation with J/K
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
+
+## fzf defaults
+export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# use ** as the trigger sequence
+export FZF_COMPLETION_TRIGGER='**'
+
+# completion ptions to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
+alias clipbd="xclip -r -selection clipboard"
+alias devar="unset var"
+
+# cf [cd fuzzy]: cd from $HOME
+cf() {
+    [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
+    if command -v fd >/dev/null; then
+        var="$(fd -d5 -td --follow --search-path ~ 2>/dev/null | fzf --prompt "cd ")"
+    else
+        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.*' 2>/dev/null | fzf --prompt "cd ")"
+    fi
+    [ -n "$var" ] && cd "$var" 2>/dev/null
+    devar; return 0
+}
+
+# ch [cd hidden/here]: cd from current dir including hidden
+ch() {
+    [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
+    if command -v fd >/dev/null; then
+        var="$(fd -d5 -td --follow --hidden --exclude '\.git*' 2>/dev/null | fzf --prompt "cd ")"
+    else
+        var="$(find -L . -maxdepth 5 -type d -not -path '*/\.git*' 2>/dev/null | fzf --prompt "cd ")"
+    fi
+    [ -n "$var" ] && cd "$var" 2>/dev/null
+    devar; return 0
+}
+
+# vif [vi fuzzy]: open a file in $EDITOR
+vif() {
+    [ -n "$1" ] && "$EDITOR" "$1" && return 0
+    var="$(fzf --prompt "edit ")"
+    [ -n "$var" ] && "$EDITOR" "$var"
+    devar; return 0
+}
+
+# pdf [pdfuzzy]: open pdf/epub in zathura
+if command -v zathura >/dev/null; then
+pdf() {
+    if command -v fd >/dev/null; then
+        fd -e pdf -e epub 2>/dev/null | fzf --prompt "zathura " \
+            --bind "enter:execute|zathura {} 2>/dev/null &|,enter:+print-query" >/dev/null
+    else
+        find . -type f -not -path "*/\.*" -name "*.pdf" -o -name "*.epub" 2>/dev/null | fzf --prompt "zathura " \
+            --bind "enter:execute|zathura {} 2>/dev/null &|,enter:+print-query" >/dev/null
+    fi
+    return 0
+}
+fi
+
+# fox [fuzzy xdg-open]: open any file with xdg-open
+fox() {
+    fzf --bind "enter:execute|xdg-open {} 2>/dev/null &|,enter:+print-query" --prompt "xdg-open " >/dev/null
+    return 0
+}
+
+# hst [history]: search command line history & copy selected
+hst() {
+    var="$(history | cut -c8- | fzf --multi --tac --prompt "history ")"
+    [ -n "$var" ] && echo "$var" | clipbd
+    devar; return 0
+}
+
+# fkill - kill processes - list only the ones you can kill - alias: fk
+fkill() {
+	local pid
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi
+}
+
+# ff - find given string in files, open in nvim and go to 1st search result
+fif() {
+	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
+}
+# takes a query to grep
+fifo() {
+    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+	local file
+	file=$(fif $1)
+	if [[ -n $file ]]
+	then
+		nvim $file -c /$1 -c 'norm! n zz'
+	fi
+}
+
+
+# i use arch btw
+if [ -f "/etc/arch-release" ]; then
+# pacls [pacman list]: list all installed packages
+pacls() {
+    var="$(pacman -Qq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    [ -n "$var" ] && echo "$var" | clipbd
+    devar; return 0
+}
+
+# pacfd [pacman find]: find a package
+pacfd() {
+    var="$(pacman -Slq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    [ -n "$var" ] && echo "$var" | clipbd
+    devar; return 0
+}
+
+# paruls [yay list]: list all installed AUR packages
+paruls() {
+    var="$(yay -Qmq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    [ -n "$var" ] && echo "$var" | clipbd
+    devar; return 0
+}
+
+# parufd [yay find]: find an AUR package
+parufd() {
+    var="$(yay -Slaq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    [ -n "$var" ] && echo "$var" | clipbd
+    devar; return 0
+}
+fi

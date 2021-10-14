@@ -1,0 +1,80 @@
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/zsh/aliasrc  (archlinux - 'silent')
+# Date:     Thu 23 Apr 2020 12:06
+# Update:   Thu 14 Oct 2021 17:09
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+#----------- alias -----------------------------------------------------------#
+
+alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first'
+alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias c='clear'
+alias cc='cd && clear'
+alias cl='cdl'                                      # cd and ls directory
+alias d='exit'
+alias al='$HOME/Scripts/alias'                      # list aliasses
+alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
+alias bkb='$HOME/Scripts/bspwm_keybindings'         # list bspwm keybindings
+alias ddg='ddgr'                                    # ddg search and open in qutebrowser
+alias dg='duckgo'                                   # ddg search and open in lynx
+alias diff='diff --color=auto'
+alias dkb='$HOME/Scripts/dwm_keybindings'           # list dwm keybindings
+alias dvtm='dvtm-status -M'
+alias f='fzf'                                       # fzf
+alias f.='ch'                                       # fzf and cd in hidden directory
+alias fc='cf'                                       # fzf and cd in directory
+alias ff='fifo'                                     # fzf given string in files
+alias fh='hst'                                      # fzf term command history > clipboard
+alias fk='fkill'                                    # fzf and kill proces
+alias fm='macho'                                    # fzf man pages
+alias fo='fox'                                      # fzf and open with default app
+alias fp='fzp'                                      # fzf --preview --preview-window "right:70%"
+alias fpdf='pdf'                                    # fzf pdf and open in zathura
+alias fv='vif'                                      # fzf and open in nvim
+alias gotop='gotop -a'                              # system monitor
+alias grep='grep --color=auto'
+alias ik='$HOME/Scripts/ict_mt4_indicators'         # ict mt4 ray-x indicator keybindings
+alias kmon='kmon -c green'                          # kernel manager and monitor
+alias less='less -R'
+alias lg='lazygit'                                  # lazygit
+alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
+alias lgw='cd $HOME/Websites/fvb && lazygit'        # lazygit website fvb
+alias md='mkdir'
+alias mf='touch'
+alias moc='mocp -T /usr/share/moc/themes/transparent-background'
+alias ms='$HOME/Scripts/mkscript'
+alias mwg='monero-wallet-gui'                       # monero wallet
+alias nn='nvim -c startinsert $HOME/Notes/new.md'   # open new note in nvim, sn to save
+alias nt='nvim $HOME/Notes/trade/-template.md'      # open new trade note, ts to save
+alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
+alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
+alias pacman='sudo pacman --color=always'
+alias pacr='$HOME/Scriptts/pacr'                    # pacman fzf remove given pkg (incl deps & confs)
+alias pacro='pacman -Qtdq | pacman -Rns -'          # pacman remove orphans
+alias pacs='$HOME/Scripts/pacs'                     # pacman fzf install
+alias parf='parufd'                                 # paru aur fzf find aur pkg > clipboard
+alias parl='paruls'                                 # paru aur fzf list installed aur pkgs > clipboard
+alias pars='$HOME/Scripts/pars'                     # paru aur fzf install
+alias pm='passmenu'
+alias server='python3 -m http.server'               # simple server
+alias su='su -'
+alias suck='rm -f config.h ; sudo make install'     # source suckless programs
+alias sudo='sudo '
+alias sz='source $HOME/.config/zsh/.zshrc'
+alias tm='tty-clock -C4 -c -f "%a %d %b %Y"'
+alias uc='ucollage'                                 # image viewer
+alias upd='pacman -Syu'                             # system upgrade
+alias v='nvim'
+alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim)
+alias vf='$HOME/.config/vifm/scripts/vifmrun'       # the file manager
+alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
+alias yf='ytfzf -t'                                 # youtube video fzf search and view
+alias yp='pipe-viewer'                              # youtube video search and view
+alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
+
+
