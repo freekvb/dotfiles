@@ -11,23 +11,13 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 
-### bspwm ##
-#
+## bspwm ##
+
 #exec bspwm
 
 
 ## dwm ##
 
-#while true; do
-#    # Log stderror to a file
-#    # dwm 2>> /tmp/dwm.log
-#    # No error logging
-#    dwm >/dev/null 2>&1
-#done
-
-while :; do
-	ssh-agent dwm
-done
-
-#exec dwm
+dwmblocks &
+exec dwm
 
