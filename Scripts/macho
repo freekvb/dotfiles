@@ -1,13 +1,17 @@
 #!/bin/sh
 
+# default fzf options
 export FZF_DEFAULT_OPTS='
---height=40%
---margin 0,0,0,2
+--height=50%
+--margin 1,0,0,4
 --no-info
 --border
 --layout=reverse
 --prompt="Man: "
 --preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
+
+# vi like navigation with J/K
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 
 while getopts ":s:" opt; do
     case $opt in

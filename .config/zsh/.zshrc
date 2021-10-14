@@ -1,16 +1,19 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Tue 14 Sep 2021 03:01
+# Update:   Thu 14 Oct 2021 17:09
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 
 # load aliases and shortcuts if existent
-[ -f "$HOME/.config/zsh/.aliasrc" ] && source "$HOME/.config/zsh/.aliasrc"
+[ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
 
 # load exports (default programs and paths) if existent
-[ -f "$HOME/.config/zsh/.exportrc" ] && source "$HOME/.config/zsh/.exportrc"
+[ -f "$HOME/.config/zsh/exportrc" ] && source "$HOME/.config/zsh/exportrc"
+
+# load fzf functions if existent
+[ -f "$HOME/.config/zsh/fzfrc" ] && source "$HOME/.config/zsh/fzfrc"
 
 # enable colors
 autoload -U colors && colors
@@ -26,9 +29,9 @@ NEWLINE=$'\n'
 
 # left prompt
 if [[ -n "$TMUX" ]]; then
-    local LVL=$(($SHLVL - 3))
-else
     local LVL=$(($SHLVL - 2))
+else
+    local LVL=$(($SHLVL - 1))
 fi
 
 ## random changing emojis in prompt
@@ -180,11 +183,10 @@ function nvim_mode_prompt_info() {
 
 #}}}
 
-##{{{ extract / compress
+##{{{ archives
 
 ## extract all compressed files with 'extract'
 ## usage: extract <file>
-
 extract ()
 {
         if [[ -f "$1" ]]
@@ -232,122 +234,26 @@ compress '$1' tar.gz
 fi
 }
 
+# show archive without extracting
+# usage: show <archive>
+show()
+{
+        if [[ -f $1 ]]
+        then
+                case $1 in
+                        *.tar.gz)      gunzip -c $1 | tar -tf - -- ;;
+                        *.tar)         tar -tf $1 ;;
+                        *.tgz)         tar -ztf $1 ;;
+                        *.zip)         unzip -l $1 ;;
+                        *.bz2)         bzless $1 ;;
+                        *)             echo "'$1' Error. Please go away" ;;
+                esac
+        else
+                echo "'$1' is not a valid archive"
+        fi
+}
+
 ##}}}
-
-#{{{ fzf
-
-# fzf - alias: f
-fzf-locate() { xdg-open "$(locate "*" | fzf -e)" ;}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# fzf defaults
-export FZF_DEFAULT_OPTS='--height 50% --margin=1,0,0,4 --reverse --no-info'
-export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# use ** as the trigger sequence
-export FZF_COMPLETION_TRIGGER='**'
-
-# Options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
-}
-
-# fzf and cd in directory - alias: fc
-cd_with_fzf() {
-    cd $HOME && cdl "$(fd -t d -H | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
-}
-
-# fzf file and open with default app - alias: fo
-open_with_fzf() {
-    fd -t f -H -I "$1" | fzf -m --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0 | xargs -ro -d "\n" xdg-open 2>&-
-}
-
-# find a file or directory  and open it fzf → fd → nvim -- no args, looks in cwd - rg to highlight etc - alias: fv
-fzf_open_with_nvim() {
-	IFS=$'\n' files=($(fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60%  --query="$1" --multi --select-1 --exit-0))
-	[[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
-}
-
-# find all git repos, select one and cd to its parent dir
-fcg() {
-  local file
-  local dir
-  file=$(fd -H -g .git | fzf) && dir=$(dirname "$file") && cdl "$dir"
-}
-
-# for `fifo` grep- find-in-file(s) - alias: ff
-fif() {
-	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
-}
-# find in files using 'fif' - open in nvim - go to 1st search result
-# vim - grep - takes a query to grep
-fifo() {
-	local file
-	file=$(fif $1)
-	if [[ -n $file ]]
-	then
-		nvim $file -c /$1 -c 'norm! n zz'
-	fi
-}
-
-# find local nvim help
-fin() {
-  rg "$1" --ignore-case --files-with-matches --no-messages ~/Notes/ ~/.dotfiles/ ~/.config/nvim/ | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
-}
-# find in local nvim help using `fin`
-fino() {
-	local file
-	file=$(fin $1)
-	if [[ -n $file ]]
-	then
-		nvim $file -c /$1 -c 'norm! n zz'
-	fi
-}
-
-# fkill - kill processes - list only the ones you can kill - alias: fk
-fkill() {
-	local pid
-	if [ "$UID" != "0" ]; then
-		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-	else
-		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-	fi
-	if [ "x$pid" != "x" ]
-	then
-		echo $pid | xargs kill -${1:-9}
-	fi
-}
-
-#}}}
 
 #{{{ color
 
@@ -391,7 +297,7 @@ duckgo () {
 # set window title to command just before running it
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
-# set window title to terninal (st) after returning from a command
+# set window title to terminal (st) after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
 #}}}
