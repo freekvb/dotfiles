@@ -162,7 +162,7 @@ super + x
 
 # emojis to clipboard
 alt + e
-    ./Scripts/emojis
+    ./Scripts/dmenu-emoji
 
 # date time notification
 alt + d
