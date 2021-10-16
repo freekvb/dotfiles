@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/bspwmrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:07
-# Update:   Tue 14 Sep 2021 11:09
+# Update:   Thu 14 Oct 2021 20:36
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -47,6 +47,5 @@ bspc rule -a mpv -name "video0"             state=tiled
 bspc rule -a Zathura                        state=tiled
 
 
-#wal -R
-
 panel &
+
