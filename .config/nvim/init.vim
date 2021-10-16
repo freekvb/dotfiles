@@ -193,11 +193,11 @@ nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR>
 nnoremap sb i#!/bin/sh<CR><CR>
 
 " notes
-" save notes (nn in terminal to open new note)
+" save notes [nn in terminal to open new note]
 nnoremap sn :saveas ~/Notes/
 " save daily notes (timestamp)
 nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
-" save ttrade notes (timestamp)
+" save ttrade notes (timestamp) [nt in terminal to open template]
 nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
 "}}}
