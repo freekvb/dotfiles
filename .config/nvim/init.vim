@@ -129,6 +129,10 @@ cnoremap <C-k> <C-p>
 " easy folding
 nnoremap z za                            " toggle fold under cursor
 
+" toggle (relative)number
+nnoremap nn :set nonu nornu<CR>
+nnoremap <leader>nn :set nu rnu<CR>
+
 " toggle relativenumber
 nnoremap <leader>r :set invrnu<CR>
 
