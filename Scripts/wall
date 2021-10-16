@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# wpgtk auto select wallpaper from directory, set background and colorscheme
+
+echo "chosing wallpaper for color scheme ... "
+wall=$(find $HOME/Pictures/wallpapers | shuf -n 1)
+echo "setting wallpaper background ... "
+feh --no-fehbg --bg-fill $wall
+echo "setting color scheme ... "
+wal -i $wall
+echo "compiling dwm with color scheme ... "
+(cd $HOME/Programs/dwm && rm -f config.h ; sudo make install)
+echo " -_- you may now restart dwm "
