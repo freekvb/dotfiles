@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel  (archlinux - 'silent')
 # Date:     Wed 21 Apr 2021 19:42
-# Update:   Wed 08 Sep 2021 00:41
+# Update:   Sat 16 Oct 2021 04:16
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -35,39 +35,9 @@ xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 #-------- panel left ---------------------------------------------------------#
 
 clock() {
-    clock=$(date +' %a %d %b  %H:%M')
+    clock=$(date +'%a %d %b %H:%M')
     echo -n "$clock"
 }
-
-#root() {
-#    root=$(df -h | awk 'NR==4 { print "/:"$5 }')
-#    echo -n "$root"
-#}
-
-#home() {
-#    home=$(df -h | awk 'NR==7 { print "/home:"$5 }')
-#    echo -n "$home"
-#}
-
-volume() {
-    volume=$(amixer get Master | sed -n 'N;s/^.*\[\([0-9]\+%\).*$/\1/p')
-    echo -n "$volume"
-}
-
-#mail() {
-#    mail=$(curl -u freekvb:gm4fvb --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p" | wc -l)
-#    echo -n "$mail"
-#}
-#
-#upd() {
-#    upd=$(checkupdates)
-#    echo -n "$upd"
-#)
-
-#cpu() {
-#    cpu=$({head -n1 /proc/stat;sleep 0.2;head -n1 /proc/stat; } | awk '/^cpu /{u=$2-u;s=$4-s;i=$5-i;w=$6-w}END{printf "%.1f%\n", (0.5+100*(u+s+w)/(u+s+i+w))}')
-#    echo -n "$cpu"
-#}
 
 cpu() {
     cpu=$(top -bn 1 | awk '/^%Cpu/ {print int($2 + $4 + $6)"%"}')
@@ -79,45 +49,29 @@ cputemp() {
     echo -n "$cputemp"°C
 }
 
-#loadavg() {
-#    loadavg=$(cat /proc/loadavg | awk '{print $1" "$2" "$3}')
-#    echo -n "$loadavg"
-#}
-
-load() {
-    load=$(cat /proc/loadavg | awk '{print $1}')
-    echo -n "$load"
-}
-
 mem() {
     mem=$(free -m | egrep Mem | awk '{printf "%.f%\n", ($3+$5)/$2*100}')
     echo -n "$mem"
 }
 
-#down() {
-#    down=$({ cat /sys/class/net/enp0s31f6/statistics/rx_bytes; sleep 1; cat /sys/class/net/enp0s31f6/statistics/rx_bytes; } | awk '{ p=$1; getline; printf $1-p }' )
-#    echo -n "$down"
-#}
-#downK() {
-#    down=$(down)
-#    downK=${down:0:-3}
-#    echo -n "$downK"
-#}
+upd() {
+    upd=$(checkupdates | wc -l)
+    echo -n "$upd"
+}
 
-#up() {
-#    up=$({ cat /sys/class/net/enp0s31f6/statistics/tx_bytes; sleep 1; cat /sys/class/net/enp0s31f6/statistics/tx_bytes; } | awk '{ p=$1; getline; printf $1-p }' )
-#    echo -n "$up"
-#}
-#upK() {
-#    up=$(up)
-#    upK=${up:0:-3}
-#    echo -n "$upK"
-#}
-# down:$(downK)Kb/s
-# up:$(upK)Kb/s
+mail() {
+    mail=$(curl -u freekvb:gm4fvb --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p" | wc -l)
+    echo -n "$mail"
+}
+
+volume() {
+    volume=$(amixer get Master | sed -n 'N;s/^.*\[\([0-9]\+%\).*$/\1/p')
+    echo -n "$volume"
+}
+
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b}| cpu:$(cpu) | temp:$(cputemp) | load:$(load) | mem:$(mem) | vol:$(volume) |%{F-}%{B-} %{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b} [cpu $(cpu)] [temp $(cputemp)] [mem $(mem)] [upd $(upd)] [mail $(mail)] [vol $(volume)]  [%{F-}%{B-}%{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}]"
         sleep 1
 done > "$PANEL_FIFO" &
 
@@ -125,30 +79,15 @@ done > "$PANEL_FIFO" &
 
 #-------- panel right --------------------------------------------------------#
 
-#btc() {
-#    btc=$(curl -s cli.fyi/BTC | awk 'NR==4 { printf "%.0f\n", $3 }')
-#    echo -n "$btc"
-#}
-
 btc() {
     btc=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.0f\n", $1}')
     echo -n "$btc"
 }
 
-#xmr() {
-#    xmr=$(curl -s cli.fyi/XMR | awk 'NR==4 { printf "%.0f\n", $3 }')
-#    echo -n "$xmr"
-#}
-
 xmr() {
     xmr=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.0f\n", $1}')
     echo -n "$xmr"
 }
-
-#hbar() {
-#    hbar=$(curl -s cli.fyi/HBAR | awk 'NR==4 { printf "%0.2f\n", $3 }')
-#    echo -n "$hbar"
-#}
 
 hbar() {
     hbar=$(curl -s -X GET "https://api.coingecko.com/api/v3/simple/price?ids=hedera-hashgraph&vs_currencies=USD" -H "accept: application/json" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?' | awk '{printf "%.2f\n", $1}')
@@ -160,8 +99,9 @@ cro() {
     echo -n "$cro"
 }
 
+
 while true; do
-    echo -e "C%{F#B5C1BE}%{B#1c1b1b}| btc:$(btc) | xmr:$(xmr) | hbar:$(hbar) | cro:$(cro) |%{F-}%{B-}"
+    echo -e "C%{F#B5C1BE}%{B#1c1b1b} [btc $(btc)] [xmr $(xmr)] [hbar $(hbar)] [cro $(cro)] %{F-}%{B-}"
         sleep 60
 done > "$PANEL_FIFO" &
 
