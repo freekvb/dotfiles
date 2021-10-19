@@ -14,6 +14,7 @@ set number                               " numbers
 set relativenumber                       " relative number
 set numberwidth=5                        " width 'gutter' column numbering
 set scrolloff=999                        " keep cursor away from top and bottom
+set ttyfast                              " faster scrolling
 set virtualedit=all                      " keep cursor from wobbeling around ..
 set undolevels=100                       " number of undo levels
 set wildmode=longest,full                " autocompleet like shell
