@@ -288,10 +288,16 @@ cdl() {
         cd "$@" && lsa;
 }
 
-# ddg search and open in lynx - alias: dg
+# ddg search and open in lynx - alias: dl
 duckgo () {
     declare url=$*
     lx "https://duckduckgo.com/lite?q=$*"
+}
+
+# ddg search and open in w3m - alias: dw
+ddgw () {
+    declare url=$*
+    wm "https://duckduckgo.com/lite?q=$*"
 }
 
 # set window title to command just before running it
