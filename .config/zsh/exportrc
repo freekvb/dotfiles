@@ -7,11 +7,10 @@
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
+#---------- exports - thnx to gotbletu ---------------------------------------#
 
-#----------- exports - thnx to gotbletu --------------------------------------#
 
-
-#----------- default programs ------------------------------------------------#
+#{{{ default programs
 
 # DESC: check and choose the first program in the array installed as the default
 # find alternative apps if it is installed on your system
@@ -38,12 +37,9 @@ export READER=$(find_alt zathura apvlv mupdf evince $OPENER)
 export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 
+#}}}
 
-
-#----------- other exports ---------------------------------------------------#
-
-
-#----------- XDG paths -------------------------------------------------------#
+#{{{ XDG paths
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -58,8 +54,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
+#}}}
 
-#----------- paths -----------------------------------------------------------#
+#{{{ paths
 
 if [[ ! "$PATH" == */bin* ]]; then
   export PATH="${PATH:+${PATH}:}/bin"
@@ -93,8 +90,5 @@ if [[ ! "$PATH" == */home/fvb/.config/bspwm* ]]; then
   export PATH="${PATH:+${PATH}:}/home/fvb/.config/bspwm"
 fi
 
-
-#----------- disable files ---------------------------------------------------#
-
-#export LESSHISTFILE=-
+#}}}
 
