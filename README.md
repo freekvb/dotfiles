@@ -22,7 +22,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 - terminal:         [**st**](https://st.suckless.org/ "st - suckless terminal")
 - editor:           [**neovim**](https://neovim.io/ "neovim")
 - filemanager:      [**vifm**](https://vifm.info/ "vifm")
-- webbrowser:       [**qutebrowser**](https://qutebrowser.org/ "qutebrowser") and  [**chromium**](https://www.chromium.org/ "chromium")
+- webbrowser:       [**qutebrowser**](https://qutebrowser.org/ "qutebrowser"), [**chromium**](https://www.chromium.org/ "chromium") and [**lynx**](https://lynx.invisible-island.net/current/index.html "lynx")
 - git interface:    [**lazygit**](https://github.com/jesseduffield/lazygit/ "lazygit")
 - torrentclient:    [**rtorrent**](https://rakshasa.github.io/rtorrent/ "rtorrent")
 - musicplayer:      [**moc**](https://moc.daper.net/ "moc - music on console")
