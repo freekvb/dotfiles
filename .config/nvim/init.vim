@@ -240,8 +240,8 @@ call plug#end()
 "{{{ barow statusbar
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
- " set 'updatetime' to 5 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+ " set 'updatetime' to 7.5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
 au InsertLeave * let &updatetime=updaterestore
 "}}}
 
