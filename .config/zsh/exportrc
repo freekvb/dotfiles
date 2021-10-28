@@ -53,6 +53,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export YTFZF_CONFIG_DIR=$HOME/.config/ytfzf
 
 #}}}
 
@@ -88,6 +89,10 @@ fi
 
 if [[ ! "$PATH" == */home/fvb/.config/bspwm* ]]; then
   export PATH="${PATH:+${PATH}:}/home/fvb/.config/bspwm"
+fi
+
+if [[ ! "$PATH" == */usr/lib/surfraw* ]]; then
+  export PATH="${PATH:+${PATH}:}/usr/lib/surfraw"
 fi
 
 #}}}
