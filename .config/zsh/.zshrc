@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Thu 14 Oct 2021 17:09
+# Update:   Thu 28 Oct 2021 16:09
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -34,25 +34,8 @@ else
     local LVL=$(($SHLVL - 1))
 fi
 
-## random changing emojis in prompt
-#declare -a PROMPTS
-#PROMPTS=(
-#    "😀"
-#    "😎"
-#    "😂"
-#    "😘"
-#    "😜"
-#    "🤔"
-#    "🙄"
-#    "😞"
-#)
-#RANDOM=$$$(date +%s)
-#EMOJI=${PROMPTS[$RANDOM % ${#RANDOM[*]}]}
-#put "$EMOJI" in prompt after "{NEWLINE}"
-
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
-#PROMPT='${NEWLINE}%B%~  ${SUFFIX}  %b'
-PROMPT='${NEWLINE} %B%1~ %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE}  %B%~  %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 
 # right prompt
 autoload -Uz vcs_info
@@ -70,30 +53,6 @@ zstyle ':vcs_info:*' use-simple false
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
 zstyle ':vcs_info:git*:*' formats '[%b%m%c%u ]'             # default ' (%s)-[%b]%c%u-'
 zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u ]'    # default ' (%s)-[%b|%a]%c%u-'
-zstyle ':vcs_info:hg*:*' formats '(%m%b ) '
-zstyle ':vcs_info:hg*:*' actionformats '(%b|%a%m ) '
-zstyle ':vcs_info:hg*:*' branchformat '%b'
-zstyle ':vcs_info:hg*:*' get-bookmarks true
-zstyle ':vcs_info:hg*:*' get-revision true
-zstyle ':vcs_info:hg*:*' get-mq false
-zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
-zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
-function +vi-hg-bookmarks() {
-  emulate -L zsh
-  if [[ -n "${hook_com[hg-active-bookmark]}" ]]; then
-    hook_com[hg-bookmark-string]="${(Mj:,:)@}"
-    ret=1
-  fi
-}
-function +vi-hg-message() {
-  emulate -L zsh
-
-  # Suppress hg branch display if we can display a bookmark instead
-  if [[ -n "${hook_com[misc]}" ]]; then
-    hook_com[branch]=''
-  fi
-  return 0
-}
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
@@ -101,8 +60,19 @@ function +vi-git-untracked() {
   fi
 }
 
+# nvim mode indicator for in right prompt
+# updates editor information when the keymap changes
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+zle -N zle-keymap-select
+function nvim_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
+}
+
 # define right prompt, regardless of whether the theme defined it
-RPS1='$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
+RPS1='%B$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
 RPS2=$RPS1
 
 #}}}
@@ -132,7 +102,7 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)                                   # Include hidden files
 
 # enable autosuggestions
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # autocd
 setopt autocd
@@ -169,17 +139,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-# nvim mode indicator for in right prompt
-# updates editor information when the keymap changes
-function zle-keymap-select() {
-  zle reset-prompt
-  zle -R
-}
-zle -N zle-keymap-select
-function nvim_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
-}
 
 #}}}
 
@@ -263,25 +222,9 @@ show()
 # ( ) #  hide shell job control messages
 (cat $HOME/.cache/wal/sequences & )
 
-## man colored in less
-#man() {
-#    LESS_TERMCAP_md=$'\e[01;31m' \
-#    LESS_TERMCAP_me=$'\e[0m' \
-#    LESS_TERMCAP_se=$'\e[0m' \
-#    LESS_TERMCAP_so=$'\e[01;40;36m' \
-#    LESS_TERMCAP_ue=$'\e[0m' \
-#    LESS_TERMCAP_us=$'\e[01;32m' \
-#    command man "$@"
-#}
-
 #}}}
 
 #{{{ misc
-
-# exit shell with Ctrl+d
-exit_zsh() { exit }
-zle -N exit_zsh
-bindkey '^D' exit_zsh
 
 # cd & lsa
 cdl() {
@@ -292,12 +235,6 @@ cdl() {
 duckgo () {
     declare url=$*
     lx "https://duckduckgo.com/lite?q=$*"
-}
-
-# ddg search and open in w3m - alias: dw
-ddgw () {
-    declare url=$*
-    wm "https://duckduckgo.com/lite?q=$*"
 }
 
 # set window title to command just before running it
