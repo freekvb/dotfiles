@@ -1639,7 +1639,7 @@ c.url.start_pages = ['https://freekvb.github.io/fvb/']
 # config.bind(';R', 'hint --rapid links window')
 # config.bind(';Y', 'hint links yank-primary')
 config.bind(';m', 'hint links spawn mpv {hint-url}')
-config.bind(';z', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind(';z', 'hint links spawn st -e yt-dlp {hint-url}')
 # config.bind(';b', 'hint all tab-bg')
 # config.bind(';d', 'hint links download')
 # config.bind(';f', 'hint all tab-fg')
