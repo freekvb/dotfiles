@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Sat 09 Oct 2021 05:26
+" Update:   Wed 27 Oct 2021 00:37
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -55,7 +55,6 @@ set completeopt=menuone,longest
 
 "}}}
 
-
 "{{{ keybindings
 
 " set <leader> key
@@ -105,11 +104,11 @@ vnoremap < <gv
 nnoremap <space><space> <c-^>
 
 " split windows
-set splitbelow                           " 'split' horizontal below
-set splitright                           " 'vsplit' vertical on the right
+set splitbelow                                  " 'split' horizontal below
+set splitright                                  " 'vsplit' vertical on the right
 " open split
 nnoremap sp :split<CR>
-nnoremap vs :vsplit<CR>
+nnoremap vs :vsplit<CR>:vert resize 107<CR>     " 'vsplit' in dwm master stack ratio
 " navigate split windows
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -128,17 +127,12 @@ cnoremap <C-j> <C-n>
 cnoremap <C-k> <C-p>
 
 " easy folding
-nnoremap z za                            " toggle fold under cursor
-
-" toggle (relative)number
-nnoremap nn :set nonu nornu<CR>
-nnoremap <leader>nn :set nu rnu<CR>
+nnoremap z za<Space>0                           " toggle fold under cursor no jumping around
 
 " toggle relativenumber
 nnoremap <leader>r :set invrnu<CR>
 
 "}}}
-
 
 "{{{ special settings
 
@@ -162,16 +156,14 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " set proper text width for markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=79
 
-let g:instant_markdown_browser = "qutebrowser --target window"
-let g:instant_markdown_autostart = 0
-nnoremap md :InstantMarkdownPreview<CR>
-nnoremap mds :InstantMarkdownStop<CR>
-
 " remove trailing white space
 autocmd BufWritePre * %s/\s\+$//e
 
 " write file if you forgot to give it sudo permission
 cnoremap w!! w !sudo tee %
+
+" return to last edit position at opening file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " source nvim config file init.vim
 nnoremap sv :source ~/.config/nvim/init.vim <CR>
@@ -184,7 +176,6 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
 "}}}
-
 
 "{{{ personal settings
 
@@ -206,7 +197,6 @@ nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
 "}}}
-
 
 "{{{ plugins
 
@@ -234,15 +224,16 @@ call plug#end()
 
 "}}}
 
-
 "{{{ plugins settings
 
 "{{{ barow statusbar
+
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
  " set 'updatetime' to 7.5 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
 au InsertLeave * let &updatetime=updaterestore
+
 "}}}
 
 "{{{ colors
@@ -300,6 +291,15 @@ let g:startify_commands = [
             \ { 'f': ['find file in /home', 'Files ~/'] },
             \ { '!': ['my magical function 😜', 'quit'] },
             \ ]
+
+"}}}
+
+"{{{ markdown
+
+let g:instant_markdown_browser = "qutebrowser --target window"
+let g:instant_markdown_autostart = 0
+nnoremap md :InstantMarkdownPreview<CR>
+nnoremap mds :InstantMarkdownStop<CR>
 
 "}}}
 
@@ -379,17 +379,15 @@ augroup END
 
 "}}}
 
-
 "{{{ statusbar
 
 " statusbar
-set noshowmode                           " hide default mode text
-set noshowcmd                            " hide commands
-set cmdheight=1                          " height of command bar
-set shortmess=at                        " abbreviation, truncate
+set noshowmode                                  " hide default mode text
+set noshowcmd                                   " hide commands
+set cmdheight=1                                 " height of command bar
+set shortmess=at                                " abbreviation, truncate
 
 "}}}
-
 
 " prohibit unsecure vimscript
 set secure
