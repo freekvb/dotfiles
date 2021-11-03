@@ -35,7 +35,7 @@ else
 fi
 
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
-PROMPT='${NEWLINE}  %B%~  %b%F{cyan}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE} %B%~  %b%F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 
 # right prompt
 autoload -Uz vcs_info
@@ -104,8 +104,8 @@ _comp_options+=(globdots)                                   # Include hidden fil
 # enable autosuggestions
 source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# autocd
-setopt autocd
+## autocd
+#setopt autocd
 
 # autocorrection
 setopt correctall
