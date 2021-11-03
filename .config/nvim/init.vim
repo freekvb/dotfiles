@@ -5,7 +5,6 @@
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
-
 "{{{ general settings
 
 " general settings
@@ -186,13 +185,13 @@ nnoremap <leader>h gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>
 nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
 
 " shebang
-nnoremap sb i#!/bin/sh<CR><CR>
+nnoremap sb i#!/usr/bin/sh<CR><CR>
 
-" notes
-" save notes [nn in terminal to open new note]
+" notes [nn in terminal to open new note]
+" save notes (title.md)
 nnoremap sn :saveas ~/Notes/
-" save daily notes (timestamp)
-nnoremap sd :saveas ~/Notes/daily/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+" save daily (zettelkasten) notes (timestamped)
+nnoremap sz :saveas ~/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
 " save ttrade notes (timestamp) [nt in terminal to open template]
 nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
@@ -214,6 +213,8 @@ Plug 'ap/vim-css-color'
 Plug 'mhinz/vim-startify'
 " markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" pandoc
+"Plug 'vim-pandoc/vim-pandoc-syntax'
 " fzf
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 " fern file manager
