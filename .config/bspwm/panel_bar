@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel_bar  (archlinux - 'silent')
