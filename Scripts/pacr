@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # pacman fzf remove given pkg (incl deps & confs)
 pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' --preview-window "right:70%" --prompt "pkg " | xargs -ro sudo pacman -Rns

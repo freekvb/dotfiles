@@ -27,11 +27,9 @@ set noswapfile
 " indentation (PEP8 Python)
 set expandtab                            " convert tab to spaces
 set tabstop=4                            " tab 4 spaces
-set softtabstop=4                        " spaces per tab
 set shiftwidth=4                         " auto indent spaces
 set smartindent                          " indent the smart way
 set wrap                                 " wrap lines
-set nolist                               " make line break work
 set textwidth=79                         " line wrap (number of columns)
 set linebreak                            " break line on word
 set showbreak=>\ \ \                     " note trailing space at end of next line
