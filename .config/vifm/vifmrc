@@ -492,8 +492,8 @@ nnoremap ge :cd /etc<cr>
 nnoremap gu :cd /usr<cr>
 nnoremap gc :cd ~/.config<cr>
 nnoremap gl :cd ~/.local<cr>
-nnoremap gD :cd ~/Documents<cr>
-nnoremap gd :cd ~/Downloads<cr>
+nnoremap gd :cd ~/Documents<cr>
+nnoremap gD :cd ~/Downloads<cr>
 nnoremap gn :cd ~/Notes<cr>
 nnoremap gP :cd ~/Pictures<cr>
 nnoremap gp :cd ~/Programs<cr>
