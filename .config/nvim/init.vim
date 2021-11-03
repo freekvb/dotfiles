@@ -8,15 +8,15 @@
 "{{{ general settings
 
 " general settings
-set clipboard+=unnamedplus               " copy(y) paste(p) to/from systembuffer
+set clipboard+=unnamedplus               " copy(y) paste(p) to/from system buffer
 set number                               " numbers
 set relativenumber                       " relative number
 set numberwidth=5                        " width 'gutter' column numbering
 set scrolloff=999                        " keep cursor away from top and bottom
 set ttyfast                              " faster scrolling
-set virtualedit=all                      " keep cursor from wobbeling around ..
+set virtualedit=all                      " keep cursor from wobbling around ..
 set undolevels=100                       " number of undo levels
-set wildmode=longest,full                " autocompleet like shell
+set wildmode=longest,full                " auto compleet like shell
 set foldmethod=marker                    " folding with markers (curly brackets)
 
 " disable backup and swap files
@@ -28,11 +28,11 @@ set noswapfile
 set expandtab                            " convert tab to spaces
 set tabstop=4                            " tab 4 spaces
 set softtabstop=4                        " spaces per tab
-set shiftwidth=4                         " auto-indent spaces
+set shiftwidth=4                         " auto indent spaces
 set smartindent                          " indent the smart way
 set wrap                                 " wrap lines
-set nolist                               " make linebreak work
-set textwidth=79                         " line wrap (number of colomns)
+set nolist                               " make line break work
+set textwidth=79                         " line wrap (number of columns)
 set linebreak                            " break line on word
 set showbreak=>\ \ \                     " note trailing space at end of next line
 set breakindent                          " keep indentation
@@ -41,12 +41,12 @@ set fileformat=unix                      " just because linux
 let python_highlight_all = 1             " all python syntax highlight features
 
 " search
-set ignorecase                           " always case-insensitive
-set smartcase                            " enable smart-case search
+set ignorecase                           " always case insensitive
+set smartcase                            " enable smart case search
 nnoremap <CR> :nohlsearch<CR>            " clear highlighting from the search
 
 " fuzzy file finding
-set path+=**                             " search subfolders and tabcompletion
+set path+=**                             " search sub folders and tab completion
 
 " complete
 set complete+=kspell
@@ -140,7 +140,7 @@ nnoremap <leader>r :set invrnu<CR>
 set pastetoggle=<leader>p
 set showmode
 
-" timestamp
+" time stamp
 inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
 
 " toggle spell checking
@@ -190,9 +190,9 @@ nnoremap sb i#!/usr/bin/sh<CR><CR>
 " notes [nn in terminal to open new note]
 " save notes (title.md)
 nnoremap sn :saveas ~/Notes/
-" save daily (zettelkasten) notes (timestamped)
+" save daily (zettelkasten) notes (time stamped)
 nnoremap sz :saveas ~/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
-" save ttrade notes (timestamp) [nt in terminal to open template]
+" save ttrade notes (time stamp) [nt in terminal to open template]
 nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
 "}}}
@@ -203,11 +203,11 @@ nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 call plug#begin()
 " list of plugins
 
-" barow statusbar
+" barow status bar
 Plug 'doums/barow'
-" colorscheme wal
+" color scheme wal
 Plug 'dylanaraps/wal.vim'
-" show color colorcodes
+" show color color codes
 Plug 'ap/vim-css-color'
 " startup screen
 Plug 'mhinz/vim-startify'
@@ -227,11 +227,11 @@ call plug#end()
 
 "{{{ plugins settings
 
-"{{{ barow statusbar
+"{{{ barow status bar
 
-" automatically leave insert mode after 'updatetime' milliseconds of inaction
+" automatically leave insert mode after 'update time' milliseconds of inaction
 au CursorHoldI * stopinsert
- " set 'updatetime' to 7.5 seconds when in insert mode
+ " set 'update time' to 7.5 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
 au InsertLeave * let &updatetime=updaterestore
 
@@ -239,10 +239,10 @@ au InsertLeave * let &updatetime=updaterestore
 
 "{{{ colors
 
-" colorscheme
+" color scheme
 colorscheme wal
 
-" set colored curserline
+" set colored cursor line
 set cursorline
 hi CursorLine cterm=NONE ctermfg=NONE ctermbg=237
 hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
@@ -380,9 +380,9 @@ augroup END
 
 "}}}
 
-"{{{ statusbar
+"{{{ status bar
 
-" statusbar
+" status bar
 set noshowmode                                  " hide default mode text
 set noshowcmd                                   " hide commands
 set cmdheight=1                                 " height of command bar
@@ -390,6 +390,6 @@ set shortmess=at                                " abbreviation, truncate
 
 "}}}
 
-" prohibit unsecure vimscript
+" prohibit insecure vim script
 set secure
 
