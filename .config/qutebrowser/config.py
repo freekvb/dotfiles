@@ -447,7 +447,7 @@ c.colors.webpage.bg = 'lightgrey'
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-c.completion.height = '43%'
+c.completion.height = '39%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -624,7 +624,7 @@ c.content.cookies.accept = 'no-3rdparty'
 ## User agent to send. Unset to send the default. Note that the value
 ## read from JavaScript is always the global value.
 ## Type: String
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
 
 ## Enable adblocking
 c.content.blocking.method = 'both'
