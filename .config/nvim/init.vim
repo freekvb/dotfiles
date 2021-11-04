@@ -1,23 +1,23 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Wed 27 Oct 2021 00:37
+" Update:   Thu 04 Nov 2021 16:00
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
 "{{{ general settings
 
 " general settings
-set clipboard+=unnamedplus               " copy(y) paste(p) to/from system buffer
-set number                               " numbers
-set relativenumber                       " relative number
-set numberwidth=5                        " width 'gutter' column numbering
-set scrolloff=999                        " keep cursor away from top and bottom
-set ttyfast                              " faster scrolling
-set virtualedit=all                      " keep cursor from wobbling around ..
-set undolevels=100                       " number of undo levels
-set wildmode=longest,full                " auto compleet like shell
-set foldmethod=marker                    " folding with markers (curly brackets)
+set clipboard+=unnamedplus                          " copy(y) paste(p) to/from system buffer
+set number                                          " numbers
+set relativenumber                                  " relative number
+set numberwidth=5                                   " width 'gutter' column numbering
+set scrolloff=999                                   " keep cursor away from top and bottom
+set ttyfast                                         " faster scrolling
+set virtualedit=all                                 " keep cursor from wobbling around ..
+set undolevels=100                                  " number of undo levels
+set wildmode=longest,full                           " auto compleet like shell
+set foldmethod=marker                               " folding with markers (curly brackets)
 
 " disable backup and swap files
 set nobackup
@@ -25,26 +25,25 @@ set nowritebackup
 set noswapfile
 
 " indentation (PEP8 Python)
-set expandtab                            " convert tab to spaces
-set tabstop=4                            " tab 4 spaces
-set shiftwidth=4                         " auto indent spaces
-set smartindent                          " indent the smart way
-set wrap                                 " wrap lines
-set textwidth=79                         " line wrap (number of columns)
-set linebreak                            " break line on word
-set showbreak=>\ \ \                     " note trailing space at end of next line
-set breakindent                          " keep indentation
-set breakindentopt=shift:2               " emphasize broken lines by indenting them
-set fileformat=unix                      " just because linux
-let python_highlight_all = 1             " all python syntax highlight features
+set expandtab                                       " convert tab to spaces
+set tabstop=4                                       " tab 4 spaces
+set shiftwidth=4                                    " auto indent spaces
+set smartindent                                     " indent the smart way
+set wrap                                            " wrap lines
+set textwidth=79                                    " line wrap (number of columns)
+set linebreak                                       " break line on word
+set breakindent                                     " keep indentation
+set breakindentopt=shift:2                          " emphasize broken lines by indenting them
+set fileformat=unix                                 " just because linux
+let python_highlight_all = 1                        " all python syntax highlight features
 
 " search
-set ignorecase                           " always case insensitive
-set smartcase                            " enable smart case search
-nnoremap <CR> :nohlsearch<CR>            " clear highlighting from the search
+set ignorecase                                      " always case insensitive
+set smartcase                                       " enable smart case search
+nnoremap <CR> :nohlsearch<CR>                       " clear highlighting from the search
 
 " fuzzy file finding
-set path+=**                             " search sub folders and tab completion
+set path+=**                                        " search sub folders and tab completion
 
 " complete
 set complete+=kspell
@@ -129,6 +128,12 @@ nnoremap z za<Space>0                           " toggle fold under cursor no ju
 " toggle relativenumber
 nnoremap <leader>r :set invrnu<CR>
 
+" allow gf to open non-existent files
+nnoremap gf :edit <cfile><cr>
+
+" open the current file in the default program
+nnoremap <leader>x :!xdg-open %<cr><cr>
+
 "}}}
 
 "{{{ special settings
@@ -197,59 +202,25 @@ nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
 "{{{ plugins
 
-" plugins with vim-plug
-call plug#begin()
-" list of plugins
+" Automatically install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" barow status bar
-Plug 'doums/barow'
-" color scheme wal
-Plug 'dylanaraps/wal.vim'
-" show color color codes
-Plug 'ap/vim-css-color'
-" startup screen
-Plug 'mhinz/vim-startify'
-" markdown
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-" pandoc
-"Plug 'vim-pandoc/vim-pandoc-syntax'
-" fzf
-Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
-" fern file manager
-Plug 'lambdalisue/fern.vim'
+call plug#begin() "(data_dir . '/plugins')
 
-" list ends here, initialize plugin system
+source ~/.config/nvim/plugins/barow.vim             " status bar
+source ~/.config/nvim/plugins/color-wal.vim         " color scheme
+source ~/.config/nvim/plugins/css-color.vim         " color codes
+source ~/.config/nvim/plugins/fern.vim              " file  manager
+source ~/.config/nvim/plugins/fzf.vim               " fzf
+source ~/.config/nvim/plugins/instant-markdown.vim  " markdown
+source ~/.config/nvim/plugins/startify.vim          " startup screen
+
 call plug#end()
-
-"}}}
-
-"{{{ plugins settings
-
-"{{{ barow status bar
-
-" automatically leave insert mode after 'update time' milliseconds of inaction
-au CursorHoldI * stopinsert
- " set 'update time' to 7.5 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
-au InsertLeave * let &updatetime=updaterestore
-
-"}}}
-
-"{{{ colors
-
-" color scheme
-colorscheme wal
-
-" set colored cursor line
-set cursorline
-hi CursorLine cterm=NONE ctermfg=NONE ctermbg=237
-hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
-" set cursor column
-set cursorcolumn
-hi CursorColumn ctermbg=237
-" set colored column
-set colorcolumn=79
-hi ColorColumn ctermbg=237
+doautocmd User PlugLoaded
 
 "}}}
 
@@ -293,98 +264,18 @@ let g:startify_commands = [
 
 "}}}
 
-"{{{ markdown
+"{{{ colors
 
-let g:instant_markdown_browser = "qutebrowser --target window"
-let g:instant_markdown_autostart = 0
-nnoremap md :InstantMarkdownPreview<CR>
-nnoremap mds :InstantMarkdownStop<CR>
-
-"}}}
-
-"{{{ fzf
-
-" fzf
-" find files by name in home directory
-nnoremap <leader>fh :Files ~/<CR>
-" find files by name in root directory
-nnoremap <leader>fr :Files /<CR>
-" find files by name in working directory
-nnoremap <leader>fd :Files .<CR>
-" find and switch buffers
-nnoremap <leader>fb :Buffers<CR>
-" find content in current file
-nnoremap <leader>f :BLines<CR>
-" find content in all buffers
-nnoremap <leader>fa :Lines
-" find content in all files
-nnoremap <leader>fg :Rg<CR>
-
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Normal'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-"}}}
-
-"{{{ fern
-
-" fern
-nnoremap <leader>t :Fern ~ -drawer -width=30 -toggle<CR><C-w>=
-nnoremap <leader>td :Fern . -reveal=% -drawer -width=30 -toggle<CR><C-w>=
-let g:fern#disable_default_mappings     = 1
-let g:fern#default_hidden               = 1
-
-function! FernInit() abort
-  nmap <buffer><expr>
-        \ <Plug>(fern-my-open-expand-collapse)
-        \ fern#smart#leaf(
-        \   "\<Plug>(fern-action-open:select)",
-        \   "\<Plug>(fern-action-expand)",
-        \   "\<Plug>(fern-action-collapse)",
-        \ )
-  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
-  nmap <buffer> l <Plug>(fern-action-open-or-expand)
-  nmap <buffer> M <Plug>(fern-action-mark-toggle)
-  nmap <buffer> n <Plug>(fern-action-new-file)
-  nmap <buffer> d <Plug>(fern-action-new-dir)
-  nmap <buffer> r <Plug>(fern-action-remove)
-  nmap <buffer> m <Plug>(fern-action-move)
-  nmap <buffer> s <Plug>(fern-action-open:split)
-  nmap <buffer> v <Plug>(fern-action-open:vsplit)
-  nmap <buffer> R <Plug>(fern-action-reload)
-  nmap <buffer> <nowait> H <Plug>(fern-action-hidden:toggle)
-  nmap <buffer> <nowait> h <Plug>(fern-action-leave)
-endfunction
-
-augroup FernGroup
-  autocmd!
-  autocmd FileType fern call FernInit()
-augroup END
-
-"}}}
-
-"}}}
-
-"{{{ status bar
-
-" status bar
-set noshowmode                                  " hide default mode text
-set noshowcmd                                   " hide commands
-set cmdheight=1                                 " height of command bar
-set shortmess=at                                " abbreviation, truncate
+" set colored cursor line
+set cursorline
+hi CursorLine cterm=NONE ctermfg=NONE ctermbg=237
+hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
+" set cursor column
+set cursorcolumn
+hi CursorColumn ctermbg=237
+" set colored column
+set colorcolumn=79
+hi ColorColumn ctermbg=237
 
 "}}}
 
