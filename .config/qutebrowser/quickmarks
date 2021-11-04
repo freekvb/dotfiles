@@ -12,15 +12,14 @@ arch forum https://bbs.archlinux.org/search.php?action=show_new
 reddit https://old.reddit.com/
 youtube https://www.youtube.com/
 1337 https://www.1337x.to/home/
-monkeytype https://monkeytype.com/
 ff [forexfactory] https://www.forexfactory.com/
 fxstreet https://www.fxstreet.com/economic-calendar
 ICT https://ictmentorship.discussion.community/latest
 ICT-yt https://www.youtube.com/c/InnerCircleTrader/community
 tv [tradingview] https://www.tradingview.com/chart/cMQbfWgs/#
-binance https://www.binance.com/nl/trade/BTC_USDT
 gh (github) https://github.com/freekvb
 gl (gitlab) https://gitlab.com/freekvb
+binance https://www.binance.com/nl/trade/BTC_USDT
 bitstamp https://www.bitstamp.net/market/tradeview/
 bittrex https://global.bittrex.com/Market/Index?MarketName=USD-BTC
 coingecko https://www.coingecko.com/
@@ -33,27 +32,28 @@ ff pivot https://www.forexfactory.com/thread/588764-pivot-trading?goto=newpost
 finviz https://finviz.com/futures_charts.ashx?t=CURRENCIES&p=h1
 git cheat sheet http://git-cheatsheet.com/
 ig sentiment https://www.dailyfx.com/sentiment-report
+init.lua https://www.notonlycode.org/neovim-lua-config/
 instagram https://www.instagram.com/
+invidious https://yewtu.be/feed/popular
 lazygit cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
+learning resources https://github.com/neopragma/online-learning-resources
+linuxconsole.net https://linuxconsole.net/index.html
 markdown https://commonmark.org/help/
+monkeytype https://monkeytype.com/
+pipecat https://github.com/Wojnstup/PipeCatTurbo
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
 qutebrowser cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
+sfeed https://codemadness.org/sfeed-simple-feed-parser.html
 suckless https://suckless.org/
+teddit https://teddit.ggc-project.de/
 tmux  cheat https://gist.github.com/MohamedAlaa/2961058
 vim cheat sheet https://vim.rtorr.com/
 vim guide https://thevaluable.dev/vim-intermediate/
 vim quickref https://preview.redd.it/sndjkzgj3eg61.png?width=1958&format=png&auto=webp&s=7a4860f0e522aa458c6bab40abbe9f9ad84927c1
+wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
 yandex translate https://translate.yandex.com/
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
-invidious https://yewtu.be/feed/popular
-learning resources https://github.com/neopragma/online-learning-resources
-linuxconsole.net https://linuxconsole.net/index.html
-pipecat https://github.com/Wojnstup/PipeCatTurbo
-sfeed https://codemadness.org/sfeed-simple-feed-parser.html
-w3m http://w3m.sourceforge.net/
-wallpaperflare https://www.wallpaperflare.com/
-z https://www.youtube.com/channel/UCb0a0N3tlPUS-WgbkEi6Nfw/videos
-'":"<""< https://www.youtube.com/channel/UC1yGcBvdPGxRIMT1yo_bKIQ
-init.lua https://www.notonlycode.org/neovim-lua-config/
+dots_ja https://github.com/jessarcher/dotfiles
+ja https://www.twitch.tv/videos/1190959702?t=1h30m40s

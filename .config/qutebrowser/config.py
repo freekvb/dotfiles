@@ -447,7 +447,7 @@ c.colors.webpage.bg = 'lightgrey'
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-c.completion.height = '39%'
+c.completion.height = '36%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
