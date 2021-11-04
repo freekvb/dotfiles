@@ -101,6 +101,12 @@ zmodload zsh/complist
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)                                   # Include hidden files
 
+# Don't eat space after tab complete followed by '&' or '|'
+ZLE_SPACE_SUFFIX_CHARS=$'&|'
+
+# Eat space after tab complete followed by ')', etc.
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;)'
+
 # enable autosuggestions
 source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
