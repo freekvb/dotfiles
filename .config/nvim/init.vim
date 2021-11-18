@@ -85,6 +85,10 @@ nnoremap <leader>h   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Es
 nnoremap j gj
 nnoremap k gk
 
+" jump 10 lines up or down
+nnoremap J 10j
+nnoremap K 10k
+
 " jump to start or end of line
 nnoremap H ^
 nnoremap L $
@@ -100,21 +104,19 @@ vnoremap < <gv
 nnoremap <space><space> <c-^>
 
 " split windows
-set splitbelow                                  " 'split' horizontal below
-set splitright                                  " 'vsplit' vertical on the right
+set splitbelow                                      " 'split' horizontal below
+set splitright                                      " 'vsplit' vertical on the right
 " open split
 nnoremap sp :split<CR>
-nnoremap vs :vsplit<CR>:vert resize 107<CR>     " 'vsplit' in dwm master stack ratio
+nnoremap vs :vsplit<CR>:vert resize 107<CR>         " 'vsplit' in dwm master stack ratio
 " navigate split windows
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" equalize splits
-autocmd VimResized * wincmd =
 
-" open terminal in split below
-nnoremap st :sp<bar>resize15<bar>term<CR>
+" terminal in split below, resize and start insert mode
+nnoremap <leader>st :sp<bar>resize15<bar>term<CR>
 autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
 
@@ -123,7 +125,7 @@ cnoremap <C-j> <C-n>
 cnoremap <C-k> <C-p>
 
 " easy folding
-nnoremap z za<Space>0                           " toggle fold under cursor no jumping around
+nnoremap z za<Space>0                               " toggle fold under cursor no jumping around
 
 " toggle relativenumber
 nnoremap <leader>r :set invrnu<CR>
@@ -151,6 +153,10 @@ noremap <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 
 " search and replace all
 nnoremap <C-s> :%s//gI<Left><Left><Left>
+
+" find and replace: search for text and replace all text
+" usage: use / to find text then hit <leader>fr to replace all
+nmap <leader>fr :%s///<Left>
 
 " markdown
 " set proper extension for markdown files (.md)
@@ -184,19 +190,25 @@ let g:python3_host_prog = '/usr/bin/python3'
 " header update
 nnoremap <leader>h gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>
 
-" blog entry
-nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
-
 " shebang
 nnoremap sb i#!/usr/bin/sh<CR><CR>
 
-" notes [nn in terminal to open new note]
-" save notes (title.md)
+" blog entry
+nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
+
+" notes - all notes in markdown (.md)
+
+" new note 'nn' in terminal
+" save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
-" save daily (zettelkasten) notes (time stamped)
-nnoremap sz :saveas ~/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
-" save ttrade notes (time stamp) [nt in terminal to open template]
-nnoremap ts :saveas ~/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+
+" new trade note (template) 'nt' in terminal
+" save trade note (time stamp)
+nnoremap st :saveas $HOME/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+
+" new zettel 'nz' in terminal
+" save zettel zettelkasten note (time stamp)
+nnoremap sz :saveas $HOME/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
 
 "}}}
 
