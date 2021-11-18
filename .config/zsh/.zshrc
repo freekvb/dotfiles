@@ -35,7 +35,8 @@ else
 fi
 
 local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
-PROMPT='${NEWLINE} %B%~  %b%F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
+
 
 # right prompt
 autoload -Uz vcs_info
@@ -71,7 +72,7 @@ function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
 
-# define right prompt, regardless of whether the theme defined it
+## define right prompt, regardless of whether the theme defined it
 RPS1='%B$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
 RPS2=$RPS1
 
@@ -238,9 +239,15 @@ cdl() {
 }
 
 # ddg search and open in lynx - alias: dl
-duckgo () {
+ddg () {
     declare url=$*
     lx "https://duckduckgo.com/lite?q=$*"
+}
+
+# ddg search and open in w3m - alias: dw
+duckgo () {
+    declare url=$*
+    w3m "https://duckduckgo.com/lite?q=$*"
 }
 
 # set window title to command just before running it
