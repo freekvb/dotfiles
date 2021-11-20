@@ -11,9 +11,10 @@
 xrandr --output HDMI-1 --mode 1920x1080
 xsetroot -cursor_name left_ptr
 setxkbmap -option caps:escape
-xset dpms 0 0 0
 xset r rate 750 50
+xset dpms 0 0 0
 xrandr --dpi 96
+xset s off
 
 ~/.fehbg &
 udiskie &
@@ -22,4 +23,4 @@ picom &
 clipmenud &
 mega-cmd-server &
 unclutter --timeout 2 &
-pamixer --set-volume 35 &
+pamixer --set-volume 25 &
