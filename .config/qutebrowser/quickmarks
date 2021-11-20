@@ -12,7 +12,6 @@ reddit https://old.reddit.com/
 1337 https://www.1337x.to/home/
 invidious https://yewtu.be/feed/popular
 youtube https://www.youtube.com/
-ff [forexfactory] https://www.forexfactory.com/
 fxstreet https://www.fxstreet.com/economic-calendar
 ICT https://ictmentorship.discussion.community/latest
 ICT-yt https://www.youtube.com/c/InnerCircleTrader/community
@@ -27,10 +26,8 @@ coingecko api https://www.coingecko.com/api/documentations/v3#/coins/get_coins_l
 cointop https://docs.cointop.sh/
 shapeshift https://shapeshift.com/keepkey
 ddg https://duckduckgo.com/
-dots_ja https://github.com/jessarcher/dotfiles
 9gag https://9gag.com/
 emoji-cheat-sheet https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
-ferris sweep https://github.com/davidphilipbarr/Sweep
 ff pivot https://www.forexfactory.com/thread/588764-pivot-trading?goto=newpost
 finviz https://finviz.com/futures_charts.ashx?t=CURRENCIES&p=h1
 git cheat sheet http://git-cheatsheet.com/
@@ -41,13 +38,10 @@ lazygit cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindi
 learning resources https://github.com/neopragma/online-learning-resources
 linuxconsole.net https://linuxconsole.net/index.html
 markdown https://commonmark.org/help/
-mdconv (md2html) https://github.com/kevwan/mdconv
-mini.nvim https://github.com/echasnovski/mini.nvim
 monkeytype https://monkeytype.com/
 pipecat https://github.com/Wojnstup/PipeCatTurbo
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
-qmk_github https://github.com/qmk/qmk_firmware
 qutebrowser cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
 sfeed https://codemadness.org/sfeed-simple-feed-parser.html
 suckless https://suckless.org/
@@ -60,3 +54,12 @@ wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
 yandex translate https://translate.yandex.com/
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
+dots_ja https://github.com/jessarcher/dotfiles
+ja https://www.twitch.tv/videos/1190959702?t=1h30m40s
+mdconv (md2html) https://github.com/kevwan/mdconv
+google shell scripting https://google.github.io/styleguide/shellguide.html
+ferris sweep https://github.com/davidphilipbarr/Sweep
+coleman dh https://colemakmods.github.io/mod-dh/
+qmk_github https://github.com/qmk/qmk_firmware
+mini.nvim https://github.com/echasnovski/mini.nvim
+bugswriter https://github.com/adrianscheff
