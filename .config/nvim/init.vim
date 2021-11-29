@@ -10,7 +10,7 @@
 " general settings
 set clipboard+=unnamedplus                          " copy(y) paste(p) to/from system buffer
 set number                                          " numbers
-set relativenumber                                  " relative number
+"set relativenumber                                  " relative number
 set numberwidth=5                                   " width 'gutter' column numbering
 set scrolloff=999                                   " keep cursor away from top and bottom
 set ttyfast                                         " faster scrolling
@@ -78,9 +78,6 @@ nnoremap <leader>W   :w!<CR>
 nnoremap <leader>Q   :q!<CR>
 nnoremap <leader>WQ  :wq!<CR>
 
-" header update
-nnoremap <leader>h   gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>:nohlsearch<CR>:w<CR>
-
 " navigate properly when lines are wrapped
 nnoremap j gj
 nnoremap k gk
@@ -135,6 +132,9 @@ nnoremap gf :edit <cfile><cr>
 
 " open the current file in the default program
 nnoremap <leader>x :!xdg-open %<cr><cr>
+
+" no ex mode for me
+nnoremap Q <nop>
 
 "}}}
 
