@@ -11,7 +11,7 @@ export FZF_DEFAULT_OPTS='
 --preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
 
 # vi like navigation with J/K
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --info=inline --bind 'J:down,K:up,Q:cancel'"
 
 while getopts ":s:" opt; do
     case $opt in
