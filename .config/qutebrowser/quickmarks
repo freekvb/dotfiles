@@ -12,6 +12,7 @@ reddit https://old.reddit.com/
 1337 https://www.1337x.to/home/
 invidious https://yewtu.be/feed/popular
 youtube https://www.youtube.com/
+ff https://www.forexfactory.com/
 fxstreet https://www.fxstreet.com/economic-calendar
 ICT https://ictmentorship.discussion.community/latest
 ICT-yt https://www.youtube.com/c/InnerCircleTrader/community
@@ -25,23 +26,31 @@ coingecko https://www.coingecko.com/
 coingecko api https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list
 cointop https://docs.cointop.sh/
 shapeshift https://shapeshift.com/keepkey
+bugswriter https://github.com/adrianscheff
 ddg https://duckduckgo.com/
 9gag https://9gag.com/
 emoji-cheat-sheet https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+ferris sweep https://github.com/davidphilipbarr/Sweep
+ferris_cuddly_kb https://www.cuddlykeyboards.com/
 ff pivot https://www.forexfactory.com/thread/588764-pivot-trading?goto=newpost
 finviz https://finviz.com/futures_charts.ashx?t=CURRENCIES&p=h1
 git cheat sheet http://git-cheatsheet.com/
 ig sentiment https://www.dailyfx.com/sentiment-report
 init.lua https://www.notonlycode.org/neovim-lua-config/
 instagram https://www.instagram.com/
+ja https://www.twitch.tv/videos/1190959702?t=1h30m40s
+ja_dots https://github.com/jessarcher/dotfiles
 lazygit cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
 learning resources https://github.com/neopragma/online-learning-resources
 linuxconsole.net https://linuxconsole.net/index.html
 markdown https://commonmark.org/help/
+mdconv (md2html) https://github.com/kevwan/mdconv
+mini.nvim https://github.com/echasnovski/mini.nvim
 monkeytype https://monkeytype.com/
 pipecat https://github.com/Wojnstup/PipeCatTurbo
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
+qmk_github https://github.com/qmk/qmk_firmware
 qutebrowser cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
 sfeed https://codemadness.org/sfeed-simple-feed-parser.html
 suckless https://suckless.org/
@@ -54,12 +63,5 @@ wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
 yandex translate https://translate.yandex.com/
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
-dots_ja https://github.com/jessarcher/dotfiles
-ja https://www.twitch.tv/videos/1190959702?t=1h30m40s
-mdconv (md2html) https://github.com/kevwan/mdconv
-google shell scripting https://google.github.io/styleguide/shellguide.html
-ferris sweep https://github.com/davidphilipbarr/Sweep
-coleman dh https://colemakmods.github.io/mod-dh/
-qmk_github https://github.com/qmk/qmk_firmware
-mini.nvim https://github.com/echasnovski/mini.nvim
-bugswriter https://github.com/adrianscheff
+forex_world_time https://www.worldtimebuddy.com/?pl=1&lid=12,2643743,5128581,1850147&h=12&hf=2
+ica_client https://aur.archlinux.org/packages/icaclient/
