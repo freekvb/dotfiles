@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/sxhkd/sxhkdrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:09
-# Update:   Wed 29 Sep 2021 14:06
+# Update:   Mon 13 Dec 2021 21:48
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -33,12 +33,12 @@ super + d
     tdrop -m -w 1916 -a st
 
 # clipboard manager
-super + y
+super + p
     clipmenu -i
 
 # lock screen
 super + z
-    slock
+    xset dpms force off
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -160,6 +160,10 @@ super + {comma,period,slash}
 super + x
     mocp -G
 
+# youtube pipecat
+super + y
+    pipecat-turbo.sh
+
 # emojis to clipboard
 alt + e
     ./Scripts/dmenu-emoji
@@ -183,4 +187,5 @@ alt + s
 # forum screenshots
 alt + f
     scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/ict/forums/' && dunstify "chart screenshot  >>  forums"
+
 
