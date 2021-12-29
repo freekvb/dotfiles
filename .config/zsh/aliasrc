@@ -49,9 +49,7 @@ alias mf='touch'                                    # create new file
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
 alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mwg='monero-wallet-gui'                       # monero wallet
-alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn to save
-alias nt='nvim $HOME/Notes/trade/-template.md'      # new trade note, ts to save
-alias nz='vi $HOME/Notes/new.md'                    # new 'zettel' start I-mode, sz to save
+alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
 alias pacman='sudo pacman --color=always'
@@ -66,11 +64,7 @@ alias suck='rm -f config.h ; sudo make install'     # source suckless programs
 alias sudo='sudo '
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias td='tty-clock -C4 -c -f "%a %d %b %Y"'        # time date tty-clock
-alias tm='TERM=st-256color tmux'                    # start tmux in the right env
-alias tma='tm attach-session'                       # attach to last session
-alias tmat='tm attach-session -t'                   # attach to session with given name
-alias tmls='tm list-sessions'                       # list all sessions
-alias tmns='tm new-session -s'                      # start new session with given name
+alias tmux='TERM=st-256color tmux'                    # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'
@@ -78,6 +72,7 @@ alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
+alias weer='curl v2.wttr.in'
 alias yf='ytfzf'                                    # youtube video fzf search and view
 alias yp='pipe-viewer'                              # youtube video search and view
 alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
