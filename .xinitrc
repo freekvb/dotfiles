@@ -16,7 +16,7 @@
 #exec bspwm
 
 
-## dwm ##
+# dwm ##
 
 dwmblocks &
 exec dwm
