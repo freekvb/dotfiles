@@ -197,16 +197,14 @@ nnoremap sb i#!/usr/bin/sh<CR><CR>
 nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
 
 " notes - all notes in markdown (.md)
-
 " new note 'nn' in terminal
+
 " save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
 
-" new trade note (template) 'nt' in terminal
 " save trade note (time stamp)
 nnoremap st :saveas $HOME/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
 
-" new zettel 'nz' in terminal
 " save zettel zettelkasten note (time stamp)
 nnoremap sz :saveas $HOME/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
 
