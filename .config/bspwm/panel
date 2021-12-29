@@ -45,12 +45,12 @@ cpu() {
 }
 
 cputemp() {
-    cputemp=$(sensors | awk 'BEGIN{i=0;t=0;b=0}/id [0-9]/{b=$4};/Core/{++i;t+=$3}END{if(i>0){printf("%0.1f\n",t/i)}else{sub(/[^0-9.]/,"",b);print b}}')
-    echo -n "$cputemp"°C
+    cputemp=$(sensors | awk '/^Package/ { print $4+0"°" }')
+    echo -n "$cputemp"
 }
 
 mem() {
-    mem=$(free -m | egrep Mem | awk '{printf "%.f%\n", ($3+$5)/$2*100}')
+    mem=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
     echo -n "$mem"
 }
 
@@ -71,7 +71,7 @@ volume() {
 
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b} [cpu $(cpu)] [temp $(cputemp)] [mem $(mem)] [upd $(upd)] [mail $(mail)] [vol $(volume)]  [%{F-}%{B-}%{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}]"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b}   cpu $(cpu)   temp $(cputemp)   mem $(mem)   upd $(upd)   mail $(mail)   vol $(volume)   %{F-}%{B-}%{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
         sleep 1
 done > "$PANEL_FIFO" &
 
@@ -101,7 +101,7 @@ cro() {
 
 
 while true; do
-    echo -e "C%{F#B5C1BE}%{B#1c1b1b} [btc $(btc)] [xmr $(xmr)] [hbar $(hbar)] [cro $(cro)] %{F-}%{B-}"
+    echo -e "C%{F#B5C1BE}%{B#1c1b1b}   btc $(btc)   cro $(cro)   hbar $(hbar)   xmr $(xmr)   %{F-}%{B-}"
         sleep 60
 done > "$PANEL_FIFO" &
 
