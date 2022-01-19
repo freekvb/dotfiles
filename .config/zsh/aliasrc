@@ -1,23 +1,24 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/aliasrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Fri 22 Oct 2021 23:21
+# Update:   Sun 16 Jan 2022 15:42
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 
 #----------- alias -----------------------------------------------------------#
 
+alias ..='cd ..'                                    # cd to parent directory
+alias c='clear'
+alias cc='cd && clear'
+alias cl='cdl'                                      # cd and ls directory
+alias d='exit'
 alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first'
 alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
-alias c='clear'
-alias cc='cd && clear'
-alias cl='cdl'                                      # cd and ls directory
-alias ..='cd ..'                                    # cd to parent directory
-alias d='exit'
+
 alias al='$HOME/Scripts/alias'                      # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keybindings'         # list bspwm keybindings
@@ -27,8 +28,6 @@ alias dq='ddgr'                                     # ddg search in qutebrowser
 alias diff='diff --color=auto'
 alias dkb='$HOME/Scripts/dwm_keybindings'           # list dwm keybindings
 alias f='fzf'                                       # fzf
-alias f.='ch'                                       # fzf and cd in hidden directory
-alias fc='cf'                                       # fzf and cd in directory
 alias ff='fifo'                                     # fzf given string in files
 alias fh='hst'                                      # fzf term command history > clipboard
 alias fk='fkill'                                    # fzf and kill proces
@@ -39,6 +38,7 @@ alias fpdf='pdf'                                    # fzf pdf and open in zathur
 alias fv='vif'                                      # fzf and open in nvim
 alias fz='cd $HOME/Notes/zet && fifo'               # fzf given string in 'zettelkast' notes
 alias grep='grep --color=auto'
+alias history='fc -l 1'                             # history show all
 alias kmon='kmon -c green'                          # kernel manager and monitor
 alias less='less -R'
 alias lg='lazygit'                                  # lazygit
@@ -48,7 +48,7 @@ alias md='mkdir'                                    # create new directory
 alias mf='touch'                                    # create new file
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
 alias ms='$HOME/Scripts/mkscript'                   # create new script
-alias mwg='monero-wallet-gui'                       # monero wallet
+alias mw='monero-wallet-gui'                        # monero wallet
 alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
