@@ -7,64 +7,53 @@ nu.nl https://www.nu.nl/
 geenstijl https://www.geenstijl.nl
 skoften https://www.skoften.net/
 volkomenkut http://www.vkmag.com/
-arch forum https://bbs.archlinux.org/search.php?action=show_new
+arch_forum https://bbs.archlinux.org/search.php?action=show_new
 reddit https://old.reddit.com/
 1337 https://www.1337x.to/home/
 invidious https://yewtu.be/feed/popular
 youtube https://www.youtube.com/
 ff https://www.forexfactory.com/
 fxstreet https://www.fxstreet.com/economic-calendar
-ICT https://ictmentorship.discussion.community/latest
+ICT_forum https://ictmentorship.discussion.community/?forum=714007
 ICT-yt https://www.youtube.com/c/InnerCircleTrader/community
-tv [tradingview] https://www.tradingview.com/chart/cMQbfWgs/#
-gh (github) https://github.com/freekvb
-gl (gitlab) https://gitlab.com/freekvb
+tv_[tradingview] https://www.tradingview.com/chart/cMQbfWgs/#
+gh_(github) https://github.com/freekvb
+gl_(gitlab) https://gitlab.com/freekvb
 binance https://www.binance.com/nl/trade/BTC_USDT
 bitstamp https://www.bitstamp.net/market/tradeview/
 bittrex https://global.bittrex.com/Market/Index?MarketName=USD-BTC
 coingecko https://www.coingecko.com/
-coingecko api https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list
+coingecko_api https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list
 cointop https://docs.cointop.sh/
 shapeshift https://shapeshift.com/keepkey
-bugswriter https://github.com/adrianscheff
-ddg https://duckduckgo.com/
-9gag https://9gag.com/
-emoji-cheat-sheet https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
-ferris sweep https://github.com/davidphilipbarr/Sweep
-ferris_cuddly_kb https://www.cuddlykeyboards.com/
-ff pivot https://www.forexfactory.com/thread/588764-pivot-trading?goto=newpost
+ff_pivot https://www.forexfactory.com/thread/588764-pivot-trading?goto=newpost
 finviz https://finviz.com/futures_charts.ashx?t=CURRENCIES&p=h1
-git cheat sheet http://git-cheatsheet.com/
-ig sentiment https://www.dailyfx.com/sentiment-report
-init.lua https://www.notonlycode.org/neovim-lua-config/
+forex_world_time https://www.worldtimebuddy.com/?pl=1&lid=12,2643743,5128581,1850147&h=12&hf=2
+ig_sentiment https://www.dailyfx.com/sentiment-report
+4chan https://boards.4chan.org/b/catalog
+9gag https://9gag.com/
+bugswriter https://github.com/adrianscheff
+ferris_sweep https://github.com/davidphilipbarr/Sweep
+ferris_cuddly_kb https://www.cuddlykeyboards.com/
+git_cheat_sheet http://git-cheatsheet.com/
 instagram https://www.instagram.com/
-ja https://www.twitch.tv/videos/1190959702?t=1h30m40s
-ja_dots https://github.com/jessarcher/dotfiles
-lazygit cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
-learning resources https://github.com/neopragma/online-learning-resources
-linuxconsole.net https://linuxconsole.net/index.html
+lazygit_cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
 markdown https://commonmark.org/help/
-mdconv (md2html) https://github.com/kevwan/mdconv
 mini.nvim https://github.com/echasnovski/mini.nvim
 monkeytype https://monkeytype.com/
+pastel https://github.com/sharkdp/pastel
 pipecat https://github.com/Wojnstup/PipeCatTurbo
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
 qmk_github https://github.com/qmk/qmk_firmware
-qutebrowser cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
+qutebrowser_cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
 sfeed https://codemadness.org/sfeed-simple-feed-parser.html
 suckless https://suckless.org/
-teddit https://teddit.ggc-project.de/
-tmux  cheat https://gist.github.com/MohamedAlaa/2961058
-vim cheat sheet https://vim.rtorr.com/
-vim guide https://thevaluable.dev/vim-intermediate/
-vim quickref https://preview.redd.it/sndjkzgj3eg61.png?width=1958&format=png&auto=webp&s=7a4860f0e522aa458c6bab40abbe9f9ad84927c1
+tmux_cheat https://gist.github.com/MohamedAlaa/2961058
+vim_cheat sheet https://vim.rtorr.com/
+vim_guide https://thevaluable.dev/vim-intermediate/
+vim_quickref https://preview.redd.it/sndjkzgj3eg61.png?width=1958&format=png&auto=webp&s=7a4860f0e522aa458c6bab40abbe9f9ad84927c1
 wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
-yandex translate https://translate.yandex.com/
+yandex_translate https://translate.yandex.com/
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
-forex_world_time https://www.worldtimebuddy.com/?pl=1&lid=12,2643743,5128581,1850147&h=12&hf=2
-ica_client https://aur.archlinux.org/packages/icaclient/
-pastel https://github.com/sharkdp/pastel
-check gmail https://linuxconfig.org/check-your-gmail-inbox-for-new-emails-with-bash-script
-barrier https://github.com/debauchee/barrier
