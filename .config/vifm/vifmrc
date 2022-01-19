@@ -115,6 +115,9 @@ set dirsize=nitems
 " Set dot directories
 set dotdirs=treeleafsparent
 
+" Current location in title statusbar
+set title
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -515,6 +518,9 @@ nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
+
+" Executable
+nnoremap x :!chmod +x %f<cr>
 
 " Extract archives
 command! extract extract %a %f %n
