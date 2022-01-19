@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Thu 04 Nov 2021 16:00
+" Update:   Sun 16 Jan 2022 15:50
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -146,7 +146,7 @@ set pastetoggle=<leader>p
 set showmode
 
 " time stamp
-inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>
+inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR>
 
 " toggle spell checking
 noremap <leader>s :setlocal spell! spelllang=en_us,nl<CR>
@@ -193,20 +193,24 @@ nnoremap <leader>h gg/Update<CR>2wc$<C-R>=strftime("%a %d %b %Y %H:%M")<CR><Esc>
 " shebang
 nnoremap sb i#!/usr/bin/sh<CR><CR>
 
-" blog entry
-nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
-
 " notes - all notes in markdown (.md)
 " new note 'nn' in terminal
 
 " save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
 
+" trade notes (open from 'Notes/trades' directory)
 " save trade note (time stamp)
-nnoremap st :saveas $HOME/Notes/trade/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+" insert last trade screenshot in trade note with timestamp above screenshot
+nnoremap tp :r!tp<CR>$3hDi<CR>[![trade](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)<CR><CR>
 
+" zettel notes
 " save zettel zettelkasten note (time stamp)
 nnoremap sz :saveas $HOME/Notes/zet/<C-R>=strftime("%Y%m%d%H%M%S%z")<CR>.md<CR>
+
+" blog entry
+nnoremap <leader>be :/#<CR><CR><CR>jO<C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR><CR><Esc>2ko
 
 "}}}
 
