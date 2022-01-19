@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent'
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Thu 28 Oct 2021 16:09
+# Update:   Sun 16 Jan 2022 15:42
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -85,8 +85,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$HOME/.cache/zsh/history
 
-# command execution time stamp shown in the history command output
-HIST_STAMPS="dd.mm.yyyy"
+# don't find duplicates
+setopt HIST_FIND_NO_DUPS
 
 #}}}
 
