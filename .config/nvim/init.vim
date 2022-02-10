@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Sun 16 Jan 2022 15:50
+" Update:   Thu 10 Feb 2022 00:18
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -182,6 +182,16 @@ nnoremap <leader>d :w !diff % -<CR>
 " set python provider
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
+
+" set my folding format
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let folded_line_num = v:foldend - v:foldstart
+    let line_text = substitute(line, '^"{\+', '', 'g')
+    let fillcharcount = &textwidth - 21 - len(line_text) - len(folded_line_num)
+    return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                              '
+endfunction
+set foldtext=MyFoldText()
 
 "}}}
 
