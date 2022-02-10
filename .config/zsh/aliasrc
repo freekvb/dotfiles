@@ -63,7 +63,7 @@ alias pm='passmenu'                                 # passwords ih dmenu
 alias suck='rm -f config.h ; sudo make install'     # source suckless programs
 alias sudo='sudo '
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
-alias td='tty-clock -C4 -c -f "%a %d %b %Y"'        # time date tty-clock
+alias td='tty-clock -C6 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias tmux='TERM=st-256color tmux'                    # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
