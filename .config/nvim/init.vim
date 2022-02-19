@@ -163,6 +163,7 @@ nmap <leader>fr :%s///<Left>
 au BufRead,BufNewFile *.md set filetype=markdown
 " set proper text width for markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=79
+let g:markdown_fenced_languages = ['javascript', 'ruby', 'sh', 'yaml', 'javascript', 'html', 'vim', 'json', 'diff']
 
 " remove trailing white space
 autocmd BufWritePre * %s/\s\+$//e
@@ -187,7 +188,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 function! MyFoldText()
     let line = getline(v:foldstart)
     let folded_line_num = v:foldend - v:foldstart
-    let line_text = substitute(line, '^"{\+', '', 'g')
+    let line_text = substitute(line, '^["|#]{\+', '', 'g')
     let fillcharcount = &textwidth - 21 - len(line_text) - len(folded_line_num)
     return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                              '
 endfunction
