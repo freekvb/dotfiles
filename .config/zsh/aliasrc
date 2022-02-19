@@ -21,12 +21,12 @@ alias rm='rm -iv'
 
 alias al='$HOME/Scripts/alias'                      # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
-alias bkb='$HOME/Scripts/bspwm_keybindings'         # list bspwm keybindings
+alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
 alias dl='ddg'                                      # ddg search in lynx
 alias dw='duckgo'                                   # ddg search in w3m
 alias dq='ddgr'                                     # ddg search in qutebrowser
 alias diff='diff --color=auto'
-alias dkb='$HOME/Scripts/dwm_keybindings'           # list dwm keybindings
+alias dkb='cat $HOME/Notes/dwm_keys.md'             # dwm keybindings
 alias f='fzf'                                       # fzf
 alias ff='fifo'                                     # fzf given string in files
 alias fh='hst'                                      # fzf term command history > clipboard
@@ -60,6 +60,7 @@ alias parf='parufd'                                 # paru aur fzf find aur pkg 
 alias parl='paruls'                                 # paru aur fzf list installed aur pkgs > clipboard
 alias pars='$HOME/Scripts/pars'                     # paru aur fzf install
 alias pm='passmenu'                                 # passwords ih dmenu
+alias skb='cat $HOME/Notes/skb.md | less'           # (n)sxiv keybindings
 alias suck='rm -f config.h ; sudo make install'     # source suckless programs
 alias sudo='sudo '
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
