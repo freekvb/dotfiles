@@ -62,6 +62,10 @@ function +vi-git-untracked() {
   fi
 }
 
+# Delay (in seconds) after which the command time is shown. Only integers
+# allowed, set at `0` if you want to constantly show command time.
+source ~/.config/zsh/zsh-command-time/zsh-command-time.plugin.zsh
+
 # nvim mode indicator for in right prompt
 # updates editor information when the keymap changes
 function zle-keymap-select() {
@@ -73,7 +77,7 @@ function nvim_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% N]%}/(main|viins)/[% I]%}"
 }
 
-## define right prompt, regardless of whether the theme defined it
+# define right prompt, regardless of whether the theme defined it
 RPS1='%B$vcs_info_msg_0_''$(nvim_mode_prompt_info)'
 RPS2=$RPS1
 
@@ -150,7 +154,7 @@ bindkey -v '^?' backward-delete-char
 
 #}}}
 
-##{{{ archives
+#{{{ archives
 
 ## extract all compressed files with 'extract'
 ## usage: extract <file>
@@ -220,7 +224,7 @@ show()
         fi
 }
 
-##}}}
+#}}}
 
 #{{{ color
 
