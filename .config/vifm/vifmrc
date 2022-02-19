@@ -251,8 +251,8 @@ fileviewer *.[1-8] man ./%c | col -b
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in feh}
         \ feh -F %f &,
-        \ {View in sxiv}
-        \ sxiv -bia %f &,
+        \ {View in nsxiv}
+        \ nsxiv -bia %f &,
         \ {View in imv}
         \ imv -b 1D2330 -d %d &,
         \ {View in cacaview}
@@ -448,8 +448,8 @@ nnoremap : ;
 " Lazy quit
 nnoremap ,q :q<cr>
 
-" Open all images in current directory in sxiv thumbnail mode
-nnoremap sx :!sxiv -t %d & <cr>
+" Open all images in current directory in nsxiv thumbnail mode
+nnoremap sx :!nsxiv -t %d & <cr>
 
 " Open lazygit in current directory
 nnoremap Lg :lg<cr>
