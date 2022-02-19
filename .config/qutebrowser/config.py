@@ -1563,7 +1563,7 @@ c.tabs.show = 'never'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-c.url.default_page = 'https://freekvb.github.io/fvb/'
+c.url.default_page = 'file:///home/fvb/Websites/fvb/start.html'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1594,7 +1594,7 @@ c.url.default_page = 'https://freekvb.github.io/fvb/'
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['https://freekvb.github.io/fvb/']
+c.url.start_pages = ['file:///home/fvb/Websites/fvb/start.html']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
