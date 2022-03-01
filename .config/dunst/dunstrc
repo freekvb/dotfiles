@@ -32,7 +32,7 @@
     # dynamic width from 0 to 1920
     # width = (0, 1920)
     # constant width of 1920
-    width = 1920
+    width = 2560
 
     # The maximum height of a single notification, excluding the frame.
     #height = 300
@@ -204,7 +204,7 @@
     max_icon_size = 0
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
