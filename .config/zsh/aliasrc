@@ -44,6 +44,7 @@ alias less='less -R'
 alias lg='lazygit'                                  # lazygit
 alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
 alias lgw='cd $HOME/Websites/fvb && lazygit'        # lazygit website fvb
+alias lkb='cat $HOME/Notes/lynx_keys.md | less'     # lynx keybindings
 alias md='mkdir'                                    # create new directory
 alias mf='touch'                                    # create new file
 alias moc='mocp -T /usr/share/moc/themes/transparent-background'
