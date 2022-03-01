@@ -151,6 +151,9 @@ inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR>
 " toggle spell checking
 noremap <leader>s :setlocal spell! spelllang=en_us,nl<CR>
 
+" double space over word to find and replace
+nnoremap <Space><Space> :%s/\<<C-r>=expand("<cword>")<CR>\>/
+
 " search and replace all
 nnoremap <C-s> :%s//gI<Left><Left><Left>
 
@@ -190,7 +193,7 @@ function! MyFoldText()
     let folded_line_num = v:foldend - v:foldstart
     let line_text = substitute(line, '^["|#]{\+', '', 'g')
     let fillcharcount = &textwidth - 21 - len(line_text) - len(folded_line_num)
-    return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                              '
+    return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                      '
 endfunction
 set foldtext=MyFoldText()
 
