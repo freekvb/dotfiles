@@ -106,7 +106,7 @@ set rulerformat=" "
 
 " Set line numbers to show
 set number
-"set relativenumber
+set relativenumber
 set numberwidth=4
 
 " Set number of files in directory
