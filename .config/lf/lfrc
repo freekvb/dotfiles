@@ -1,0 +1,349 @@
+## Based on Luke's & Brodie's lf settings
+
+
+# Note on Image Previews
+# For those wanting image previews, like this system, there are four steps to
+# set it up. These are done automatically for LARBS users, but I will state
+# them here for others doing it manually.
+#
+# 1. ueberzug must be installed.
+# 2. The scope file (~/.config/lf/scope for me), must have a command similar to
+#    mine to generate ueberzug images.
+# 3. A `set cleaner` line as below is a cleaner script.
+# 4. lf should be started through a wrapper script (~/.local/bin/lfub for me)
+#    that creates the environment for ueberzug. This command can be be aliased
+#    in your shellrc (`alias lf="lfub") or if set to a binding, should be
+#    called directly instead of normal lf.
+
+
+## Basic vars
+
+set ratios '2:3:4'
+set hidden
+set ignorecase
+set number
+set relativenumber
+set info size
+set dircounts
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set wrapscroll
+set icons
+set period 1
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+
+
+## Custom Functions
+
+cmd on-cd &{{
+    # '&' commands run silently in background (which is what we want here),
+    # but are not connected to stdout.
+    # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
+    printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
+}}
+
+# also run at startup
+on-cd
+
+
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$fx";;
+        video/*|application/pdf) xdg-open "$f" & disown;;
+        audio/*) mpv --audio-display=no $f ;;
+        *) for f in "$fx"; do xdg-open "$f"> /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+#cmd mkdir ${{
+#    printf "Directory Name: "
+#    read ans
+#    mkdir $ans
+#}}
+
+cmd mkfile ${{
+    printf "File Name: "
+    read ans
+    $EDITOR $ans
+}}
+
+cmd mkscript ${{
+    printf "File Name: "
+    read ans
+    touch ~/Scripts/"$ans"
+    chmod +x ~/Scripts/"$ans"
+    $EDITOR ~/Scripts/"$ans"
+}}
+
+cmd sudomkfile ${{
+    printf "File Name: "
+    read ans
+    sudo $EDITOR $ans
+}}
+
+cmd chmod ${{
+  printf "Mode Bits: "
+  read ans
+
+  for file in "$fx"
+  do
+    chmod $ans $file
+  done
+
+  lf -remote 'send reload'
+}}
+
+cmd chmodx ${{
+
+  for file in "$fx"
+  do
+    chmod +x $file
+  done
+
+  lf -remote 'send reload'
+}}
+
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+# delete current file or selected files (prompting)
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ $ans = "y" ] && rm -rf $fx
+}}
+
+# trash cli bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    # extract the substring from start of string up to delimiter.
+    # this is the first "element" of the string.
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    # if there's only one element left, set `files` to an empty string.
+    # this causes us to exit this `while` loop.
+    # else, we delete the first "element" of the string from files, and move onto the next.
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+## trash
+#$mkdir -p ~/.cache/lf/trash
+#cmd trash $IFS="`printf '\n\t'`"; mv -f $fx ~/.cache/lf/trash
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# symlinks
+# yy (select for copy) and P to paste soft-link
+# cc (select for cut) and P to paste hard-link
+cmd link %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+cmd openterm ${{
+    $TERMINAL &
+}}
+
+cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Programs/dwm && rm -f config.h ; sudo make install) && dunstify " -_-   you may now restart dwm "
+
+cmd bulkrename $vidir
+
+
+## Bindings
+
+# remove some defaults
+map m
+map "'"
+map '"'
+map d
+map c
+map e
+
+# Basic Functions
+
+# map : to ;
+map ; read
+
+# trash mappings
+map dd trash
+map tc clear_trash
+map tr restore_trash
+
+map DD delete
+map cc cut
+map yy copy
+map p paste
+
+map gg top
+map <enter> shell
+#map md mkdir
+map md push %mkdir<space>
+map mf mkfile
+#map mf push %touch<space>
+map ms mkscript
+map mF sudomkfile
+map ch chmod
+map cx chmodx
+map bg setwallpaper
+map cw rename
+map E extract
+map R reload
+map C clear
+map U unselect
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+map o open $f
+
+map A rename # at the very end
+#map c push A<c-u> # new rename
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+map a push A<a-b> # after extention
+map B bulkrename
+
+map cv push :!nvim<space>$HOME/.config/lf/lfrc<enter>
+
+map V push :!nvim<space>
+
+map C $printf "%s" "$fx" | xclip -selection clipboard
+
+# symlinks
+# yy (select for copy) and P to paste soft-link
+# cc (select for cut) and P to paste hard-link
+map P :link
+
+
+# File Openers
+
+map ee $$EDITOR "$f"
+map es $sudo $EDITOR "$f"
+map oa $$READER "$f"
+map ol $$PAGER "$f"
+map ob $$BROWSER "$f"
+map ot $$TERMINAL
+
+# FZF
+
+map f $lf -remote "send $id select '$(fzf)'"
+map F $vi $(fzf)
+map J fzf_jump
+
+# Fast Navigation
+
+map gh cd ~
+map gD cd ~/Documents
+map gd cd ~/Downloads
+map gm cd ~/Media
+map gn cd ~/Notes
+map gt cd ~/Notes/trades
+map gp cd ~/Pictures
+map gw cd ~/Pictures/wallpapers
+map gP cd ~/Programs
+map gs cd ~/Scripts
+map gT cd ~/Torrents
+map gc cd ~/.config
+map g/ cd /
+map ge cd /etc
+map gM cd /mnt
+map gu cd /usr
+
+# Fast Movement
+
+map Mh $mv "$f" ~
+map MD $mv "$f" ~/Documents
+map Md $mv "$f" ~/Downloads
+map Mm $mv "$f" ~/Media
+map Mn $mv "$f" ~/Notes
+map Mt $mv "$f" ~/Notes/trades
+map Mp $mv "$f" ~/Pictures
+map Mw $mv "$f" ~/Pictures/wallpapers
+map MP $mv "$f" ~/Programs
+map Ms $mv "$f" ~/Scripts
+map MT $mv "$f" ~/Torrents
+map Mc $mv "$f" ~/.config
+
+# Fast Copy
+
+map Yh $cp "$f" ~
+map YD $cp "$f" ~/Documents
+map Yd $cp "$f" ~/Downloads
+map Ym $cp "$f" ~/Media
+map Yn $cp "$f" ~/Notes
+map Yt $cp "$f" ~/Notes/trades
+map Yp $cp "$f" ~/Pictures
+map Yw $cp "$f" ~/Pictures/wallpapers
+map YP $cp "$f" ~/Programs
+map Ys $cp "$f" ~/Scripts
+map YT $cp "$f" ~/Torrents
+map Yc $cp "$f" ~/.config
+
