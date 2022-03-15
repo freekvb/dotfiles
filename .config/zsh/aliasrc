@@ -41,6 +41,7 @@ alias grep='grep --color=auto'
 alias history='fc -l 1'                             # history show all
 alias kmon='kmon -c green'                          # kernel manager and monitor
 alias less='less -R'
+alias lf='lfub'                                     # lf script cause of uberzug
 alias lg='lazygit'                                  # lazygit
 alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
 alias lgw='cd $HOME/Websites/fvb && lazygit'        # lazygit website fvb
