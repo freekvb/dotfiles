@@ -33,7 +33,7 @@ alias fh='hst'                                      # fzf term command history >
 alias fk='fkill'                                    # fzf and kill proces
 alias fm='macho'                                    # fzf man pages
 alias fo='fox'                                      # fzf and open with 'open' (c-o) or '$EDITOR' (c-e)
-alias fp='fzf --preview "bat --style=plain --color=always --line-range :100 {}" --preview-window "right:70%"'                                      # fzf --preview --preview-window "right:70%"
+alias fp='fzf --preview "bat --style=plain --color=always --line-range :100 {}" --preview-window "right:70%"'
 alias fpdf='pdf'                                    # fzf pdf and open in zathura
 alias fv='vif'                                      # fzf and open in nvim
 alias fz='cd $HOME/Notes/zet && fifo'               # fzf given string in 'zettelkast' notes
