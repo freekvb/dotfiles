@@ -27,8 +27,8 @@ export BROWSERCLI=$(find_alt lynx w3m links2 links elinks $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export EDITOR=$(find_alt nvim vim vi nano $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
-export FILEMANAGERCLI=$(find_alt vifm ranger lf $OPENER)
-export IMAGEVIEWER=$(find_alt feh sxiv $OPENER)
+export FILEMANAGERCLI=$(find_alt lf vifm ranger $OPENER)
+export IMAGEVIEWER=$(find_alt nsxiv feh $OPENER)
 export MANPAGER="nvim +Man!"
 export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
@@ -53,7 +53,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
-export YTFZF_CONFIG_DIR=$HOME/.config/ytfzf
 
 #}}}
 
@@ -75,12 +74,12 @@ if [[ ! "$PATH" == */home/fvb/Scripts* ]]; then
   export PATH="${PATH:+${PATH}:}/home/fvb/Scripts"
 fi
 
-if [[ ! "$PATH" == */home/fvb/.gem/ruby/2.7.0/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.gem/ruby/2.7.0/bin"
+if [[ ! "$PATH" == */home/fvb/.local/share/gem/ruby/3.0.0/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/gem/ruby/3.0.0/bin"
 fi
 
-if [[ ! "$PATH" == */home/fvb/.cargo/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.cargo/bin"
+if [[ ! "$PATH" == */home/fvb/.local/share/cargo/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/cargo/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.fzf/bin* ]]; then

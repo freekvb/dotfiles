@@ -6,7 +6,7 @@
 #-----------------------------------------------------------------------------#
 
 
-[[ -f ~/.config/zsh/.zshrc ]] && . ~/.config/zsh/.zshrc
+[[ -f "$HOME/.config/zsh/.zshrc" ]] && . "$HOME/.config/zsh/.zshrc"
 
 
 # auto start x at login

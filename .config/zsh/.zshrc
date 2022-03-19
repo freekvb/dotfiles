@@ -14,6 +14,7 @@
 
 # load fzf functions if existent
 [ -f "$HOME/.config/zsh/fzfrc" ] && source "$HOME/.config/zsh/fzfrc"
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
 # enable colors
 autoload -U colors && colors

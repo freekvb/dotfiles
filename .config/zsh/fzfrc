@@ -18,40 +18,41 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height '50%' --margin=1,0,0,4 --r
 # vi like navigation with J/K
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 
-## fzf defaults
+### fzf defaults
 export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 # use ** as the trigger sequence
 export FZF_COMPLETION_TRIGGER='**'
 
-# completion ptions to fzf command
+# completion options to fzf command
 export FZF_COMPLETION_OPTS='--border --info=inline'
 
 alias clipbd="xclip -r -selection clipboard"
 alias devar="unset var"
 
-# cf - cf [cd fuzzy]: cd from $HOME
-cf() {
+# fcd - fcdl [cdl fuzzy]: cd & lsa from $HOME
+fcdl() {
     [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
     if command -v fd >/dev/null; then
-        var="$(fd -d5 -td --follow --search-path ~ 2>/dev/null | fzf --prompt "cd ")"
+        var="$(fd -d5 -td --follow --exclude '*/\.*' 2>/dev/null | fzf --prompt "cd ")"
     else
         var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.*' 2>/dev/null | fzf --prompt "cd ")"
     fi
-    [ -n "$var" ] && cd "$var" 2>/dev/null
+    [ -n "$var" ] && cdl "$var" 2>/dev/null
     devar; return 0
 }
 
-# ch - ch [cd hidden/here]: cd from current dir including hidden
-ch() {
+# fch - fcdlh [cdl fuzzy hidden]: cd & lsa from $HOME including hidden
+fcdlh() {
     [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
     if command -v fd >/dev/null; then
         var="$(fd -d5 -td --follow --hidden --exclude '\.git*' 2>/dev/null | fzf --prompt "cd ")"
     else
-        var="$(find -L . -maxdepth 5 -type d -not -path '*/\.git*' 2>/dev/null | fzf --prompt "cd ")"
+        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.git*' 2>/dev/null | fzf --prompt "cd ")"
     fi
-    [ -n "$var" ] && cd "$var" 2>/dev/null
+    [ -n "$var" ] && cdl "$var" 2>/dev/null
     devar; return 0
 }
 
@@ -63,24 +64,18 @@ vif() {
     devar; return 0
 }
 
-# fpdf - pdf [pdfuzzy]: open pdf/epub in zathura
-if command -v zathura >/dev/null; then
-pdf() {
-    if command -v fd >/dev/null; then
-        fd -e pdf -e epub 2>/dev/null | fzf --prompt "zathura " \
-            --bind "enter:execute|zathura {} 2>/dev/null &|,enter:+print-query" >/dev/null
-    else
-        find . -type f -not -path "*/\.*" -name "*.pdf" -o -name "*.epub" 2>/dev/null | fzf --prompt "zathura " \
-            --bind "enter:execute|zathura {} 2>/dev/null &|,enter:+print-query" >/dev/null
-    fi
-    return 0
-}
-fi
-
-# fo - fox [fuzzy xdg-open]: open any file with xdg-open
+## fo - fox [fuzzy xdg-open]: open any file with 'xdg-open' or '$EDITOR'
+# Modified version where you can press
+#   - CTRL-O to open with `xdg-open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
 fox() {
-    fzf --bind "enter:execute|xdg-open {} 2>/dev/null &|,enter:+print-query" --prompt "xdg-open " >/dev/null
-    return 0
+  local out file key
+  IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && xdg-open "$file" || ${EDITOR:-vim} "$file"
+  fi
 }
 
 # fh - hst [history]: search command line history & copy selected
@@ -88,6 +83,11 @@ hst() {
     var="$(history | cut -c8- | fzf --multi --tac --prompt "history ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
+}
+
+# fhx - find command from history and execute
+function fhx() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
 # fk - fkill - kill processes - list only the ones you can kill - alias: fk
@@ -107,7 +107,7 @@ fkill() {
 # ff - find given string in files, open in nvim and go to 1st search result
 fif() {
 	if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-	rg --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
+	rg --hidden --ignore-case --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 6 '$1' || rg --ignore-case --pretty --context 6 '$1' {}" --preview-window=right:60% --multi --select-1 --exit-0
 }
 # takes a query to grep
 fifo() {
