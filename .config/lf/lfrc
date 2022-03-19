@@ -1,5 +1,12 @@
-## Based on Luke's & Brodie's lf settings
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/lf/lfrc (archlinux @ 'silent')
+# Date:     Thu 15 Mar 2022 12:05
+# Update:   Wed 16 Mar 2022 03:01
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
 
+
+## Based on lfrc Luke Smith & Brodie Robertson -------------------------------#
 
 # Note on Image Previews
 # For those wanting image previews, like this system, there are four steps to
@@ -16,7 +23,7 @@
 #    called directly instead of normal lf.
 
 
-## Basic vars
+## basic vars ----------------------------------------------------------------#
 
 set ratios '2:3:4'
 set hidden
@@ -36,7 +43,7 @@ set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 
 
-## Custom Functions
+## custom functions ----------------------------------------------------------#
 
 cmd on-cd &{{
     # '&' commands run silently in background (which is what we want here),
@@ -44,10 +51,8 @@ cmd on-cd &{{
     # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
     printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
 }}
-
 # also run at startup
 on-cd
-
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
@@ -87,22 +92,18 @@ cmd sudomkfile ${{
 cmd chmod ${{
   printf "Mode Bits: "
   read ans
-
   for file in "$fx"
   do
     chmod $ans $file
   done
-
   lf -remote 'send reload'
 }}
 
 cmd chmodx ${{
-
   for file in "$fx"
   do
     chmod +x $file
   done
-
   lf -remote 'send reload'
 }}
 
@@ -132,7 +133,6 @@ cmd trash ${{
     # extract the substring from start of string up to delimiter.
     # this is the first "element" of the string.
     file=${files%%;*}
-
     trash-put "$(basename "$file")"
     # if there's only one element left, set `files` to an empty string.
     # this causes us to exit this `while` loop.
@@ -209,7 +209,7 @@ cmd zip ${{
 }}
 
 cmd openterm ${{
-    $TERMINAL &
+    $TERM
 }}
 
 cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Programs/dwm && rm -f config.h ; sudo make install) && dunstify " -_-   you may now restart dwm "
@@ -217,7 +217,7 @@ cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Pro
 cmd bulkrename $vidir
 
 
-## Bindings
+## bindings ------------------------------------------------------------------#
 
 # remove some defaults
 map m
@@ -227,123 +227,120 @@ map d
 map c
 map e
 
-# Basic Functions
-
 # map : to ;
-map ; read
+map ;           read
+
+map gg          top
+map G           bottom
 
 # trash mappings
-map dd trash
-map tc clear_trash
-map tr restore_trash
+map dd          trash
+map tc          clear_trash
+map tr          restore_trash
 
-map DD delete
-map cc cut
-map yy copy
-map p paste
+map DD          delete
+map cc          cut
+map yy          copy
+map p           paste
 
-map gg top
-map <enter> shell
-#map md mkdir
-map md push %mkdir<space>
-map mf mkfile
-#map mf push %touch<space>
-map ms mkscript
-map mF sudomkfile
-map ch chmod
-map cx chmodx
-map bg setwallpaper
-map cw rename
-map E extract
-map R reload
-map C clear
-map U unselect
-# execute current file (must be executable)
-map x $$f
-map X !$f
+#map md         mkdir
+map md          push %mkdir<space>
+map mf          mkfile
+map ms          mkscript
+map mF          sudomkfile
+map ch          chmod
+map cx          chmodx
+map U           unselect
+map cw          rename
+map B           bulkrename
+map E           extract
+map bg          setwallpaper
 
-map o open $f
+map R           reload
+map C           clear
 
-map A rename # at the very end
-#map c push A<c-u> # new rename
-map I push A<c-a> # at the very beginning
-map i push A<a-b><a-b><a-f> # before extention
-map a push A<a-b> # after extention
-map B bulkrename
+map A           rename                  # at the very end
+#map c           push A<c-u>             # new rename
+map I           push A<c-a>             # at the very beginning
+map i           push A<a-b><a-b><a-f>   # before extention
+map a           push A<a-b>             # after extention
 
-map cv push :!nvim<space>$HOME/.config/lf/lfrc<enter>
-
-map V push :!nvim<space>
-
-map C $printf "%s" "$fx" | xclip -selection clipboard
-
+map <enter>     shell
+map V           push :!nvim<space>
+map x           $printf "%s" "$fx" | xclip -selection clipboard
 # symlinks
 # yy (select for copy) and P to paste soft-link
 # cc (select for cut) and P to paste hard-link
-map P :link
+map P           :link
 
+## file openers
+map of          open $f
+map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
+map ov          $$EDITOR "$f"
+map osv         $sudo $EDITOR "$f"
+map oz          $$READER "$f"
+map ol          $$PAGER "$f"
+map oq          $$BROWSER "$f"
+map ot          openterm
+# execute current file (must be executable)
+#map x           $$f
+map X           !$f
 
-# File Openers
+## fzf
+map f           $lf -remote "send $id select '$(fzf)'"
+map F           $vi $(fzf)
+map J           fzf_jump
 
-map ee $$EDITOR "$f"
-map es $sudo $EDITOR "$f"
-map oa $$READER "$f"
-map ol $$PAGER "$f"
-map ob $$BROWSER "$f"
-map ot $$TERMINAL
+## fast navigation
+map gh          cd ~
+map gD          cd ~/Documents
+map gd          cd ~/Downloads
+map gm          cd ~/Media
+map gn          cd ~/Notes
+map gi          cd ~/Notes/ict
+map gt          cd ~/Notes/trades
+map gp          cd ~/Pictures
+map gw          cd ~/Pictures/wallpapers
+map gP          cd ~/Programs
+map gs          cd ~/Scripts
+map gT          cd ~/Torrents
+map gc          cd ~/.config
+map gl          cd ~/.local
+map g/          cd /
+map ge          cd /etc
+map gM          cd /mnt
+map gu          cd /usr
+map g0          cd ~/.cache/lf/trash
 
-# FZF
+## fast movement
+map Mh          $mv "$f" ~
+map MD          $mv "$f" ~/Documents
+map Md          $mv "$f" ~/Downloads
+map Mm          $mv "$f" ~/Media
+map Mn          $mv "$f" ~/Notes
+map Mi          $mv "$f" ~/Notes/ict
+map Mt          $mv "$f" ~/Notes/trades
+map Mp          $mv "$f" ~/Pictures
+map Mw          $mv "$f" ~/Pictures/wallpapers
+map MP          $mv "$f" ~/Programs
+map Ms          $mv "$f" ~/Scripts
+map MT          $mv "$f" ~/Torrents
+map Mc          $mv "$f" ~/.config
+map Ml          $mv "$f" ~/.local
 
-map f $lf -remote "send $id select '$(fzf)'"
-map F $vi $(fzf)
-map J fzf_jump
-
-# Fast Navigation
-
-map gh cd ~
-map gD cd ~/Documents
-map gd cd ~/Downloads
-map gm cd ~/Media
-map gn cd ~/Notes
-map gt cd ~/Notes/trades
-map gp cd ~/Pictures
-map gw cd ~/Pictures/wallpapers
-map gP cd ~/Programs
-map gs cd ~/Scripts
-map gT cd ~/Torrents
-map gc cd ~/.config
-map g/ cd /
-map ge cd /etc
-map gM cd /mnt
-map gu cd /usr
-
-# Fast Movement
-
-map Mh $mv "$f" ~
-map MD $mv "$f" ~/Documents
-map Md $mv "$f" ~/Downloads
-map Mm $mv "$f" ~/Media
-map Mn $mv "$f" ~/Notes
-map Mt $mv "$f" ~/Notes/trades
-map Mp $mv "$f" ~/Pictures
-map Mw $mv "$f" ~/Pictures/wallpapers
-map MP $mv "$f" ~/Programs
-map Ms $mv "$f" ~/Scripts
-map MT $mv "$f" ~/Torrents
-map Mc $mv "$f" ~/.config
-
-# Fast Copy
-
-map Yh $cp "$f" ~
-map YD $cp "$f" ~/Documents
-map Yd $cp "$f" ~/Downloads
-map Ym $cp "$f" ~/Media
-map Yn $cp "$f" ~/Notes
-map Yt $cp "$f" ~/Notes/trades
-map Yp $cp "$f" ~/Pictures
-map Yw $cp "$f" ~/Pictures/wallpapers
-map YP $cp "$f" ~/Programs
-map Ys $cp "$f" ~/Scripts
-map YT $cp "$f" ~/Torrents
-map Yc $cp "$f" ~/.config
+## fast copy
+map Yh          $cp "$f" ~
+map YD          $cp "$f" ~/Documents
+map Yd          $cp "$f" ~/Downloads
+map Ym          $cp "$f" ~/Media
+map Yn          $cp "$f" ~/Notes
+map Yi          $cp "$f" ~/Notes/ict
+map Yt          $cp "$f" ~/Notes/trades
+map Yp          $cp "$f" ~/Pictures
+map Yw          $cp "$f" ~/Pictures/wallpapers
+map YP          $cp "$f" ~/Programs
+map Ys          $cp "$f" ~/Scripts
+map YT          $cp "$f" ~/Torrents
+map Yc          $cp "$f" ~/.config
+map Yl          $cp "$f" ~/.local
 
