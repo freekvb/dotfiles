@@ -10,7 +10,7 @@
 " general settings
 set clipboard+=unnamedplus                          " copy(y) paste(p) to/from system buffer
 set number                                          " numbers
-"set relativenumber                                  " relative number
+set relativenumber                                  " relative number
 set numberwidth=5                                   " width 'gutter' column numbering
 set scrolloff=999                                   " keep cursor away from top and bottom
 set ttyfast                                         " faster scrolling
@@ -193,7 +193,7 @@ function! MyFoldText()
     let folded_line_num = v:foldend - v:foldstart
     let line_text = substitute(line, '^["|#]{\+', '', 'g')
     let fillcharcount = &textwidth - 21 - len(line_text) - len(folded_line_num)
-    return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                      '
+    return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                                                                                  '
 endfunction
 set foldtext=MyFoldText()
 
