@@ -120,6 +120,15 @@ fifo() {
 	fi
 }
 
+# fp - fzf preview
+fprev() {
+    fzf --preview "bat --style=plain --color=always --line-range :100 {}" --preview-window "right:70%"
+}
+
+# fe - fzf execute pac_installed program
+fexec() {
+    $(bat $HOME/Notes/pac_installed.md | fzf)
+}
 
 # i use arch btw
 if [ -f "/etc/arch-release" ]; then
