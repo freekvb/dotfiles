@@ -8,7 +8,7 @@ export FZF_DEFAULT_OPTS='
 --border
 --layout=reverse
 --prompt="Man: "
---preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
+--preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null" --preview-window "right:70%"'
 
 # vi like navigation with J/K
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --info=inline --bind 'J:down,K:up,Q:cancel'"
