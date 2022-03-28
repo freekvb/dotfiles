@@ -118,6 +118,9 @@ set dotdirs=treeleafsparent
 " Current location in title statusbar
 set title
 
+" Preview delay
+set previewoptions+=graphicsdelay:0
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -366,6 +369,10 @@ filextype *.pro qtcreator %f &
 filextype */
         \ {View in thunar}
         \ Thunar %f &,
+
+" remaining files:
+fileviewer *[^/] bat --color always --style plain %c
+fileviewer .*[^/] bat --color always --style plain %c
 
 " Syntax highlighting in preview
 "
