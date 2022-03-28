@@ -42,7 +42,6 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 
-
 ## custom functions ----------------------------------------------------------#
 
 cmd on-cd &{{
@@ -220,12 +219,13 @@ cmd bulkrename $vidir
 ## bindings ------------------------------------------------------------------#
 
 # remove some defaults
-map m
 map "'"
 map '"'
-map d
 map c
+map d
 map e
+map m
+map r
 
 # map : to ;
 map ;           read
