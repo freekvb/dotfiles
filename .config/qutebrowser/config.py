@@ -880,7 +880,7 @@ c.content.fullscreen.window = True
 ## handler is used. Any `{}` in the string will be expanded to the
 ## filename, else the filename will be appended.
 ## Type: String
-# c.downloads.open_dispatcher = None
+# c.downloads.open_dispatcher = null
 
 ## Where to show the downloaded files.
 ## Type: VerticalPosition
@@ -1868,6 +1868,8 @@ config.bind('X', 'greasemonkey-reload')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 # config.bind('<Tab>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 # config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
 
 ## Bindings for hint mode
