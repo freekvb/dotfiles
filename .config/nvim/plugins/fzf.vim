@@ -15,6 +15,8 @@ nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
 " find content in all buffers
 nnoremap <leader>fa :Lines
+" find git files in directory
+nnoremap <leader>fG :GLines
 " find content in all files
 nnoremap <leader>fg :Rg<CR>
 
