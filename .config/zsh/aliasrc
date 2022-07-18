@@ -23,14 +23,15 @@ alias al='$HOME/Scripts/alias'                      # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
 alias dl='ddg'                                      # ddg search in lynx
-alias diff='diff --color=auto'
+alias diff='diff --color=auto'                      # diff in color
 alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
 alias f='fzf'                                       # fzf
 alias fcd='fcdl'                                    # fzf and cdl
 alias fch='fcdlh'                                   # fzf and cdl incl. hidden
 alias fe='fexec'                                    # fzf and execute pac_installed program
 alias ff='fifo'                                     # fzf given string in files
-alias fh='hst'                                      # fzf term command history > clipboard (fhx = execute)
+alias fh='hst'                                      # fzf term command history > clipboard
+alias fhx='fhx'                                     # fzf term command history execute
 alias fk='fkill'                                    # fzf and kill proces
 alias fm='macho'                                    # fzf man pages
 alias fo='fox'                                      # fzf and open with 'open' (c-o) or '$EDITOR' (c-e)
@@ -38,10 +39,11 @@ alias fp='fprev'                                    # fzf preview
 alias fpdf='pdf'                                    # fzf pdf and open in zathura
 alias fv='vif'                                      # fzf and open in nvim
 alias fz='cd $HOME/Notes/zet && fifo'               # fzf given string in 'zettelkast' notes
-alias grep='grep --color=auto'
+alias grep='grep --color=auto'                      # grep color
 alias history='fc -l 1'                             # history show all
+alias hx='helix'                                    # helix editor
 alias kmon='kmon -c green'                          # kernel manager and monitor
-alias less='less -R'
+alias less='less -R'                                # cause of colors
 alias lf='lfub'                                     # lf script cause of uberzug
 alias lg='lazygit'                                  # lazygit
 alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
@@ -50,36 +52,37 @@ alias lkb='bat $HOME/Notes/lynx_keys.md'            # lynx keybindings
 alias lfkb='bat $HOME/Notes/lfkb.md'                # lf keybindings
 alias md='mkdir'                                    # create new directory
 alias mf='touch'                                    # create new file
-alias moc='mocp -T /usr/share/moc/themes/transparent-background'
+alias moc='mocp -T /usr/share/moc/themes/transparent-background'    # moc in term colors
+alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero         # losing $HOME/.bitmonero
 alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mw='monero-wallet-gui'                        # monero wallet
 alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
-alias pacman='sudo pacman --color=always'
+alias pacman='sudo pacman --color=always'           # pacman color
 alias pacr='$HOME/Scripts/pacr'                     # pacman fzf remove given pkg (incl deps & confs)
 alias pacro='pacman -Qtdq | pacman -Rns -'          # pacman remove orphans
 alias pacs='$HOME/Scripts/pacs'                     # pacman fzf install
-alias parf='parufd'                                 # paru aur fzf find aur pkg > clipboard
-alias parl='paruls'                                 # paru aur fzf list installed aur pkgs > clipboard
-alias pars='$HOME/Scripts/pars'                     # paru aur fzf install
-alias pm='passmenu'                                 # passwords ih dmenu
-alias sb='cd $HOME/Programs/searchbang && ./searchbang && cd'
+alias parf='parufd'                                 # paru (yay) aur fzf find aur pkg > clipboard
+alias parl='paruls'                                 # paru (yay) aur fzf list installed aur pkgs > clipboard
+alias parr='$HOME/Scripts/parr'                     # paru (yay) aur fzf remove given aur pkg
+alias pars='$HOME/Scripts/pars'                     # paru (yay) aur fzf install given aur pkg
+alias pm='passmenu'                                 # passwords in dmenu
+alias sb='cd $HOME/Programs/searchbang && ./searchbang && cd'       # terminal search with a bang
 alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
 alias suck='rm -f config.h ; sudo make install'     # source suckless programs
-alias sudo='sudo '
+alias sudo='sudo '                                  # space so sudo works in scripts
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias td='tty-clock -C6 -c -f "%a %d %b %Y"'        # time date tty-clock
-alias tmux='TERM=st-256color tmux'                    # start tmux in the right env
+alias tmux='TERM=st-256color tmux'                  # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
-alias v='nvim'
+alias v='nvim'                                      # nvim editor
 alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim)
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
-alias weer='curl v2.wttr.in'
+alias weer='curl v2.wttr.in'                        # wheather in terminal
 alias yp='pipe-viewer'                              # youtube video search and view
 alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
-
 
