@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/fzfrc  (archlinux - 'silent')
 # Date:     Thu 14 Oct 2021 17:10
-# Update:   Thu 14 Oct 2021 17:11
+# Update:   Fri 01 Apr 2022 23:09
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -36,9 +36,10 @@ alias devar="unset var"
 fcdl() {
     [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
     if command -v fd >/dev/null; then
-        var="$(fd -d5 -td --follow --exclude '*/\.*' 2>/dev/null | fzf --prompt "cd ")"
+        var="$(fd -d5 -td --follow --exclude '*/\.*' 2>/dev/null | fzf --prompt "cdl: ")"
     else
-        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.*' 2>/dev/null | fzf --prompt "cd ")"
+        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.*'
+        2>/dev/null | fzf --prompt "cdl: ")"
     fi
     [ -n "$var" ] && cdl "$var" 2>/dev/null
     devar; return 0
@@ -48,9 +49,9 @@ fcdl() {
 fcdlh() {
     [ -n "$1" ] && cd "$1" 2>/dev/null && return 0
     if command -v fd >/dev/null; then
-        var="$(fd -d5 -td --follow --hidden --exclude '\.git*' 2>/dev/null | fzf --prompt "cd ")"
+        var="$(fd -d5 -td --follow --hidden --exclude '\.git*' 2>/dev/null | fzf --prompt "cdl: ")"
     else
-        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.git*' 2>/dev/null | fzf --prompt "cd ")"
+        var="$(find -L "$HOME" -maxdepth 5 -type d -not -path '*/\.git*' 2>/dev/null | fzf --prompt "cdl: ")"
     fi
     [ -n "$var" ] && cdl "$var" 2>/dev/null
     devar; return 0
@@ -59,7 +60,7 @@ fcdlh() {
 # fv - vif [vi fuzzy]: open a file in $EDITOR
 vif() {
     [ -n "$1" ] && "$EDITOR" "$1" && return 0
-    var="$(fzf --prompt "edit ")"
+    var="$(fzf --prompt "edit: ")"
     [ -n "$var" ] && "$EDITOR" "$var"
     devar; return 0
 }
@@ -80,23 +81,23 @@ fox() {
 
 # fh - hst [history]: search command line history & copy selected
 hst() {
-    var="$(history | cut -c8- | fzf --multi --tac --prompt "history ")"
+    var="$(history | cut -c8- | fzf --multi --tac --prompt "history: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
 
 # fhx - find command from history and execute
 function fhx() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --prompt "history: " | sed 's/ *[0-9]* *//')
 }
 
 # fk - fkill - kill processes - list only the ones you can kill - alias: fk
 fkill() {
 	local pid
 	if [ "$UID" != "0" ]; then
-		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+		pid=$(ps -f -u $UID | sed 1d | fzf -m --prompt "kill: " | awk '{print $2}')
 	else
-		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+		pid=$(ps -ef | sed 1d | fzf -m --prompt "kill: " | awk '{print $2}')
 	fi
 	if [ "x$pid" != "x" ]
 	then
@@ -127,35 +128,35 @@ fprev() {
 
 # fe - fzf execute pac_installed program
 fexec() {
-    $(bat $HOME/Notes/pac_installed.md | fzf)
+    $(bat $HOME/Notes/pac_installed.md | fzf --prompt "exec: ")
 }
 
 # i use arch btw
 if [ -f "/etc/arch-release" ]; then
-# pacls [pacman list]: list all installed packages
+# pacl - pacls [pacman list]: list all installed packages
 pacls() {
-    var="$(pacman -Qq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    var="$(pacman -Qq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
 
-# pacfd [pacman find]: find a package
+# pacf - pacfd [pacman find]: find a package
 pacfd() {
-    var="$(pacman -Slq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    var="$(pacman -Slq | fzf --height "80%" --multi --preview "pacman -Si {1}" --preview-window "right:70%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
 
-# paruls [yay list]: list all installed AUR packages
+# parl - paruls [yay list]: list all installed AUR packages
 paruls() {
-    var="$(yay -Qmq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    var="$(yay -Qmq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
 
-# parufd [yay find]: find an AUR package
+# parf - parufd [yay find]: find an AUR package
 parufd() {
-    var="$(yay -Slaq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg ")"
+    var="$(yay -Slaq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:70%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
