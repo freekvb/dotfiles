@@ -11,12 +11,12 @@
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
 
-color0: '#0D0A0A'
-color13: '#B7D0D4'
-color14: '#C7D9D2'
+color0: '#202020'
+color13: '#C8C8C8'
+color14: '#D7D7D7'
 color15: '#e0e8e3'
-color9: '#777A84'
-color8: '#9ca29e'
+color9: '#939393'
+color8: '#a3a3a3'
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
@@ -80,7 +80,7 @@ config.load_autoconfig()
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-# c.colors.completion.even.bg = '#333333'
+c.colors.completion.even.bg = '#202020'
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
@@ -89,7 +89,7 @@ config.load_autoconfig()
 
 ## Background color of the selected completion item.
 ## Type: QssColor
-c.colors.completion.item.selected.bg = '#7B8790'
+c.colors.completion.item.selected.bg = '#393939'
 
 ## Bottom border color of the selected completion item.
 ## Type: QssColor
@@ -113,7 +113,7 @@ c.colors.completion.item.selected.bg = '#7B8790'
 
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
-# c.colors.completion.odd.bg = '#444444'
+c.colors.completion.odd.bg = '#202020'
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
@@ -121,7 +121,7 @@ c.colors.completion.item.selected.bg = '#7B8790'
 
 ## Color of the scrollbar handle in the completion view.
 ## Type: QssColor
-# c.colors.completion.scrollbar.fg = 'white'
+c.colors.completion.scrollbar.fg = '#202020'
 
 ## Background color for the download bar.
 ## Type: QssColor
@@ -446,7 +446,7 @@ c.colors.webpage.bg = 'lightgrey'
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-c.completion.height = '36%'
+c.completion.height = '37%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -623,7 +623,7 @@ c.content.cookies.accept = 'no-3rdparty'
 ## User agent to send. Unset to send the default. Note that the value
 ## read from JavaScript is always the global value.
 ## Type: String
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36'
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36'
 
 ## Enable adblocking
 c.content.blocking.method = 'both'
@@ -1590,7 +1590,7 @@ c.url.default_page = 'file:///home/fvb/Websites/fvb/start.html'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://www.duckduckgo.com?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1930,7 +1930,7 @@ config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 config.source('qutewal.py')
 
 c.colors.webpage.bg = 'lightgrey'
-c.colors.completion.item.selected.bg = '#7B8790'
+c.colors.completion.item.selected.bg = '#393939'
 
 ## Youtube adblock
 
