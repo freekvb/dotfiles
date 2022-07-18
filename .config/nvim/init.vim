@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Thu 10 Feb 2022 00:18
+" Update:   Wed 13 Jul 2022 05:44
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -197,6 +197,20 @@ function! MyFoldText()
 endfunction
 set foldtext=MyFoldText()
 
+"  autoclosing brackets
+function! ConditionalPairMap(open, close)
+  let line = getline('.')
+  let col = col('.')
+  if col < col('$') || stridx(line, a:close, col + 1) != -1
+    return a:open
+  else
+    return a:open . a:close . repeat("\<left>", len(a:close))
+  endif
+endf
+inoremap <expr> ( ConditionalPairMap('(', ')')
+inoremap <expr> { ConditionalPairMap('{', '}')
+inoremap <expr> [ ConditionalPairMap('[', ']')
+
 "}}}
 
 "{{{ personal settings
@@ -213,11 +227,24 @@ nnoremap sb i#!/usr/bin/sh<CR><CR>
 " save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
 
+" ict review notes
+nnoremap sr :saveas $HOME/Notes/ict/reviews/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
+" insert last review screenshot in review note with timestamp above screenshot
+nnoremap rp :r!rp<CR>i######<Space><Esc>$3hDi<CR>[![review](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)<CR><CR><Esc>
+
 " trade notes (open from 'Notes/trades' directory)
 " save trade note (time stamp)
-nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M")<CR>.md<CR>
+nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
 " insert last trade screenshot in trade note with timestamp above screenshot
-nnoremap tp :r!tp<CR>$3hDi<CR>[![trade](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)<CR><CR>
+nnoremap tp :r!tp<CR>i######<Space><Esc>$3hDi<CR>[![trade](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)<CR><CR><Esc>
+" insert HTF
+nnoremap th :r!trade_htf<CR>
+" insert TTF
+nnoremap tt :r!trade_ttf<CR>
+" insert Trade
+nnoremap te :r!trade_execution<CR>
+" insert Conclusion
+nnoremap ta :r!trade_accountability<CR>
 
 " zettel notes
 " save zettel zettelkasten note (time stamp)
@@ -296,10 +323,11 @@ let g:startify_commands = [
 
 " set colored cursor line
 set cursorline
-hi CursorLine cterm=NONE ctermfg=NONE ctermbg=237
+hi CursorLine cterm=bold ctermfg=NONE ctermbg=237
 hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
 " set cursor column
 set cursorcolumn
+nnoremap <leader>c :set cursorcolumn!<CR>
 hi CursorColumn ctermbg=237
 " set colored column
 set colorcolumn=79
