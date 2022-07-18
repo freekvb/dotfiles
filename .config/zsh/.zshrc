@@ -244,16 +244,16 @@ cdl() {
         cd "$@" && lsa;
 }
 
+# brave search and open in lynx
+bl () {
+    declare url=$*
+    lx "https://search.brave.com/search?q=$*"
+}
+
 # ddg search and open in lynx - alias: dl
 ddg () {
     declare url=$*
     lx "https://duckduckgo.com/lite?q=$*"
-}
-
-# ddg search and open in w3m - alias: dw
-duckgo () {
-    declare url=$*
-    w3m "https://duckduckgo.com/lite?q=$*"
 }
 
 # set window title to command just before running it
