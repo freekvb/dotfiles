@@ -87,8 +87,8 @@ RPS2=$RPS1
 #{{{ history
 
 # history in cache directory
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=$HOME/.cache/zsh/history
 
 # don't find duplicates
