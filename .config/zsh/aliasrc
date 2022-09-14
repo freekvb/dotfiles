@@ -73,7 +73,7 @@ alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
 alias suck='rm -f config.h ; sudo make install'     # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
-alias td='tty-clock -C6 -c -f "%a %d %b %Y"'        # time date tty-clock
+alias td='tty-clock -C3 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias tmux='TERM=st-256color tmux'                  # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
@@ -82,7 +82,7 @@ alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
-alias weer='curl v2.wttr.in'                        # wheather in terminal
 alias yp='pipe-viewer'                              # youtube video search and view
 alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
+
 
