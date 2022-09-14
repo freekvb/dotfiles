@@ -1,0 +1,53 @@
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/helix/config.toml (archlinux @ 'silent')
+# Date:     Wed 07 Sep 2022 09:05
+# Update:   Tue 13 Sep 2022 07:37
+# Owner:    fvb - freekvb@gmail.com - https://freevb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+theme = "terminal"
+
+[editor]
+line-number = "relative"
+rulers = [79]
+mouse = true
+cursorline = true
+color-modes = true
+true-color = true
+shell= ["zsh", "-c"]
+auto-completion = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spacer", "spinner", "file-name"]
+center = ["diagnostics"]
+right = [
+    "position",
+    "spacer",
+    "position-percentage",
+    "spacer",
+    "file-type",
+]
+
+[keys.normal]
+";" = "command_mode"
+"w" = { w = ":write" }
+"," = { q = ":quit" }
+0 = "goto_line_start"
+"$" = "goto_line_end"
+G = "goto_file_end"
+V = ["select_mode", "extend_to_line_bounds"]
+d = { d = ["extend_to_line_bounds", "delete_selection"], c = ["delete_selection"], t = ["extend_till_char"], s = ["surround_delete"], i = ["select_textobject_inner"], a = ["select_textobject_around"] }
+
+[keys.insert]
+j = { k = "normal_mode" }
+k = { j = "normal_mode" }
+
