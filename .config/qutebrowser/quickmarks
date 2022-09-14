@@ -38,13 +38,8 @@ ig_sentiment https://www.dailyfx.com/sentiment-report
 9gag https://9gag.com/
 ansi_color_codes https://ansi.gabebanks.net/
 arch_home https://archlinux.org/
-bugswriter https://github.com/adrianscheff
-dwm_commented https://github.com/bakkeby/dwm-commented
-etsy https://www.etsy.com/?email_confirmation_status=confirm_success
 ferris_sweep https://github.com/davidphilipbarr/Sweep
 ferris_cuddly_kb https://www.cuddlykeyboards.com/
-flore https://restaurantflore.nl/
-gentoo_wiki https://wiki.gentoo.org/wiki/Main_Page
 git_cheat_sheet http://git-cheatsheet.com/
 helix https://docs.helix-editor.com/title-page.html
 instagram https://www.instagram.com/
@@ -56,6 +51,7 @@ nsxiv https://nsxiv.github.io/nsxiv/
 odysee https://odysee.com/
 pastel https://github.com/sharkdp/pastel
 pipecat https://github.com/Wojnstup/PipeCatTurbo
+piped https://piped.kavin.rocks/
 psc https://www.earnforex.com/metatrader-indicators/Position-Size-Calculator/
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
@@ -65,6 +61,7 @@ rammo https://rammotuinhout.nl/
 searx https://searx.be/
 sfeed https://codemadness.org/sfeed-simple-feed-parser.html
 suckless https://suckless.org/
+sx https://searx.be/
 tmux_cheat https://gist.github.com/MohamedAlaa/2961058
 tweetdeck https://tweetdeck.twitter.com/
 vim_cheat sheet https://vim.rtorr.com/
@@ -76,5 +73,3 @@ wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
 yandex_translate https://translate.yandex.com/
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
-sx https://searx.be/
-piped https://piped.kavin.rocks/
