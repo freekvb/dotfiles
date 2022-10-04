@@ -269,7 +269,7 @@ call plug#begin() "(data_dir . '/plugins')
 source ~/.config/nvim/plugins/barow.vim             " status bar
 source ~/.config/nvim/plugins/color-wal.vim         " color scheme
 source ~/.config/nvim/plugins/css-color.vim         " color codes
-source ~/.config/nvim/plugins/fern.vim              " file  manager
+source ~/.config/nvim/plugins/fern.vim              " file manager
 source ~/.config/nvim/plugins/fzf.vim               " fzf
 source ~/.config/nvim/plugins/instant-markdown.vim  " markdown
 source ~/.config/nvim/plugins/startify.vim          " startup screen

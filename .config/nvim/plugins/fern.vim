@@ -1,8 +1,8 @@
 Plug 'lambdalisue/fern.vim'
 
 " fern
-nnoremap <leader>t :Fern ~ -drawer -width=30 -toggle<CR><C-w>=
-nnoremap <leader>td :Fern . -reveal=% -drawer -width=30 -toggle<CR><C-w>=
+nnoremap <leader>t :Fern ~ -drawer -width=40 -toggle<CR><C-w>=
+nnoremap <leader>td :Fern . -reveal=% -drawer -width=40 -toggle<CR><C-w>=
 let g:fern#disable_default_mappings     = 1
 let g:fern#default_hidden               = 1
 
