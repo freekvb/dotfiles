@@ -236,8 +236,8 @@ map G           bottom
 
 # trash mappings
 map dd          trash
-map tc          clear_trash
-map tr          restore_trash
+map ct          clear_trash
+map rt          restore_trash
 
 map DD          delete
 map cc          cut
