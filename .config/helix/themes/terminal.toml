@@ -10,7 +10,7 @@
 "ui.menu" = { fg = "black", bg = "red" }
 "ui.menu.selected" = { modifiers = ["reversed"] }
 "ui.linenr" = { fg = "light-gray", bg = "black" }
-"ui.popup" = { bg = "black" }
+"ui.popup" = { bg = "black", modifiers = ["bold"] }
 "ui.window" = { bg = "black" }
 "ui.linenr.selected" = { fg = "white", bg = "black", modifiers = ["bold"] }
 "ui.selection" = { fg = "gray", modifiers = ["reversed"] }
