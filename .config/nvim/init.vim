@@ -105,7 +105,7 @@ set splitbelow                                      " 'split' horizontal below
 set splitright                                      " 'vsplit' vertical on the right
 " open split
 nnoremap sp :split<CR>
-nnoremap vs :vsplit<CR>:vert resize 107<CR>         " 'vsplit' in dwm master stack ratio
+nnoremap vs :vsplit<CR>:vert resize 128<CR>         " 'vsplit' in dwm master stack ratio
 " navigate split windows
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -136,6 +136,10 @@ nnoremap <leader>x :!xdg-open %<cr><cr>
 " no ex mode for me
 nnoremap Q <nop>
 
+" prevent accidentally record functionality
+nnoremap q <nop>
+nnoremap qq q
+
 "}}}
 
 "{{{ special settings
@@ -156,10 +160,6 @@ nnoremap <Space><Space> :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " search and replace all
 nnoremap <C-s> :%s//gI<Left><Left><Left>
-
-" find and replace: search for text and replace all text
-" usage: use / to find text then hit <leader>fr to replace all
-nmap <leader>fr :%s///<Left>
 
 " markdown
 " set proper extension for markdown files (.md)
@@ -232,19 +232,21 @@ nnoremap sr :saveas $HOME/Notes/ict/reviews/<C-R>=strftime("%d %b %Y %H:%M:%S")<
 " insert last review screenshot in review note with timestamp above screenshot
 nnoremap rp :r!rp<CR>i######<Space><Esc>$3hDi<CR>[![review](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)<CR><CR><Esc>
 
-" trade notes (open from 'Notes/trades' directory)
+" trade notes ('nn' in terminal 'Notes/trades' directory)
 " save trade note (time stamp)
 nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
 " insert last trade screenshot in trade note with timestamp above screenshot
 nnoremap tp :r!tp<CR>i######<Space><Esc>$3hDi<CR>[![trade](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)](./tp/<Esc>:r!tp<CR>i<Backspace><Esc>$li)<CR><CR><Esc>
+" insert Calendar
+nnoremap tc :r!trade_cal<CR>
 " insert HTF
 nnoremap th :r!trade_htf<CR>
 " insert TTF
 nnoremap tt :r!trade_ttf<CR>
-" insert Trade
-nnoremap te :r!trade_execution<CR>
-" insert Conclusion
-nnoremap ta :r!trade_accountability<CR>
+" insert Execute
+nnoremap te :r!trade_execute<CR>
+" insert Result
+nnoremap tr :r!trade_result<CR>
 
 " zettel notes
 " save zettel zettelkasten note (time stamp)
@@ -337,4 +339,5 @@ hi ColorColumn ctermbg=237
 
 " prohibit insecure vim script
 set secure
+
 
