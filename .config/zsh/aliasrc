@@ -19,10 +19,9 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
 
-alias al='$HOME/Scripts/alias'                      # list aliasses
+alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
-alias dl='ddg'                                      # ddg search in lynx
 alias diff='diff --color=auto'                      # diff in color
 alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
 alias f='fzf'                                       # fzf
@@ -37,11 +36,14 @@ alias fm='macho'                                    # fzf man pages
 alias fo='fox'                                      # fzf and open with 'open' (c-o) or '$EDITOR' (c-e)
 alias fp='fprev'                                    # fzf preview
 alias fpdf='pdf'                                    # fzf pdf and open in zathura
+alias ft='$HOME/Scripts/tldrf'                      # fzf tldr list with preview
 alias fv='vif'                                      # fzf and open in nvim
 alias fz='cd $HOME/Notes/zet && fifo'               # fzf given string in 'zettelkast' notes
 alias grep='grep --color=auto'                      # grep color
+alias h='cd $HOME'                                  # go home in terminal
 alias history='fc -l 1'                             # history show all
 alias hx='helix'                                    # helix editor
+alias ictt='bat $HOME/Notes/ict/ict_tools_keybinds' # ict tools keybindings
 alias kmon='kmon -c green'                          # kernel manager and monitor
 alias less='less -R'                                # cause of colors
 alias lf='lfub'                                     # lf script cause of uberzug
@@ -73,6 +75,7 @@ alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
 alias suck='rm -f config.h ; sudo make install'     # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
+alias t='date "+%H:%M"'                             # time
 alias td='tty-clock -C3 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias tmux='TERM=st-256color tmux'                  # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
@@ -82,7 +85,8 @@ alias vc='nvim $HOME/.config/nvim/init.vim'         # open nvim config (init.vim
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
-alias yp='pipe-viewer'                              # youtube video search and view
-alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search and view
-
+alias yf='ytfzf -t'                                 # youtube fzf video with thumbs
+alias yfs='ytfzf -t -cSI'                           # youtube fzf subsciptions with thumbs, sort by date
+alias yp='pipe-viewer'                              # youtube video search
+alias yt='$HOME/Scripts/yt'                         # simple youtube fzf search
 
