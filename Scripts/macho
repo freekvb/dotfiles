@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# fzf man pages
+
 # default fzf options
 export FZF_DEFAULT_OPTS='
 --height=50%

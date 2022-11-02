@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+
+# for trade note select last pic in Notes/trades/tp
+
+ls -tr ./tp/ | tail -n 1
+

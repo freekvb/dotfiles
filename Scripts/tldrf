@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+# fzf search preview and open tldr from list
+
+tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr

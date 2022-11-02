@@ -1,0 +1,20 @@
+#!/usr/bin/sh
+
+# publish new zettel note on github
+
+cd ~/Notes/zet/
+
+file=$(git status | awk 'NR == 6 {print $1}') &&
+title=$(awk 'NR == 1' $file ) &&
+
+git add $file &&
+git commit -m "$title" &&
+git push &&
+
+eval "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"; /usr/bin/notify-send "zettel published on github"
+
+cd ..
+rm -f new.md
+
+cd ~
+

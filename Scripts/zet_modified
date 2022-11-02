@@ -1,0 +1,20 @@
+#!/usr/bin/sh
+
+# publish modified zettel note on github
+
+cd ~/Notes/zet/
+
+file=$(git status | awk 'NR == 7 {print $2}') &&
+title=$(awk 'NR == 1' $file ) &&
+
+git add $file &&
+git commit -m "$title" &&
+git push &&
+
+dunstify "zettel modified and published on github"
+
+cd ..
+rm -f new.md
+
+cd ~
+
