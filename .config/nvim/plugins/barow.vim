@@ -11,3 +11,4 @@ set noshowmode                                      " hide default mode text
 set noshowcmd                                       " hide commands
 set cmdheight=1                                     " height of command bar
 set shortmess=act                                   " abbreviation, completion, truncate
+
