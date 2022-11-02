@@ -38,6 +38,7 @@ fi
 #local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ▶  %b'
+#PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B   %b'
 
 
 # right prompt
@@ -245,16 +246,22 @@ cdl() {
         cd "$@" && lsa;
 }
 
-# brave search and open in lynx
-bl () {
+# ddg search and open in lynx
+lxd () {
     declare url=$*
-    lx "https://search.brave.com/search?q=$*"
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
 }
 
-# ddg search and open in lynx - alias: dl
-ddg () {
+# google search and open in lynx
+lxg () {
     declare url=$*
-    lx "https://duckduckgo.com/lite?q=$*"
+    lynx "https://google.com/search?q=$*"
+}
+
+# searx search and open in lynx
+lxs () {
+    declare url=$*
+    lx "https://searx.be/search?q=$*"
 }
 
 # set window title to command just before running it
