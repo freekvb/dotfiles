@@ -1,5 +1,6 @@
 #!/bin/sh
 
 # parr - paru (yay) fzf remove given pkg (incl deps & confs)
+
 yay -Qq | fzf --multi --preview 'yay -Qi {1}' --preview-window "right:70%" --prompt "remove aur pkg: " | xargs -ro yay -Rns
 

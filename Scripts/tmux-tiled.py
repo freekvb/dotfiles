@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# tmux master stack
+# dwm like split management
+
 import subprocess
 import re
 import json
