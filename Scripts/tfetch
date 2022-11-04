@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
-# tbar
-# system in terminal
+# tfetch
+# system innfo in terminal
 
 echo "             "
 echo "     .~.     "
@@ -11,7 +11,7 @@ echo "   /(   )\   "
 echo "    ^ ~ ^    "
 echo " arch linux  "
 echo "             "
-echo "up    " $(uptime | awk  '{print substr($3, 1, length($3)-1)}') &&
+echo "up    " $(uptime | awk  '{print $1}') &&
 echo "pkg   " $(pacman -Q | wc -l) &&
 echo "cpu   " $(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }') &&
 echo "temp  " $(sensors | awk '/^Package/ { print $4+0"°C" }') &&
