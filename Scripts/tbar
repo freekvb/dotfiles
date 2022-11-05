@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+# tbar by freekvb
+# bar in terminal
+
+echo " "
+echo -e "\e[33mtime $(date '+%H:%M:%S') | up $(awk '{m=$1/60; h=m/60; printf "%sd %sh %sm", int(h/24), int(h%24), int(m%60) }' /proc/uptime) | pkg $(pacman -Q | wc -l) | cpu $(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }') | temp $(sensors | awk '/^Package/ { print $4+0"°C" }') | load $(cat /proc/loadavg | awk '{ print $1, $2, $3 }') | ram $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g) | root $(df -hl / | awk '{ print $5 }' | tail -n 1) | home $(df -hl /home | awk '{ print $5 }' | tail -n 1)\e[0m"
+echo " "
+
