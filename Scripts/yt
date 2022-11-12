@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # search videos on youtube and play them in mpv, without an API key
 # Sayan G
