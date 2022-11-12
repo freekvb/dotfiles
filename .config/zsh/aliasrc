@@ -23,7 +23,7 @@ alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
 alias diff='diff --color=auto'                      # diff in color
-alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
+alias dkb='$HOME/Scripts/dwm_keybindings'           # dwm keybindings
 alias f='fzf'                                       # fzf
 alias fcd='fcdl'                                    # fzf and cdl
 alias fch='fcdlh'                                   # fzf and cdl incl. hidden
@@ -33,7 +33,6 @@ alias fh='hst'                                      # fzf term command history >
 alias fhx='fhx'                                     # fzf term command history execute
 alias fk='fkill'                                    # fzf and kill proces
 alias fm='macho'                                    # fzf man pages
-alias fo='fox'                                      # fzf and open with 'open' (c-o) or '$EDITOR' (c-e)
 alias fp='fprev'                                    # fzf preview
 alias fpdf='pdf'                                    # fzf pdf and open in zathura
 alias ft='$HOME/Scripts/tldrf'                      # fzf tldr list with preview

@@ -65,20 +65,6 @@ vif() {
     devar; return 0
 }
 
-## fo - fox [fuzzy xdg-open]: open any file with 'xdg-open' or '$EDITOR'
-# Modified version where you can press
-#   - CTRL-O to open with `xdg-open` command,
-#   - CTRL-E or Enter key to open with the $EDITOR
-fox() {
-  local out file key
-  IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
-  key=$(head -1 <<< "$out")
-  file=$(head -2 <<< "$out" | tail -1)
-  if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && xdg-open "$file" || ${EDITOR:-vim} "$file"
-  fi
-}
-
 # fh - hst [history]: search command line history & copy selected
 hst() {
     var="$(history | cut -c8- | fzf --multi --tac --prompt "history: ")"
