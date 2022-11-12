@@ -227,11 +227,6 @@ nnoremap sb i#!/usr/bin/sh<CR><CR>
 " save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
 
-" ict review notes
-nnoremap sr :saveas $HOME/Notes/ict/reviews/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
-" insert last review screenshot in review note with timestamp above screenshot
-nnoremap rp :r!rp<CR>i######<Space><Esc>$3hDi<CR>[![review](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)](./rp/<Esc>:r!rp<CR>i<Backspace><Esc>$li)<CR><CR><Esc>
-
 " trade notes ('nn' in terminal 'Notes/trades' directory)
 " save trade note (time stamp)
 nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
@@ -339,5 +334,4 @@ hi ColorColumn ctermbg=237
 
 " prohibit insecure vim script
 set secure
-
 
