@@ -301,10 +301,11 @@ map gm          cd ~/Media
 map gn          cd ~/Notes
 map gi          cd ~/Notes/ict
 map gt          cd ~/Notes/trades
-map gp          cd ~/Pictures
+map gP          cd ~/Pictures
 map gw          cd ~/Pictures/wallpapers
-map gP          cd ~/Programs
+map gp          cd ~/Programs
 map gs          cd ~/Scripts
+map gS          cd ~/.local/share
 map gT          cd ~/Torrents
 map gc          cd ~/.config
 map gl          cd ~/.local
@@ -322,9 +323,9 @@ map Mm          $mv "$f" ~/Media
 map Mn          $mv "$f" ~/Notes
 map Mi          $mv "$f" ~/Notes/ict
 map Mt          $mv "$f" ~/Notes/trades
-map Mp          $mv "$f" ~/Pictures
+map MP          $mv "$f" ~/Pictures
 map Mw          $mv "$f" ~/Pictures/wallpapers
-map MP          $mv "$f" ~/Programs
+map Mp          $mv "$f" ~/Programs
 map Ms          $mv "$f" ~/Scripts
 map MT          $mv "$f" ~/Torrents
 map Mc          $mv "$f" ~/.config
@@ -338,9 +339,9 @@ map Ym          $cp "$f" ~/Media
 map Yn          $cp "$f" ~/Notes
 map Yi          $cp "$f" ~/Notes/ict
 map Yt          $cp "$f" ~/Notes/trades
-map Yp          $cp "$f" ~/Pictures
+map YP          $cp "$f" ~/Pictures
 map Yw          $cp "$f" ~/Pictures/wallpapers
-map YP          $cp "$f" ~/Programs
+map Yp          $cp "$f" ~/Programs
 map Ys          $cp "$f" ~/Scripts
 map YT          $cp "$f" ~/Torrents
 map Yc          $cp "$f" ~/.config
