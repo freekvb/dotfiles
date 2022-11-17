@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Wed 16 Nov 2022 21:21
+" Update:   Thu 17 Nov 2022 21:27
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -227,7 +227,7 @@ nnoremap sb i#!/usr/bin/sh<CR><CR>
 " save note in $HOME/Notes/ (title)
 nnoremap sn :saveas ~/Notes/
 
-" trade notes ('nn' in terminal 'Notes/trades' directory)
+" trade notes ('nn' in terminal in '$HOME/Notes/trades' directory)
 " save trade note (time stamp)
 nnoremap st :saveas $HOME/Notes/trades/<C-R>=strftime("%d %b %Y %H:%M:%S")<CR>.md<CR>
 " insert last trade screenshot in trade note with timestamp above screenshot
@@ -263,7 +263,6 @@ endif
 
 call plug#begin() "(data_dir . '/plugins')
 
-"source ~/.config/nvim/plugins/barow.vim             " status line
 source ~/.config/nvim/plugins/color-wal.vim         " color scheme
 source ~/.config/nvim/plugins/css-color.vim         " color codes
 source ~/.config/nvim/plugins/fern.vim              " file manager
@@ -321,17 +320,17 @@ let g:startify_commands = [
 
 " set colored cursor line
 set cursorline
-hi CursorLine cterm=bold ctermfg=NONE ctermbg=237
-hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
+    hi CursorLine cterm=bold ctermfg=NONE ctermbg=237
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
 " set cursor column
 set cursorcolumn
 nnoremap <leader>c :set cursorcolumn!<CR>
-hi CursorColumn ctermbg=237
+    hi CursorColumn ctermbg=237
 " set colored column
 set colorcolumn=79
-hi ColorColumn ctermbg=237
+    hi ColorColumn ctermbg=234
 " set split separation color
-hi VertSplit ctermbg=237
+    hi VertSplit ctermbg=234
 
 "}}}
 
@@ -339,8 +338,8 @@ hi VertSplit ctermbg=237
 
 " automatically leave insert mode after 'update time' milliseconds of inaction
 au CursorHoldI * stopinsert
- " set 'update time' to 7.5 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
+" set 'update time' to 5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
 au InsertLeave * let &updatetime=updaterestore
 
 " no statusline when using fzf
@@ -352,90 +351,89 @@ autocmd  FileType fzf set laststatus=0 noruler
 function! PasteForStatusline()
     let paste_status = &paste
     if paste_status == 1
-        return "  [paste] "
+        return " [paste]"
     else
         return ""
     endif
 endfunction
 
-" current mode
-let g:currentmode={
-       \ 'n'        : 'NORMAL ',
-       \ 'v'        : 'VISUAL ',
-       \ 'V'        : 'VISUAL-Line ',
-       \ "\<C-V>"   : 'VISUAL-Block ',
-       \ 'i'        : 'INSERT ',
-       \ 'R'        : 'REPLACE ',
-       \ 'Rv'       : 'REPLACE-Visual ',
-       \ 'c'        : 'COMMAND ',
-       \}
-
-" statusline insert mode color
-function! InsertStatuslineColor(mode)
-    if a:mode == 'i'
-        hi statusline ctermbg=1 ctermfg=237
-    endif
-endfunction
-
-" enter and leave insert mode
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=7 ctermfg=237
-
-" default statusline color when opening nvim
-hi statusline ctermbg=7 ctermfg=237
+" mode colors
+let g:mode_colors = {
+        \ 'n'   :   'StatusLineSection',
+        \ 'i'   :   'StatusLineSectionI',
+        \ 'c'   :   'StatusLineSectionC',
+        \ 'v'   :   'StatusLineSectionV',
+        \ 'V'   :   'StatusLineSectionV',
+        \ '^V'  :   'StatusLineSectionV',
+        \ 'r'   :   'StatusLineSectionR'
+        \ }
 
 " active statusline
-function! ActiveStatus()
-    let statusline=""
-    let statusline.="\ \ %{currentmode[mode()]}"    " current mode
-    let statusline.="%#CursorLine#"
-    let statusline.="\%{PasteForStatusline()}"      " paste flag
-    let statusline.="\ %F"                          " full path current file
-    let statusline.="\ %m%r"                        " modified and read only flags
-    let statusline.="%="                            " left and right side
-    let statusline.="\ \ %y"                        " filetype
-    let statusline.="\ \ %v"                        " colomn number
-    let statusline.="\ \ %l/%L"                     " line number / total lines
-    let statusline.="\ \ %p%%"                      " percentage of file
-    let statusline.="\ \ \[%n]"                     " buffer number
-    let statusline.="\ \ "                          " blank space
-    return statusline
-endfunction
+fun! StatusLineRenderer()
+    let hl = '%#' . get(g:mode_colors, tolower(mode()), g:mode_colors.n) . '#'
+    return hl
+        \ . (&modified ? '  [+]' : '')
+        \ . '  %{PasteForStatusline()}'
+        \ . ' %{StatusLineFilename()}'
+        \ . ' %#StatusLine# '
+        \ . ' %= '
+        \ . hl
+        \ . ' %v '
+        \ . ' %l/%L '
+        \ . ' %p%% '
+        \ . ' [%n] '
+        \ . ' %y '
+        \ . ' '
+endfun
+
+" selected file
+fun! StatusLineFilename()
+    if (&ft ==? 'netrw') | return '*' | endif
+    return substitute(expand('%'), '^' . getcwd() . '/\?', '', 'i')
+endfun
+
+" statusline highlights colors
+fun! <SID>StatusLineHighlights()
+    hi StatusLine         ctermbg=7  ctermfg=237
+    hi StatusLineNC       ctermbg=5  ctermfg=234
+    hi StatusLineSection  cterm=bold ctermbg=237 ctermfg=7
+    hi StatusLineSectionI cterm=bold ctermbg=237 ctermfg=1
+    hi StatusLineSectionC cterm=bold ctermbg=237 ctermfg=2
+    hi StatusLineSectionV cterm=bold ctermbg=237 ctermfg=3
+    hi StatusLineSectionR cterm=bold ctermbg=237 ctermfg=4
+endfun
+
+call <SID>StatusLineHighlights()
 
 " inactive statusline
-function! InactiveStatus()
-    let statusline=""
-    let statusline.="%#CursorColumn#"
-    let statusline.="\ \ %{currentmode[mode()]}"    " current mode
-    let statusline.="\ %F"                          " full path current file
-    let statusline.="\ %m%r"                        " modified and read only flags
-    let statusline.="%="                            " left and right side
-    let statusline.="\ \ %y"                        " filetype
-    let statusline.="\ \ %v"                        " colomn number
-    let statusline.="\ \ %l/%L"                     " line number / total lines
-    let statusline.="\ \ %p%%"                      " percentage of file
-    let statusline.="\ \ \[%n]"                     " buffer number
-    let statusline.="\ \ "                          " blank space
-    return statusline
-endfunction
+" only set default statusline once on initial startup.
+" ignored on subsequent 'so $MYVIMRC' calls to prevent
+" active buffer statusline from being 'blurred'.
+if has('vim_starting')
+    let &statusline = '   %{StatusLineFilename()}%=  %v  %l/%L  %p%%  [%n]  %y  '
+endif
 
-" enter and leave active status
-augroup status
-  autocmd!
-  autocmd WinEnter * setlocal statusline=%!ActiveStatus()
-  autocmd WinLeave * setlocal statusline=%!InactiveStatus()
+" selecting active or inactive statusline
+augroup vimrc
+    au!
+    " show focussed buffer statusline
+    au FocusGained,VimEnter,WinEnter,BufWinEnter *
+      \ setlocal statusline=%!StatusLineRenderer()
+    " show blurred buffer statusline
+    au FocusLost,VimLeave,WinLeave,BufWinLeave *
+      \ setlocal statusline&
+    " restore statusline highlights on colorscheme update
+    au Colorscheme * call <SID>StatusLineHighlights()
 augroup END
+
+set laststatus=2                                    " local statusline
+"set laststatus=3                                    " global statusline
 
 " status bar
 set noshowmode                                      " hide default mode text
 set noshowcmd                                       " hide commands
 set cmdheight=1                                     " height of command bar
 set shortmess=at                                    " abbreviation, truncate
-
-" status line
-"set laststatus=3                                    " global statusline
-set laststatus=2                                    " local statusline
-set statusline=%!ActiveStatus()                     " initial active status
 
 "}}}
 

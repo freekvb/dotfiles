@@ -19,7 +19,8 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height '50%' --margin=1,0,0,4 --r
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 
 ### fzf defaults
-export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+#export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -H -E '.git/''
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
