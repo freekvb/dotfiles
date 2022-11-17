@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.xprofile (archlinux @ 'silent')
 # Date:     Wed 01 Sep 2021 22:18
-# Update:   Tue 31 May 2022 09:04
+# Update:   Wed 16 Nov 2022 21:02
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -11,16 +11,16 @@
 mpv --no-video ~/Documents/sounds/appear.mp3 &
 xrandr --output HDMI-1 --mode 2560x1080 &
 xsetroot -cursor_name left_ptr &
-setxkbmap -option caps:escape &
 xset dpms 1800 1800 1800 &
 xset r rate 750 50 &
 xset s off &
 
-dunst &
 picom &
+dunst &
 udiskie &
 clipmenud &
 $HOME/.fehbg &
 mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 30 &
+
