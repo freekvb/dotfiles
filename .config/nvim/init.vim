@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Wed 13 Jul 2022 05:44
+" Update:   Wed 16 Nov 2022 21:21
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -103,6 +103,7 @@ nnoremap <space><space> <c-^>
 " split windows
 set splitbelow                                      " 'split' horizontal below
 set splitright                                      " 'vsplit' vertical on the right
+set fillchars+=vert:\                               " lose the separation
 " open split
 nnoremap sp :split<CR>
 nnoremap vs :vsplit<CR>:vert resize 128<CR>         " 'vsplit' in dwm master stack ratio
@@ -147,7 +148,6 @@ nnoremap qq q
 " paste
 " toggle paste unmodified (code)
 set pastetoggle=<leader>p
-set showmode
 
 " time stamp
 inoremap <leader>ts <C-R>=strftime("%a %d %b %Y %H:%M")<CR><CR>
@@ -263,11 +263,12 @@ endif
 
 call plug#begin() "(data_dir . '/plugins')
 
-source ~/.config/nvim/plugins/barow.vim             " status bar
+"source ~/.config/nvim/plugins/barow.vim             " status line
 source ~/.config/nvim/plugins/color-wal.vim         " color scheme
 source ~/.config/nvim/plugins/css-color.vim         " color codes
 source ~/.config/nvim/plugins/fern.vim              " file manager
 source ~/.config/nvim/plugins/fzf.vim               " fzf
+source ~/.config/nvim/plugins/goyo.vim              " distraction free writing
 source ~/.config/nvim/plugins/instant-markdown.vim  " markdown
 source ~/.config/nvim/plugins/startify.vim          " startup screen
 
@@ -329,6 +330,112 @@ hi CursorColumn ctermbg=237
 " set colored column
 set colorcolumn=79
 hi ColorColumn ctermbg=237
+" set split separation color
+hi VertSplit ctermbg=237
+
+"}}}
+
+"{{{ statusline
+
+" automatically leave insert mode after 'update time' milliseconds of inaction
+au CursorHoldI * stopinsert
+ " set 'update time' to 7.5 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
+au InsertLeave * let &updatetime=updaterestore
+
+" no statusline when using fzf
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 ruler
+
+" paste toggle indicator (,p)
+function! PasteForStatusline()
+    let paste_status = &paste
+    if paste_status == 1
+        return "  [paste] "
+    else
+        return ""
+    endif
+endfunction
+
+" current mode
+let g:currentmode={
+       \ 'n'        : 'NORMAL ',
+       \ 'v'        : 'VISUAL ',
+       \ 'V'        : 'VISUAL-Line ',
+       \ "\<C-V>"   : 'VISUAL-Block ',
+       \ 'i'        : 'INSERT ',
+       \ 'R'        : 'REPLACE ',
+       \ 'Rv'       : 'REPLACE-Visual ',
+       \ 'c'        : 'COMMAND ',
+       \}
+
+" statusline insert mode color
+function! InsertStatuslineColor(mode)
+    if a:mode == 'i'
+        hi statusline ctermbg=1 ctermfg=237
+    endif
+endfunction
+
+" enter and leave insert mode
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline ctermbg=7 ctermfg=237
+
+" default statusline color when opening nvim
+hi statusline ctermbg=7 ctermfg=237
+
+" active statusline
+function! ActiveStatus()
+    let statusline=""
+    let statusline.="\ \ %{currentmode[mode()]}"    " current mode
+    let statusline.="%#CursorLine#"
+    let statusline.="\%{PasteForStatusline()}"      " paste flag
+    let statusline.="\ %F"                          " full path current file
+    let statusline.="\ %m%r"                        " modified and read only flags
+    let statusline.="%="                            " left and right side
+    let statusline.="\ \ %y"                        " filetype
+    let statusline.="\ \ %v"                        " colomn number
+    let statusline.="\ \ %l/%L"                     " line number / total lines
+    let statusline.="\ \ %p%%"                      " percentage of file
+    let statusline.="\ \ \[%n]"                     " buffer number
+    let statusline.="\ \ "                          " blank space
+    return statusline
+endfunction
+
+" inactive statusline
+function! InactiveStatus()
+    let statusline=""
+    let statusline.="%#CursorColumn#"
+    let statusline.="\ \ %{currentmode[mode()]}"    " current mode
+    let statusline.="\ %F"                          " full path current file
+    let statusline.="\ %m%r"                        " modified and read only flags
+    let statusline.="%="                            " left and right side
+    let statusline.="\ \ %y"                        " filetype
+    let statusline.="\ \ %v"                        " colomn number
+    let statusline.="\ \ %l/%L"                     " line number / total lines
+    let statusline.="\ \ %p%%"                      " percentage of file
+    let statusline.="\ \ \[%n]"                     " buffer number
+    let statusline.="\ \ "                          " blank space
+    return statusline
+endfunction
+
+" enter and leave active status
+augroup status
+  autocmd!
+  autocmd WinEnter * setlocal statusline=%!ActiveStatus()
+  autocmd WinLeave * setlocal statusline=%!InactiveStatus()
+augroup END
+
+" status bar
+set noshowmode                                      " hide default mode text
+set noshowcmd                                       " hide commands
+set cmdheight=1                                     " height of command bar
+set shortmess=at                                    " abbreviation, truncate
+
+" status line
+"set laststatus=3                                    " global statusline
+set laststatus=2                                    " local statusline
+set statusline=%!ActiveStatus()                     " initial active status
 
 "}}}
 
