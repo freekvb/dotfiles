@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/nvim/init.vim (archlinux @ 'silent')
 " Date:     Fri 01 May 2020 23:03
-" Update:   Thu 17 Nov 2022 21:27
+" Update:   Sat 19 Nov 2022 04:01
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -183,9 +183,11 @@ nnoremap sv :source ~/.config/nvim/init.vim <CR>
 " diff since last save
 nnoremap <leader>d :w !diff % -<CR>
 
-" set python provider
+" python provider
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
+" perl provider
+let g:loaded_perl_provider = 0
 
 " set my folding format
 function! MyFoldText()
@@ -265,7 +267,6 @@ call plug#begin() "(data_dir . '/plugins')
 
 source ~/.config/nvim/plugins/color-wal.vim         " color scheme
 source ~/.config/nvim/plugins/css-color.vim         " color codes
-source ~/.config/nvim/plugins/fern.vim              " file manager
 source ~/.config/nvim/plugins/fzf.vim               " fzf
 source ~/.config/nvim/plugins/goyo.vim              " distraction free writing
 source ~/.config/nvim/plugins/instant-markdown.vim  " markdown
@@ -320,17 +321,92 @@ let g:startify_commands = [
 
 " set colored cursor line
 set cursorline
-    hi CursorLine cterm=bold ctermfg=NONE ctermbg=237
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=237
+    hi CursorLine cterm=bold ctermfg=NONE ctermbg=235
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=235
 " set cursor column
 set cursorcolumn
 nnoremap <leader>c :set cursorcolumn!<CR>
-    hi CursorColumn ctermbg=237
+    hi CursorColumn ctermbg=235
 " set colored column
 set colorcolumn=79
-    hi ColorColumn ctermbg=234
+    hi ColorColumn ctermbg=233
 " set split separation color
-    hi VertSplit ctermbg=234
+    hi VertSplit ctermbg=233
+
+"}}}
+
+"{{{ netrw
+
+" config
+let g:netrw_keepdir = 0
+let g:netrw_winsize = -40
+let g:netrw_banner = 0
+let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 4
+let g:netrw_use_errorwindow =1
+
+" highlight marked files (as search matches)
+hi! link netrwMarkFile Search
+
+" better toggle Netrw
+hi! link netrwMarkFile Search
+nnoremap <leader>nd :Lexplore %:p:h<CR>
+nnoremap <Leader>n :Lexplore<CR>
+
+" open splits the right way (brodie's hack))
+function! OpenToRight()
+	:normal v
+	let g:path=expand('%:p')
+	execute 'q!'
+	execute 'belowright vnew' g:path
+	:normal <C-w>l
+endfunction
+
+function! OpenBelow()
+	:normal v
+	let g:path=expand('%:p')
+	execute 'q!'
+	execute 'belowright new' g:path
+	:normal <C-w>l
+endfunction
+
+function! OpenTab()
+	:normal v
+	let g:path=expand('%:p')
+	execute 'q!'
+	execute 'tabedit' g:path
+	:normal <C-w>l
+endfunction
+
+function! NetrwMappings()
+    " Hack fix to make ctrl-l work properly
+    noremap <buffer> <C-l> <C-w>l
+    noremap <buffer> V :call OpenToRight()<cr>
+    noremap <buffer> H :call OpenBelow()<cr>
+    noremap <buffer> T :call OpenTab()<cr>
+    " make h and l work as intended
+    nmap <buffer> h u
+    nmap <buffer> l <CR>
+    " toggle marks and remove all marks
+    nmap <buffer> <TAB> mf
+    nmap <buffer> <S-TAB> mu
+endfunction
+
+augroup netrw_mappings
+		autocmd!
+		autocmd filetype netrw call NetrwMappings()
+augroup END
+
+" file managing
+nmap <buffer> ff %:w<CR>:buffer #<CR>               " make file
+nmap <buffer> fe R                                  " rename file
+nmap <buffer> fc mc                                 " copy marked file(s)
+nmap <buffer> fm mm                                 " move marked file(s)
+nmap <buffer> fx mx                                 " run external command on marked file(s)
+
+" Close Netrw if it's the only buffer open
+autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 
 "}}}
 
@@ -359,13 +435,13 @@ endfunction
 
 " mode colors
 let g:mode_colors = {
-        \ 'n'   :   'StatusLineSection',
-        \ 'i'   :   'StatusLineSectionI',
-        \ 'c'   :   'StatusLineSectionC',
-        \ 'v'   :   'StatusLineSectionV',
-        \ 'V'   :   'StatusLineSectionV',
-        \ '^V'  :   'StatusLineSectionV',
-        \ 'r'   :   'StatusLineSectionR'
+        \ 'n'       :   'StatusLineSection',
+        \ 'i'       :   'StatusLineSectionI',
+        \ 'c'       :   'StatusLineSectionC',
+        \ 'v'       :   'StatusLineSectionV',
+        \ 'V'       :   'StatusLineSectionV',
+        \ "\<C-V>"  :   'StatusLineSectionV',
+        \ 'r'       :   'StatusLineSectionR'
         \ }
 
 " active statusline
@@ -394,13 +470,13 @@ endfun
 
 " statusline highlights colors
 fun! <SID>StatusLineHighlights()
-    hi StatusLine         ctermbg=7  ctermfg=237
-    hi StatusLineNC       ctermbg=5  ctermfg=234
-    hi StatusLineSection  cterm=bold ctermbg=237 ctermfg=7
-    hi StatusLineSectionI cterm=bold ctermbg=237 ctermfg=1
-    hi StatusLineSectionC cterm=bold ctermbg=237 ctermfg=2
-    hi StatusLineSectionV cterm=bold ctermbg=237 ctermfg=3
-    hi StatusLineSectionR cterm=bold ctermbg=237 ctermfg=4
+    hi StatusLine         ctermbg=7  ctermfg=235
+    hi StatusLineNC       ctermbg=5  ctermfg=233
+    hi StatusLineSection  cterm=bold ctermbg=235 ctermfg=7
+    hi StatusLineSectionI cterm=bold ctermbg=235 ctermfg=1
+    hi StatusLineSectionC cterm=bold ctermbg=235 ctermfg=2
+    hi StatusLineSectionV cterm=bold ctermbg=235 ctermfg=3
+    hi StatusLineSectionR cterm=bold ctermbg=235 ctermfg=4
 endfun
 
 call <SID>StatusLineHighlights()
@@ -433,7 +509,7 @@ set laststatus=2                                    " local statusline
 set noshowmode                                      " hide default mode text
 set noshowcmd                                       " hide commands
 set cmdheight=1                                     " height of command bar
-set shortmess=at                                    " abbreviation, truncate
+set shortmess=acFt                                  " abbr, compl, file, truncate
 
 "}}}
 
