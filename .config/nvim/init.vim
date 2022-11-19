@@ -399,11 +399,14 @@ augroup netrw_mappings
 augroup END
 
 " file managing
-nmap <buffer> ff %:w<CR>:buffer #<CR>               " make file
-nmap <buffer> fe R                                  " rename file
+nmap <buffer> mf %:w<CR>:buffer #<CR>               " make file
+nmap <buffer> md d                                  " make directory
+nmap <buffer> fr R                                  " rename file
 nmap <buffer> fc mc                                 " copy marked file(s)
 nmap <buffer> fm mm                                 " move marked file(s)
+nmap <buffer> fd md                                 " diff marked file(s)
 nmap <buffer> fx mx                                 " run external command on marked file(s)
+
 
 " Close Netrw if it's the only buffer open
 autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
