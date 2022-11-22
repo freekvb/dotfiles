@@ -1,2 +1,0 @@
-Plug 'mhinz/vim-startify'
-

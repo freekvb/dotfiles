@@ -79,3 +79,6 @@ zellij https://github.com/zellij-org/zellij
 ym https://web.archive.org/web/20190812064856/http://ym-models.com/portfolio.html
 gtt https://github.com/eeeXun/GTT
 ferris https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/
+netrw_keybindings https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
+mini.starter https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-starter.md
+glow,nvim https://github.com/ellisonleao/glow.nvim
