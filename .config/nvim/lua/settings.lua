@@ -84,3 +84,8 @@ set.formatoptions:remove({ 'c', 'r', 'o' })
 -- separate vim plugins from neovim in case vim still in use
 --set.runtimepath:remove('/usr/share/vim/vimfiles')
 
+-- set filetype
+vim.g.do_filetype_lua = 1
+--vim.g.did_load_filetypes = 0
+
+

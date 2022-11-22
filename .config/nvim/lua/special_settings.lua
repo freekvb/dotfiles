@@ -85,7 +85,6 @@ vim.cmd[[
 vim.cmd[[
     au BufRead,BufNewFile *.md setlocal textwidth=79
 ]]
-vim.g['markdown_fenced_languages'] = 'javascript, ruby, sh, yaml, javascript, html, vim, json, diff'
 
 -- python provider
 vim.g['python_host_prog'] = '/usr/bin/python'

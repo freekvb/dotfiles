@@ -34,19 +34,19 @@ vim.cmd[[
 -- set colored cursor line
 vim.cmd[[
 set cursorline
-    hi CursorLine cterm=bold ctermfg=NONE ctermbg=235
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=235
+    hi CursorLine cterm=bold ctermfg=NONE ctermbg=234
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
 ]]
 --set cursor column
 vim.cmd[[
 set cursorcolumn
 nnoremap <leader>c :set cursorcolumn!<cc>
-    hi CursorColumn ctermbg=235
+    hi CursorColumn ctermfg=NONE ctermbg=234
 ]]
 -- set colored column
 vim.cmd[[
 set colorcolumn=79
-    hi ColorColumn ctermbg=233
+    hi ColorColumn ctermfg=NONE ctermbg=234
 ]]
 -- set split separation color
 vim.cmd[[

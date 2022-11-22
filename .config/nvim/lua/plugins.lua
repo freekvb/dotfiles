@@ -67,36 +67,26 @@ vim.cmd[[
 ]]
 
 
--- glow.nvim
+-- vim.instant-markdown
 
--- The script comes with the following defaults:
+-- minimal default configuration
+--Uncomment to override defaults:
+--vim.g.instant_markdown_slow = 1
+vim.g.instant_markdown_autostart = 0
+vim.g.instant_markdown_browser = 'qutebrowser --target window'
+--vim.g.instant_markdown_open_to_the_world = 1
+--vim.g.instant_markdown_allow_unsafe_content = 1
+--vim.g.instant_markdown_allow_external_content = 0
+--vim.g.instant_markdown_mathjax = 1
+--vim.g.instant_markdown_mermaid = 1
+--vim.g.instant_markdown_logfile = '/tmp/instant_markdown.log'
+--vim.g.instant_markdown_autoscroll = 0
+--vim.g.instant_markdown_port = 8888
+--vim.g.instant_markdown_python = 1f
 
--- {
---   glow_path = "", -- will be filled automatically with your glow bin in $PATH, if any
---   install_path = "~/.local/bin", -- default path for installing glow binary
---   border = "shadow", -- floating window border config
---   style = "dark|light", -- filled automatically with your current editor background, you can override using glow json style
---   pager = false,
---   width = 80,
--- }
-
--- To override the custom configuration, call:
---
--- require('glow').setup({
---   -- your override config
--- })
-
--- Usage
---
--- Preview file
--- :Glow [path-to-md-file]
--- Preview current buffer
--- :Glow
-keymap ('n', 'md', ':Glow', opt)
--- Close window
--- :Glow!
-keymap ('n', 'mds', ':Glow!', opt)
--- You can also close the floating window using q or <Esc> keys
+-- keymaps
+keymap ('n', 'md', ':InstantMarkdownPreview<cr>', opt)
+keymap ('n', 'mds', ':InstantMarkdownStopKcr>', opt)
 
 
 -- mini.starter
@@ -193,7 +183,8 @@ return require("packer").startup(function()
   use "wbthomason/packer.nvim"
 
   use 'junegunn/fzf.vim'
-  use 'ellisonleao/glow.nvim'
+--  use 'ellisonleao/glow.nvim'
+  use {'instant-markdown/vim-instant-markdown'}
   use {'echasnovski/mini.starter', branch = 'stable'}
   use 'dylanaraps/wal.vim'
 
