@@ -76,16 +76,10 @@ vim.cmd[[
 ]]
 set.completeopt = 'menuone,longest'
 
--- set.shortmess = 'ilmnrx'                  -- flags to shorten vim messages, see :help 'shortmess'
-set.shortmess:append('c')                    -- don't give |ins-completion-menu| messages
-set.iskeyword:append('-')                    -- hyphenated words recognized by searches
--- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode
-set.formatoptions:remove({ 'c', 'r', 'o' })
--- separate vim plugins from neovim in case vim still in use
---set.runtimepath:remove('/usr/share/vim/vimfiles')
-
 -- set filetype
 vim.g.do_filetype_lua = 1
 --vim.g.did_load_filetypes = 0
 
+-- separate vim plugins from neovim in case vim still in use
+--set.runtimepath:remove('/usr/share/vim/vimfiles')
 

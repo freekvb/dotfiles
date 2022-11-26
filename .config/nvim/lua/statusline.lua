@@ -76,6 +76,7 @@ fun! StatusLineRenderer()
         \ . (&modified ? '  [+]' : '')
         \ . '  %{PasteForStatusline()}'
         \ . ' %{StatusLineFilename()}'
+        \ . ' %r '
         \ . ' %#StatusLine# '
         \ . ' %= '
         \ . hl
@@ -144,5 +145,6 @@ set.laststatus = 2                                    -- local statusline
 set.showmode = false                                  -- hide default mode text
 set.showcmd = false                                   -- hide commands
 set.cmdheight = 1                                     -- height of command bar
-set.shortmess = 'acFt'                                -- abbr, compl, file, truncate
+set.shortmess = 'atToOFc'                             -- prompt message options
+set.inccommand = ''                                   -- disable substitution preview
 

@@ -38,7 +38,7 @@ vim.g.netrw_liststyle = 0
 vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_localcopydircmd = 'cp -r'
-vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro nobl'
+vim.g.netrw_bufsettings = 'noma nu nowrap ro'
 
 -- highlight marked files (as search matches)
 vim.cmd[[
@@ -90,6 +90,11 @@ augroup netrw_mappings
 	autocmd!
 	autocmd filetype netrw call NetrwMappings()
 augroup END
+]]
+
+-- close hidden buffer
+vim.cmd[[
+    autocmd FileType netrw setl bufhidden=delete
 ]]
 
 -- close netrw if it's the only buffer open

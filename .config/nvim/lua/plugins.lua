@@ -35,15 +35,13 @@ keymap ('n', '<leader>ff', ':Files ~/<cr>', opts)
 -- find files by name in root directory
 keymap ('n', '<leader>fr', ':Files /<cr>', opts)
 -- find files by name in working directory
-keymap ('n', '<leader>fd', ':Files .<cr>', opts)
+keymap ('n', '<leader>fd', ':Files<cr>', opts)
 -- find and switch buffers
 keymap ('n', '<leader>fb', ':Buffers<cr>', opts)
 -- find content in current file
 keymap ('n', '<leader>f', ':BLines<cr>', opts)
 -- find content in all buffers
 keymap ('n', '<leader>fa', ':Lines<cr>', opts)
--- find git files in directory
-keymap ('n', '<leader>fG', ':GLines<cr>', opts)
 -- find content in all files
 keymap ('n', '<leader>fg', ':Rg<cr>', opts)
 
@@ -89,72 +87,10 @@ keymap ('n', 'md', ':InstantMarkdownPreview<cr>', opt)
 keymap ('n', 'mds', ':InstantMarkdownStopKcr>', opt)
 
 
--- mini.starter
-
---require('mini.starter').setup(
-
-local starter = require('mini.starter')
-  starter.setup({
-    evaluate_single = true,
-    items = {
-      starter.sections.builtin_actions(),
-      starter.sections.recent_files(10, false),
-      starter.sections.recent_files(10, true),
-      -- Use this if you set up 'mini.sessions'
-      --starter.sections.sessions(5, true)
-    },
-    content_hooks = {
-      starter.gen_hook.adding_bullet(),
-      starter.gen_hook.indexing('all', { 'Builtin actions' }),
-      starter.gen_hook.padding(3, 2),
-      starter.gen_hook.aligning('center', 'center'),
-    },
-  })
-
---)
-
--- -- No need to copy this inside `setup()`. Will be used automatically.
--- {
---   -- Whether to open starter buffer on VimEnter. Not opened if Neovim was
---   -- started with intent to show something else.
---   autoopen = true,
---
---   -- Whether to evaluate action of single active item
---   evaluate_single = false,
---
---   -- Items to be displayed. Should be an array with the following elements:
---   -- - Item: table with <action>, <name>, and <section> keys.
---   -- - Function: should return one of these three categories.
---   -- - Array: elements of these three types (i.e. item, array, function).
---   -- If `nil` (default), default items will be used (see |mini.starter|).
---   items = nil,
---
---   -- Header to be displayed before items. Converted to single string via
---   -- `tostring` (use `\n` to display several lines). If function, it is
---   -- evaluated first. If `nil` (default), polite greeting will be used.
---   header = nil,
---
---   -- Footer to be displayed after items. Converted to single string via
---   -- `tostring` (use `\n` to display several lines). If function, it is
---   -- evaluated first. If `nil` (default), default usage help will be shown.
---   footer = nil,
---
---   -- Array  of functions to be applied consecutively to initial content.
---   -- Each function should take and return content for 'Starter' buffer (see
---   -- |mini.starter| and |MiniStarter.content| for more details).
---   content_hooks = nil,
---
---   -- Characters to update query. Each character will have special buffer
---   -- mapping overriding your global ones. Be careful to not add `:` as it
---   -- allows you to go into command mode.
---   query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
--- }
-
-
 -- pywal
 
 -- Active theme
--- To active the theme call this in your neovim config:
+-- To active the theme call this in your nvim config (colors.lua):
 --
 --   local pywal = require('pywal')
 --
@@ -162,18 +98,11 @@ local starter = require('mini.starter')
 --
 -- Or with vim script:
 --
---   colorscheme pywal
+-- colorscheme pywal
 
 
 -- packer
 
--- automatically run :PackerCompile whenever plugins.lua is updated
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
 
 -- packer, install like: {{
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim \
@@ -183,11 +112,18 @@ return require("packer").startup(function()
   use "wbthomason/packer.nvim"
 
   use 'junegunn/fzf.vim'
---  use 'ellisonleao/glow.nvim'
   use {'instant-markdown/vim-instant-markdown'}
-  use {'echasnovski/mini.starter', branch = 'stable'}
   use 'dylanaraps/wal.vim'
+
+-- automatically run :PackerCompile whenever plugins.lua is updated
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 end)
 -- }}
+
 
