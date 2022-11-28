@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:38
+-- Update:   Mon 28 Nov 2022 14:41
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -27,6 +24,7 @@ local keymap = vim.api.nvim_set_keymap
 
 
 -- plugin configuration
+
 
 -- fzf.vim
 
@@ -46,22 +44,23 @@ keymap ('n', '<leader>fa', ':Lines<cr>', opts)
 keymap ('n', '<leader>fg', ':Rg<cr>', opts)
 
 -- customize fzf colors to match your color scheme
--- - fzf#wrap translates this to a set of `--color` options
+-- fzf#wrap translates this to a set of `--color` options
 vim.cmd[[
   let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Normal'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
+  \ { 'fg':         ['fg', 'Normal'],
+    \ 'bg':         ['bg', 'FzfBackground'],
+    \ 'preview-bg': ['preview-bg', 'FzfPreviewBackground'],
+    \ 'hl':         ['fg', 'Comment'],
+    \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':        ['fg', 'Statement'],
+    \ 'info':       ['fg', 'PreProc'],
+    \ 'border':     ['fg', 'NonText'],
+    \ 'prompt':     ['fg', 'Conditional'],
+    \ 'pointer':    ['fg', 'Exception'],
+    \ 'marker':     ['fg', 'Keyword'],
+    \ 'spinner':    ['fg', 'Label'],
+    \ 'header':     ['fg', 'Comment'] }
 ]]
 
 
@@ -89,20 +88,20 @@ keymap ('n', 'mds', ':InstantMarkdownStopKcr>', opt)
 
 -- pywal
 
--- Active theme
--- To active the theme call this in your nvim config (colors.lua):
+-- active theme
+-- to active the theme call this in your nvim config (colors.lua):
 --
 --   local pywal = require('pywal')
---
 -- pywal.setup()
 --
--- Or with vim script:
+-- or with vim script:
 --
--- colorscheme pywal
+-- vim.cmd[[
+--     colorscheme pywal
+-- ]]
 
 
 -- packer
-
 
 -- packer, install like: {{
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim \
@@ -125,5 +124,4 @@ vim.cmd([[
 
 end)
 -- }}
-
 

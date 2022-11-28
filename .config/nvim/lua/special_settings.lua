@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:40
+-- Update:   Mon 28 Nov 2022 14:06
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -26,11 +23,8 @@ local keymap = vim.api.nvim_set_keymap
 --   command_mode = 'c',
 
 
----- source nvim config file init.vim
---keymap ('n', 'sv', ':source ~/.config/nvim/init.vim <cr>')
-vim.cmd[[
-    nnoremap sv :source ~/.config/nvim/init.vim <cr>
-]]
+-- source nvim config file init.lua
+keymap ('n', 'sv', ':source ~/.config/nvim/init.lua<cr>', opts)
 
 -- paste
 -- toggle paste unmodified (code)
@@ -43,7 +37,7 @@ keymap ('n', '<leader>s', ':setlocal spell! spelllang=en_us,nl<cr>', opts)
 keymap ('i', '<leader>ts', '<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr>', opts)
 
 ---- double space over word to find and replace
---keymap ('n', '<space><space>', ':%s/\<<c-r>=expand("<cword>")<cr>\>/')
+--keymap ('n', '<space><space>', '(:%s/\<<c-r>=expand("<cword>")<cr>\>/)', opt)
 vim.cmd[[
     nnoremap <space><space> :%s/\<<c-r>=expand("<cword>")<cr>\>/
 ]]
@@ -103,21 +97,5 @@ vim.cmd[[
         return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                                                                                  '
     endfunction
     set foldtext=MyFoldText()
-]]
-
--- autoclosing brackets
-vim.cmd[[
-    function! ConditionalPairMap(open, close)
-      let line = getline('.')
-      let col = col('.')
-      if col < col('$') || stridx(line, a:close, col + 1) != -1
-        return a:open
-      else
-        return a:open . a:close . repeat("\<left>", len(a:close))
-      endif
-    endf
-    inoremap <expr> ( ConditionalPairMap('(', ')')
-    inoremap <expr> { ConditionalPairMap('{', '}')
-    inoremap <expr> [ ConditionalPairMap('[', ']')
 ]]
 

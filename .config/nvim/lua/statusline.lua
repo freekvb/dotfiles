@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
+-- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:41
+-- Update:   Mon 28 Nov 2022 14:35
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -112,7 +109,6 @@ endfun
 call StatusLineHighlights()
 ]]
 
-
 -- inactive statusline
 -- only set default statusline once on initial startup.
 -- ignored on subsequent 'so $MYVIMRC' calls to prevent
@@ -138,13 +134,13 @@ augroup vimrc
 augroup END
 ]]
 
-set.laststatus = 2                                    -- local statusline
---set.laststatus = 3                                    -- global statusline
+set.laststatus = 2                              -- local statusline
+--set.laststatus = 3                              -- global statusline
 
 -- status bar
-set.showmode = false                                  -- hide default mode text
-set.showcmd = false                                   -- hide commands
-set.cmdheight = 1                                     -- height of command bar
-set.shortmess = 'atToOFc'                             -- prompt message options
-set.inccommand = ''                                   -- disable substitution preview
+set.showmode = false                            -- hide default mode text
+set.showcmd = false                             -- hide commands
+set.cmdheight = 1                               -- height of command bar
+set.shortmess = 'atToOFc'                       -- prompt message options
+set.inccommand = ''                             -- disable substitution preview
 

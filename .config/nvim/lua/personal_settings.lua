@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:37
+-- Update:   Mon 28 Nov 2022 14:08
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -38,7 +35,6 @@ nnoremap sb i#!/usr/bin/sh<cr><cr>
 
 -- notes - all notes in markdown (.md)
 -- new note 'nn' in terminal
-
 -- save note in $HOME/Notes/ (title)
 keymap ('n', 'sn', ':saveas ~/Notes/', opt)
 

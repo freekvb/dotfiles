@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:37
+-- Update:   Mon 28 Nov 2022 14:31
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -25,10 +22,6 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
--- delete the hidden buffer
-vim.cmd([[
-autocmd FileType netrw setl bufhidden=delete
-]])
 
 -- configuration
 vim.g.netrw_keepdir = 0
@@ -101,5 +94,4 @@ vim.cmd[[
 vim.cmd[[
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 ]]
-
 

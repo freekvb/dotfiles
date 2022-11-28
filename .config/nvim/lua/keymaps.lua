@@ -1,17 +1,14 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 26 Nov 2022 15:36
+-- Update:   Mon 28 Nov 2022 14:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 
 local set = vim.opt
-
 local opt = { noremap = true }
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- shorten function name
@@ -51,16 +48,18 @@ keymap ('n', '<leader>W', ':w!<cr>', opts)
 keymap ('n', '<leader>Q', ':q!<cr>', opts)
 keymap ('n', '<leader>WQ', ':wq!<cr>', opts)
 
--- navigate buffers
-keymap('n', '<s-l>', ':bnext<cr>', opts)
-keymap('n', '<s-h>', ':bprevious<cr>', opts)
-
 -- navigate properly when lines are wrapped
 keymap ('n', 'j', 'gj', opts)
 keymap ('n', 'k', 'gk', opts)
 
 -- fix Y behaviour
 keymap ('n', 'Y', 'y$', opts)
+
+-- toggle relativenumber
+keymap ('n', '<leader>r', ':set invrnu<cr>', opts)
+
+-- easy folding
+keymap ('n', 'z', 'za<space>0', opts)           -- toggle fold under cursor no jumping around
 
 -- maintaining visual mode after shifting > and <
 keymap ('v', '>', '>gv', opts)
@@ -71,13 +70,8 @@ keymap ('x', '<s-j>', ":move '>+1<CR>gv-gv", opts)
 keymap ('x', '<s-k>', ":move '<-2<CR>gv-gv", opts)
 
 -- split windows
-set.splitbelow = true                            -- 'split' horizontal below
-set.splitright = true                            -- 'vsplit' vertical on the right
--- ??
---set.fillchars:append('+') = 'vert:\'             -- lose the separation
---vim.cmd[[
---    set fillchars+=vert:\                            -- lose the separation between splits
---]]
+set.splitbelow = true                           -- 'split' horizontal below
+set.splitright = true                           -- 'vsplit' vertical on the right
 -- open split
 keymap ('n', 'sp', ':split<cr>', opts)
 -- 'vsplit' in dwm master stack ratio
@@ -95,23 +89,21 @@ vim.cmd [[
 ]]
 keymap ('t', '<esc>', '<c-\\><c-n>', {})
 
+-- navigate buffers
+keymap('n', '<s-l>', ':bnext<cr>', opts)
+keymap('n', '<s-h>', ':bprevious<cr>', opts)
+
 -- scrolling command-line history
 keymap ('c', '<c-j>', '<c-n>', opts)
 keymap ('c', '<c-k>', '<c-p>', opts)
 
--- easy folding
-keymap ('n', 'z', 'za<space>0', opts)            -- toggle fold under cursor no jumping around
-
--- toggle relativenumber
-keymap ('n', '<leader>r', ':set invrnu<cr>', opts)
-
--- allow gf to open non-existent files
+---- allow gf to open non-existent files
 --keymap ('n', 'gf', ':edit <cfile><cr>', opts)
 vim.cmd[[
     nnoremap gf :edit <cfile><cr>
 ]]
 
--- open the current file in the default program
+---- open the current file in the default program
 --keymap ('n', '<leader>x', ':!xdg-open %<cr><cr>', opts)
 vim.cmd[[
     nnoremap <leader>x :!xdg-open %<cr><cr>
@@ -123,4 +115,7 @@ keymap ('n', 'Q', '<nop>', opts)
 -- prevent accidentally record functionality
 keymap ('n', 'q', '<nop>', opts)
 keymap ('n', 'qq', 'q', opts)
+
+-- easy folding
+keymap ('n', 'z', 'za<space>0', opts)           -- toggle fold under cursor no jumping around
 
