@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/init.lua (archlinux @ 'silent')
 -- Date:     Fri 01 May 2020 23:03
--- Update:   Sat 26 Nov 2022 15:41
+-- Update:   Mon 28 Nov 2022 14:41
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -21,5 +21,4 @@ require('netrw')
 require('colors')
 
 require('statusline')
-
 
