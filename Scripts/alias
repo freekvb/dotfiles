@@ -1,3 +1,3 @@
 #!/bin/sh
 
-awk '{sub(/alias/,a)} NR>9 && NR<90' $HOME/.config/zsh/aliasrc
+awk '{sub(/alias/,a)} NR>9 && NR<94' $HOME/.config/zsh/aliasrc

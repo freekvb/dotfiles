@@ -2,5 +2,5 @@
 
 # pars - paru (yay) fzf install given aur pkg
 
-yay -Slq | fzf --multi --preview 'yay -Si {1}' --preview-window "right:70%" --prompt "install aur pkg: " | xargs -ro yay -S
+yay -Slq | fzf --multi --preview 'yay -Si {1}' --preview-window "right:50%" --prompt "install aur pkg: " | xargs -ro yay -S
 
