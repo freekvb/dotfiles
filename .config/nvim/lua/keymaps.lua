@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:29
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')           --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:24
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -20,6 +20,8 @@ local keymap = vim.api.nvim_set_keymap
 --   visual_block_mode = 'x',
 --   term_mode = 't',
 --   command_mode = 'c',
+
+-------------------------------------------------------------------------------
 
 -- set comma as leader key
 vim.g.mapleader = ","
@@ -107,3 +109,4 @@ keymap("n", "Q", "<nop>", opts)
 -- prevent accidentally record functionality
 keymap("n", "q", "<nop>", opts)
 keymap("n", "qq", "q", opts)
+

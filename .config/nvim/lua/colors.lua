@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/colors.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:10
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/colors.lua (archlinux @ 'silent')            --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:24
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -21,17 +21,19 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
+-------------------------------------------------------------------------------
+
 -- colorscheme - lua plugin
 vim.cmd([[
     colorscheme wal
 ]])
 
--- set colored cursor line
+-- cursor line
 set.cursorline = true
---set cursor column
+-- cursor column
 set.cursorcolumn = true
 keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
--- set colored column
+-- column
 set.colorcolumn:append("79")
 
 -- highlights
@@ -46,3 +48,4 @@ vim.cmd([[
     hi MatchParen ctermfg=0  ctermbg=1
     hi Error ctermfg=0  ctermbg=1
 ]])
+

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Tue 29 Nov 2022 00:08
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent') --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:25
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -20,6 +20,8 @@ local keymap = vim.api.nvim_set_keymap
 --   visual_block_mode = 'x',
 --   term_mode = 't',
 --   command_mode = 'c',
+
+-------------------------------------------------------------------------------
 
 -- header update
 keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>:nohlsearch<cr>]], opts)
@@ -59,3 +61,4 @@ keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%S%z")<cr>
 
 -- blog entry
 keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)
+

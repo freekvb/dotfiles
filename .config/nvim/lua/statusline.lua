@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:35
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')        --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:25
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -20,6 +20,8 @@ local keymap = vim.api.nvim_set_keymap
 --   visual_block_mode = 'x',
 --   term_mode = 't',
 --   command_mode = 'c',
+
+-------------------------------------------------------------------------------
 
 -- automatically leave insert mode after 'update time' milliseconds of inaction
 vim.cmd([[
@@ -143,3 +145,4 @@ set.cmdheight = 1
 set.shortmess = "atToOFc"
 -- disable substitution preview
 set.inccommand = ""
+

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:06
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')  --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:25
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -20,6 +20,8 @@ local keymap = vim.api.nvim_set_keymap
 --   visual_block_mode = 'x',
 --   term_mode = 't',
 --   command_mode = 'c',
+
+-------------------------------------------------------------------------------
 
 -- source nvim config file init.lua
 keymap("n", "sv", ":source ~/.config/nvim/init.lua<cr>", opts)
@@ -87,3 +89,4 @@ vim.cmd([[
     endfunction
     set foldtext=MyFoldText()
 ]])
+

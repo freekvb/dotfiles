@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:31
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')             --
+-- Date:     Sun 20 Nov 2022 14:23                                           --
+-- Update:   Tue 29 Nov 2022 23:24
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -30,6 +30,8 @@ vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
+
+-------------------------------------------------------------------------------
 
 -- highlight marked files (as search matches)
 vim.cmd([[
@@ -92,3 +94,4 @@ vim.cmd([[
 vim.cmd([[
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 ]])
+
