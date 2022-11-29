@@ -38,9 +38,11 @@ ig_sentiment https://www.dailyfx.com/sentiment-report
 9gag https://9gag.com/
 ansi_color_codes https://ansi.gabebanks.net/
 arch_home https://archlinux.org/
-ferris_sweep https://github.com/davidphilipbarr/Sweep
+ferris https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/
 ferris_cuddly_kb https://www.cuddlykeyboards.com/
+ferris_sweep https://github.com/davidphilipbarr/Sweep
 git_cheat_sheet http://git-cheatsheet.com/
+gtt https://github.com/eeeXun/GTT
 helix https://docs.helix-editor.com/title-page.html
 instagram https://www.instagram.com/
 kickass https://kat2.app/full/
@@ -48,6 +50,7 @@ kost en inwoning https://www.1001tips.be/geld/kosten-inwonende-werkende-kinderen
 lazygit_cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
 markdown https://commonmark.org/help/
 mini.nvim https://github.com/echasnovski/mini.nvim
+netrw_keybindings https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
 nsxiv https://nsxiv.github.io/nsxiv/
 odysee https://odysee.com/
 pastel https://github.com/sharkdp/pastel
@@ -74,11 +77,6 @@ virtual_monitor https://chipsenkbeil.com/notes/linux-virtual-monitors-with-xrand
 wallpaperflare https://www.wallpaperflare.com/
 wiby https://wiby.me/
 yandex_translate https://translate.yandex.com/
+ym https://web.archive.org/web/20190812064856/http://ym-models.com/portfolio.html
 zazzle https://www.zazzle.nl/s/heren+tshirts+linux
 zellij https://github.com/zellij-org/zellij
-ym https://web.archive.org/web/20190812064856/http://ym-models.com/portfolio.html
-gtt https://github.com/eeeXun/GTT
-ferris https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/
-netrw_keybindings https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
-mini.starter https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-starter.md
-glow,nvim https://github.com/ellisonleao/glow.nvim
