@@ -5,7 +5,6 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 local set = vim.opt
 local opt = { noremap = true }
 local opts = { noremap = true, silent = true }
@@ -22,30 +21,28 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- plugin configuration
-
 
 -- fzf.vim
 
 -- find files by name in home directory
-keymap ('n', '<leader>ff', ':Files ~/<cr>', opts)
+keymap("n", "<leader>ff", ":Files ~/<cr>", opts)
 -- find files by name in root directory
-keymap ('n', '<leader>fr', ':Files /<cr>', opts)
+keymap("n", "<leader>fr", ":Files /<cr>", opts)
 -- find files by name in working directory
-keymap ('n', '<leader>fd', ':Files<cr>', opts)
+keymap("n", "<leader>fd", ":Files<cr>", opts)
 -- find and switch buffers
-keymap ('n', '<leader>fb', ':Buffers<cr>', opts)
+keymap("n", "<leader>fb", ":Buffers<cr>", opts)
 -- find content in current file
-keymap ('n', '<leader>f', ':BLines<cr>', opts)
+keymap("n", "<leader>f", ":BLines<cr>", opts)
 -- find content in all buffers
-keymap ('n', '<leader>fa', ':Lines<cr>', opts)
+keymap("n", "<leader>fa", ":Lines<cr>", opts)
 -- find content in all files
-keymap ('n', '<leader>fg', ':Rg<cr>', opts)
+keymap("n", "<leader>fg", ":Rg<cr>", opts)
 
 -- customize fzf colors to match your color scheme
 -- fzf#wrap translates this to a set of `--color` options
-vim.cmd[[
+vim.cmd([[
   let g:fzf_colors =
   \ { 'fg':         ['fg', 'Normal'],
     \ 'bg':         ['bg', 'FzfBackground'],
@@ -61,8 +58,7 @@ vim.cmd[[
     \ 'marker':     ['fg', 'Keyword'],
     \ 'spinner':    ['fg', 'Label'],
     \ 'header':     ['fg', 'Comment'] }
-]]
-
+]])
 
 -- vim.instant-markdown
 
@@ -70,7 +66,7 @@ vim.cmd[[
 --Uncomment to override defaults:
 --vim.g.instant_markdown_slow = 1
 vim.g.instant_markdown_autostart = 0
-vim.g.instant_markdown_browser = 'qutebrowser --target window'
+vim.g.instant_markdown_browser = "qutebrowser --target window"
 --vim.g.instant_markdown_open_to_the_world = 1
 --vim.g.instant_markdown_allow_unsafe_content = 1
 --vim.g.instant_markdown_allow_external_content = 0
@@ -82,9 +78,8 @@ vim.g.instant_markdown_browser = 'qutebrowser --target window'
 --vim.g.instant_markdown_python = 1f
 
 -- keymaps
-keymap ('n', 'md', ':InstantMarkdownPreview<cr>', opt)
-keymap ('n', 'mds', ':InstantMarkdownStopKcr>', opt)
-
+keymap("n", "md", ":InstantMarkdownPreview<cr>", opt)
+keymap("n", "mds", ":InstantMarkdownStopKcr>", opt)
 
 -- pywal
 
@@ -100,28 +95,24 @@ keymap ('n', 'mds', ':InstantMarkdownStopKcr>', opt)
 --     colorscheme pywal
 -- ]]
 
-
 -- packer
 
 -- packer, install like: {{
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 --   ~/.config/nvim/pack/packer/start/packer.nvim
 return require("packer").startup(function()
+	use("wbthomason/packer.nvim")
 
-  use "wbthomason/packer.nvim"
+	use("junegunn/fzf.vim")
+	use({ "instant-markdown/vim-instant-markdown" })
+	use("dylanaraps/wal.vim")
 
-  use 'junegunn/fzf.vim'
-  use {'instant-markdown/vim-instant-markdown'}
-  use 'dylanaraps/wal.vim'
-
--- automatically run :PackerCompile whenever plugins.lua is updated
-vim.cmd([[
+	-- automatically run :PackerCompile whenever plugins.lua is updated
+	vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
-
 end)
 -- }}
-

@@ -5,7 +5,6 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 local set = vim.opt
 local opt = { noremap = true }
 local opts = { noremap = true, silent = true }
@@ -22,24 +21,21 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- colorscheme - lua plugin
-vim.cmd[[
+vim.cmd([[
     colorscheme wal
-]]
+]])
 
 -- set colored cursor line
 set.cursorline = true
 --set cursor column
 set.cursorcolumn = true
-keymap ('n', '<leader>c', ':set cursorcolumn!<cr>', opts)
+keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
 -- set colored column
-vim.cmd[[
-    set colorcolumn=79
-]]
+set.colorcolumn:append("79")
 
 -- highlights
-vim.cmd[[
+vim.cmd([[
     hi CursorLine cterm=bold ctermfg=NONE ctermbg=234
     hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
     hi CursorColumn ctermfg=NONE ctermbg=234
@@ -49,5 +45,4 @@ vim.cmd[[
     hi FzfPreviewBackground ctermbg=234
     hi MatchParen ctermfg=0  ctermbg=1
     hi Error ctermfg=0  ctermbg=1
-]]
-
+]])

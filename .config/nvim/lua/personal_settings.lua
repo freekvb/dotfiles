@@ -1,10 +1,9 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 28 Nov 2022 14:08
+-- Update:   Tue 29 Nov 2022 00:08
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
-
 
 local set = vim.opt
 local opt = { noremap = true }
@@ -22,60 +21,41 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- header update
-vim.cmd[[
-nnoremap <leader>h gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>:nohlsearch<cr>
-]]
+keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>:nohlsearch<cr>]], opts)
 
 -- shebang
-vim.cmd[[
-nnoremap sb i#!/usr/bin/sh<cr><cr>
-]]
+keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 
 -- notes - all notes in markdown (.md)
 -- new note 'nn' in terminal
 -- save note in $HOME/Notes/ (title)
-keymap ('n', 'sn', ':saveas ~/Notes/', opt)
+keymap("n", "sn", ":saveas ~/Notes/", opt)
 
 -- trade notes ('nn' in terminal in '$HOME/Notes/trades' directory)
 -- save trade note (time stamp)
-vim.cmd[[
-nnoremap st :saveas $HOME/Notes/trades/<c-r>=strftime("%d %b %Y %H:%M:%S")<cr>.md<cr>
-]]
+keymap("n", "st", [[:saveas $HOME/Notes/trades/<c-r>=strftime("%d %b %Y %H:%M:%S")<cr>.md<cr>]], opt)
 -- insert last trade screenshot in trade note with timestamp above screenshot
-vim.cmd[[
-nnoremap tp :r!tp<cr>i######<space><esc>$3hDi<cr>[![trade](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)<cr><cr><esc>
-]]
+keymap(
+	"n",
+	"tp",
+	[[:r!tp<cr>i######<space><esc>$3hDi<cr>[![trade](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)<cr><cr><esc>]],
+	opts
+)
 -- insert Calendar
-vim.cmd[[
-nnoremap tc :r!trade_cal<cr>
-]]
+keymap("n", "tc", [[:r!trade_cal<cr>]], opts)
 -- insert HTF
-vim.cmd[[
-nnoremap th :r!trade_htf<cr>
-]]
+keymap("n", "th", [[:r!trade_htf<cr>]], opts)
 -- insert TTF
-vim.cmd[[
-nnoremap tt :r!trade_ttf<cr>
-]]
+keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
 -- insert Execute
-vim.cmd[[
-nnoremap te :r!trade_execute<cr>
-]]
+keymap("n", "te", [[:r!trade_execute<cr>]], opts)
 -- insert Result
-vim.cmd[[
-nnoremap tr :r!trade_result<cr>
-]]
+keymap("n", "tr", [[:r!trade_result<cr>]], opts)
 
 -- zettel notes
 -- save zettel zettelkasten note (time stamp)
-vim.cmd[[
-nnoremap sz :saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%S%z")<cr>.md<cr>
-]]
+keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%S%z")<cr>.md<cr>]], opt)
 
 -- blog entry
-vim.cmd[[
-nnoremap <leader>be :/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko
-]]
-
+keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)

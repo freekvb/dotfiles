@@ -5,7 +5,6 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 local set = vim.opt
 local opt = { noremap = true }
 local opts = { noremap = true, silent = true }
@@ -22,7 +21,6 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- configuration
 vim.g.netrw_keepdir = 0
 vim.g.netrw_winsize = -42
@@ -30,21 +28,21 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 0
 vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
-vim.g.netrw_localcopydircmd = 'cp -r'
-vim.g.netrw_bufsettings = 'noma nu nowrap ro'
+vim.g.netrw_localcopydircmd = "cp -r"
+vim.g.netrw_bufsettings = "noma nu nowrap ro"
 
 -- highlight marked files (as search matches)
-vim.cmd[[
+vim.cmd([[
     hi! link netrwMarkFile Search
-]]
+]])
 
 -- better toggle Netrw
-keymap ('n', '<leader>nd', ':Lexplore %:p:h<cr>', opts)
-keymap ('n', '<leader>n', ':Lexplore<cr>', opts)
+keymap("n", "<leader>nd", ":Lexplore %:p:h<cr>", opts)
+keymap("n", "<leader>n", ":Lexplore<cr>", opts)
 
 -- open splits the right way (brodie's hack)
 -- open to the right
-vim.cmd[[
+vim.cmd([[
 function! OpenToRight()
 	:normal v
 	let g:path=expand('%:p')
@@ -52,9 +50,9 @@ function! OpenToRight()
 	execute 'belowright vnew' g:path
 	:normal <c-w>l
 endfunction
-]]
+]])
 -- open below
-vim.cmd[[
+vim.cmd([[
 function! OpenBelow()
 	:normal v
 	let g:path=expand('%:p')
@@ -62,10 +60,10 @@ function! OpenBelow()
 	execute 'belowright new' g:path
 	:normal <c-w>l
 endfunction
-]]
+]])
 
 -- mapping fun
-vim.cmd[[
+vim.cmd([[
 function! NetrwMappings()
     " Hack fix to make ctrl-l work properly
     noremap <buffer> <c-l> <c-w>l
@@ -83,15 +81,14 @@ augroup netrw_mappings
 	autocmd!
 	autocmd filetype netrw call NetrwMappings()
 augroup END
-]]
+]])
 
 -- close hidden buffer
-vim.cmd[[
+vim.cmd([[
     autocmd FileType netrw setl bufhidden=delete
-]]
+]])
 
 -- close netrw if it's the only buffer open
-vim.cmd[[
+vim.cmd([[
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
-]]
-
+]])

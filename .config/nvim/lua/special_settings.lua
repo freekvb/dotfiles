@@ -5,7 +5,6 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 local set = vim.opt
 local opt = { noremap = true }
 local opts = { noremap = true, silent = true }
@@ -22,73 +21,63 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- source nvim config file init.lua
-keymap ('n', 'sv', ':source ~/.config/nvim/init.lua<cr>', opts)
+keymap("n", "sv", ":source ~/.config/nvim/init.lua<cr>", opts)
 
 -- paste
 -- toggle paste unmodified (code)
-set.pastetoggle = '<leader>p'
+set.pastetoggle = "<leader>p"
 
 -- toggle spell checking
-keymap ('n', '<leader>s', ':setlocal spell! spelllang=en_us,nl<cr>', opts)
+keymap("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
 
 -- time stamp
-keymap ('i', '<leader>ts', '<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr>', opts)
+keymap("i", "<leader>ts", '<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr>', opts)
 
----- double space over word to find and replace
---keymap ('n', '<space><space>', '(:%s/\<<c-r>=expand("<cword>")<cr>\>/)', opt)
-vim.cmd[[
-    nnoremap <space><space> :%s/\<<c-r>=expand("<cword>")<cr>\>/
-]]
+-- double space over word to find and replace
+keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
 
----- search and replace all
---keymap ('n'. '<c-s>', ':%s//gI<Left><Left><Left>')
-vim.cmd[[
-    nnoremap <c-s> :%s//gI<left><left><left>
-]]
+-- search and replace all
+keymap("n", "<c-s>", [[:%s//gI<Left><Left><Left>]], opt)
 
----- write file if you forgot to give it sudo permission
---keymap ('c', 'w!!', 'w !sudo tee %')
-vim.cmd[[
-    cnoremap w!! w !sudo tee %
-]]
+-- write file if you forgot to give it sudo permission
+keymap("c", "w!!", [[w !sudo tee %]], opt)
 
----- diff since last save
---keymap ('n', '<leader>d', ':w !diff % -cr>')
-vim.cmd[[
-    nnoremap <leader>d :w !diff % -<cr>
-]]
+-- diff since last save
+keymap("n", "<leader>d", [[:w !diff % -<cr>]], opt)
+
+-- make diff better: https://vimways.org/2018/the-power-of-diff/
+set.diffopt:append("iwhite", "algorithm:patience", "indent-heuristic", "linematch:60")
 
 -- remove trailing white space
-vim.cmd[[
+vim.cmd([[
     autocmd BufWritePre * %s/\s\+$//e
-]]
+]])
 
 -- return to last edit position at opening file
-vim.cmd[[
+vim.cmd([[
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-]]
+]])
 
 -- markdown
 -- set proper extension for markdown files (.md)
-vim.cmd[[
+vim.cmd([[
     au BufRead,BufNewFile *.md set filetype=markdown
-]]
+]])
 -- set proper text width for markdown files
-vim.cmd[[
+vim.cmd([[
     au BufRead,BufNewFile *.md setlocal textwidth=79
-]]
-vim.g ['markdown_fenced_languages'] = { 'bash=sh', 'python', 'vim', 'lua', 'c', 'html' }
+]])
+vim.g["markdown_fenced_languages"] = { "bash=sh", "python", "vim", "lua", "c", "html" }
 
 -- python provider
-vim.g['python_host_prog'] = '/usr/bin/python'
-vim.g['python3_host_prog'] = '/usr/bin/python3'
+vim.g["python_host_prog"] = "/usr/bin/python"
+vim.g["python3_host_prog"] = "/usr/bin/python3"
 -- perl provider
-vim.g['loaded_perl_provider'] = 0
+vim.g["loaded_perl_provider"] = 0
 
 -- set my folding format
-vim.cmd[[
+vim.cmd([[
     function! MyFoldText()
         let line = getline(v:foldstart)
         let folded_line_num = v:foldend - v:foldstart
@@ -97,5 +86,4 @@ vim.cmd[[
         return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                                                                                  '
     endfunction
     set foldtext=MyFoldText()
-]]
-
+]])

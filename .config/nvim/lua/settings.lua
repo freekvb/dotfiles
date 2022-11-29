@@ -5,7 +5,6 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 local set = vim.opt
 local opt = { noremap = true }
 local opts = { noremap = true, silent = true }
@@ -22,18 +21,25 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
-
 -- general settings
-set.clipboard = 'unnamedplus' 					-- copy(y) paste(p) to/from system buffer
-set.number = true                               -- numbers
-set.relativenumber = true                     	-- relative number
-set.numberwidth = 5                             -- width 'gutter' column numbering
-set.scrolloff = 999                             -- keep cursor away from top and bottom
-set.ttyfast = true                              -- faster scrolling
-set.virtualedit = 'all'                         -- keep cursor from wobbling around ..
-set.undolevels = 100                            -- number of undo levels
-set.wildmode = 'longest,full'                   -- auto compleet like shell
-set.foldmethod = 'marker'                       -- folding with markers (curly brackets)
+-- copy(y) paste(p) to/from system buffer
+set.clipboard:append("unnamedplus")
+-- set numbers
+set.number = true
+-- relative number
+set.relativenumber = true
+-- width 'gutter' column numbering
+set.numberwidth = 5
+-- keep cursor away from top and bottom
+set.scrolloff = 999
+-- keep cursor from wobbling around
+set.virtualedit = "all"
+-- number of undo levels
+set.undolevels = 100
+-- auto compleet like shell
+set.wildmode = "longest,full"
+-- folding with markers (curly brackets)
+set.foldmethod = "marker"
 
 -- disable backup and swap files
 set.backup = false
@@ -41,32 +47,45 @@ set.writebackup = false
 set.swapfile = false
 
 -- format settings
-set.expandtab = true                            -- convert tab to spaces
-set.tabstop = 4                                 -- tab 4 spaces
-set.softtabstop = 4                             -- tab 4 spaces
-set.shiftwidth = 4                              -- auto indent spaces
-set.smartindent = true                          -- indent the smart way
-set.wrap = true                                 -- wrap lines
-set.textwidth = 79                              -- line wrap (number of columns)
-set.linebreak = true                            -- break line on word
-set.breakindent = true                          -- keep indentation
-set.breakindentopt = 'shift:2'                  -- emphasize broken lines by indenting them
-set.fileformat = 'unix'                         -- just because linux
-set.fileencoding = 'utf-8'                      -- the encoding written to file
-vim.g['python_highlight_all'] = 1               -- all python syntax highlight features
+-- convert tab to spaces
+set.expandtab = true
+-- tab 4 spaces
+set.tabstop = 4
+set.softtabstop = 4
+-- auto indent spaces
+set.shiftwidth = 4
+-- indent the smart way
+set.smartindent = true
+-- wrap lines
+set.wrap = true
+-- line wrap (number of columns)
+set.textwidth = 79
+-- break line on word
+set.linebreak = true
+-- keep indentation
+set.breakindent = true
+-- emphasize broken lines by indenting them
+set.breakindentopt = "shift:2"
+-- just because linux
+set.fileformat = "unix"
+-- all python syntax highlight features
+vim.g["python_highlight_all"] = 1
 
 -- search
-set.ignorecase = true                           -- always case insensitive
-set.smartcase = true                            -- enable smart case search
-keymap('n', '<cr>', ':nohlsearch<cr>', opts)    -- clear highlighting from the search
+-- always case insensitive
+set.ignorecase = true
+-- enable smart case search
+set.smartcase = true
+-- clear highlighting from the search
+keymap("n", "<cr>", ":nohlsearch<cr>", opts)
 
 -- fuzzy file finding
-set.path:append '**'                            -- search sub folders and tab completion
+-- search sub folders and tab completion
+set.path:append("**")
 
 -- complete
-set.complete:append 'kspell'
-set.completeopt = 'menuone,longest'
+set.complete:append("kspell")
+set.completeopt = "menuone,longest"
 
 -- set filetype
 vim.g.do_filetype_lua = 1
-

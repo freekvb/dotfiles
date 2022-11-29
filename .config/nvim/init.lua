@@ -5,20 +5,18 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
+require("settings")
 
-require('settings')
+require("keymaps")
 
-require('keymaps')
+require("special_settings")
 
-require('special_settings')
+require("personal_settings")
 
-require('personal_settings')
+require("plugins")
 
-require('plugins')
+require("netrw")
 
-require('netrw')
+require("colors")
 
-require('colors')
-
-require('statusline')
-
+require("statusline")
