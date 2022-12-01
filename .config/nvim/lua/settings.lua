@@ -57,7 +57,7 @@ set.softtabstop = 4
 -- auto indent spaces
 set.shiftwidth = 4
 -- round indentation
-set shiftround
+set.shiftround = true
 -- indent the smart way
 set.smartindent = true
 -- wrap lines
