@@ -33,6 +33,7 @@ alias ff='fifo'                                     # fzf given string in files
 alias fh='hst'                                      # fzf term command history > clipboard
 alias fhx='fhx'                                     # fzf term command history execute
 alias fk='fkill'                                    # fzf and kill proces
+alias firefox='$HOME/Scripts/firefox_fs'            # firefox full screen
 alias fm='macho'                                    # fzf man pages
 alias fo='fopen'                                    # fzf and open with xdg-open
 alias fp='fprev'                                    # fzf preview
