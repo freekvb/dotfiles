@@ -31,6 +31,10 @@ vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
 
+vim.cmd[[
+autocmd FileType netrw setlocal statusline=netrw
+]]
+
 -------------------------------------------------------------------------------
 
 -- highlight marked files (as search matches)

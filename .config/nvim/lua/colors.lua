@@ -45,7 +45,8 @@ vim.cmd([[
     hi VertSplit ctermbg=233
     hi FzfBackground ctermbg=233
     hi FzfPreviewBackground ctermbg=234
-    hi MatchParen ctermfg=0  ctermbg=1
-    hi Error ctermfg=0  ctermbg=1
+    hi MatchParen ctermfg=0 ctermbg=1
+    hi Pmenu ctermfg=7 ctermbg=4
+    hi Error ctermfg=0 ctermbg=1
 ]])
 
