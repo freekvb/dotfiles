@@ -22,7 +22,8 @@ autoload -U colors && colors
 
 #{{{ prompt
 
-# prompt
+
+## prompt
 autoload -Uz promptinit
 promptinit
 
@@ -40,7 +41,6 @@ fi
 #PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
 PROMPT='${NEWLINE}  %B%~%b %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ▶  %b'
 #PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B   %b'
-
 
 # right prompt
 autoload -Uz vcs_info
