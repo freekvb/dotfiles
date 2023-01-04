@@ -25,7 +25,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- general settings
 -- copy(y) paste(p) to/from system buffer
-set.clipboard:append("unnamedplus")
+set.clipboard = "unnamed,unnamedplus"
 -- set numbers
 set.number = true
 -- relative number
