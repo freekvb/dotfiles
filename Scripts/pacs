@@ -2,5 +2,5 @@
 
 # pacs - pacman fzf install given pkg
 
-pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window "right:50%" --prompt "install pkg: " | xargs -ro sudo pacman -S
+pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window "right:50%" --prompt "install pkg: " | xargs -ro doas pacman -S
 

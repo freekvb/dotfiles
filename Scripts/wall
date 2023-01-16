@@ -9,5 +9,5 @@ feh --no-fehbg --bg-fill $wall
 echo "setting color scheme ... "
 wal -i $wall
 echo "compiling dwm with color scheme ... "
-(cd $HOME/Programs/dwm && rm -f config.h ; sudo make install)
+(cd $HOME/Programs/dwm && rm -f config.h ; doas make install)
 echo " -_- you may now restart dwm "
