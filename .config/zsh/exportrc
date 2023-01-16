@@ -15,7 +15,7 @@
 # DESC: check and choose the first program in the array installed as the default
 # find alternative apps if it is installed on your system
 find_alt() { for i;do which "$i" >/dev/null &&
-    { echo "$i"; return 0;};done;return 1; }
+    { echo "$i"; return 0; };done;return 1; }
 
 # set the default program
 # the first program in the array detected on your system will be the default

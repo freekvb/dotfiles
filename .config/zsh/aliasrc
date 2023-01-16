@@ -22,8 +22,11 @@ alias rm='rm -iv'
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
+alias df='df -h'                                    # df humancreadable
 alias diff='diff --color=auto'                      # diff in color
 alias dkb='$HOME/Scripts/dwm_keybindings'           # dwm keybindings
+alias doas='doas '                                  # doas and let it work with aliases
+alias du='du -ch'                                   # du total and human-readable
 alias egrep='grep -E'
 alias f='fzf'                                       # fzf
 alias fcd='fcdl'                                    # fzf and cdl
@@ -64,7 +67,7 @@ alias mw='monero-wallet-gui'                        # monero wallet
 alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
-alias pacman='sudo pacman --color=always'           # pacman color
+alias pacman='doas pacman --color=always'           # pacman color
 alias pacr='$HOME/Scripts/pacr'                     # pacman fzf remove given pkg (incl deps & confs)
 alias pacro='pacman -Qtdq | pacman -Rns -'          # pacman remove orphans
 alias pacs='$HOME/Scripts/pacs'                     # pacman fzf install
@@ -74,8 +77,9 @@ alias parr='$HOME/Scripts/parr'                     # paru (yay) aur fzf remove 
 alias pars='$HOME/Scripts/pars'                     # paru (yay) aur fzf install given aur pkg
 alias pm='passmenu'                                 # passwords in dmenu
 alias sb='cd $HOME/Programs/searchbang && ./searchbang && cd'       # terminal search with a bang
+alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail in 5 sec.
 alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
-alias suck='rm -f config.h ; sudo make install'     # source suckless programs
+alias suck='rm -f config.h ; doas make install'     # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias t='date "+%H:%M"'                             # time
