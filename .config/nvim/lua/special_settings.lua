@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')  --
 -- Date:     Sun 20 Nov 2022 14:23                                           --
--- Update:   Tue 29 Nov 2022 23:25
+-- Update:   Sun 15 Jan 2023 01:18                                           --
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
@@ -22,9 +22,6 @@ local keymap = vim.api.nvim_set_keymap
 --   command_mode = 'c',
 
 -------------------------------------------------------------------------------
-
--- source nvim config file init.lua
-keymap("n", "sv", ":source ~/.config/nvim/init.lua<cr>", opts)
 
 -- paste
 -- toggle paste unmodified (code)

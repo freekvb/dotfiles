@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent') --
 -- Date:     Sun 20 Nov 2022 14:23                                           --
--- Update:   Tue 29 Nov 2022 23:25
+-- Update:   Sun 15 Jan 2023 01:12                                           --
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
 -------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ local keymap = vim.api.nvim_set_keymap
 -------------------------------------------------------------------------------
 
 -- header update
-keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>:nohlsearch<cr>]], opts)
+keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>44li--<esc>03j:nohlsearch<cr>]], opts)
 
 -- shebang
 keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
