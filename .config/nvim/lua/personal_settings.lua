@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent') --
--- Date:     Sun 20 Nov 2022 14:23                                           --
--- Update:   Sun 15 Jan 2023 01:12                                           --
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
+-- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
+-- Date:     Sun 20 Nov 2022 14:23
+-- Update:   Tue 17 Jan 2023 09:44
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 local set = vim.opt
@@ -24,7 +24,7 @@ local keymap = vim.api.nvim_set_keymap
 -------------------------------------------------------------------------------
 
 -- header update
-keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>44li--<esc>03j:nohlsearch<cr>]], opts)
+keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]], opts)
 
 -- shebang
 keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
@@ -50,8 +50,12 @@ keymap("n", "tc", [[:r!trade_cal<cr>]], opts)
 keymap("n", "th", [[:r!trade_htf<cr>]], opts)
 -- insert TTF
 keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
+-- insert Narrative
+keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Execute
 keymap("n", "te", [[:r!trade_execute<cr>]], opts)
+-- insert Summarize
+keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Result
 keymap("n", "tr", [[:r!trade_result<cr>]], opts)
 

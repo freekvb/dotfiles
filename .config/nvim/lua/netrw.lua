@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')             --
--- Date:     Sun 20 Nov 2022 14:23                                           --
--- Update:   Sun 15 Jan 2023 01:19                                           --
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/        --
+-- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
+-- Date:     Sun 20 Nov 2022 14:23
+-- Update:   Sun 15 Jan 2023 01:19
+-- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 local set = vim.opt

@@ -65,6 +65,7 @@ alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero         # losing $HO
 alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mw='monero-wallet-gui'                        # monero wallet
 alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
+alias nt='cd $HOME/Notes/trades && vi $HOME/Notes/trades/new.md'    # new trade note start I-mode, st to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
 alias pacman='doas pacman --color=always'           # pacman color
@@ -81,6 +82,7 @@ alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail i
 alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
 alias suck='rm -f config.h ; doas make install'     # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
+alias su='su -'                                     # real root
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias t='date "+%H:%M"'                             # time
 alias td='tty-clock -C3 -c -f "%a %d %b %Y"'        # time date tty-clock
@@ -88,7 +90,6 @@ alias tmux='TERM=st-256color tmux'                  # start tmux in the right en
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'                                      # nvim editor
-alias vc='nvim $HOME/.config/nvim/init.lua'         # open nvim config (init.vim)
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
