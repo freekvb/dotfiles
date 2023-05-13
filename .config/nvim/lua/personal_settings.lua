@@ -34,7 +34,7 @@ keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 -- save note in $HOME/Notes/ (title)
 keymap("n", "sn", ":saveas ~/Notes/", opt)
 
--- trade notes ('nn' in terminal in '$HOME/Notes/trades' directory)
+-- trade notes ('nt' in terminal in '$HOME/Notes/trades' directory)
 -- save trade note (time stamp)
 keymap("n", "st", [[:saveas $HOME/Notes/trades/<c-r>=strftime("%d %b %Y %H:%M:%S")<cr>.md<cr>]], opt)
 -- insert last trade screenshot in trade note with timestamp above screenshot

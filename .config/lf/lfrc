@@ -30,6 +30,7 @@ set hidden
 set ignorecase
 set number
 set relativenumber
+set cursorpreviewfmt " "
 set info size
 set dircounts
 set shell sh

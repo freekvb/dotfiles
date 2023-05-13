@@ -3,14 +3,14 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel  (archlinux - 'silent')
 # Date:     Wed 21 Apr 2021 19:42
-# Update:   Sat 16 Oct 2021 04:16
+# Update:   Sat 13 May 2023 01:46
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=16
-export PANEL_FONT="Terminus:pixelsize=14:antialias=true:autohint=true"
+export PANEL_FONT="Hack:pixelsize=10:antialias=true"
 export PANEL_WM_NAME=bspwm_panel
 
 

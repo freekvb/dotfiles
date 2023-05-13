@@ -38,6 +38,7 @@ alias fhx='fhx'                                     # fzf term command history e
 alias fk='fkill'                                    # fzf and kill proces
 alias firefox='$HOME/Scripts/firefox_fs'            # firefox full screen
 alias fm='macho'                                    # fzf man pages
+alias fn='cd $HOME/Notes && fifo'                   # fzf given string in Notes
 alias fo='fopen'                                    # fzf and open with xdg-open
 alias fp='fprev'                                    # fzf preview
 alias fpdf='pdf'                                    # fzf pdf and open in zathura
@@ -66,6 +67,7 @@ alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mw='monero-wallet-gui'                        # monero wallet
 alias nn='vi $HOME/Notes/new.md'                    # new note start I-mode, sn/st/sz to save
 alias nt='cd $HOME/Notes/trades && vi $HOME/Notes/trades/new.md'    # new trade note start I-mode, st to save
+alias nz='vi $HOME/Notes/zet/new.md'                # new 'zettel' nvim in insert mode
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
 alias pacman='doas pacman --color=always'           # pacman color

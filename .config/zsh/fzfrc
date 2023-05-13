@@ -148,14 +148,14 @@ pacfd() {
 
 # parl - paruls [yay list]: list all installed AUR packages
 paruls() {
-    var="$(yay -Qmq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right: 50%" --prompt "pkg: ")"
+    var="$(paru -Qmq | fzf --height "80%" --multi --preview "paru -Si {1}" --preview-window "right: 50%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
 
 # parf - parufd [yay find]: find an AUR package
 parufd() {
-    var="$(yay -Slaq | fzf --height "80%" --multi --preview "yay -Si {1}" --preview-window "right:50%" --prompt "pkg: ")"
+    var="$(paru -Slaq | fzf --height "80%" --multi --preview "paru -Si {1}" --preview-window "right:50%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }

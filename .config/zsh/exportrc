@@ -94,5 +94,10 @@ if [[ ! "$PATH" == */usr/lib/surfraw* ]]; then
   export PATH="${PATH:+${PATH}:}/usr/lib/surfraw"
 fi
 
+if [[ ! "$PATH" == */home/fvb/.nimble/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/fvb/.nimble/bin"
+fi
+
+
 #}}}
 

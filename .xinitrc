@@ -16,8 +16,8 @@
 #exec bspwm
 
 
-# dwm ##
+# dwm or nimdow ##
 
 dwmblocks &
-exec dwm
+exec nimdow
 

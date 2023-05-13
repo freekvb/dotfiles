@@ -62,7 +62,7 @@ set norunexec
 " Selected color scheme
 " The following line will cause issues if using vifm.vim with regular vim.
 " Either use neovim or comment out the following line.
-colorscheme default
+"colorscheme default
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -237,6 +237,8 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 filextype *.html,*.htm
         \ {Open with qutebrowser}
         \ qutebrowser %f %i &,
+        \ {Open with firefox}
+        \ firefox %f &,
         \ {Open with chromium}
         \ chromium %f &,
         \ {Open with uzbl}
