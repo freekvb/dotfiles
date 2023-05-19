@@ -214,7 +214,10 @@ cmd openterm ${{
     $TERM
 }}
 
-cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Programs/dwm && rm -f config.h ; sudo make install) && dunstify " -_-   you may now restart dwm "
+" Set wallpaper and colorscheme (cli only)
+cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f" <cr>
+" Set wallpaper and colorscheme (cli only) when running dwm
+cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Programs/dwm && rm -f config.h ; doas make clean install) && (cd /home/fvb/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
 cmd bulkrename $vidir
 
@@ -257,6 +260,7 @@ map U           unselect
 map cw          rename
 map B           bulkrename
 map E           extract
+map cs          wallcolor
 map bg          setwallpaper
 
 map R           reload

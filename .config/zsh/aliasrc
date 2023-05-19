@@ -82,12 +82,12 @@ alias pm='passmenu'                                 # passwords in dmenu
 alias sb='cd $HOME/Programs/searchbang && ./searchbang && cd'       # terminal search with a bang
 alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail in 5 sec.
 alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
-alias suck='rm -f config.h ; doas make install'     # source suckless programs
+alias suck='rm -f config.h ; doas make clean install'               # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
 alias su='su -'                                     # real root
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias t='date "+%H:%M"'                             # time
-alias td='tty-clock -C4 -c -f "%a %d %b %Y"'        # time date tty-clock
+alias td='tty-clock -C3 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias tmux='TERM=st-256color tmux'                  # start tmux in the right env
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade

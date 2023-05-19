@@ -10,7 +10,7 @@
 
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=16
-export PANEL_FONT="Hack:pixelsize=10:antialias=true"
+export PANEL_FONT="Hack:pixelsize=14:antialias=true"
 export PANEL_WM_NAME=bspwm_panel
 
 
@@ -60,7 +60,7 @@ upd() {
 }
 
 mail() {
-    mail=$(curl -u freekvb:gm4fvb --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p" | wc -l)
+    mail=$(curl -u freekvb:ksvdqthsedstkyeb --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p" | wc -l)
     echo -n "$mail"
 }
 
@@ -71,7 +71,7 @@ volume() {
 
 
 while true; do
-    echo -e "S%{F#B5C1BE}%{B#1c1b1b}   cpu $(cpu)   temp $(cputemp)   mem $(mem)   upd $(upd)   mail $(mail)   vol $(volume)   %{F-}%{B-}%{F#ebe5d9}%{B#1c1b1b}$(clock)%{F-}%{B-}"
+    echo -e "S%{F#B5C1BE}%{B#1c1b1b}  cpu $(cpu)  temp $(cputemp)  mem $(mem)  upd $(upd)  mail $(mail)  vol $(volume)  %{F-}%{B-}%{F#ebe5d9}%{B#1c1b1b}$(clock)  %{F-}%{B-}"
         sleep 1
 done > "$PANEL_FIFO" &
 
@@ -101,7 +101,7 @@ cro() {
 
 
 while true; do
-    echo -e "C%{F#B5C1BE}%{B#1c1b1b}   btc $(btc)   cro $(cro)   hbar $(hbar)   xmr $(xmr)   %{F-}%{B-}"
+    echo -e "C%{F#B5C1BE}%{B#1c1b1b}  btc $(btc)  cro $(cro)  hbar $(hbar)  xmr $(xmr)  %{F-}%{B-}"
         sleep 60
 done > "$PANEL_FIFO" &
 

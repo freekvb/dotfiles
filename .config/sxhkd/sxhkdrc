@@ -13,7 +13,7 @@
 #
 
 # terminal emulator
-alt + @space
+alt + space
     st
 
 # program launcher

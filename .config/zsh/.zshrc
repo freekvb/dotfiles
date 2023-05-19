@@ -39,7 +39,7 @@ fi
 
 #local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
 #PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
-PROMPT='${NEWLINE}  %B%~%b %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ▶  %b'
+PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ▶  %b'
 #PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B   %b'
 
 # right prompt

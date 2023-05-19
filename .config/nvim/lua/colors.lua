@@ -38,7 +38,7 @@ set.colorcolumn:append("79")
 
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold ctermfg=NONE ctermbg=234
+    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=234
     hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
     hi CursorColumn ctermfg=NONE ctermbg=234
     hi ColorColumn ctermfg=NONE ctermbg=234
