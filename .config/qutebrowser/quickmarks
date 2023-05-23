@@ -40,7 +40,12 @@ tradervue https://www.tradervue.com/sub
 9gag https://9gag.com/
 ansi_color_codes https://ansi.gabebanks.net/
 arch_home https://archlinux.org/
+arch_installer https://computingforgeeks.com/how-to-install-arch-linux-using-arch-linux-installer/
+arculus_card_wallet https://www.getarculus.com/
+awk_one_liners https://catonmat.net/awk-one-liners-explained-part-one
 buienradar https://www.buienradar.nl/weer/zwaag/nl/2743595
+cnbc live https://livenewschat.eu/stocks/
+dk_wm https://bitbucket.org/natemaia/dk/src/master/
 ferris https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/
 ferris_sweep https://github.com/davidphilipbarr/Sweep
 git_cheat_sheet http://git-cheatsheet.com/
@@ -51,12 +56,16 @@ kickass https://kat2.app/full/
 lazygit_cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
 markdown https://commonmark.org/help/
 mini.nvim https://github.com/echasnovski/mini.nvim
+neomutt https://seniormars.github.io/posts/neomutt/
 netrw_keybindings https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
+nimdow https://github.com/avahe-kellenberger/nimdow
 nsxiv https://nsxiv.github.io/nsxiv/
 odysee https://odysee.com/
 pastel https://github.com/sharkdp/pastel
 pipecat https://github.com/Wojnstup/PipeCatTurbo
 piped https://piped.kavin.rocks/
+position_sizer_MT5 https://www.earnforex.com/metatrader-expert-advisors/Position-Sizer/
+prime_wire https://www.primewire.tf/
 psc https://www.earnforex.com/metatrader-indicators/Position-Size-Calculator/
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
@@ -66,6 +75,7 @@ rammo https://rammotuinhout.nl/
 subsidie fiat 500e (jan. 2023 https://www.anwb.nl/auto/elektrisch-rijden/subsidie-elektrische-autos
 suckless https://suckless.org/
 tmux_cheat https://gist.github.com/MohamedAlaa/2961058
+traders_with_edge https://traderswithedge.com/
 tweetdeck https://tweetdeck.twitter.com/
 valuable_dev https://thevaluable.dev/
 vim_cheat sheet https://vim.rtorr.com/
@@ -76,12 +86,3 @@ ym https://web.archive.org/web/20190812064856/http://ym-models.com/portfolio.htm
 you https://you.com/
 ys https://you.com/
 zellij https://github.com/zellij-org/zellij
-cnbc live https://livenewschat.eu/stocks/
-position_sizer_MT5 https://www.earnforex.com/metatrader-expert-advisors/Position-Sizer/
-traders_with_edge https://traderswithedge.com/
-prime_wire https://www.primewire.tf/
-neomutt https://seniormars.github.io/posts/neomutt/
-arch_installer https://computingforgeeks.com/how-to-install-arch-linux-using-arch-linux-installer/
-arculus_card_wallet https://www.getarculus.com/
-nimdow https://github.com/avahe-kellenberger/nimdow
-dk_wm https://bitbucket.org/natemaia/dk/src/master/
