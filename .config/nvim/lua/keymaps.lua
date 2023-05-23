@@ -110,3 +110,7 @@ keymap("n", "Q", "<nop>", opts)
 keymap("n", "q", "<nop>", opts)
 keymap("n", "qq", "q", opts)
 
+-- redirect change operations to blackhole avoid spoiling 'y' register content
+keymap("n", "c", '"_c', opts)
+keymap("n", "C", '"_C', opts)
+
