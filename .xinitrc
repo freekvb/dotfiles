@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.xinitrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:05
-# Update:   Thu 14 Oct 2021 20:33
+# Update:   Tue 30 May 2023 02:23
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -11,13 +11,8 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 
-# bspwm ##
+# after login
+# start_(insert window manager)
+# dwm, dk, bspwm or nimdow
 
-#exec bspwm
-
-
-# dwm or nimdow ##
-
-dwmblocks &
-exec nimdow
-
+dwmblocks & exec dwm-6.4

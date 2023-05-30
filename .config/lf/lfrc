@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/lf/lfrc (archlinux @ 'silent')
 # Date:     Thu 15 Mar 2022 12:05
-# Update:   Wed 16 Mar 2022 03:01
+# Update:   Tue 30 May 2023 02:19
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -217,7 +217,7 @@ cmd openterm ${{
 " Set wallpaper and colorscheme (cli only)
 cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f" <cr>
 " Set wallpaper and colorscheme (cli only) when running dwm
-cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd /home/fvb/Programs/dwm && rm -f config.h ; doas make clean install) && (cd /home/fvb/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
+cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
 cmd bulkrename $vidir
 

@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/qutebrowser/config.py (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:17
-# Update:   Fri 10 Sep 2021 12:10
+# Update:   Tue 30 May 2023 02:20
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 

@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
 " File:     ~/.config/vifm/vifmrc (archlinux @ 'silent')
 " Date:     Wed 30 Sep 2020 22:31
-" Update:   Thu 14 Oct 2021 20:41
+" Update:   Tue 30 May 2023 02:21
 " Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 "-----------------------------------------------------------------------------"
 
@@ -488,7 +488,7 @@ nnoremap yf :!echo %c:p | xclip %i<cr>
 " Set wallpaper and colorscheme (cli only)
 nnoremap cs :!wal -i %f <cr>
 " Set wallpaper and colorscheme (cli only) when running dwm
-nnoremap bg :!wal -i %f && (cd /home/fvb/Programs/dwm && rm -f config.h ; doas make clean install) && (cd /home/fvb/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
+nnoremap bg :!wal -i %f && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
 " Mappings for faster renaming
 nnoremap I cw<c-a>

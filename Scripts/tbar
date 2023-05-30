@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 
 # tbar by freekvb
-# bar in terminal
-# bottom bar in wm
+#
+# bar in terminal (echo)
+# or
+# bottom bar in wm (dunstify)
 
 #echo " "
 dunstify "kernel $(uname -sr) | up $(awk '{m=$1/60; h=m/60; printf "%sd %sh %sm", int(h/24), int(h%24), int(m%60) }' /proc/uptime) | pkg $(pacman -Q | wc -l) | orphans $(pacman -Qtdq | wc -l) | root $(df -hl / | awk '{ print $5 }' | tail -n 1) | home $(df -hl /home | awk '{ print $5 }' | tail -n 1) | ram $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g) | loadavg $(cat /proc/loadavg | awk '{ print $1, $2, $3 }') | temp $(sensors | awk '/^Package/ { print $4+0"°C" }') | cpu $(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }')"
