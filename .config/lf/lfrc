@@ -214,9 +214,9 @@ cmd openterm ${{
     $TERM
 }}
 
-" Set wallpaper and colorscheme (cli only)
+# Set wallpaper and colorscheme (cli only)
 cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f" <cr>
-" Set wallpaper and colorscheme (cli only) when running dwm
+# Set wallpaper and colorscheme (cli only) when running dwm
 cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
 cmd bulkrename $vidir
