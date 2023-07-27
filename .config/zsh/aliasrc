@@ -92,6 +92,7 @@ alias tmux='TERM=st-256color tmux'                  # start tmux in the right en
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'                                      # nvim editor
+alias vd='doas nvim'                                # nvim with root privileges
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
