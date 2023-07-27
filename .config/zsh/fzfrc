@@ -148,7 +148,7 @@ pacfd() {
 
 # parl - paruls [yay list]: list all installed AUR packages
 paruls() {
-    var="$(paru -Qmq | fzf --height "80%" --multi --preview "paru -Si {1}" --preview-window "right: 50%" --prompt "pkg: ")"
+    var="$(paru -Qmq | fzf --height "80%" --multi --preview "paru -Si {1}" --preview-window "right:50%" --prompt "pkg: ")"
     [ -n "$var" ] && echo "$var" | clipbd
     devar; return 0
 }
