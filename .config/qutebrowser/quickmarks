@@ -25,6 +25,7 @@ bitstamp https://www.bitstamp.net/market/tradeview/
 bittrex https://global.bittrex.com/Market/Index?MarketName=USD-BTC
 coingecko https://www.coingecko.com/
 coingecko_api https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list
+coinmerce https://coinmerce.io/nl/
 cointop https://docs.cointop.sh/
 hashpack https://www.hashpack.app/post/using-hashpack-on-a-mobile-device
 shapeshift https://shapeshift.com/keepkey
@@ -33,6 +34,7 @@ finviz https://finviz.com/futures_charts.ashx?t=CURRENCIES&p=h1
 forex_world_time https://www.worldtimebuddy.com/?pl=1&lid=12,2643743,5128581,1850147&h=12&hf=2
 ict_charter_alumni https://ictca.proboards.com/
 ict_forum https://ictmentorship.discussion.community/?forum=714007
+ict_smart_money_concepts https://theproptrader.co/ict-smart-money/
 ig_sentiment https://www.dailyfx.com/sentiment-report
 mql5_forum https://www.mql5.com/en/forum
 tradervue https://www.tradervue.com/sub
@@ -43,8 +45,9 @@ arch_home https://archlinux.org/
 arch_installer https://computingforgeeks.com/how-to-install-arch-linux-using-arch-linux-installer/
 arculus_card_wallet https://www.getarculus.com/
 awk_one_liners https://catonmat.net/awk-one-liners-explained-part-one
+bard https://bard.google.com/
 buienradar https://www.buienradar.nl/weer/zwaag/nl/2743595
-cnbc live https://livenewschat.eu/stocks/
+cnbc_live https://livenewschat.eu/stocks/
 dk_wm https://bitbucket.org/natemaia/dk/src/master/
 ferris https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/
 ferris_sweep https://github.com/davidphilipbarr/Sweep
@@ -54,6 +57,7 @@ helix https://docs.helix-editor.com/title-page.html
 instagram https://www.instagram.com/
 kickass https://kat2.app/full/
 lazygit_cheat https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_nl.md
+lobster https://github.com/justchokingaround/lobster
 markdown https://commonmark.org/help/
 mini.nvim https://github.com/echasnovski/mini.nvim
 neomutt https://seniormars.github.io/posts/neomutt/
@@ -63,27 +67,25 @@ nsxiv https://nsxiv.github.io/nsxiv/
 odysee https://odysee.com/
 pastel https://github.com/sharkdp/pastel
 pipecat https://github.com/Wojnstup/PipeCatTurbo
-piped https://piped.kavin.rocks/
+position_size_calculator https://www.earnforex.com/metatrader-indicators/Position-Size-Calculator/
 position_sizer_MT5 https://www.earnforex.com/metatrader-expert-advisors/Position-Sizer/
 prime_wire https://www.primewire.tf/
-psc https://www.earnforex.com/metatrader-indicators/Position-Size-Calculator/
+ps_rooster https://portal.monacoplanning.cloud/Portaal226/mgrqcgi.exe
 qmk https://docs.qmk.fm/#/
 qmk_conf https://config.qmk.fm/#/crkbd/rev1/LAYOUT
 qmk_github https://github.com/qmk/qmk_firmware
 qutebrowser_cheatsheet https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png
 rammo https://rammotuinhout.nl/
-subsidie fiat 500e (jan. 2023 https://www.anwb.nl/auto/elektrisch-rijden/subsidie-elektrische-autos
 suckless https://suckless.org/
 tmux_cheat https://gist.github.com/MohamedAlaa/2961058
-traders_with_edge https://traderswithedge.com/
 tweetdeck https://tweetdeck.twitter.com/
 valuable_dev https://thevaluable.dev/
 vim_cheat sheet https://vim.rtorr.com/
 vim_guide https://thevaluable.dev/vim-intermediate/
 vim_quickref https://preview.redd.it/sndjkzgj3eg61.png?width=1958&format=png&auto=webp&s=7a4860f0e522aa458c6bab40abbe9f9ad84927c1
 voetjes https://www.elektronicawereld.nl/categorie/hobby_werkplaats_zelfbouw_produkten/voetjes_plakvoetjes
+wespen https://www.meldpuntongedierte.nl/wespen
 ym https://web.archive.org/web/20190812064856/http://ym-models.com/portfolio.html
 you https://you.com/
 ys https://you.com/
 zellij https://github.com/zellij-org/zellij
-novablast3 https://www.runningdirect.nl/hardloopschoenen/asics-novablast
