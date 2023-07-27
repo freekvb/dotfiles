@@ -1928,11 +1928,14 @@ config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
+
 ## pywal / qutewal
+
 config.source('qutewal.py')
 
 c.colors.webpage.bg = 'lightgrey'
 c.colors.completion.item.selected.bg = '#393939'
+
 
 ## Youtube adblock
 
