@@ -490,6 +490,9 @@ nnoremap cs :!wal -i %f <cr>
 " Set wallpaper and colorscheme (cli only) when running dwm
 nnoremap bg :!wal -i %f && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
+" Empty trash
+nnoremap et :empty | echo 'Emptied Trashcan'<cr>
+
 " Mappings for faster renaming
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
