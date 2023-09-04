@@ -99,7 +99,7 @@ if !has('win')
 endif
 
 " Set custom status line look
-set statusline=" %A %8u:%-7g %8E %25d%= %l/%S  "
+set statusline=" %A %8u:%-7g %8E %25d %= %l/%S  "
 
 " Set ruler format
 set rulerformat=" "
@@ -149,6 +149,7 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! ln !ln -s %d/%f %D
+command! rl !readlink %d/%f %D
 command! mv !mv %d/%f %D
 command! lg !lazygit %d
 
@@ -499,8 +500,9 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " File operators
-nnoremap mf :touch<space>
 nnoremap md :mkdir<space>
+nnoremap mf :touch<space>
+nnoremap ms :!mkscript<cr>
 
 " Key mappings
 nnoremap <space> :select<cr>j
@@ -516,6 +518,7 @@ nnoremap gP :cd ~/Programs<cr>
 nnoremap gs :cd ~/Scripts<cr>
 nnoremap gT :cd ~/Torrents<cr>
 nnoremap gc :cd ~/.config<cr>
+nnoremap gf :cd ~/.dotfiles<cr>
 nnoremap gl :cd ~/.local<cr>
 nnoremap g/ :cd /<cr>
 nnoremap ge :cd /etc<cr>
