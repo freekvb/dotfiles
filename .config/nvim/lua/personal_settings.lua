@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Tue 17 Jan 2023 09:44
+-- Update:   Sun 03 Sep 2023 20:30
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -54,6 +54,8 @@ keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
 keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Execute
 keymap("n", "te", [[:r!trade_execute<cr>]], opts)
+-- insert Checklist
+keymap("n", "tl", [[k:r!trade_list<cr>dd24k12li]], opts)
 -- insert Summarize
 keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Result

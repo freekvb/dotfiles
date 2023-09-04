@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 15 Jan 2023 01:18
+-- Update:   Sun 03 Sep 2023 20:30
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -97,13 +97,13 @@ endfun
 -- statusline highlights colors
 vim.cmd([[
 fun! StatusLineHighlights()
-    hi StatusLine         ctermbg=7  ctermfg=235
-    hi StatusLineNC       ctermbg=5  ctermfg=233
-    hi StatusLineSection  cterm=bold ctermbg=235 ctermfg=7
-    hi StatusLineSectionI cterm=bold ctermbg=235 ctermfg=1
-    hi StatusLineSectionC cterm=bold ctermbg=235 ctermfg=2
-    hi StatusLineSectionV cterm=bold ctermbg=235 ctermfg=3
-    hi StatusLineSectionR cterm=bold ctermbg=235 ctermfg=4
+    hi StatusLine         ctermbg=7  ctermfg=239
+    hi StatusLineNC       ctermbg=5  ctermfg=236
+    hi StatusLineSection  cterm=bold ctermbg=239 ctermfg=6
+    hi StatusLineSectionI cterm=bold ctermbg=239 ctermfg=7
+    hi StatusLineSectionC cterm=bold ctermbg=239 ctermfg=2
+    hi StatusLineSectionV cterm=bold ctermbg=239 ctermfg=3
+    hi StatusLineSectionR cterm=bold ctermbg=239 ctermfg=4
 endfun
 
 call StatusLineHighlights()

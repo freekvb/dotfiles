@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 15 Jan 2023 01:19
+-- Update:   Sun 03 Sep 2023 20:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- configuration
 vim.g.netrw_keepdir = 0
-vim.g.netrw_winsize = -42
+vim.g.netrw_winsize = -44
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 0
 vim.g.netrw_browse_split = 4
@@ -74,7 +74,7 @@ function! NetrwMappings()
     " Hack fix to make ctrl-l work properly
     noremap <buffer> <c-l> <c-w>l
     noremap <buffer> V :call OpenToRight()<cr>
-    noremap <buffer> H :call OpenBelow()<cr>
+    noremap <buffer> S :call OpenBelow()<cr>
     " make h and l work as intended
     nmap <buffer> h u
     nmap <buffer> l <cr>

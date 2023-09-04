@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 15 Jan 2023 01:19
+-- Update:   Sun 03 Sep 2023 20:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -67,27 +67,26 @@ keymap("v", "<", "<gv", opts)
 keymap("x", "<s-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<s-k>", ":move '<-2<CR>gv-gv", opts)
 
--- split windows
--- 'split' horizontal below
-set.splitbelow = true
--- 'vsplit' vertical on the right
-set.splitright = true
--- open split
-keymap("n", "sp", ":split<cr>", opts)
--- 'vsplit' in dwm master stack ratio
-keymap("n", "vs", ":vsplit<cr>:vert resize 128<cr>", opts)
--- navigate split windows
-keymap("n", "<c-h>", "<c-w>h", opts)
-keymap("n", "<c-j>", "<c-w>j", opts)
-keymap("n", "<c-k>", "<c-w>k", opts)
-keymap("n", "<c-l>", "<c-w>l", opts)
-
--- terminal in split below, resize and start insert mode
-keymap("n", "<leader>st", ":sp<bar>resize15<bar>term<cr>", opts)
-vim.cmd([[
-	autocmd TermOpen * startinsert
-]])
-keymap("t", "<esc>", "<c-\\><c-n>", {})
+---- split windows (using dbm.nvim plugin)
+---- 'split' horizontal below
+--set.splitbelow = true
+---- 'vsplit' vertical on the right
+--set.splitright = true
+---- open split
+--keymap("n", "sp", ":split<cr>", opts)
+---- 'vsplit' in dwm master stack ratio
+--keymap("n", "vs", ":vsplit<cr>:vert resize 132<cr>", opts)
+---- navigate split windows
+--keymap("n", "<c-h>", "<c-w>h", opts)
+--keymap("n", "<c-j>", "<c-w>j", opts)
+--keymap("n", "<c-k>", "<c-w>k", opts)
+--keymap("n", "<c-l>", "<c-w>l", opts)
+---- terminal in split below, resize and start insert mode
+--keymap("n", "<leader>st", ":sp<bar>resize15<bar>term<cr>", opts)
+--vim.cmd([[
+--	autocmd TermOpen * startinsert
+--]])
+--keymap("t", "<esc>", "<c-\\><c-n>", {})
 
 -- navigate buffers
 keymap("n", "<s-l>", ":bnext<cr>", opts)
@@ -96,9 +95,6 @@ keymap("n", "<s-h>", ":bprevious<cr>", opts)
 -- scrolling command-line history
 keymap("c", "<c-j>", "<c-n>", opts)
 keymap("c", "<c-k>", "<c-p>", opts)
-
--- allow gf to open non-existent files
-keymap("n", "gf", [[:edit <cfile><cr>]], opts)
 
 -- open the current file in the default program
 keymap("n", "<leader>x", [[:!xdg-open %<cr><cr>]], opts)

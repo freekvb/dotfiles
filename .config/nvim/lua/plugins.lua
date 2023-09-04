@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 15 Jan 2023 01:17
+-- Update:   Sun 03 Sep 2023 20:30
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ vim.g.instant_markdown_browser = "qutebrowser --target window"
 
 -- keymaps
 keymap("n", "md", ":InstantMarkdownPreview<cr>", opt)
-keymap("n", "mds", ":InstantMarkdownStopKcr>", opt)
+keymap("n", "mds", ":InstantMarkdownStop<cr>", opt)
 
 -- pywal
 
@@ -97,6 +97,29 @@ keymap("n", "mds", ":InstantMarkdownStopKcr>", opt)
 --     colorscheme pywal
 -- ]]
 
+-- dbm
+
+require('dbm').setup()
+
+-- Buffer window navigation
+keymap("n", "<c-h>", "<c-w>h", opts)
+keymap("n", "<c-j>", "<c-w>j", opts)
+keymap("n", "<c-k>", "<c-w>k", opts)
+keymap("n", "<c-l>", "<c-w>l", opts)
+
+-- Buffer window management
+keymap("n", "<c-CR>", ":DBM swap<cr>",opts)
+keymap("n", "vs",  ":DBM split<cr>:vert resize 132<cr>:e<space>", opt)
+keymap("n", "<c-s>",  ":DBM split<cr>", opts)
+keymap("n", "<c-f>",  ":DBM focuc<cr>", opts)
+keymap("n", "<c-n>",  ":DBM next<cr>", opts)
+keymap("n", "<c-q>",  ":quit<cr>", opts)
+keymap("n", "st",  ":DBM split<cr>:terminal<cr>", opts)
+vim.cmd([[
+	autocmd TermOpen * startinsert
+]])
+keymap("t", "<esc>", "<c-\\><c-n>", {})
+
 -- packer
 
 -- packer, install like: {{
@@ -108,6 +131,7 @@ return require("packer").startup(function()
 	use("junegunn/fzf.vim")
 	use({ "instant-markdown/vim-instant-markdown" })
 	use("dylanaraps/wal.vim")
+    use("nat-418/dbm.nvim")
 
 	-- automatically run :PackerCompile whenever plugins.lua is updated
 	vim.cmd([[

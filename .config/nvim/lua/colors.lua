@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/colors.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 15 Jan 2023 01:20
+-- Update:   Sun 03 Sep 2023 20:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -38,11 +38,11 @@ set.colorcolumn:append("79")
 
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=234
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
-    hi CursorColumn ctermfg=NONE ctermbg=234
-    hi ColorColumn ctermfg=NONE ctermbg=234
-    hi VertSplit ctermbg=233
+    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=233
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=233
+    hi CursorColumn ctermfg=NONE ctermbg=233
+    hi ColorColumn ctermfg=NONE ctermbg=233
+    hi VertSplit ctermbg=234
     hi FzfBackground ctermbg=233
     hi FzfPreviewBackground ctermbg=234
     hi MatchParen ctermfg=0 ctermbg=1
