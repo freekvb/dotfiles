@@ -1,0 +1,47 @@
+
+### w3m links hint mode (similar to qutebrowser and vimium)
+
+# toggle hinting mode (vimium similar)
+keymap  f-SPC   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+
+# jump to link number (e.g press 3ff) and hide hinting mode (similar to gg in vim)
+keymap  ff      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN"
+
+# open current cursor link in new tab and hide hinting mode
+keymap  ft      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; TAB_LINK"
+
+# copy link to clipboard (e.g press f-SPC then 4fy to yank url)
+keymap  fy      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null'"
+
+# jump to link number and open it
+keymap  fo       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+
+# jump to link number and open it in new tab
+keymap  fn       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
+
+# yank url to multiple clipboard (under cursor)
+keymap  yy      EXTERN_LINK "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null"
+
+# yank url to multiple clipboard (current page)
+keymap  YY      EXTERN "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null"
+
+
+# toggle line numbers
+keymap ,-l COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+
+# toggle borders
+keymap ,-t COMMAND "SET_OPTION display_borders=toggle ; RESHAPE"
+
+
+# w3m fzf function prompt
+keymap ,-f COMMAND "READ_SHELL ~/.w3m/cgi-bin/functions.cgi ; BACK ; GOTO file:/cgi-bin/run_command.cgi ; BACK"
+
+# readability mode
+keymap ,-r COMMAND "READ_SHELL 'python3 -m readability.readability -u $W3M_URL 2> /dev/null' ; VIEW ; DELETE_PREVBUF"
+
+# Open search engine ddg, proceed to and select the search box
+keymap ,-d COMMAND  "GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
+

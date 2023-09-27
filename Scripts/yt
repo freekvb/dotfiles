@@ -21,5 +21,5 @@ while true; do
 	fzf --with-nth='2..-1' | \
 	cut -d' ' -f1)
 	if [ "$videoid" == "" ]; then exit; fi
-	mpv https://youtu.be/$videoid
+	devour mpv https://youtu.be/$videoid
 done

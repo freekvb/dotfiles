@@ -262,10 +262,16 @@ lxg () {
     lynx "https://google.com/search?q=$*"
 }
 
-# searx search and open in lynx
-lxs () {
+# ddg search and open in w3m
+w3d () {
     declare url=$*
-    lx "https://searx.be/search?q=$*"
+    w3m "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
+}
+
+# google search and open in w3m
+w3g () {
+    declare url=$*
+    w3m "https://google.com/search?q=$*"
 }
 
 # set window title to command just before running it

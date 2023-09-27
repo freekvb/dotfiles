@@ -3,21 +3,20 @@
 # tfetch by freekvb
 # system info in terminal
 
-echo "             "
-echo "     .~.     "
-echo "     /V\     "
-echo "    // \\\   "
-echo "   /(   )\   "
-echo "    ^ ~ ^    "
-echo " arch linux  "
-echo "             "
-echo "time   " $(date '+%H:%M:%S')
-echo "kernel " $(cat /proc/sys/kernel/osrelease)
-echo "up     " $(awk '{m=$1/60; h=m/60; printf "%sd %sh %sm", int(h/24), int(h%24), int(m%60) }' /proc/uptime)
-echo "pkg    " $(pacman -Q | wc -l)
-echo "cpu    " $(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }')
-echo "temp   " $(sensors | awk '/^Package/ { print $4+0"°C" }')
-echo "load   " $(cat /proc/loadavg | awk '{ print $1, $2, $3 }')
-echo "ram    " $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)
-echo "root   " $(df -hl / | awk '{ print $5 }' | tail -n 1)
-echo "home   " $(df -hl /home | awk '{ print $5 }' | tail -n 1)
+echo "               "
+echo "       .~.     "
+echo "       /V\     "
+echo "      // \\\   "
+echo "     /(   )\   "
+echo "      ^ ~ ^    "
+echo "               "
+echo " distro  " arch linux
+echo " kernel  " $(cat /proc/sys/kernel/osrelease)
+echo " up      " $(awk '{m=$1/60; h=m/60; printf "%sd %sh %sm", int(h/24), int(h%24), int(m%60) }' /proc/uptime)
+echo " pkg     " $(pacman -Q | wc -l)
+echo " cpu     " $(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }')
+echo " temp    " $(sensors | awk '/^Package/ { print $4+0"°C" }')
+echo " load    " $(cat /proc/loadavg | awk '{ print $1, $2, $3 }')
+echo " ram     " $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)
+echo " root    " $(df -hl / | awk '{ print $5 }' | tail -n 1)
+echo " home    " $(df -hl /home | awk '{ print $5 }' | tail -n 1)
