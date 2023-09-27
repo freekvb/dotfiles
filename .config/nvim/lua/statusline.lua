@@ -25,19 +25,12 @@ local keymap = vim.api.nvim_set_keymap
 
 -- automatically leave insert mode after 'update time' milliseconds of inaction
 vim.cmd([[
-au CursorHoldI * stopinsert
+    au CursorHoldI * stopinsert
 ]])
 -- set 'update time' to 5 seconds when in insert mode
 vim.cmd([[
-au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
-au InsertLeave * let &updatetime=updaterestore
-]])
-
--- no statusline when using fzf
-vim.cmd([[
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler
+    au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+    au InsertLeave * let &updatetime=updaterestore
 ]])
 
 -- paste toggle indicator (,p)

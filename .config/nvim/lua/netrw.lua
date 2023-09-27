@@ -21,6 +21,9 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = 't',
 --   command_mode = 'c',
 
+-------------------------------------------------------------------------------
+
+
 -- configuration
 vim.g.netrw_keepdir = 0
 vim.g.netrw_winsize = -44
@@ -31,11 +34,9 @@ vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
 
-vim.cmd[[
-autocmd FileType netrw setlocal statusline=netrw
-]]
-
--------------------------------------------------------------------------------
+vim.cmd([[
+    autocmd FileType netrw setlocal statusline=netrw
+]])
 
 -- highlight marked files (as search matches)
 vim.cmd([[

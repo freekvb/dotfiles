@@ -53,9 +53,9 @@ keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
 -- insert Narrative
 keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Execute
-keymap("n", "te", [[:r!trade_execute<cr>]], opts)
+keymap("n", "te", [[:r!trade_execute<cr>22k]], opts)
 -- insert Checklist
-keymap("n", "tl", [[k:r!trade_list<cr>dd24k12li]], opts)
+keymap("n", "tl", [[:r!trade_list<cr>11kdd14k12li]], opts)
 -- insert Summarize
 keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Result

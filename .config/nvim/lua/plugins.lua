@@ -28,15 +28,15 @@ local keymap = vim.api.nvim_set_keymap
 -- fzf.vim
 
 -- find files by name in home directory
-keymap("n", "<leader>ff", ":Files ~/<cr>", opts)
+keymap("n", "<leader>fh", ":Files ~/<cr>", opts)
 -- find files by name in root directory
 keymap("n", "<leader>fr", ":Files /<cr>", opts)
 -- find files by name in working directory
-keymap("n", "<leader>fd", ":Files<cr>", opts)
+keymap("n", "<leader>f", ":Files<cr>", opts)
 -- find and switch buffers
 keymap("n", "<leader>fb", ":Buffers<cr>", opts)
 -- find content in current file
-keymap("n", "<leader>f", ":BLines<cr>", opts)
+keymap("n", "<leader>ff", ":BLines<cr>", opts)
 -- find content in all buffers
 keymap("n", "<leader>fa", ":Lines<cr>", opts)
 -- find content in all files
@@ -108,13 +108,13 @@ keymap("n", "<c-k>", "<c-w>k", opts)
 keymap("n", "<c-l>", "<c-w>l", opts)
 
 -- Buffer window management
-keymap("n", "<c-CR>", ":DBM swap<cr>",opts)
-keymap("n", "vs",  ":DBM split<cr>:vert resize 132<cr>:e<space>", opt)
-keymap("n", "<c-s>",  ":DBM split<cr>", opts)
-keymap("n", "<c-f>",  ":DBM focuc<cr>", opts)
-keymap("n", "<c-n>",  ":DBM next<cr>", opts)
-keymap("n", "<c-q>",  ":quit<cr>", opts)
-keymap("n", "st",  ":DBM split<cr>:terminal<cr>", opts)
+keymap("n", "<leader>sw",   ":DBM swap<cr>",opts)
+keymap("n", "vs",           ":DBM split<cr>:vert resize 132<cr>:e<space>", opt)
+keymap("n", "<c-s>",        ":DBM split<cr>", opts)
+keymap("n", "<c-f>",        ":DBM focuc<cr>", opts)
+keymap("n", "<c-n>",        ":DBM next<cr>", opts)
+keymap("n", "<c-q>",        ":quit<cr>", opts)
+keymap("n", "<leader>st",   ":DBM split<cr>:terminal<cr>", opts)
 vim.cmd([[
 	autocmd TermOpen * startinsert
 ]])
