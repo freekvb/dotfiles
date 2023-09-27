@@ -30,8 +30,18 @@ vim.cmd([[
 
 -- cursor line
 set.cursorline = true
+-- cursor line disabled in insert mode
+vim.cmd([[
+    autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=233 ctermfg=NONE
+]])
 -- cursor column
 set.cursorcolumn = true
+-- cursor column disabled in insert mode
+vim.cmd([[
+    autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorColumn ctermbg=233 ctermfg=NONE
+]])
 keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
 -- column
 set.colorcolumn:append("79")
