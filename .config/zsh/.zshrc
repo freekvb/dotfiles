@@ -259,7 +259,7 @@ lxd () {
 # google search and open in lynx
 lxg () {
     declare url=$*
-    lynx "https://google.com/search?q=$*"
+    lx "https://google.com/search?q=$*"
 }
 
 # ddg search and open in w3m

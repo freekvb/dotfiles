@@ -9,6 +9,8 @@
 
 #---------- exports - thnx to gotbletu ---------------------------------------#
 
+# for cli browsers
+export WWW_HOME=ddg.gg
 
 #{{{ default programs
 
@@ -23,7 +25,7 @@ find_alt() { for i;do which "$i" >/dev/null &&
 export OPENER=$(find_alt xdg-open)
 
 export BROWSER=$(find_alt qutebrowser firefox chromium $OPENER)
-export BROWSERCLI=$(find_alt lynx w3m links2 links elinks $OPENER )
+export BROWSERCLI=$(find_alt w3m lynx links2 links elinks $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export EDITOR=$(find_alt nvim vim helix vi nano $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
