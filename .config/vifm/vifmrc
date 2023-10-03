@@ -123,9 +123,6 @@ set previewoptions+=graphicsdelay:0
 
 " ------------------------------------------------------------------------------
 
-" :mark mark /full/directory/path [filename]
-mark h ~/
-
 " ------------------------------------------------------------------------------
 
 " :com[mand][!] command_name action
@@ -486,13 +483,18 @@ nnoremap yd :!echo %d | xclip %i<cr>
 " Yank current file path into the clipboard
 nnoremap yf :!echo %c:p | xclip %i<cr>
 
+" Make a backup copy file in the same pane
+nnoremap yp :clone <cr>
+
 " Set wallpaper and colorscheme (cli only)
 nnoremap cs :!wal -i %f <cr>
 " Set wallpaper and colorscheme (cli only) when running dwm
 nnoremap bg :!wal -i %f && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
 
-" Empty trash
-nnoremap et :empty | echo 'Emptied Trashcan'<cr>
+" Trash trash-cli to handle trash
+nnoremap dd :!trash-put %f<cr>
+nnoremap ut :!trash-restore <cr>
+nnoremap et :!trash-empty <cr>
 
 " Mappings for faster renaming
 nnoremap I cw<c-a>
@@ -503,6 +505,18 @@ nnoremap A cw
 nnoremap md :mkdir<space>
 nnoremap mf :touch<space>
 nnoremap ms :!mkscript<cr>
+
+" Bookmark
+" :mark mark /full/directory/path [filename]
+" "mark = m + letter or number"
+" goto bookmark " ' + letter or number"
+
+" Bookmarks:
+mark h ~/
+mark t ~/Notes/trades
+
+" show all bookmarks
+nnoremap bb :marks <cr>
 
 " Key mappings
 nnoremap <space> :select<cr>j
