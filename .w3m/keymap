@@ -1,33 +1,12 @@
 
-### w3m links hint mode (similar to qutebrowser and vimium)
+# Open ddg in new tab, proceed to and select the search box
+keymap ,-d COMMAND "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
 
-# toggle hinting mode (vimium similar)
-keymap  f-SPC   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+# Open google in new tab, proceed to and select the search box
+keymap ,-g COMMAND "TAB_GOTO https://google.com; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
 
-# jump to link number (e.g press 3ff) and hide hinting mode (similar to gg in vim)
-keymap  ff      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN"
-
-# open current cursor link in new tab and hide hinting mode
-keymap  ft      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; TAB_LINK"
-
-# copy link to clipboard (e.g press f-SPC then 4fy to yank url)
-keymap  fy      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
-    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null'"
-
-# jump to link number and open it
-keymap  fo       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
-
-# jump to link number and open it in new tab
-keymap  fn       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
-
-# yank url to multiple clipboard (under cursor)
-keymap  yy      EXTERN_LINK "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
-    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null"
-
-# yank url to multiple clipboard (current page)
-keymap  YY      EXTERN "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
-    #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null"
-
+# Open google video in new tab, proceed to and select the search box
+keymap ,-v COMMAND "TAB_GOTO https://google.com/videohp ; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
 
 # toggle line numbers
 keymap ,-l COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
@@ -35,13 +14,72 @@ keymap ,-l COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
 # toggle borders
 keymap ,-t COMMAND "SET_OPTION display_borders=toggle ; RESHAPE"
 
-
 # w3m fzf function prompt
 keymap ,-f COMMAND "READ_SHELL ~/.w3m/cgi-bin/functions.cgi ; BACK ; GOTO file:/cgi-bin/run_command.cgi ; BACK"
 
 # readability mode
 keymap ,-r COMMAND "READ_SHELL 'python3 -m readability.readability -u $W3M_URL 2> /dev/null' ; VIEW ; DELETE_PREVBUF"
 
-# Open search engine ddg, proceed to and select the search box
-keymap ,-d COMMAND  "GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
+# search with surfraw (no clipboard required)
+keymap  ,-s      COMMAND "READ_SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; BACK ; GOTO file:/cgi-bin/goto_w3m_clipboard.cgi"
+keymap  ,-S      COMMAND "READ_SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; BACK ; TAB_GOTO file:/cgi-bin/goto_w3m_clipboard.cgi"
+
+# paste url and go
+keymap  pp      GOTO        file:/cgi-bin/goto_clipboard.cgi
+keymap  PP      TAB_GOTO    file:/cgi-bin/goto_clipboard.cgi
+
+# links hint mode {{{
+
+        # toggle hinting mode (vimium similar)
+        keymap  f-SPC   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+
+        # jump to link number (e.g press 3ff) and hide hinting mode (similar to gg in vim)
+        keymap  ff      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN"
+
+        # open current cursor link in new tab and hide hinting mode
+        keymap  ft      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; TAB_LINK"
+
+        # copy link to clipboard (e.g press f-SPC then 4fy to yank url)
+        keymap  fy      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+            #; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null'"
+
+        # jump to link number and open it
+        keymap  fo       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+
+        # jump to link number and open it in new tab
+        keymap  fn       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
+
+}}}
+
+# external commands {{{
+
+        # EXTERN_LINK = under cursor
+        # EXTERN      = current page
+
+        # yank url to multiple clipboard
+        keymap  yy      EXTERN_LINK "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+        keymap  YY      EXTERN      "url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null"
+
+        # open gui browser
+        keymap  xw      EXTERN_LINK   '$BROWSER'
+        keymap  XW      EXTERN        '$BROWSER'
+
+        # queue download file (task-spooler)
+        keymap  xd      EXTERN_LINK   'TS_SOCKET=/tmp/w3m tsp wget -c -P ~/Downloads'
+
+        # queue external media player (task-spooler) e.g youtube, video links
+        keymap  xm      EXTERN_LINK   'tsp mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-53'
+        keymap  XM      EXTERN        'tsp mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-53'
+
+        # open external image viewer
+        keymap  xi      EXTERN_LINK   'w3m -o display_image=1 -o imgdisplay=w3mimgdisplay'
+        keymap  xI      EXTERN_LINK   'feh -. -x -B black -g 900x600-15+60 %s &'
+        keymap  xg      EXTERN_LINK   'mpv --loop --quiet --ontop --no-border --force-window --autofit=900x600 --geometry=-15+60'
+
+        # basic task-spooler view, cat, clear
+        keymap  xs      SHELL         'watch TS_SOCKET=/tmp/w3m tsp'
+        keymap  xC      SHELL         'clear && TS_SOCKET=/tmp/w3m tsp -c'
+        keymap  xc      SHELL         'clear && TS_SOCKET=/tmp/w3m tsp -C'
+
+        # }}}
 
