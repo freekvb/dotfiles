@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# search videos on youtube and play them in mpv, without an API key
+# search videos on youtube and play the audio in mpv, without an API key
 # credits to Sayan G
 
 if [ "$1" == "" ]; then
@@ -21,6 +21,6 @@ while true; do
 	fzf --with-nth='2..-1' | \
 	cut -d' ' -f1)
 	if [ "$videoid" == "" ]; then exit; fi
-    dunstify 'Searching for video ...'
-	devour mpv https://youtu.be/$videoid
+    dunstify 'Searching for audio ...'
+	devour mpv --no-video https://youtu.be/$videoid
 done

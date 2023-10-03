@@ -8,7 +8,7 @@ html=($(tail -1 ~/.config/lynx/lynx_bookmarks.html | pandoc -f html -t markdown 
 
 for line in ${html[@]}; do
    [[ $line =~ ^\[(.+)\]\((.+)\) ]]
-   rdrview -H "${BASH_REMATCH[2]}" | lynx -stdin
+   rdrview -H "${BASH_REMATCH[2]}" | lx -stdin
    head -n -1 ~/.config/lynx/lynx_bookmarks.html > tmp.html && mv tmp.html ~/.config/lynx/lynx_bookmarks.html
 done
 
