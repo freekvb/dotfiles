@@ -41,7 +41,6 @@ alias fm='macho'                                    # fzf man pages
 alias fn='cd $HOME/Notes && fifo'                   # fzf given string in Notes
 alias fo='fopen'                                    # fzf and open with xdg-open
 alias fp='fprev'                                    # fzf preview
-alias fpdf='pdf'                                    # fzf pdf and open in zathura
 alias fr='cat .cache/dmenu_run | f'                 # fzf laucher
 alias ft='$HOME/Scripts/tldrf'                      # fzf tldr list with preview
 alias fv='vif'                                      # fzf and open in nvim
@@ -50,7 +49,6 @@ alias grep='grep --color=auto'                      # grep color
 alias h='cd $HOME'                                  # go home in terminal
 alias history='fc -l 1'                             # history show all
 alias hx='helix'                                    # helix editor
-alias ictt='bat $HOME/Notes/ict/ict_tools_keybinds' # ict tools keybindings
 alias kb='zathura Documents/ferris_sweep/fvb_keymap.pdf'            # show ferris_sweep keymap
 alias kmon='kmon -c green'                          # kernel manager and monitor
 alias less='less -R'                                # cause of colors
