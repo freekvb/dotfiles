@@ -27,9 +27,9 @@ local keymap = vim.api.nvim_set_keymap
 vim.cmd([[
     au CursorHoldI * stopinsert
 ]])
--- set 'update time' to 5 seconds when in insert mode
+-- set 'update time' to 7.5 seconds when in insert mode
 vim.cmd([[
-    au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+    au InsertEnter * let updaterestore=&updatetime | set updatetime=7500
     au InsertLeave * let &updatetime=updaterestore
 ]])
 

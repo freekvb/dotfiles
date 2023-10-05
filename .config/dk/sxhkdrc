@@ -1,0 +1,170 @@
+#!/bin/sh
+
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/dk/sxhkdrc (archlinux @ 'silent')
+# Date:     Sat 13 May 2023 04:38
+# Update:   Sat 13 May 2023 01:36
+# Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+#-----------------------------------------------------------------------------#
+
+
+#
+# sxhkdrc for use with dk
+#
+
+# terminal
+alt + space
+	st
+
+# launcher
+super + Return
+	dmenu_run
+
+ ## tdrop terminal
+ #super + shift + d
+ #    tdrop -m -w 1280 -a st
+
+# clipboard manager
+alt + p
+    clipmenu -i
+
+# emojis to clipboard
+super + e
+    ./Scripts/dmenu-emoji
+
+# lock screen
+alt + z
+    xset dpms force off
+
+# control sound volume
+super + {comma,period,slash}
+    amixer -q set Master {5%- unmute,5%+ unmute,toggle}
+#    pamixer --allow-boost {-d 5,-i 5,-t}
+
+# toggle pause/play moc
+alt + x
+    mocp -G
+
+# qutebrowser
+super + q
+    qutebrowser
+
+# firefox
+super + f
+    firefox
+
+# chromium
+super + c
+    chromium
+
+# mt5
+super + m
+    mt5
+
+# youtube pipecat
+alt + y
+    pipecat-turbo.sh
+
+# date time notification
+super + d
+    dunstify "$(date_time)"
+
+# firefox / chromium  - youtube (link yanked) in mpv
+alt + v
+    ./Scripts/yt_mpv
+
+# trade screenshots
+super + x
+    scrot '%d-%b-%Y-%H:%M:%S.png' -e 'mv $f ~/Notes/trades/tp' && dunstify "chart screenshot  >>  trades/tp"
+
+# review screenshots
+super + s
+    scrot '%d-%b-%Y-%H:%M.png' -e 'mv $f ~/Notes/trade/reviews/' && dunstify "chart screenshot  >>  trades/reviews"
+
+
+#
+# sxhkd
+#
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd; dunstify 'sxhkd: config reloaded'
+
+
+#
+# dk
+#
+
+# quit dk
+super + shift + q
+	dkcmd exit
+
+# reload dkrc
+super + shift + r
+	$HOME/.config/dk/dkrc; dunstify 'dk: config reloaded'
+
+# restart dk
+super + ctrl + shift + r
+	dkcmd restart
+
+# focus next or previous window
+alt + {j,k}
+	dkcmd win focus {next,prev}
+
+# close window, swap tiled window in/out of master, cycle tiled windows in place
+super + {w,space,Tab}
+	dkcmd win {kill,swap,cycle}
+
+ ## toggle fullscreen and fake fullscreen (enable manipulating fullscreen window)
+ #{_,alt + }F11
+ #	dkcmd win {full,fakefull}
+ #
+ ## toggle floating or sticky
+ #alt + shift + {space,s}
+ #	dkcmd win {float,stick}
+ #
+ ## move window, signed (+/-) for relative changes
+ #alt + shift + {h,j,k,l}
+ #	dkcmd win resize {x=-20,y=+20,y=-20,x=+20}
+
+# resize window, signed (+/-) for relative changes
+alt + ctrl + {h,j,k,l}
+	dkcmd win resize {w=-20,h=+20,h=-20,w=+20}
+
+# move the active window up/down the stack
+alt + {Up,Down}
+	dkcmd win mvstack {up,down}
+
+# view, send, or follow to a workspace (by number)
+alt + {_,shift + ,ctrl + }{1-9,0}
+	dkcmd ws {view,send,follow} {1-9,10}
+
+# view, send, or follow to the next, previous, last active,
+# next non-empty, or prev non-empty workspace
+alt + {_,shift + ,ctrl + }{Left,Right,BackSpace,h,l}
+	dkcmd ws {view,send,follow} {prev,next,last,prevne,nextne}
+
+ ## view, send, or follow to the next, previous, or last active monitor
+ #alt + {_,shift + ,ctrl + }{comma,period,backslash}
+ #	dkcmd mon {view,send,follow} {prev,next,last}
+
+# change active workspace layout
+alt + {t,r,m,g}
+	dkcmd set layout {tile,rtile,mono,grid}
+
+# toggle fullscreen and fake fullscreen (enable manipulating fullscreen window)
+{_,alt + }F11
+	dkcmd win {full,fakefull}
+
+# change number of windows in master or first stack
+alt + {_,shift + }{i,d}
+	dkcmd set {master,stack} {+1,-1}
+
+# change gap width
+alt + {plus,minus}
+	dkcmd set gap {+5,-5}
+
+# change border widths
+alt + ctrl + {_,shift + }{plus,minus}
+	dkcmd set border {width,outer_width} {+1,-1}
+

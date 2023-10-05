@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+sed -i '$ d' .xinitrc && echo "exec bspwm" >> .xinitrc && startx

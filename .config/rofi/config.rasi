@@ -1,4 +1,5 @@
 configuration {
+
 /*	modes: "window,drun,run,ssh";*/
 	font: "Hack 10";
 /*	location: 0;*/

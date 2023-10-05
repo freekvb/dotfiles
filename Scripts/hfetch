@@ -1,0 +1,77 @@
+#!/bin/bash
+
+yellow=$(echo -en '\033[00;33m')
+magenta=$(echo -en '\033[00;35m')
+grey=$(echo -en '\033[01;30m')
+white=$(echo -en '\033[0m')
+
+# clean environment, then make every file in the dir an argument,
+# then save the argument count to $pkgs
+set --
+# kiss, arch, debian, void, gentoo
+for i in '/var/db/kiss/installed/*'  '/var/lib/pacman/local/[0-9a-z]*' \
+'/var/lib/dpkg/info/*.list'  '/var/db/xbps/.*'  '/var/db/pkg/*/*'; do
+	set -- $i
+	[ $# -gt 1 ] && break
+done
+pkgs=${###0}
+
+os=$(grep PRETTY_NAME < /etc/os-release | sed 's/\"//g' | sed 's/.*=//g')
+ram=$(echo $(("$(grep MemTotal < /proc/meminfo | awk '{print $2}')" / 1024)))
+ram_used=$(echo $(("$(grep MemAvailable < /proc/meminfo | awk '{print $2}')" / 1024)))
+ram_used=$(echo $((ram-ram_used)))
+username=$(whoami)
+
+IFS=. read -r s _ < /proc/uptime
+
+d=$((s / 60 / 60 / 24))
+h=$((s / 60 / 60 % 24))
+m=$((s / 60 % 60))
+
+# Only append days, hours and minutes if they're non-zero.
+case "$d" in ([!0]*) uptime="${uptime}${white}${d} ${magenta}day "; esac
+case "$h" in ([!0]*) uptime="${uptime}${white}${h} ${magenta}hr "; esac
+case "$m" in ([!0]*) uptime="${uptime}${white}${m} ${magenta}min "; esac
+
+kernel=$(cat /proc/sys/kernel/osrelease)
+
+# Get wm from xinitrc
+ #while read -r line; do
+ #    [ "${line#exec }" = "$line" ] || wm="${line#exec }"
+ #done < "$HOME/.xinitrc"
+wm="$(tail -n1 $HOME/.xinitrc | awk 'NF>1{print $NF}')"
+
+cpu_temp=$(sensors | awk '/Package id 0/{gsub(/+/, "", $0); print $4}')
+video_temp=$(sensors | awk '/temp2/{gsub(/+/, "", $0); gsub(/.0/,"", $0); print $2}')
+
+cpu=$(top -bn 1 | awk '/^%Cpu/ { print int($2 + $4 + $6)"%" }')
+
+load=$(cat /proc/loadavg | awk '{ print $1, $2, $3 }')
+
+ram=$(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)
+
+root=$(df -hl / | awk '{ print $5 }' | tail -n 1)
+
+home=$(df -hl /home | awk '{ print $5 }' | tail -n 1)
+
+color=$(color)
+
+cat << EOF
+
+ ${white}arch linux
+${magenta}------------  kernel  ${white}${kernel}
+             ${magenta} uptime  ${white}${uptime}
+             ${magenta} pkgs    ${white}${pkgs}
+             ${magenta} wm      ${white}${wm}
+    ${white}.${yellow}~${white}.      ${magenta} shell   ${white}${SHELL##*/}
+    ${grey}/${yellow}V${grey}\      ${magenta} term    ${white}${TERM##*/}
+   ${grey}/${white}/ \\${grey}\     ${magenta} cpu     ${white}${cpu}
+  ${grey}/${white}(   )${grey}\    ${magenta} temp    ${white}${cpu_temp}
+   ${grey}^${white}\`${yellow}~${white}'${grey}^     ${magenta} load    ${white}${load}
+             ${magenta} ram     ${white}${ram}
+             ${magenta} root    ${white}${root}
+${magenta}------------  home    ${white}${home}
+${color}
+
+EOF
+

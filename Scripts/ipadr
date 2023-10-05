@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# simple script to check internal and external IP addresses
+# by trilby
+
+ip addr | sed -n '/state UP/{n;n;h;};${g;s/[^0-9]*\([0-9\.]*\).*/Local IP: \1/p;}'
+
+curl -s http://ip-api.com/json | jq -r '
+	"Public IP: " + .query,
+	"Location: " + .city + " (" + .regionName + "), " + .country,
+	"ISP: " + .isp'
+

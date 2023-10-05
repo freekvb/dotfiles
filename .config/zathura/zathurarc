@@ -1,0 +1,21 @@
+#-----------------------------------------------------------------------------#
+# File:     ~/.config/zathura/zathurarc (archlinux @ 'silent')
+# Date:     Thu 23 Apr 2020 12:20
+# Update:   Wed 08 Sep 2021 01:05
+# Owner:    fvb - freekvb@gmail .com - http://members.multiweb.nl/fvb
+#-----------------------------------------------------------------------------#
+
+
+set font "Terminus 8"
+set selection-clipboard clipboard
+set first-page-column 1:1
+set statusbar-home-tilde true
+set page-padding 32
+
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map K zoom in
+map J zoom out
+
