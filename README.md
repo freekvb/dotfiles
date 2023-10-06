@@ -17,13 +17,13 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 
 ##### Software
 * distro:           [**arch linux**](https://www.archlinux.org/ "arch linux")
-* windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm") or [**bspwm**](https://github.com/baskerville/bspwm "bspwm - tiling window manager")
-* statusbar         [**dwmblocks**](https://github.com/torrinfail/dwmblocks "dwmblocks"), [**slstatus**](https://tools.suckless.org/slstatus/ "slstatus") or [**lemonbar**](https://gitlab.com/protesilaos/lemonbar-xft "lemonbar")
+* windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm")
+* statusbar         [**dwmblocks**](https://github.com/torrinfail/dwmblocks "dwmblocks")
 * shell:            [**zsh**](https://www.zsh.org "zsh")
 * terminal:         [**st**](https://st.suckless.org/ "st - suckless terminal")
 * editor:           [**neovim**](https://neovim.io/ "neovim")
-* filemanager:      [**vifm**](https://vifm.info/ "vifm") and [**lf**](https://github.com/gokcehan/lf "lf")
-* webbrowser:       [**qutebrowser**](https://qutebrowser.org/ "qutebrowser"), [**firefox**](https://www.mozilla.org/firefox/new/ "firefox") and [**chromium**](https://www.chromium.org/ "chromium")
+* filemanager:      [**vifm**](https://vifm.info/ "vifm")
+* webbrowser:       [**qutebrowser**](https://qutebrowser.org/ "qutebrowser")
 * cli_webbrowser:   [**w3m**](https://w3m.sourceforge.net/ "w3m") and [**lynx**](https://lynx.invisible-island.net/current/index.html "lynx")
 * git interface:    [**lazygit**](https://github.com/jesseduffield/lazygit/ "lazygit")
 * torrentclient:    [**rtorrent**](https://rakshasa.github.io/rtorrent/ "rtorrent")
