@@ -37,8 +37,6 @@ arch linux dwm @ 'silent'
 
 ![screenshot](https://freekvb.github.io/fvb/dwm/silent_dwm_1.png "arch linux dwm @ 'silent'")
 
-[**more bspwm screenshots**](https://freekvb.github.io/fvb/screenshots_bspwm.html "fvb /screenshots_bspwm")
-
 [**more dwm screenshots**](https://freekvb.github.io/fvb/screenshots_dwm.html "fvb /screenshots_dwm")
 
 ---
