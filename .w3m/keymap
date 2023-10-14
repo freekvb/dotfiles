@@ -1,4 +1,7 @@
 
+# quit w3m
+keymap ,-q COMMAND "ABORT"
+
 # Open ddg in new tab, proceed to and select the search box
 keymap ,-d COMMAND "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
 

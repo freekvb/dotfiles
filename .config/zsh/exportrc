@@ -24,19 +24,20 @@ find_alt() { for i;do which "$i" >/dev/null &&
 
 export OPENER=$(find_alt xdg-open)
 
-export BROWSER=$(find_alt qutebrowser firefox chromium $OPENER)
-export BROWSERCLI=$(find_alt w3m lynx links2 links elinks $OPENER )
+export BROWSER=$(find_alt firefox qutebrowser chromium $OPENER)
+export BROWSERCLI=$(find_alt w3m lynx $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
-export EDITOR=$(find_alt nvim vim helix vi nano $OPENER)
+export EDITOR=$(find_alt nvim vim helix $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
-export FILEMANAGERCLI=$(find_alt lf vifm ranger $OPENER)
+export FILEMANAGERCLI=$(find_alt vifm lf ranger $OPENER)
 export IMAGEVIEWER=$(find_alt nsxiv feh $OPENER)
 export MANPAGER="nvim +Man!"
 export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
 export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
-export READER=$(find_alt zathura apvlv mupdf evince $OPENER)
-export TERM=$(find_alt st urxvt xterm uxterm termite terminology $OPENER)
+export READER=$(find_alt zathura $OPENER)
+export TERM=$(find_alt st xterm $OPENER)
+export VISUAL=$EDITOR
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 
 #}}}

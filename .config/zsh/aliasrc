@@ -17,7 +17,7 @@ alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-dir
 alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='rm -iv'
+alias rm='trash'
 
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
@@ -40,6 +40,7 @@ alias fk='fkill'                                    # fzf and kill proces
 alias fl='cat $HOME/.cache/dmenu_run | fzf'         # fzf launcher
 alias fm='macho'                                    # fzf man pages
 alias fn='cd $HOME/Notes && fifo'                   # fzf given string in Notes
+alias fo='fopen'                                    # fzf open with xdg-open
 alias fp='fprev'                                    # fzf preview
 alias ft='$HOME/Scripts/tldrf'                      # fzf tldr list with preview
 alias fv='vif'                                      # fzf and open in nvim
