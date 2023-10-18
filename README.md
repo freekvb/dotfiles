@@ -13,7 +13,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 * Ultimate Black Impactics Fanless Case Mini ITX-PC from [**atlast! solutions**](https://www.atlastsolutions.com "atlast! solutions")
 * Core i7 Skylake, 16GB DDR4 3GHz, ASUS Z170i
 * 250GB SSD 550MB/s read 520MB/s write, 500GB HDD 7200rpm
-* [**gergoplex**](https://github.com/baylessj/qmk_firmware/tree/master/keyboards/gboards/gergoplex "gergoplex") compact 30% (5x3+3) split keyboard from [**g Heavy Industries**](https://www.gboards.ca/product/gergoplex "g Heavy industries")
+* [**ferris sweep**](https://github.com/davidphilipbarr/Sweep "ferris sweep") compact 34 keys (5x3+2) split keyboard from [**beekeeb**](https://shop.beekeeb.com/product/pre-soldered-ferris-sweep-low-profile-split-keyboard/ "beekeeb")
 
 ##### Software
 * distro:           [**arch linux**](https://www.archlinux.org/ "arch linux")
