@@ -24,7 +24,7 @@ find_alt() { for i;do which "$i" >/dev/null &&
 
 export OPENER=$(find_alt xdg-open)
 
-export BROWSER=$(find_alt firefox qutebrowser chromium $OPENER)
+export BROWSER=$(find_alt qutebrowser firefox chromium $OPENER)
 export BROWSERCLI=$(find_alt w3m lynx $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export EDITOR=$(find_alt nvim vim helix $OPENER)
