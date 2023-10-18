@@ -1,20 +1,20 @@
 #!/usr/bin/sh
 
-# publish modified zettel note on github
+# publish modified zettel note on github and copy to ~/Notes/zettels/
 
-cd ~/Notes/zet/
+cd ~/Notes/zet/ || return
 
-file=$(git status | awk 'NR == 7 {print $2}') &&
-title=$(awk 'NR == 1' $file ) &&
+file=$(git status | awk 'NR == 7 {print $2}')
+title=$(awk 'NR == 1' "$file" )
+newfile=$(git status | awk 'NR == 7 {print $2}' | cut -c -17)
 
-git add $file &&
+git add "$file" &&
 git commit -m "$title" &&
 git push &&
 
-dunstify "zettel modified and published on github"
+cp "$file" ~/Notes/zettels/"$newfile"_"$title".md
 
-cd ..
-rm -f new.md
+dunstify "zettel modified and published"
 
-cd ~
+cd ~ || return
 

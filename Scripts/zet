@@ -1,20 +1,23 @@
 #!/usr/bin/sh
 
-# publish new zettel note on github
+# publish new zettel note on github and copy to ~/Notes/zettels/
 
-cd ~/Notes/zet/
+cd ~/Notes/zet || return
 
-file=$(git status | awk 'NR == 6 {print $1}') &&
-title=$(awk 'NR == 1' $file ) &&
+file=$(git status | awk 'NR == 6 {print $1}')
+title=$(awk 'NR == 1' "$file" )
+newfile=$(git status | awk 'NR == 6 {print $1}' | cut -c -17)
 
-git add $file &&
+git add "$file" &&
 git commit -m "$title" &&
 git push &&
 
-eval "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"; /usr/bin/notify-send "zettel published on github"
+cp "$file" ~/Notes/zettels/"$newfile"_"$title".md
 
-cd ..
-rm -f new.md
+dunstify "zettel published and copied"
 
-cd ~
+cd .. || return
+rm -f draft.md
+
+cd ~ || return
 
