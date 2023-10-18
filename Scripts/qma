@@ -4,4 +4,4 @@
 # and paste them in markdown format
 
 tail -n -1 ~/.config/qutebrowser/quickmarks | awk '{print "* ["$1"] <"$2">"}'
-
+echo ""
