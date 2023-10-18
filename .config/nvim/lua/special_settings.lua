@@ -23,6 +23,16 @@ local keymap = vim.api.nvim_set_keymap
 
 -------------------------------------------------------------------------------
 
+-- split for terminal (rest with plugin DBM)
+-- split horizontal below
+set.splitbelow = true
+-- terminal in split below, resize and start insert mode
+keymap("n", "<leader>st", ":sp<bar>resize15<bar>term<cr>", opts)
+vim.cmd([[
+	autocmd TermOpen * startinsert
+]])
+keymap("t", "<esc>", "<c-\\><c-n>", {})
+
 -- paste
 -- toggle paste unmodified (code)
 set.pastetoggle = "<leader>p"

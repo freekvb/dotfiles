@@ -114,11 +114,6 @@ keymap("n", "<c-s>",        ":DBM split<cr>", opts)
 keymap("n", "<c-f>",        ":DBM focuc<cr>", opts)
 keymap("n", "<c-n>",        ":DBM next<cr>", opts)
 keymap("n", "<c-q>",        ":quit<cr>", opts)
-keymap("n", "<leader>st",   ":DBM split<cr>:terminal<cr>", opts)
-vim.cmd([[
-	autocmd TermOpen * startinsert
-]])
-keymap("t", "<esc>", "<c-\\><c-n>", {})
 
 -- packer
 
