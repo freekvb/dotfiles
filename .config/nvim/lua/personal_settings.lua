@@ -61,9 +61,23 @@ keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Result
 keymap("n", "tr", [[:r!trade_result<cr>]], opts)
 
--- zettel notes
--- save zettel zettelkasten note (time stamp)
-keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%S%z")<cr>.md<cr>]], opt)
+-- zettel notes (nz in terminal)
+-- set title and go write some content
+keymap("n", "nz", [[o<cr>####<space>]], opt)
+-- insert some code
+keymap("n", "nc", [[o```<cr>```<esc>kli]], opt)
+-- add last lynx bookmark(s)
+keymap("n", "na", [[:r!lxa<cr>]], opt)
+-- insert last qutebrowser quickmark(s)
+keymap("n", "nq", [[:r!qma<cr>]], opt)
+-- go and add a few tags
+keymap("n", "nt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
+-- save note as draft (work in progress)
+keymap("n", "sd", [[:saveas $HOME/Notes/draft.md<cr>]], opt)
+-- save zettel note (time stamp), publish on github and quit nvim(buffer)
+keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
+-- save modified note, publish and quit
+keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
 
 -- blog entry
 keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)
