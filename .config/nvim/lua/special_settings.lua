@@ -40,8 +40,8 @@ set.pastetoggle = "<leader>p"
 -- toggle spell checking
 keymap("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
 
--- time stamp
-keymap("i", "<leader>ts", '<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr>', opts)
+-- date time stamp
+keymap("n", "<leader>dt", [[i<c-r>=strftime("%a %d %Y %H:%M")<cr><space>]], opts)
 
 -- double space over word to find and replace
 keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
@@ -53,7 +53,7 @@ keymap("n", "<c-s>", [[:%s//gI<Left><Left><Left>]], opt)
 keymap("c", "w!!", [[w !sudo tee %]], opt)
 
 -- diff since last save
-keymap("n", "<leader>d", [[:w !diff % -<cr>]], opt)
+keymap("n", "<leader>df", [[:w !diff % -<cr>]], opt)
 
 -- make diff better: https://vimways.org/2018/the-power-of-diff/
 set.diffopt:append("iwhite", "algorithm:patience", "indent-heuristic", "linematch:60")

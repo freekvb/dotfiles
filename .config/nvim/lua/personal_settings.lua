@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 03 Sep 2023 20:30
+-- Update:   Thu 19 Oct 2023 03:32
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -31,11 +31,13 @@ keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 
 -- notes - all notes in markdown (.md)
 -- new note 'nn' in terminal
--- save note in $HOME/Notes/ (title)
-keymap("n", "sn", ":saveas ~/Notes/", opt)
+-- always save note first as $HOME/Notes/draft.md (work in progress)
+keymap("n", "sd", [[:saveas $HOME/Notes/draft.md<cr>]], opt)
+-- save (and quit) finished note in $HOME/Notes [title]
+keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
 
 -- trade notes ('nt' in terminal in '$HOME/Notes/trades' directory)
--- save trade note (time stamp)
+-- save trade note [time stamp]
 keymap("n", "st", [[:saveas $HOME/Notes/trades/<c-r>=strftime("%d %b %Y %H:%M:%S")<cr>.md<cr>]], opt)
 -- insert last trade screenshot in trade note with timestamp above screenshot
 keymap(
@@ -44,6 +46,8 @@ keymap(
 	[[:r!tp<cr>i######<space><esc>$3hDi<cr>[![trade](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)<cr><cr><esc>]],
 	opts
 )
+-- insert title time stamp
+keymap("n", "<leader>t", [[:r!dt<cr>kddo---<cr><esc>]], opts)
 -- insert Calendar
 keymap("n", "tc", [[:r!trade_cal<cr>]], opts)
 -- insert HTF
@@ -63,18 +67,18 @@ keymap("n", "tr", [[:r!trade_result<cr>]], opts)
 
 -- zettel notes (nz in terminal)
 -- set title and go write some content
-keymap("n", "nz", [[o<cr>####<space>]], opt)
+keymap("n", "mz", [[o<cr>####<space>]], opt)
 -- insert some code
-keymap("n", "nc", [[o```<cr>```<esc>kli]], opt)
+keymap("n", "mc", [[o```<cr>```<esc>kli]], opt)
 -- add last lynx bookmark(s)
-keymap("n", "na", [[:r!lxa<cr>]], opt)
+keymap("n", "ma", [[:r!lxa<cr>]], opt)
 -- insert last qutebrowser quickmark(s)
-keymap("n", "nq", [[:r!qma<cr>]], opt)
+keymap("n", "mq", [[:r!qma<cr>]], opt)
 -- go and add a few tags
-keymap("n", "nt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
+keymap("n", "mt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
 -- save note as draft (work in progress)
 keymap("n", "sd", [[:saveas $HOME/Notes/draft.md<cr>]], opt)
--- save zettel note (time stamp), publish on github and quit nvim(buffer)
+-- save zettel note (time stamp), publish on github and quit
 keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
 -- save modified note, publish and quit
 keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
