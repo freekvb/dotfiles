@@ -2,4 +2,4 @@
 
 # show volume
 
-echo "volume: "$(amixer sget Master | awk -F"[][]" '/%/ { print $2 }' | head -n1)
+echo "volume: ""$(amixer sget Master | awk -F"[][]" '/%/ { print $2 }' | head -n1)"
