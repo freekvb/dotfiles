@@ -19,7 +19,7 @@ set vicmd=nvim
 
 " Millerview like ranger
 set millerview
-set milleroptions=lsize:1,csize:2,rsize:0,rpreview:dirs
+set milleroptions=lsize:2,csize:3,rsize:0,rpreview:dirs
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal

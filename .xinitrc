@@ -12,7 +12,6 @@
 
 
 # after login
-# start_(insert window manager)
-# dwm, dk, bspwm or nimdow
+# start_dwm
 
 dwmblocks & exec dwm-6.4

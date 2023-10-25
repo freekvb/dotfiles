@@ -57,7 +57,7 @@ settings:
   content.blocking.hosts.block_subdomains:
     global: true
   content.blocking.method:
-    global: both
+    global: auto
   content.blocking.whitelist:
     global: null
   content.cookies.accept:

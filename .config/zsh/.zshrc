@@ -281,8 +281,8 @@ preexec() { printf "\x1b]0;%s\x07" "$1"; }
 # set window title to terminal (st) after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
-# icons for lf
-[ -f "$HOME/.config/lf/icons" ] && source "$HOME/.config/lf/icons"
+## icons for lf
+#[ -f "$HOME/.config/lf/icons" ] && source "$HOME/.config/lf/icons"
 
 #}}}
 

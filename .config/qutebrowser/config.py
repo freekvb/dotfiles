@@ -626,7 +626,7 @@ c.content.cookies.accept = 'no-3rdparty'
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'
 
 ## Enable adblocking
-c.content.blocking.method = 'both'
+c.content.blocking.method = 'auto'
 c.content.blocking.adblock.lists = ["https://easylist.to/easylist/easylist.txt", "https://easylist.to/easylist/easyprivacy.txt", "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt"]
 
 ## Enable host blocking.
@@ -1612,7 +1612,7 @@ c.url.start_pages = ['file:///home/fvb/Websites/fvb/start.html']
 
 ## Default zoom level.
 ## Type: Perc
-# c.zoom.default = '100%'
+c.zoom.default = '90%'
 
 ## Available zoom levels.
 ## Type: List of Perc
