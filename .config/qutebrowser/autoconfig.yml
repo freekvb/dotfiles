@@ -90,31 +90,35 @@ settings:
     - vifm
     - --choosefile={}
   fonts.completion.category:
-    global: bold 8pt default_family
+    global: bold 9pt monospace
+  fonts.completion.entry:
+    global: 9pt monospace
+  fonts.debug_console:
+    global: 9pt monospace
   fonts.default_family:
     global: Terminus
   fonts.default_size:
-    global: 8pt
+    global: 9pt
   fonts.downloads:
-    global: 4pt default_family
+    global: 9pt monospace
   fonts.hints:
-    global: bold 5pt default_family
+    global: bold 10pt monospace
   fonts.keyhint:
-    global: 5pt default_family
+    global: 10pt monospace
   fonts.messages.error:
-    global: 4pt default_family
+    global: 9pt monospace
   fonts.messages.info:
-    global: 4pt default_family
+    global: 9pt monospace
   fonts.messages.warning:
-    global: 4pt default_family
+    global: 9pt monospace
   fonts.prompts:
-    global: 4pt sans-serif
+    global: 9pt sans-serif
   fonts.statusbar:
-    global: 4pt default_family
+    global: 9pt monospace
   fonts.tabs.selected:
-    global: bold 5pt default_family
+    global: bold 10pt monospace
   fonts.tabs.unselected:
-    global: bold 5pt default_family
+    global: bold 10pt nospace
   statusbar.show:
     global: never
   tabs.background:
