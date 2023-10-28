@@ -59,18 +59,18 @@ color=$(color)
 cat << EOF
 
  ${white}arch linux
-${magenta}------------  kernel  ${white}${kernel}
-             ${magenta} uptime  ${white}${uptime}
-             ${magenta} pkgs    ${white}${pkgs}
-             ${magenta} wm      ${white}${wm}
-    ${white}.${yellow}~${white}.      ${magenta} shell   ${white}${SHELL##*/}
-    ${grey}/${yellow}V${grey}\      ${magenta} term    ${white}${TERM##*/}
-   ${grey}/${white}/ \\${grey}\     ${magenta} cpu     ${white}${cpu}
-  ${grey}/${white}(   )${grey}\    ${magenta} temp    ${white}${cpu_temp}
-   ${grey}^${white}\`${yellow}~${white}'${grey}^     ${magenta} load    ${white}${load}
-             ${magenta} ram     ${white}${ram}
-             ${magenta} root    ${white}${root}
-${magenta}------------  home    ${white}${home}
+${magenta}------------   kernel   ${white}${kernel}
+             ${magenta}  uptime   ${white}${uptime}
+             ${magenta}  pkgs     ${white}${pkgs}
+             ${magenta}  wm       ${white}${wm}
+    ${white}.${yellow}~${white}.       ${magenta} shell    ${white}${SHELL##*/}
+    ${grey}/${yellow}V${grey}\       ${magenta} term     ${white}${TERM##*/}
+   ${grey}/${white}/ \\${grey}\      ${magenta} cpu      ${white}${cpu}
+  ${grey}/${white}(   )${grey}\     ${magenta} temp     ${white}${cpu_temp}
+   ${grey}^${white}\`${yellow}~${white}'${grey}^      ${magenta} load     ${white}${load}
+             ${magenta}  ram      ${white}${ram}
+             ${magenta}  root     ${white}${root}
+${magenta}------------   home     ${white}${home}
 ${color}
 
 EOF
