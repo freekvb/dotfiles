@@ -45,7 +45,7 @@ settings:
   colors.tabs.selected.odd.bg:
     global: '#3e3a3a'
   colors.webpage.bg:
-    global: lightgrey
+    global: grey
   colors.webpage.darkmode.enabled:
     global: false
   colors.webpage.preferred_color_scheme:
@@ -90,33 +90,33 @@ settings:
     - vifm
     - --choosefile={}
   fonts.completion.category:
-    global: bold 9pt monospace
+    global: bold 9pt default_family
   fonts.completion.entry:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.debug_console:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.default_family:
     global: Terminus
   fonts.default_size:
     global: 9pt
   fonts.downloads:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.hints:
-    global: bold 10pt monospace
+    global: bold 10pt default_family
   fonts.keyhint:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.messages.error:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.messages.info:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.messages.warning:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.prompts:
     global: 9pt sans-serif
   fonts.statusbar:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.tabs.selected:
-    global: bold 10pt monospace
+    global: bold 10pt default_family
   fonts.tabs.unselected:
     global: bold 10pt nospace
   statusbar.show:

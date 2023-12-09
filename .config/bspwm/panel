@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/panel  (archlinux - 'silent')
 # Date:     Wed 21 Apr 2021 19:42
-# Update:   Sat 13 May 2023 01:46
+# Update:   Sat 09 Dec 2023 05:40
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 

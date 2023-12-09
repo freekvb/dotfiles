@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # parr - paru (yay) fzf remove given pkg (incl deps & confs)
 

@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/aliasrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Tue 30 May 2023 02:21
+# Update:   Sat 09 Dec 2023 05:47
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -21,10 +21,10 @@ alias rm='trash'
 
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
-alias bkb='$HOME/Scripts/bspwm_keybindings'         # bspwm keybindings
+alias bkb='$HOME/Scripts/bspwm_keys'                # bspwm keybindings
 alias df='df -h'                                    # df humancreadable
 alias diff='diff --color=auto'                      # diff in color
-alias dkb='$HOME/Scripts/dwm_keybindings'           # dwm keybindings
+alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
 alias doas='doas '                                  # doas and let it work with aliases
 alias du='du -ch'                                   # du total and human-readable
 alias egrep='grep -E'                               # egrep is depriciated
@@ -61,9 +61,9 @@ alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero         # losing $HO
 alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mw='monero-wallet-gui'                        # monero wallet
 alias nl='cd $HOME/Notes/trades && v $HOME/Notes/trades/-trading_checklist.md'    # new trade checklist
-alias nn='vi +1 $HOME/Notes/new.md'                 # new note in I-mode, sd to save draft, sn to save
+alias nn='vi +1 $HOME/Notes/new.md'                 # new note in I-mode, sn to save
 alias nt='cd $HOME/Notes/trades && v $HOME/Notes/trades/new.md'    # new trade note, st to save
-alias nz='vi +1 $HOME/Notes/new.md'                 # new zettel in I-mode, sd to save draft, sz to save (and publish)
+alias nz='vi +1 $HOME/Notes/new.md'                 # new zettel in I-mode, sz to save (and publish)
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
 alias pacman='doas pacman --color=always'           # pacman color
@@ -76,7 +76,7 @@ alias parr='$HOME/Scripts/parr'                     # paru (yay) aur fzf remove 
 alias pars='$HOME/Scripts/pars'                     # paru (yay) aur fzf install given aur pkg
 alias pm='passmenu'                                 # passwords in dmenu
 alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail in 5 sec.
-alias skb='bat $HOME/Notes/skb.md'                  # (n)sxiv keybindings
+alias skb='bat $HOME/Notes/nsxiv_keys.md'           # (n)sxiv keybindings
 alias suck='rm -f config.h ; doas make clean install'               # source suckless programs
 alias sudo='sudo '                                  # space so sudo works in scripts
 alias su='su -'                                     # real root

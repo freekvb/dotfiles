@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # simple script to check internal and external IP addresses
 # by trilby

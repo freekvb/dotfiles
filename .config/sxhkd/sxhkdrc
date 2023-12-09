@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/sxhkd/sxhkdrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:09
-# Update:   Sat 13 May 2023 01:36
+# Update:   Sat 09 Dec 2023 05:45
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 

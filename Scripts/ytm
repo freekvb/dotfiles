@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # search videos on youtube and play the audio in mpv, without an API key
 # credits to Sayan G

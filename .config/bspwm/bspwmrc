@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/bspwm/bspwmrc (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:07
-# Update:   Thu 14 Oct 2021 20:36
+# Update:   Sat 09 Dec 2023 05:40
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 

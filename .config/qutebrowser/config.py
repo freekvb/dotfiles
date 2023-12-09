@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/qutebrowser/config.py (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:17
-# Update:   Tue 30 May 2023 02:20
+# Update:   Sat 09 Dec 2023 05:44
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -432,7 +432,7 @@ c.colors.completion.scrollbar.fg = '#202020'
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
 ## Type: QtColor
-c.colors.webpage.bg = 'lightgrey'
+c.colors.webpage.bg = 'darkgrey'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -1612,7 +1612,7 @@ c.url.start_pages = ['file:///home/fvb/Websites/fvb/start.html']
 
 ## Default zoom level.
 ## Type: Perc
-c.zoom.default = '90%'
+c.zoom.default = '100%'
 
 ## Available zoom levels.
 ## Type: List of Perc

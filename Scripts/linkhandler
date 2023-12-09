@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # Feed script a url or file location.
 # if a video or gif, it will view in mpv

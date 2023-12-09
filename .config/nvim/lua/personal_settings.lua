@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Thu 19 Oct 2023 03:32
+-- Update:   Sat 09 Dec 2023 05:43
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -31,8 +31,6 @@ keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 
 -- notes - all notes in markdown (.md)
 -- new note 'nn' in terminal
--- always save note first as $HOME/Notes/draft.md (work in progress)
-keymap("n", "sd", [[:saveas $HOME/Notes/draft.md<cr>]], opt)
 -- save (and quit) finished note in $HOME/Notes [title]
 keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
 
@@ -57,7 +55,7 @@ keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
 -- insert Narrative
 keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Execute
-keymap("n", "te", [[:r!trade_execute<cr>22k]], opts)
+keymap("n", "te", [[:r!trade_execute<cr>19k]], opts)
 -- insert Checklist
 keymap("n", "tl", [[:r!trade_list<cr>11kdd14k12li]], opts)
 -- insert Summarize
@@ -77,10 +75,8 @@ keymap("n", "mq", [[:r!qma<cr>]], opt)
 -- go and add a few tags
 keymap("n", "mt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
 -- save note as draft (work in progress)
-keymap("n", "sd", [[:saveas $HOME/Notes/draft.md<cr>]], opt)
--- save zettel note (time stamp), publish on github and quit
 keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
--- save modified note, publish and quit
+-- save modified zettel note, publish and quit
 keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
 
 -- blog entry

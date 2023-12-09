@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.xprofile (archlinux @ 'silent')
 # Date:     Wed 01 Sep 2021 22:18
-# Update:   Wed 16 Nov 2022 21:02
+# Update:   Sat 09 Dec 2023 05:38
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 
-mpv --no-video $HOME/.config/sounds/appear.mp3 &
+mpv --no-video $HOME/.config/sounds/sweep.mp3 &
 xrandr --output HDMI-1 --mode 2560x1080 &
 xsetroot -cursor_name left_ptr &
 xset dpms 1800 1800 1800 &

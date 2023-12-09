@@ -17,7 +17,7 @@ cp "$file" ~/Notes/zettels/"$newfile"_"$title".md
 dunstify "zettel published and copied"
 
 cd .. || return
-rm -f draft.md
+rm -f new.md
 
 cd ~ || return
 
