@@ -9,7 +9,6 @@
 
 
 mpv --no-video $HOME/.config/sounds/sweep.mp3 &
-xrandr --output HDMI-1 --mode 2560x1080 &
 xsetroot -cursor_name left_ptr &
 xset dpms 1800 1800 1800 &
 xset r rate 750 50 &

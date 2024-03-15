@@ -1,3 +1,2 @@
-#!/usr/bin/sh
-
-feh --no-fehbg --bg-fill '/home/fvb/Pictures/wallpapers/select/blossem.png'
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/fvb/Pictures/wallpapers/mountain.jpg' 

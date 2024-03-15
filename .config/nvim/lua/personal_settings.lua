@@ -34,6 +34,24 @@ keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 -- save (and quit) finished note in $HOME/Notes [title]
 keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
 
+-- zettel notes (nz in terminal)
+-- save note as draft (work in progress)
+keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
+-- save modified zettel note, publish and quit
+keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
+
+-- some markdown shortkeys
+-- set zettel note title and go write some content
+keymap("n", "mz", [[o<cr>####<space>]], opt)
+-- insert some code
+keymap("n", "mc", [[o```<cr>```<esc>kli]], opt)
+-- add last lynx bookmark(s)
+keymap("n", "ml", [[:r!lxa<cr>]], opt)
+-- insert last qutebrowser quickmark(s)
+keymap("n", "mq", [[:r!qma<cr>]], opt)
+-- go and add a few tags
+keymap("n", "mt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
+
 -- trade notes ('nt' in terminal in '$HOME/Notes/trades' directory)
 -- save trade note [time stamp]
 keymap("n", "st", [[:saveas $HOME/Notes/trades/<c-r>=strftime("%d %b %Y %H:%M:%S")<cr>.md<cr>]], opt)
@@ -55,29 +73,13 @@ keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
 -- insert Narrative
 keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Execute
-keymap("n", "te", [[:r!trade_execute<cr>19k]], opts)
+keymap("n", "te", [[:r!trade_execute<cr>20k]], opts)
 -- insert Checklist
-keymap("n", "tl", [[:r!trade_list<cr>11kdd14k12li]], opts)
+keymap("n", "tl", [[:r!trade_list<cr>12kdd12k12li]], opts)
 -- insert Summarize
 keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Result
 keymap("n", "tr", [[:r!trade_result<cr>]], opts)
-
--- zettel notes (nz in terminal)
--- set title and go write some content
-keymap("n", "mz", [[o<cr>####<space>]], opt)
--- insert some code
-keymap("n", "mc", [[o```<cr>```<esc>kli]], opt)
--- add last lynx bookmark(s)
-keymap("n", "ma", [[:r!lxa<cr>]], opt)
--- insert last qutebrowser quickmark(s)
-keymap("n", "mq", [[:r!qma<cr>]], opt)
--- go and add a few tags
-keymap("n", "mt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
--- save note as draft (work in progress)
-keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
--- save modified zettel note, publish and quit
-keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
 
 -- blog entry
 keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)
