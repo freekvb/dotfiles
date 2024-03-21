@@ -14,4 +14,4 @@
 # after login
 # start_dwm
 
-dwmblocks & exec dwm-6.4
+dwmblocks & exec dwm-6.5
