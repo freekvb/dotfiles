@@ -47,7 +47,7 @@ keymap("n", "<leader>dt", [[i<c-r>=strftime("%a %d %Y %H:%M")<cr><space>]], opts
 keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
 
 -- search and replace all
-keymap("n", "<c-s>", [[:%s//gI<Left><Left><Left>]], opt)
+keymap("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
 
 -- write file if you forgot to give it sudo permission
 keymap("c", "w!!", [[w !sudo tee %]], opt)

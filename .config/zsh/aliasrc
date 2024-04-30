@@ -22,6 +22,7 @@ alias rm='trash'
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias bkb='$HOME/Scripts/bspwm_keys'                # bspwm keybindings
+alias calc='rofi -show calc -modi calc -no-show-match -no-sort &'   # rofi calculator
 alias df='df -h'                                    # df humancreadable
 alias diff='diff --color=auto'                      # diff in color
 alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
@@ -50,6 +51,7 @@ alias h='cd $HOME'                                  # go home in terminal
 alias history='fc -l 1'                             # history show all
 alias kb='zathura Documents/ferris_sweep/fvb_keymap.pdf'            # show ferris_sweep keymap
 alias less='less -R'                                # cause of colors
+alias lf='$HOME/Scripts/lfub'                       # lf with previews
 alias lg='lazygit'                                  # lazygit
 alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
 alias lgw='cd $HOME/Websites/fvb && lazygit'        # lazygit website fvb

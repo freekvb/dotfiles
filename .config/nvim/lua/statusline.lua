@@ -135,7 +135,7 @@ set.showcmd = false
 -- height of command bar
 set.cmdheight = 1
 -- prompt message options
-set.shortmess = "atToOFc"
+set.shortmess = "atToOFcI"
 -- disable substitution preview
 set.inccommand = ""
 

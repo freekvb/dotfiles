@@ -43,6 +43,8 @@ set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
+set promptfmt "\033[37;1m%d\033[0m\033[37;1m%f\033[0m"
+
 
 ## custom functions ----------------------------------------------------------#
 
@@ -60,38 +62,56 @@ cmd open ${{
         text/*|application/json) $EDITOR "$fx";;
         video/*|application/pdf) xdg-open "$f" & disown;;
         audio/*) mpv --audio-display=no $f ;;
+        audio/*) ffplay -nodisp -autoexit $f ;;
+        image/*) feh -F $f & disown;;
         *) for f in "$fx"; do xdg-open "$f"> /dev/null 2> /dev/null & done;;
     esac
 }}
 
+# make new directory
+cmd mkdir %{{
+    if [ "$1" ]; then
+        mkdir -p -- "$@" && lf -remote "send $id select \"$1\""
+    fi
+}}
+
 #cmd mkdir ${{
-#    printf "Directory Name: "
+#    set -f
+#    printf "\nDirectory Name: "
 #    read ans
 #    mkdir $ans
 #}}
 
+# make new file
 cmd mkfile ${{
-    printf "File Name: "
+    set -f
+    printf "\nFile Name: "
     read ans
     $EDITOR $ans
 }}
 
+# make new 'root' file
+cmd doasmkfile ${{
+    set -f
+    printf "\nFile Name: "
+    read ans
+    doas $EDITOR $ans
+}}
+
+# make new script
 cmd mkscript ${{
-    printf "File Name: "
+    set -f
+    printf "\nFile Name: "
     read ans
     touch ~/Scripts/"$ans"
     chmod +x ~/Scripts/"$ans"
     $EDITOR ~/Scripts/"$ans"
 }}
 
-cmd sudomkfile ${{
-    printf "File Name: "
-    read ans
-    sudo $EDITOR $ans
-}}
-
+# change file permissions
 cmd chmod ${{
-  printf "Mode Bits: "
+  set -f
+  printf "\nMode Bits: "
   read ans
   for file in "$fx"
   do
@@ -100,6 +120,7 @@ cmd chmod ${{
   lf -remote 'send reload'
 }}
 
+# make file executable
 cmd chmodx ${{
   for file in "$fx"
   do
@@ -108,6 +129,7 @@ cmd chmodx ${{
   lf -remote 'send reload'
 }}
 
+# jump with fzf
 cmd fzf_jump ${{
   res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
   if [ -f "$res" ]; then
@@ -121,8 +143,8 @@ cmd fzf_jump ${{
 # delete current file or selected files (prompting)
 cmd delete ${{
     set -f
-    printf "$fx\n"
-    printf "delete?[y/n]"
+    printf "\n$fx\n"
+    printf "Delete? [y/n] "
     read ans
     [ $ans = "y" ] && rm -rf $fx
 }}
@@ -210,15 +232,17 @@ cmd link %{{
     lf -remote "send clear"
 }}
 
+# open terminal
 cmd openterm ${{
-    $TERM
+    devour $TERM
 }}
 
-# Set wallpaper and colorscheme (cli only)
-cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f" <cr>
-# Set wallpaper and colorscheme (cli only) when running dwm
-cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q <cr>
+# set wallpaper and colorscheme (cli only)
+cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f"
+# set wallpaper and colorscheme (cli only) when running dwm
+cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
 
+# bulk rename
 cmd bulkrename $vidir
 
 
@@ -227,11 +251,19 @@ cmd bulkrename $vidir
 # remove some defaults
 map "'"
 map '"'
+map ,
 map c
 map d
 map e
 map m
+map q
 map r
+
+# escape
+map <esc>       :unselect;clear;
+
+# close
+map ,q          quit
 
 # map : to ;
 map ;           read
@@ -249,46 +281,49 @@ map cc          cut
 map yy          copy
 map p           paste
 
-#map md         mkdir
-map md          push %mkdir<space>
+map md          push :mkdir<space>
+#map md          mkdir
 map mf          mkfile
 map ms          mkscript
-map mF          sudomkfile
+map mF          doasmkfile
 map ch          chmod
-map cx          chmodx
+map x           chmodx
 map U           unselect
-map cw          rename
-map B           bulkrename
 map E           extract
 map cs          wallcolor
 map bg          setwallpaper
 
+map <enter>     shell
+map V           push :!nvim<space>
+map YY          $printf "%s" "$fx" | xclip -selection clipboard
+
 map R           reload
 map C           clear
 
+# rename
+map cw          rename
+map B           bulkrename
 map A           rename                  # at the very end
 #map c           push A<c-u>             # new rename
 map I           push A<c-a>             # at the very beginning
 map i           push A<a-b><a-b><a-f>   # before extention
 map a           push A<a-b>             # after extention
 
-map <enter>     shell
-map V           push :!nvim<space>
-map x           $printf "%s" "$fx" | xclip -selection clipboard
 # symlinks
 # yy (select for copy) and P to paste soft-link
 # cc (select for cut) and P to paste hard-link
 map P           :link
 
 ## file openers
-map of          open $f
 map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
-map ov          $$EDITOR "$f"
-map osv         $sudo $EDITOR "$f"
-map oz          $$READER "$f"
+map of          open $f
 map ol          $$PAGER "$f"
 map oq          $$BROWSER "$f"
 map ot          openterm
+map ov          $$EDITOR "$f"
+map odv         $doas $EDITOR "$f"
+map oz          $$READER "$f"
+
 # execute current file (must be executable)
 #map x           $$f
 map X           !$f
@@ -300,38 +335,39 @@ map J           fzf_jump
 
 ## fast navigation
 map gh          cd ~
-map gD          cd ~/Documents
-map gd          cd ~/Downloads
-map gm          cd ~/Media
-map gn          cd ~/Notes
+#map gD          cd ~/Documents
+map gD          cd ~/Downloads
+map gM          cd ~/Media
+map gN          cd ~/Notes
 map gi          cd ~/Notes/ict
 map gt          cd ~/Notes/trades
-map gP          cd ~/Pictures
+map gp          cd ~/Notes/trades/tp
+#map gP          cd ~/Pictures
 map gw          cd ~/Pictures/wallpapers
-map gp          cd ~/Programs
-map gs          cd ~/Scripts
-map gS          cd ~/.local/share
+map gP          cd ~/Programs
+map gS          cd ~/Scripts
 map gT          cd ~/Torrents
 map gc          cd ~/.config
 map gl          cd ~/.local
+map gs          cd ~/.local/share
+map g0          cd ~/.local/share/Trash/files
 map g/          cd /
 map ge          cd /etc
-map gM          cd /mnt
+map gm          cd /mnt
 map gu          cd /usr
-map g0          cd ~/.cache/lf/trash
 
 ## fast movement
 map Mh          $mv "$f" ~
 map MD          $mv "$f" ~/Documents
-map Md          $mv "$f" ~/Downloads
-map Mm          $mv "$f" ~/Media
-map Mn          $mv "$f" ~/Notes
+#map MD          $mv "$f" ~/Downloads
+map MM          $mv "$f" ~/Media
+map MN          $mv "$f" ~/Notes
 map Mi          $mv "$f" ~/Notes/ict
-map Mt          $mv "$f" ~/Notes/trades
+map Mt          $mv "$f" ~/Notes/trades/tp
 map MP          $mv "$f" ~/Pictures
 map Mw          $mv "$f" ~/Pictures/wallpapers
-map Mp          $mv "$f" ~/Programs
-map Ms          $mv "$f" ~/Scripts
+#map MP          $mv "$f" ~/Programs
+map MS          $mv "$f" ~/Scripts
 map MT          $mv "$f" ~/Torrents
 map Mc          $mv "$f" ~/.config
 map Ml          $mv "$f" ~/.local
@@ -339,15 +375,15 @@ map Ml          $mv "$f" ~/.local
 ## fast copy
 map Yh          $cp "$f" ~
 map YD          $cp "$f" ~/Documents
-map Yd          $cp "$f" ~/Downloads
-map Ym          $cp "$f" ~/Media
-map Yn          $cp "$f" ~/Notes
+#map YD          $cp "$f" ~/Downloads
+map YM          $cp "$f" ~/Media
+map YN          $cp "$f" ~/Notes
 map Yi          $cp "$f" ~/Notes/ict
-map Yt          $cp "$f" ~/Notes/trades
+map Yt          $cp "$f" ~/Notes/trades/tp
 map YP          $cp "$f" ~/Pictures
 map Yw          $cp "$f" ~/Pictures/wallpapers
-map Yp          $cp "$f" ~/Programs
-map Ys          $cp "$f" ~/Scripts
+#map YP          $cp "$f" ~/Programs
+map YS          $cp "$f" ~/Scripts
 map YT          $cp "$f" ~/Torrents
 map Yc          $cp "$f" ~/.config
 map Yl          $cp "$f" ~/.local

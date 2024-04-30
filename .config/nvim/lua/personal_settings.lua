@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:43
+-- Update:   Sat 23 Mar 2024 21:13
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -34,23 +34,18 @@ keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
 -- save (and quit) finished note in $HOME/Notes [title]
 keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
 
--- zettel notes (nz in terminal)
--- save note as draft (work in progress)
-keymap("n", "sz", [[:saveas $HOME/Notes/zet/<c-r>=strftime("%Y%m%d%H%M%z")<cr>.md<cr>:!zet<cr>:q<cr>]], opt)
--- save modified zettel note, publish and quit
-keymap("n", "sm", [[:w<cr>:!zet_modified<cr>:q<cr>]], opt)
+-- set cursor just under the title
+keymap("n", "gt", [[gg0jj]], opts)
 
 -- some markdown shortkeys
--- set zettel note title and go write some content
-keymap("n", "mz", [[o<cr>####<space>]], opt)
+-- set note title and go write some content
+keymap("n", "mt", [[o<cr>####<space>]], opt)
 -- insert some code
 keymap("n", "mc", [[o```<cr>```<esc>kli]], opt)
 -- add last lynx bookmark(s)
 keymap("n", "ml", [[:r!lxa<cr>]], opt)
 -- insert last qutebrowser quickmark(s)
 keymap("n", "mq", [[:r!qma<cr>]], opt)
--- go and add a few tags
-keymap("n", "mt", [[o<cr>```sh<cr><cr>```<esc>k0i><space>tags:<space>#]], opt)
 
 -- trade notes ('nt' in terminal in '$HOME/Notes/trades' directory)
 -- save trade note [time stamp]
@@ -64,22 +59,18 @@ keymap(
 )
 -- insert title time stamp
 keymap("n", "<leader>t", [[:r!dt<cr>kddo---<cr><esc>]], opts)
--- insert Calendar
-keymap("n", "tc", [[:r!trade_cal<cr>]], opts)
--- insert HTF
-keymap("n", "th", [[:r!trade_htf<cr>]], opts)
--- insert TTF
-keymap("n", "tt", [[:r!trade_ttf<cr>]], opts)
--- insert Narrative
-keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
--- insert Execute
-keymap("n", "te", [[:r!trade_execute<cr>21k]], opts)
--- insert Checklist
-keymap("n", "tl", [[:r!trade_list<cr>12kdd12k12li]], opts)
--- insert Summarize
-keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
--- insert Result
-keymap("n", "tr", [[:r!trade_result<cr>]], opts)
+-- insert Agenda
+keymap("n", "ta", [[:r!trade_agenda<cr>]], opts)
+-- insert Narratief
+keymap("n", "tn", [[:r!trade_narratief<cr>]], opts)
+-- insert Executie
+keymap("n", "te", [[:r!trade_executie<cr>21k]], opts)
+-- insert Checklijst
+keymap("n", "tl", [[:r!trade_lijst<cr>12kdd11k12li]], opts)
+-- insert Samenvatting
+keymap("n", "ts", [[:r!trade_samenvatting<cr>]], opts)
+-- insert Resultaat
+keymap("n", "tr", [[:r!trade_resultaat<cr>]], opts)
 
 -- blog entry
 keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)
