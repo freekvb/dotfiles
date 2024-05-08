@@ -22,5 +22,5 @@ while true; do
 	cut -d' ' -f1)
 	if [ "$videoid" == "" ]; then exit; fi
     dunstify 'Searching for audio ...'
-	devour mpv --no-video https://youtu.be/$videoid
+	mpv --no-video https://youtu.be/$videoid
 done

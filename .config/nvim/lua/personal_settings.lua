@@ -60,17 +60,17 @@ keymap(
 -- insert title time stamp
 keymap("n", "<leader>t", [[:r!dt<cr>kddo---<cr><esc>]], opts)
 -- insert Agenda
-keymap("n", "ta", [[:r!trade_agenda<cr>]], opts)
+keymap("n", "tc", [[:r!trade_calendar<cr>]], opts)
 -- insert Narratief
-keymap("n", "tn", [[:r!trade_narratief<cr>]], opts)
+keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Executie
-keymap("n", "te", [[:r!trade_executie<cr>21k]], opts)
+keymap("n", "te", [[:r!trade_execution<cr>21k]], opts)
 -- insert Checklijst
-keymap("n", "tl", [[:r!trade_lijst<cr>12kdd11k12li]], opts)
+keymap("n", "tl", [[:r!trade_list<cr>12kdd11k12li]], opts)
 -- insert Samenvatting
-keymap("n", "ts", [[:r!trade_samenvatting<cr>]], opts)
+keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Resultaat
-keymap("n", "tr", [[:r!trade_resultaat<cr>]], opts)
+keymap("n", "tr", [[:r!trade_result<cr>]], opts)
 
 -- blog entry
 keymap("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]], opts)
