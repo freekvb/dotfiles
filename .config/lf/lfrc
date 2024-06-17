@@ -25,7 +25,7 @@
 
 ## basic vars ----------------------------------------------------------------#
 
-set ratios '10:18:20'
+set ratios '10:15:20'
 set hidden
 set ignorecase
 set number
@@ -316,6 +316,7 @@ map P           :link
 
 ## file openers
 map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
+map cz          push :!nvim<spade>$HOME/.config/zsh/.zshrc<enter>
 map of          open $f
 map ol          $$PAGER "$f"
 map oq          $$BROWSER "$f"
