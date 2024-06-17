@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:43
+-- Update:   Wed 12 Jun 2024 08:56
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ vim.cmd([[
 --Uncomment to override defaults:
 --vim.g.instant_markdown_slow = 1
 vim.g.instant_markdown_autostart = 0
-vim.g.instant_markdown_browser = "qutebrowser --target window"
+vim.g.instant_markdown_browser = "chromium --new-window [%f]"
 --vim.g.instant_markdown_open_to_the_world = 1
 --vim.g.instant_markdown_allow_unsafe_content = 1
 --vim.g.instant_markdown_allow_external_content = 0
@@ -96,6 +96,17 @@ keymap("n", "mds", ":InstantMarkdownStop<cr>", opt)
 -- vim.cmd[[
 --     colorscheme pywal
 -- ]]
+
+
+-- colorcolumn
+
+local config = {
+   colorcolumn = "80",
+   disabled_filetypes = { "help", "text", "markdown" },
+   custom_colorcolumn = {},
+   scope = "file",
+}
+
 
 -- dbm
 
@@ -126,7 +137,9 @@ return require("packer").startup(function()
 	use("junegunn/fzf.vim")
 	use({ "instant-markdown/vim-instant-markdown" })
 	use("dylanaraps/wal.vim")
+    use "m4xshen/smartcolumn.nvim"
     use("nat-418/dbm.nvim")
+    use "terrortylor/nvim-comment"
 
 	-- automatically run :PackerCompile whenever plugins.lua is updated
 	vim.cmd([[

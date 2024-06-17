@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 23 Mar 2024 21:13
+-- Update:   Wed 12 Jun 2024 08:44
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -57,6 +57,7 @@ keymap(
 	[[:r!tp<cr>i######<space><esc>$3hDi<cr>[![trade](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)](./tp/<esc>:r!tp<cr>i<backspace><esc>$li)<cr><cr><esc>]],
 	opts
 )
+
 -- insert title time stamp
 keymap("n", "<leader>t", [[:r!dt<cr>kddo---<cr><esc>]], opts)
 -- insert Agenda
@@ -64,9 +65,9 @@ keymap("n", "tc", [[:r!trade_calendar<cr>]], opts)
 -- insert Narratief
 keymap("n", "tn", [[:r!trade_narrative<cr>]], opts)
 -- insert Executie
-keymap("n", "te", [[:r!trade_execution<cr>21k]], opts)
+keymap("n", "te", [[:r!trade_execution<cr>34k]], opts)
 -- insert Checklijst
-keymap("n", "tl", [[:r!trade_list<cr>12kdd11k12li]], opts)
+keymap("n", "tl", [[:r!trade_list<cr>13kdd11k12li]], opts)
 -- insert Samenvatting
 keymap("n", "ts", [[:r!trade_summarize<cr>]], opts)
 -- insert Resultaat

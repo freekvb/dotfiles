@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:43
+-- Update:   Wed 12 Jun 2024 08:41
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -80,8 +80,6 @@ vim.g["python_highlight_all"] = 1
 set.ignorecase = true
 -- enable smart case search
 set.smartcase = true
--- clear highlighting from the search
-keymap("n", "<cr>", ":nohlsearch<cr>", opts)
 
 -- fuzzy file finding
 -- search sub folders and tab completion

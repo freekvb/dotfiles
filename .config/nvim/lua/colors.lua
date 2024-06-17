@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/colors.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:42
+-- Update:   Wed 12 Jun 2024 08:45
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -42,9 +42,6 @@ vim.cmd([[
     autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
     autocmd InsertLeave * highlight CursorColumn ctermbg=233 ctermfg=NONE
 ]])
-keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
--- column
-set.colorcolumn:append("79")
 
 -- highlights
 vim.cmd([[

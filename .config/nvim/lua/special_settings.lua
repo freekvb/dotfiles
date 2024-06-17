@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:43
+-- Update:   Wed 12 Jun 2024 08:42
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -32,28 +32,6 @@ vim.cmd([[
 	autocmd TermOpen * startinsert
 ]])
 keymap("t", "<esc>", "<c-\\><c-n>", {})
-
--- paste
--- toggle paste unmodified (code)
-set.pastetoggle = "<leader>p"
-
--- toggle spell checking
-keymap("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
-
--- date time stamp
-keymap("n", "<leader>dt", [[i<c-r>=strftime("%a %d %Y %H:%M")<cr><space>]], opts)
-
--- double space over word to find and replace
-keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
-
--- search and replace all
-keymap("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
-
--- write file if you forgot to give it sudo permission
-keymap("c", "w!!", [[w !sudo tee %]], opt)
-
--- diff since last save
-keymap("n", "<leader>df", [[:w !diff % -<cr>]], opt)
 
 -- make diff better: https://vimways.org/2018/the-power-of-diff/
 set.diffopt:append("iwhite", "algorithm:patience", "indent-heuristic", "linematch:60")

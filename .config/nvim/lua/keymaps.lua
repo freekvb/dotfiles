@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:42
+-- Update:   Wed 12 Jun 2024 08:45
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -88,4 +88,32 @@ keymap("n", "qq", "q", opts)
 -- redirect change operations to blackhole avoid spoiling 'y' register content
 keymap("n", "c", '"_c', opts)
 keymap("n", "C", '"_C', opts)
+
+-- toggle cursorcolumn
+keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
+
+-- toggle netrw
+keymap("n", "<leader>nd", ":Lexplore %:p:h<cr>", opts)
+keymap("n", "<leader>n", ":Lexplore<cr>", opts)
+
+-- clear highlighting from the search
+keymap("n", "<esc>", ":nohlsearch<cr><esc>", opts)
+
+-- toggle spell checking
+keymap("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
+
+-- date time stamp
+keymap("n", "<leader>dt", [[i<c-r>=strftime("%a %d %Y %H:%M")<cr><space>]], opts)
+
+-- double space over word to find and replace
+keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
+
+-- search and replace all
+keymap("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
+
+-- write file if you forgot to give it sudo permission
+keymap("c", "w!!", [[w !sudo tee %]], opt)
+
+-- diff since last save
+keymap("n", "<leader>df", [[:w !diff % -<cr>]], opt)
 

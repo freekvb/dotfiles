@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sat 09 Dec 2023 05:43
+-- Update:   Wed 12 Jun 2024 08:44
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -42,10 +42,6 @@ vim.cmd([[
 vim.cmd([[
     hi! link netrwMarkFile Search
 ]])
-
--- better toggle Netrw
-keymap("n", "<leader>nd", ":Lexplore %:p:h<cr>", opts)
-keymap("n", "<leader>n", ":Lexplore<cr>", opts)
 
 -- open splits the right way (brodie's hack)
 -- open to the right
