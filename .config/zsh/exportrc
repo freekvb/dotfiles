@@ -12,7 +12,7 @@
 # for cli browsers
 export WWW_HOME=ddg.gg
 
-#{{{ default programs
+# {{{ default programs
 
 # DESC: check and choose the first program in the array installed as the default
 # find alternative apps if it is installed on your system
@@ -24,7 +24,7 @@ find_alt() { for i;do which "$i" >/dev/null &&
 
 export OPENER=$(find_alt xdg-open)
 
-export BROWSER=$(find_alt qutebrowser firefox chromium $OPENER)
+export BROWSER=$(find_alt firefox qutebrowser chromium $OPENER)
 export BROWSERCLI=$(find_alt w3m lynx $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export DIFFPROG="nvim -d"
@@ -41,9 +41,9 @@ export TERM=$(find_alt st xterm $OPENER)
 export VISUAL=$EDITOR
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 
-#}}}
+# }}}
 
-#{{{ XDG paths
+# {{{ XDG paths
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -61,9 +61,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass/password-store"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
-#}}}
+# }}}
 
-#{{{ paths
+# {{{ paths
 
 if [[ ! "$PATH" == */bin* ]]; then
   export PATH="${PATH:+${PATH}:}/bin"
@@ -106,5 +106,5 @@ if [[ ! "$PATH" == */home/fvb/.nimble/bin* ]]; then
 fi
 
 
-#}}}
+# }}}
 
