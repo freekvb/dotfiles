@@ -13,12 +13,13 @@ xsetroot -cursor_name left_ptr &
 xset dpms 1800 1800 1800 &
 xset r rate 750 50 &
 xset s off &
+wal -R
 
 picom &
 dunst &
 udiskie &
 clipmenud &
-$HOME/.fehbg &
+#$HOME/.fehbg &
 mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 30 &
