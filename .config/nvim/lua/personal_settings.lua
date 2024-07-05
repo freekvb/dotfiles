@@ -27,12 +27,16 @@ local keymap = vim.api.nvim_set_keymap
 keymap("n", "<leader>h", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]], opts)
 
 -- shebang
-keymap("n", "sb", [[i#!/usr/bin/sh<cr><cr>]], opts)
+keymap("n", "sb", [[i#!/bin/sh<cr><cr>]], opts)
 
 -- notes - all notes in markdown (.md)
--- new note 'nn' in terminal
+-- new note 'nn' in terminal [$HOME/Notes/.new_note.md]
 -- save (and quit) finished note in $HOME/Notes [title]
 keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
+-- save (and quit) note as gnote in $HOME/Notes/.gnotes [time stamp title] and on github
+keymap("n", "sg", [[:w<cr>:!save_gnote<cr>:q<cr>]], opt)
+-- save (and quit) modified gnote in $HOME/Notes/.gnotes [time stamp title] and on github
+keymap("n", "sm", [[:w<cr>:!save_gnote_modified<cr>:q<cr>]], opt)
 
 -- set cursor just under the title
 keymap("n", "gt", [[gg0jj]], opts)

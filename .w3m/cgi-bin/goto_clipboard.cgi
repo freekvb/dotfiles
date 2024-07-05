@@ -1,4 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/sh
+
 # AUTHOR: gotbletu (@gmail|twitter|youtube|github|lbry)
 #         https://www.youtube.com/user/gotbletu
 # DESC:   paste and go feature for w3m web browser using system clipboard (aka ctrl+v)
@@ -18,11 +19,11 @@
 # set open-url value to zero (aka empty url line)
 printf "%s\r\n" "W3m-control: SET_OPTION default_url=0"
 
-#GOTO url in clipboard in current page. If the clipboard has a 
+#GOTO url in clipboard in current page. If the clipboard has a
 #"non url string/nothing" an blank page is shown.
 printf "%s\r\n" "W3m-control: GOTO $(xsel -ob)"
 
-#delete the buffer (element in history) created between the current page and 
+#delete the buffer (element in history) created between the current page and
 #the searched page by calling this script.
 printf "%s\r\n" "W3m-control: DELETE_PREVBUF"
 

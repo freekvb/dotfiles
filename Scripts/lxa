@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 # copy last given (n) lynx bookmarks
 # and paste them in markdown format

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 yellow=$(echo -en '\033[00;33m')
 magenta=$(echo -en '\033[00;35m')

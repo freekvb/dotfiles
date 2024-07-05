@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # play video from clipboard in mpv - (A-v)
 

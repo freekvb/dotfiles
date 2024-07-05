@@ -23,10 +23,16 @@ local keymap = vim.api.nvim_set_keymap
 
 -------------------------------------------------------------------------------
 
--- colorscheme - lua plugin
-vim.cmd([[
+---- colorscheme - lua plugin
+--local pywal = require('pywal')
+--pywal.setup()
+
+vim.cmd[[
     colorscheme wal
-]])
+]]
+
+-- make colorscheme work
+set.termguicolors = false
 
 -- cursor line
 set.cursorline = true
@@ -43,12 +49,15 @@ vim.cmd([[
     autocmd InsertLeave * highlight CursorColumn ctermbg=233 ctermfg=NONE
 ]])
 
+-- colorcolumn
+--set.colorcolumn = "80"
+
 -- highlights
 vim.cmd([[
     hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=233
     hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=233
     hi CursorColumn ctermfg=NONE ctermbg=233
-    hi ColorColumn ctermfg=NONE ctermbg=233
+    hi ColorColumn ctermfg=233
     hi VertSplit ctermbg=234
     hi FzfBackground ctermbg=233
     hi FzfPreviewBackground ctermbg=234

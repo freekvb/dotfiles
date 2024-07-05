@@ -68,7 +68,8 @@ vim.cmd([[
 --Uncomment to override defaults:
 --vim.g.instant_markdown_slow = 1
 vim.g.instant_markdown_autostart = 0
-vim.g.instant_markdown_browser = "chromium --new-window [%f]"
+vim.g.instant_markdown_browser = "qutebrowser --target window"
+--vim.g.instant_markdown_browser = "chromium --new-window [%f]"
 --vim.g.instant_markdown_open_to_the_world = 1
 --vim.g.instant_markdown_allow_unsafe_content = 1
 --vim.g.instant_markdown_allow_external_content = 0
@@ -136,8 +137,9 @@ return require("packer").startup(function()
 
 	use("junegunn/fzf.vim")
 	use({ "instant-markdown/vim-instant-markdown" })
-	use("dylanaraps/wal.vim")
-    use "m4xshen/smartcolumn.nvim"
+    use("dylanaraps/wal.vim")
+--    use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
+--    use "m4xshen/smartcolumn.nvim"
     use("nat-418/dbm.nvim")
     use "terrortylor/nvim-comment"
 

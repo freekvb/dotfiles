@@ -90,13 +90,13 @@ endfun
 -- statusline highlights colors
 vim.cmd([[
 fun! StatusLineHighlights()
-    hi StatusLine         ctermbg=7  ctermfg=239
-    hi StatusLineNC       ctermbg=5  ctermfg=236
-    hi StatusLineSection  cterm=bold ctermbg=239 ctermfg=6
-    hi StatusLineSectionI cterm=bold ctermbg=239 ctermfg=7
-    hi StatusLineSectionC cterm=bold ctermbg=239 ctermfg=2
-    hi StatusLineSectionV cterm=bold ctermbg=239 ctermfg=3
-    hi StatusLineSectionR cterm=bold ctermbg=239 ctermfg=4
+    hi StatusLine           ctermbg=7     ctermfg=236
+    hi StatusLineNC         ctermbg=234   ctermfg=238
+    hi StatusLineSection    ctermbg=236   ctermfg=6    cterm=bold
+    hi StatusLineSectionI   ctermbg=236   ctermfg=5    cterm=bold
+    hi StatusLineSectionC   ctermbg=236   ctermfg=2    cterm=bold
+    hi StatusLineSectionV   ctermbg=236   ctermfg=3    cterm=bold
+    hi StatusLineSectionR   ctermbg=236   ctermfg=4    cterm=bold
 endfun
 
 call StatusLineHighlights()

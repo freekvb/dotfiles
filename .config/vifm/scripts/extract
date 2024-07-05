@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 if [ $# -lt 2 ]; then
     echo "Usage: $(basename $0) [-f] destdir achieve.."

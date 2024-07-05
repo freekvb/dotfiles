@@ -1,4 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/sh
+
 # AUTHOR: gotbletu (@gmail|twitter|youtube|github|lbry)
 #         https://www.youtube.com/user/gotbletu
 # DESC:   interactive surfraw smart prefix search engine

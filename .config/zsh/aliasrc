@@ -62,9 +62,8 @@ alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero         # losing $HO
 alias ms='$HOME/Scripts/mkscript'                   # create new script
 alias mw='monero-wallet-gui'                        # monero wallet
 alias nl='cd $HOME/Notes/trades && v $HOME/Notes/trades/-trading_checklist.md'    # new trade checklist
-alias nn='vi +1 $HOME/Notes/new.md'                 # new note in I-mode, sn to save
+alias nn='vi +1 $HOME/Notes/.new_note.md'           # new note in I-mode, sn to save, sg to save and publish
 alias nt='cd $HOME/Notes/trades && v $HOME/Notes/trades/new.md'    # new trade note, st to save
-alias nz='vi +1 $HOME/Notes/new.md'                 # new zettel in I-mode, sz to save (and publish)
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
 alias pacman='doas pacman --color=always'           # pacman color

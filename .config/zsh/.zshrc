@@ -144,9 +144,13 @@ bindkey -a '^d' exit
 bindkey -a u undo
 bindkey -a '^R' redo
 
-# edit line in nvim with ctrl-e
+# edit line in nvim with ctrl-o
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^o' edit-command-line
+
+# unbind ctrl-e and ctrl-y
+bindkey -r '^E'
+bindkey -r '^Y'
 
 #}}}
 
@@ -241,6 +245,9 @@ show()
 
 #{{{ color
 
+# color the st (not linux) tty terminal
+sd linux st $HOME/.cache/wal/colors-tty.sh
+
 # color by 'wal'
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background
@@ -248,7 +255,7 @@ show()
 (cat $HOME/.cache/wal/sequences & )
 
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
+source $HOME/.cache/wal/colors-tty.sh
 
 #}}}
 

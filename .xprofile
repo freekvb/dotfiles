@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 #-----------------------------------------------------------------------------#
 # File:     ~/.xprofile (archlinux @ 'silent')
@@ -10,16 +10,16 @@
 
 mpv --no-video $HOME/.config/sounds/sweep.mp3 &
 xsetroot -cursor_name left_ptr &
+xrdb -load ~/.Xresources &
 xset dpms 1800 1800 1800 &
 xset r rate 750 50 &
 xset s off &
-wal -R
 
 picom &
 dunst &
 udiskie &
 clipmenud &
-#$HOME/.fehbg &
+$HOME/.fehbg &
 mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 30 &

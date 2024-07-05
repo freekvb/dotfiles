@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # pacs - pacman fzf install given pkg
 
