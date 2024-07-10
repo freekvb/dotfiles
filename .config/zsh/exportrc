@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/exportrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Sat 09 Dec 2023 05:47
+# Update:   Mon 08 Jul 2024 21:56
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -25,13 +25,13 @@ find_alt() { for i;do which "$i" >/dev/null &&
 export OPENER=$(find_alt xdg-open)
 
 export BROWSER=$(find_alt firefox qutebrowser chromium $OPENER)
-export BROWSERCLI=$(find_alt w3m lynx $OPENER )
+export BROWSERCLI=$(find_alt lynx w3m $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export DIFFPROG="nvim -d"
 export EDITOR=$(find_alt nvim vim helix $OPENER)
 #export FILEMANAGER=$(find_alt nemo $OPENER)
-export FILEMANAGERCLI=$(find_alt vifm lf ranger $OPENER)
-export IMAGEVIEWER=$(find_alt nsxiv feh $OPENER)
+export FILEMANAGERCLI=$(find_alt lf vifm ranger $OPENER)
+export IMAGEVIEWER=$(find_alt feh nsxiv $OPENER)
 export MANPAGER="nvim +Man!"
 export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
@@ -58,7 +58,8 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass/password-store"
+export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 # }}}
@@ -91,18 +92,6 @@ fi
 
 if [[ ! "$PATH" == */home/fvb/.fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}/home/fvb/.fzf/bin"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.config/bspwm* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.config/bspwm"
-fi
-
-if [[ ! "$PATH" == */usr/lib/surfraw* ]]; then
-  export PATH="${PATH:+${PATH}:}/usr/lib/surfraw"
-fi
-
-if [[ ! "$PATH" == */home/fvb/.nimble/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.nimble/bin"
 fi
 
 

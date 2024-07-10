@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/aliasrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Sat 09 Dec 2023 05:47
+# Update:   Mon 08 Jul 2024 21:56
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -35,9 +35,9 @@ alias fe='fexec'                                    # fzf and execute pac_instal
 alias ff='fifo'                                     # fzf given string in files
 alias fh='hst'                                      # fzf term command history > clipboard
 alias fhx='fhx'                                     # fzf term command history execute
+alias fig='cd $HOME/Notes/.gnotes && fifo'          # fzf given string in .gnotes [github]
 alias fin='cd $HOME/Notes && fifo'                  # fzf given string in Notes
 alias firefox='$HOME/Scripts/firefox_fs'            # firefox full screen
-alias fiz='cd $HOME/Notes/zettels && fifo'          # fzf given string in 'zettelkast' notes
 alias fk='fkill'                                    # fzf and kill proces
 alias fl='cat $HOME/.cache/dmenu_run | fzf'         # fzf launcher
 alias fm='macho'                                    # fzf man pages
@@ -66,7 +66,7 @@ alias nn='vi +1 $HOME/Notes/.new_note.md'           # new note in I-mode, sn to 
 alias nt='cd $HOME/Notes/trades && v $HOME/Notes/trades/new.md'    # new trade note, st to save
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
-alias pacman='doas pacman --color=always'           # pacman color
+alias pacman='doas pacman --color=always'           # pacman colo--r
 alias pacr='$HOME/Scripts/pacr'                     # pacman fzf remove given pkg (incl deps & confs)
 alias pacro='pacman -Qtdq | pacman -Rns -'          # pacman remove orphans
 alias pacs='$HOME/Scripts/pacs'                     # pacman fzf install
@@ -78,7 +78,9 @@ alias pm='passmenu'                                 # passwords in dmenu
 alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail in 5 sec.
 alias skb='bat $HOME/Notes/nsxiv_keys.md'           # (n)sxiv keybindings
 alias suck='rm -f config.h ; doas make clean install'               # source suckless programs
-alias sudo='sudo '                                  # space so sudo works in scripts
+alias sudo='doas'
+alias sudoedit='doas rnano'
+#alias sudo='sudo '                                  # space so sudo works in scripts
 alias su='su -'                                     # real root
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias t='date "+%H:%M"'                             # time

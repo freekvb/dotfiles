@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Wed 12 Jun 2024 08:56
+-- Update:   Mon 08 Jul 2024 22:02
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -130,8 +130,8 @@ keymap("n", "<c-q>",        ":quit<cr>", opts)
 -- packer
 
 -- packer, install like: {{
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim \
---   ~/.config/nvim/pack/packer/start/packer.nvim
+-- git clone --depth 1 https://github.com/wbthomason/packer.nvim
+--  ~/.config/nvim/pack/packer/start/packer.nvim
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
@@ -139,7 +139,7 @@ return require("packer").startup(function()
 	use({ "instant-markdown/vim-instant-markdown" })
     use("dylanaraps/wal.vim")
 --    use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
---    use "m4xshen/smartcolumn.nvim"
+    use "m4xshen/smartcolumn.nvim"
     use("nat-418/dbm.nvim")
     use "terrortylor/nvim-comment"
 

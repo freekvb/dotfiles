@@ -3,14 +3,13 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.xprofile (archlinux @ 'silent')
 # Date:     Wed 01 Sep 2021 22:18
-# Update:   Sat 09 Dec 2023 05:38
+# Update:   Mon 08 Jul 2024 22:07
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 
 mpv --no-video $HOME/.config/sounds/sweep.mp3 &
 xsetroot -cursor_name left_ptr &
-xrdb -load ~/.Xresources &
 xset dpms 1800 1800 1800 &
 xset r rate 750 50 &
 xset s off &
@@ -20,7 +19,6 @@ dunst &
 udiskie &
 clipmenud &
 $HOME/.fehbg &
-mega-cmd-server &
 unclutter --timeout 2 &
 pamixer --set-volume 30 &
 

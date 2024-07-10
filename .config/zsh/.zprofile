@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/.zprofile (archlinux @ 'silent')
 # Date:     Thu 23 Apr 2020 12:02
-# Update:   Sat 09 Dec 2023 05:46
+# Update:   Mon 08 Jul 2024 21:51
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 

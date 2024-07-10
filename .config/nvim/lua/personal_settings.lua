@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/personal_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Wed 12 Jun 2024 08:44
+-- Update:   Mon 08 Jul 2024 22:02
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -36,6 +36,7 @@ keymap("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]], opt)
 -- save (and quit) note as gnote in $HOME/Notes/.gnotes [time stamp title] and on github
 keymap("n", "sg", [[:w<cr>:!save_gnote<cr>:q<cr>]], opt)
 -- save (and quit) modified gnote in $HOME/Notes/.gnotes [time stamp title] and on github
+--keymap("n", "sm", [[:w<cr>:!save_gnote_modified<cr>:q<cr>]], opt)
 keymap("n", "sm", [[:w<cr>:!save_gnote_modified<cr>:q<cr>]], opt)
 
 -- set cursor just under the title
