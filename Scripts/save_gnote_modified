@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# save new gnote in $HOME/Notes/.gnotes as 'timestamp__title.md'
+# publish on github with title as commit
+
+
+mv -f "$(git status | awk 'NR==7{$1=""; print substr($0,2)}')" "$HOME"/Notes/.new_note.md
+
+title=$(awk 'NR==1{$1=""; print }' "$HOME"/Notes/.new_note.md)
+
+newfile=$(date +%Y%m%d-%H:%M\ )-$title
+
+mv "$HOME"/Notes/.new_note.md "$HOME/Notes/.gnotes/$newfile".md
+
+dir=$(pwd)
+
+cd "$HOME"/Notes/.gnotes || exit
+
+git add .
+git commit -m "$title"
+git push -q
+
+cd "$dir" || exit
+
+dunstify "gnote modified, saved and published"
+

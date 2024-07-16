@@ -8,6 +8,15 @@
 #-----------------------------------------------------------------------------#
 
 
+# start some nice programs
+
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
 mpv --no-video $HOME/.config/sounds/sweep.mp3 &
 xsetroot -cursor_name left_ptr &
 xset dpms 1800 1800 1800 &
@@ -20,5 +29,4 @@ udiskie &
 clipmenud &
 $HOME/.fehbg &
 unclutter --timeout 2 &
-pamixer --set-volume 30 &
 

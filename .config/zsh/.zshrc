@@ -13,11 +13,10 @@
 [ -f "$HOME/.config/zsh/exportrc" ] && source "$HOME/.config/zsh/exportrc"
 
 # load fzf functions if existent
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f "$HOME/.config/zsh/fzfrc" ] && source "$HOME/.config/zsh/fzfrc"
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 [ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh"
 [ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
 #eval "$(oh-my-posh init zsh --config ~/.config/omp/zen.toml)"
 
