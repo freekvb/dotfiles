@@ -28,5 +28,6 @@ dunst &
 udiskie &
 clipmenud &
 $HOME/.fehbg &
+mega-cmd-server &
 unclutter --timeout 2 &
 

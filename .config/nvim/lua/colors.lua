@@ -39,14 +39,14 @@ set.cursorline = true
 -- cursor line disabled in insert mode
 vim.cmd([[
     autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=233 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=234 ctermfg=NONE
 ]])
 -- cursor column
 set.cursorcolumn = true
 -- cursor column disabled in insert mode
 vim.cmd([[
     autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorColumn ctermbg=233 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE
 ]])
 
 -- colorcolumn
@@ -54,10 +54,10 @@ vim.cmd([[
 
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=233
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=233
-    hi CursorColumn ctermfg=NONE ctermbg=233
-    hi ColorColumn ctermfg=233
+    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=234
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
+    hi CursorColumn ctermfg=NONE ctermbg=234
+    hi ColorColumn ctermfg=234
     hi VertSplit ctermbg=234
     hi FzfBackground ctermbg=233
     hi FzfPreviewBackground ctermbg=234

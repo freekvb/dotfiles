@@ -120,6 +120,8 @@ settings:
     global: bold 10pt default_family
   fonts.tabs.unselected:
     global: bold 10pt nospace
+  scrolling.smooth:
+    global: true
   statusbar.show:
     global: never
   tabs.background:
