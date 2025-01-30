@@ -48,6 +48,9 @@ keymap("n", "<leader>W", ":w!<cr>", opts)
 keymap("n", "<leader>Q", ":q!<cr>", opts)
 keymap("n", "<leader>WQ", ":wq!<cr>", opts)
 
+-- goto the start of the first line
+keymap("n", "gg", "gg0", opts)
+
 -- navigate properly when lines are wrapped
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)

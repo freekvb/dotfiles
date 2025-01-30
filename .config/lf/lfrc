@@ -14,7 +14,7 @@
 # them here for others doing it manually.
 #
 # 1. ueberzug must be installed.
-# 2. The scope file (~/.config/lf/scope for me), must have a command similar to
+# 2. The scope file (~/.config/lf/preview [scope] for me), must have a command similar to
 #    mine to generate ueberzug images.
 # 3. A `set cleaner` line as below is a cleaner script.
 # 4. lf should be started through a wrapper script (~/.local/bin/lfub for me)
@@ -42,7 +42,7 @@ set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set previewer '~/.config/lf/preview'
 set promptfmt "\033[37;1m%d\033[0m\033[37;1m%f\033[0m"
 
 

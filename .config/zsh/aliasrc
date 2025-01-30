@@ -43,6 +43,7 @@ alias fl='cat $HOME/.cache/dmenu_run | fzf'         # fzf launcher
 alias fm='macho'                                    # fzf man pages
 alias fo='fopen'                                    # fzf open with xdg-open
 alias fp='fprev'                                    # fzf preview
+alias fpi='fzfub'                                   # fzf preview [images]
 alias fq='source fqm'                               # fzf quickmarks and open with firefox
 alias fv='vif'                                      # fzf and open in nvim
 alias grep='grep --color=auto'                      # grep color
@@ -87,7 +88,7 @@ alias sudoedit='doas rnvim '
 alias su='su -'                                     # real root
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
 alias t='date "+%H:%M"'                             # time
-alias td='tty-clock -C1 -c -f "%a %d %b %Y"'        # time date tty-clock
+alias td='tty-clock -C4 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'                                      # nvim editor

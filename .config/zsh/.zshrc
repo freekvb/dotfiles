@@ -278,18 +278,6 @@ lxg () {
     lx "https://google.com/search?q=$*"
 }
 
-# ddg search and open in w3m
-w3d () {
-    declare url=$*
-    w3m "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
-}
-
-# google search and open in w3m
-w3g () {
-    declare url=$*
-    w3m "https://google.com/search?q=$*"
-}
-
 # set window title to command just before running it
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
