@@ -17,27 +17,24 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 
 ##### Software
 * distro:           [**arch linux**](https://www.archlinux.org/ "arch linux")
-* windowmanager:    [**dwm**](https://dwm.suckless.org/ "dwm")
-* statusbar         [**dwmblocks**](https://github.com/torrinfail/dwmblocks "dwmblocks")
+* windowmanager:    [**hyprland**](https://hyprland.org/ "hyprland")
 * shell:            [**zsh**](https://www.zsh.org "zsh")
-* terminal:         [**st**](https://st.suckless.org/ "st - suckless terminal")
+* terminal:         [**foot**](https://codeberg.org/dnkl/foot "foot")
 * editor:           [**neovim**](https://neovim.io/ "neovim")
-* filemanager:      [**lf**](https://github.com/gokcehan/lf "lf") and [**vifm**](https://vifm.info/ "vifm")
-* webbrowser:       [**qutebrowser**](https://qutebrowser.org/ "qutebrowser") and [**firefox**](https://www.mozilla.org/nl/firefox/new/ "firefox")
-* cli_webbrowser:   [**w3m**](https://w3m.sourceforge.net/ "w3m") and [**lynx**](https://lynx.invisible-island.net/current/index.html "lynx")
+* filemanager:      [**lf**](https://github.com/gokcehan/lf "lf")
+* webbrowser:       [**firefox**](https://www.mozilla.org/nl/firefox/new/ "firefox")
+* cli_webbrowser:   [**lynx**](https://lynx.invisible-island.net/current/index.html "lynx")
 * git interface:    [**lazygit**](https://github.com/jesseduffield/lazygit/ "lazygit")
 * torrentclient:    [**rtorrent**](https://rakshasa.github.io/rtorrent/ "rtorrent")
 * musicplayer:      [**moc**](https://moc.daper.net/ "moc - music on console")
 * mediaplayer:      [**mpv**](https://mpv.io/ "mpv")
-* theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal - colorschemes on the fly")
-* wallpaper:        [**wallpaper**](https://wallhaven.cc/w/gpmv73 "wallpaper @ wallheaven")
+* theme:            [**wallust**](https://codeberg.org/explosion-mental/wallust "wallust - a better pywal")
+* wallpaper:        [**wallpaper**](https://freekvb.github.io/fvb/hyprland/japanese_girl.jpg "japanese girl")
 
 ##### Screenshot
-arch linux dwm @ 'silent'
+arch linux hyprland @ 'silent'
 
-![screenshot](https://freekvb.github.io/fvb/dwm/silent_dwm_1.png "arch linux dwm @ 'silent'")
-
-[**more dwm screenshots**](https://freekvb.github.io/fvb/screenshots_dwm.html "fvb /screenshots_dwm")
+![screenshot](https://freekvb.github.io/fvb/hyprland/hypr_1.png "arch linux hyprland @ 'silent'")
 
 ---
 
