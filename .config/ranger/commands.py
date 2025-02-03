@@ -124,3 +124,4 @@ class fzf_locate(Command):
             else:
                 self.fm.select_file(fzf_file)
 
+

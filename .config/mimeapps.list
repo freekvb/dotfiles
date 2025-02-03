@@ -1,9 +1,9 @@
 [Default Applications]
-x-scheme-handler/http=qutebrowser.desktop
-x-scheme-handler/https=qutebrowser.desktop
-x-scheme-handler/about=qutebrowser.desktop
-x-scheme-handler/unknown=qutebrowser.desktop
-x-scheme-handler/mailto=chromium.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/mailto=firefox.desktop
 application/x-ms-dos-executable=wine.desktop
 video/dv=mpv.desktop
 video/mp2t=mpv.desktop
@@ -182,10 +182,10 @@ text/plain=nvim.desktop
 text/html=nvim.desktop
 
 [Added Associations]
-x-scheme-handler/http=qutebrowser.desktop;
-x-scheme-handler/about=qutebrowser.desktop
-x-scheme-handler/unknown=nvim.desktop;qutebrowser.desktop
-x-scheme-handler/mailto=qutebrowser.desktop
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=nvim.desktop;firefox.desktop
+x-scheme-handler/mailto=firefox.desktop
 x-scheme-handler/magnet=rtorrent.desktop
 application/x-shellscript=nautilus-autorun-software.desktop;xed.desktop;nvim.desktop;
 application/x-ms-dos-executable=wine.desktop;
@@ -313,8 +313,8 @@ image/x-portable-bitmap=xviewer.desktop;
 image/x-portable-graymap=xviewer.desktop;
 image/x-portable-pixmap=xviewer.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-NMPV00.desktop;org.telegram.desktop.desktop;
-text/markdown=qutebrowser.desktop;
-text/html=org.qutebrowser.qutebrowser.desktop;chromium.desktop;firefox.desktop;
+text/markdown=firefox.desktop;
+text/html=org.firefox.desktop;chromium.desktop;qutebrowser.desktop;
 text/x-shellscript=nvim.desktop
 text/plain=nvim.desktop
 text/x-file

@@ -63,7 +63,8 @@ cmd open ${{
         video/*|application/pdf) xdg-open "$f" & disown;;
         audio/*) mpv --audio-display=no $f ;;
         audio/*) ffplay -nodisp -autoexit $f ;;
-        image/*) feh -F $f & disown;;
+#        image/*) feh -F $f & disown;
+        image/*) feh -F $f;;
         *) for f in "$fx"; do xdg-open "$f"> /dev/null 2> /dev/null & done;;
     esac
 }}
