@@ -238,10 +238,10 @@ cmd openterm ${{
     devour $TERM
 }}
 
-# set wallpaper and colorscheme (cli only)
-cmd wallcolor %cp "$f" ~/.config/wall.png && wal -i "$f"
-# set wallpaper and colorscheme (cli only) when running dwm
-cmd setwallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
+# [bgh = hyprland] set wallpaper and colorscheme (cli only)
+cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"
+# [bgx = x | dwm] set wallpaper and colorscheme (cli only) when running dwm
+cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
 
 # bulk rename
 cmd bulkrename $vidir
@@ -291,8 +291,8 @@ map ch          chmod
 map x           chmodx
 map U           unselect
 map E           extract
-map cs          wallcolor
-map bg          setwallpaper
+map bgh         set py-wallpaper # [hyprland]
+map bgx         set py-wallpaper # [x | dwm]
 
 map <enter>     shell
 map V           push :!nvim<space>
@@ -316,11 +316,12 @@ map a           push A<a-b>             # after extention
 map P           :link
 
 ## file openers
+map ch          push :!nvim<space>$HOME/.config/hypr/hyprland.conf<enter>
 map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
 map cz          push :!nvim<spade>$HOME/.config/zsh/.zshrc<enter>
+map ob          $$BROWSER "$f"
 map of          open $f
 map ol          $$PAGER "$f"
-map oq          $$BROWSER "$f"
 map ot          openterm
 map ov          $$EDITOR "$f"
 map odv         $doas $EDITOR "$f"
@@ -337,14 +338,12 @@ map J           fzf_jump
 
 ## fast navigation
 map gh          cd ~
-#map gD          cd ~/Documents
-map gD          cd ~/Downloads
-map gM          cd ~/Media
-map gN          cd ~/Notes
-map gi          cd ~/Notes/ict
-map gt          cd ~/Notes/trades
-map gp          cd ~/Notes/trades/tp
-#map gP          cd ~/Pictures
+map gD          cd ~/Documents
+map gd          cd ~/Downloads
+map gm          cd ~/Media
+map gn          cd ~/Notes
+map gt          cd ~/Notes/trades/tp
+map gp          cd ~/Pictures
 map gw          cd ~/Pictures/wallpapers
 map gP          cd ~/Programs
 map gS          cd ~/Scripts
@@ -355,38 +354,38 @@ map gs          cd ~/.local/share
 map g0          cd ~/.local/share/Trash/files
 map g/          cd /
 map ge          cd /etc
-map gm          cd /mnt
+map gM          cd /mnt
 map gu          cd /usr
 
 ## fast movement
 map Mh          $mv "$f" ~
 map MD          $mv "$f" ~/Documents
-#map MD          $mv "$f" ~/Downloads
-map MM          $mv "$f" ~/Media
-map MN          $mv "$f" ~/Notes
-map Mi          $mv "$f" ~/Notes/ict
+#map Md          $mv "$f" ~/Downloads
+map Mm          $mv "$f" ~/Media
+map Mn          $mv "$f" ~/Notes
 map Mt          $mv "$f" ~/Notes/trades/tp
-map MP          $mv "$f" ~/Pictures
+map Mp          $mv "$f" ~/Pictures
 map Mw          $mv "$f" ~/Pictures/wallpapers
-#map MP          $mv "$f" ~/Programs
+map MP          $mv "$f" ~/Programs
 map MS          $mv "$f" ~/Scripts
 map MT          $mv "$f" ~/Torrents
 map Mc          $mv "$f" ~/.config
 map Ml          $mv "$f" ~/.local
+map Ms          $mv "$f" ~/.local/share
 
 ## fast copy
 map Yh          $cp "$f" ~
 map YD          $cp "$f" ~/Documents
-#map YD          $cp "$f" ~/Downloads
-map YM          $cp "$f" ~/Media
-map YN          $cp "$f" ~/Notes
-map Yi          $cp "$f" ~/Notes/ict
+#map Yd          $cp "$f" ~/Downloads
+map Ym          $cp "$f" ~/Media
+map Yn          $cp "$f" ~/Notes
 map Yt          $cp "$f" ~/Notes/trades/tp
-map YP          $cp "$f" ~/Pictures
+map Yp          $cp "$f" ~/Pictures
 map Yw          $cp "$f" ~/Pictures/wallpapers
 #map YP          $cp "$f" ~/Programs
 map YS          $cp "$f" ~/Scripts
 map YT          $cp "$f" ~/Torrents
 map Yc          $cp "$f" ~/.config
 map Yl          $cp "$f" ~/.local
+map Ys          $cp "$f" ~/.local/share
 

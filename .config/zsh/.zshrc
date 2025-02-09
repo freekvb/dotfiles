@@ -20,6 +20,9 @@
 
 #eval "$(oh-my-posh init zsh --config ~/.config/omp/zen.toml)"
 
+# z smarter cd
+eval "$(zoxide init zsh)"
+
 #{{{ zinit
 
 # Set the directory we want to store zinit and plugins
