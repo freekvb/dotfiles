@@ -34,7 +34,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 ##### Screenshot
 arch linux hyprland @ 'silent'
 
-![screenshot](https://freekvb.github.io/fvb/hyprland/hypr_1.png "arch linux hyprland @ 'silent'")
+![screenshot](https://freekvb.github.io/fvb/hyprland/hypr_screen.png "arch linux hyprland @ 'silent'")
 
 ---
 
