@@ -18,8 +18,6 @@
 #[ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh"
 #[ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
 
-#eval "$(oh-my-posh init zsh --config ~/.config/omp/zen.toml)"
-
 # z smarter cd
 eval "$(zoxide init zsh)"
 
@@ -42,6 +40,12 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light olets/command-execution-timer
+
+# command timer settings
+COMMAND_EXECUTION_TIMER_THRESHOLD=3
+COMMAND_EXECUTION_TIMER_PRINT_DURATION_AFTER_COMMAND_OUTPUT=1
+COMMAND_EXECUTION_TIMER_FOREGROUND=red
 
 # Add in snippets
 zinit snippet OMZP::command-not-found
@@ -74,20 +78,7 @@ promptinit
 NEWLINE=$'\n'
 
 # left prompt
-if [[ -n "$TMUX" ]]; then
-    local LVL=$(($SHLVL - 2))
-else
-    local LVL=$(($SHLVL - 1))
-fi
-
-#local SUFFIX=$(printf '%%F{white}\u276f%.0s%%f' {1..$LVL})
-#PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ${SUFFIX}  %b'
-#PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B ▶  %b'
 PROMPT='${NEWLINE}%B%~%b %F{yellow}%B%(1j.*.)%(?..!)%b%f%  '
-#PROMPT='${NEWLINE}%F{red}%n%f  %B%~%b %F{yellow}%B%(1j.*.)%(?..!)%b%f%  '
-#PROMPT='${NEWLINE}  %B%~%b  %F{yellow}%B%(1j.*.)%(?..!)%b%f%B   %b'
-
-#PS1=$'${(r:$COLUMNS::_:)}'$'\n'$PS1
 
 # right prompt
 autoload -Uz vcs_info
@@ -111,10 +102,6 @@ function +vi-git-untracked() {
     hook_com[unstaged]+="%F{blue} ●%f"
   fi
 }
-
-# Delay (in seconds) after which the command time is shown. Only integers
-# allowed, set at `0` if you want to constantly show command time.
-source ~/.config/zsh/zsh-command-time/zsh-command-time.plugin.zsh
 
 # nvim mode indicator for in right prompt
 # updates editor information when the keymap changes
@@ -287,8 +274,6 @@ preexec() { printf "\x1b]0;%s\x07" "$1"; }
 # set window title to terminal (st) after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
-## icons for lf
-#[ -f "$HOME/.config/lf/icons" ] && source "$HOME/.config/lf/icons"
-
 #}}}
+
 

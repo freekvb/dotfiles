@@ -28,7 +28,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 * torrentclient:    [**rtorrent**](https://rakshasa.github.io/rtorrent/ "rtorrent")
 * musicplayer:      [**moc**](https://moc.daper.net/ "moc - music on console")
 * mediaplayer:      [**mpv**](https://mpv.io/ "mpv")
-* theme:            [**wallust**](https://codeberg.org/explosion-mental/wallust "wallust - a better pywal")
+* theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal")
 * wallpaper:        [**wallpaper**](https://freekvb.github.io/fvb/hyprland/japanese_girl.jpg "japanese girl")
 
 ##### Screenshot
