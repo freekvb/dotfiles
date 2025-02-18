@@ -22,7 +22,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 * terminal:         [**foot**](https://codeberg.org/dnkl/foot "foot")
 * editor:           [**neovim**](https://neovim.io/ "neovim")
 * filemanager:      [**lf**](https://github.com/gokcehan/lf "lf")
-* webbrowser:       [**firefox**](https://www.mozilla.org/nl/firefox/new/ "firefox")
+* webbrowser:       [**zen-browser**](https://zen-browser.app/ "zen-browser") and [**firefox**](https://www.mozilla.org/nl/firefox/new/ "firefox")
 * cli_webbrowser:   [**lynx**](https://lynx.invisible-island.net/current/index.html "lynx")
 * git interface:    [**lazygit**](https://github.com/jesseduffield/lazygit/ "lazygit")
 * torrentclient:    [**rtorrent**](https://rakshasa.github.io/rtorrent/ "rtorrent")

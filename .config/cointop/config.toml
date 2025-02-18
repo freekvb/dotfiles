@@ -118,5 +118,5 @@ enable_mouse = true
   keep_row_focus_on_sort = false
 
 [chart]
-  height = 23
+  height = 22
   max_width = 175

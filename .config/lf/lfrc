@@ -238,10 +238,14 @@ cmd openterm ${{
     devour $TERM
 }}
 
-# [bgh = hyprland] set wallpaper and colorscheme (cli only)
-cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"
-# [bgx = x | dwm] set wallpaper and colorscheme (cli only) when running dwm
-cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
+# [bg = hyprland] set wallpaper and colorscheme (cli only)
+cmd wallpaper ${{
+    hyprwall
+}}
+
+#cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"
+# [bg = x | dwm] set wallpaper and colorscheme (cli only) when running dwm
+#cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
 
 # bulk rename
 cmd bulkrename $vidir
@@ -291,8 +295,8 @@ map ch          chmod
 map x           chmodx
 map U           unselect
 map E           extract
-map bgh         set py-wallpaper # [hyprland]
-map bgx         set py-wallpaper # [x | dwm]
+map bg          wallpaper # [hyprland]
+#map bgx         set py-wallpaper # [x | dwm]
 
 map <enter>     shell
 map V           push :!nvim<space>

@@ -1,3 +1,5 @@
 #!/bin/sh
 
-fastfetch --logo ~/Pictures/japanese_girl_original.jpg --logo-type sixel --logo-width 50 --logo-height 19 --logo-padding-top 1
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+
+fastfetch --logo "$CURRENT_WALL" --logo-type sixel --logo-width 50 --logo-height 19 --logo-padding-top 1
