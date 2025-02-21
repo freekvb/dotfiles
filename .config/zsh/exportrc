@@ -3,14 +3,12 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/exportrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Mon 08 Jul 2024 21:56
+# Update:   Fri 21 Feb 2025 07:44
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
 #---------- exports - thnx to gotbletu ---------------------------------------#
 
-# for cli browsers
-export WWW_HOME=ddg.gg
 
 # {{{ default programs
 
