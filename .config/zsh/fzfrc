@@ -16,7 +16,7 @@ command -v fzf >/dev/null 2>&1 || return 0
 
 
 # default fzf options
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} -m --color bg:233,preview-bg:234,info:2 --height '75%' --margin=1,0,0,4 --reverse --info=inline --color=info:-1,prompt:-1,pointer:-1,marker:-1,spinner:-1,header:-1"
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} -m --color bg:233,preview-bg:234,info:2 --height '75%' --margin=1,0,0,4 --reverse --info=inline --color=info:-1,prompt:-1,pointer:-1,marker:-1,spinner:-1,header:-1,hl:yellow,hl+:yellow"
 # vi like navigation with J/K
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 
