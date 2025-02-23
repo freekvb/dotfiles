@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/nasdaq.webp",
+    "alpha": "100",
+    "special": {
+        "background": "#0F0F0F",
+        "foreground": "#bebebb",
+        "cursor": "#bebebb"
+    },
+    "colors": {
+        "color0": "#0F0F0F",
+        "color1": "#4F4F4C",
+        "color2": "#5F605B",
+        "color3": "#62625D",
+        "color4": "#6E6F6A",
+        "color5": "#7F8079",
+        "color6": "#82847C",
+        "color7": "#bebebb",
+        "color8": "#858582",
+        "color9": "#4F4F4C",
+        "color10": "#5F605B",
+        "color11": "#62625D",
+        "color12": "#6E6F6A",
+        "color13": "#7F8079",
+        "color14": "#82847C",
+        "color15": "#bebebb"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallstreet.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0F13",
+        "foreground": "#cac3bd",
+        "cursor": "#cac3bd"
+    },
+    "colors": {
+        "color0": "#0B0F13",
+        "color1": "#746F6A",
+        "color2": "#89725D",
+        "color3": "#8A7969",
+        "color4": "#9E8976",
+        "color5": "#7A8083",
+        "color6": "#9F9D98",
+        "color7": "#cac3bd",
+        "color8": "#8d8884",
+        "color9": "#746F6A",
+        "color10": "#89725D",
+        "color11": "#8A7969",
+        "color12": "#9E8976",
+        "color13": "#7A8083",
+        "color14": "#9F9D98",
+        "color15": "#cac3bd"
+    }
+}

@@ -236,7 +236,7 @@ show()
 #{{{ color
 
 # color the st (not linux) tty terminal
-sd linux st $HOME/.cache/wal/colors-tty.sh
+#sd linux st $HOME/.cache/wal/colors-tty.sh
 
 # color by 'wal'
 # Import colorscheme from 'wal' asynchronously

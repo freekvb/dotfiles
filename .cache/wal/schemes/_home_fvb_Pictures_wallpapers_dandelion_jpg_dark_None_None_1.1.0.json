@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallpapers/dandelion.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#020201",
+        "foreground": "#ddd2be",
+        "cursor": "#ddd2be"
+    },
+    "colors": {
+        "color0": "#020201",
+        "color1": "#88795E",
+        "color2": "#7F8079",
+        "color3": "#B68D34",
+        "color4": "#A4916C",
+        "color5": "#D1AC6A",
+        "color6": "#ACA18B",
+        "color7": "#ddd2be",
+        "color8": "#9a9385",
+        "color9": "#88795E",
+        "color10": "#7F8079",
+        "color11": "#B68D34",
+        "color12": "#A4916C",
+        "color13": "#D1AC6A",
+        "color14": "#ACA18B",
+        "color15": "#ddd2be"
+    }
+}

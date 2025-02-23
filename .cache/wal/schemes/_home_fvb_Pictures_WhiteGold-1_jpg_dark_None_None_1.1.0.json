@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/WhiteGold-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#190d06",
+        "foreground": "#dbd6d7",
+        "cursor": "#dbd6d7"
+    },
+    "colors": {
+        "color0": "#190d06",
+        "color1": "#AA8B65",
+        "color2": "#D2AB6E",
+        "color3": "#E4C07C",
+        "color4": "#AF9F98",
+        "color5": "#CDB89F",
+        "color6": "#EBD09C",
+        "color7": "#dbd6d7",
+        "color8": "#999596",
+        "color9": "#AA8B65",
+        "color10": "#D2AB6E",
+        "color11": "#E4C07C",
+        "color12": "#AF9F98",
+        "color13": "#CDB89F",
+        "color14": "#EBD09C",
+        "color15": "#dbd6d7"
+    }
+}

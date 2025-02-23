@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/fvb/Pictures/wallpapers/japanese_girl_right.jpg"
+let background = "#0c0a0a"
+let foreground = "#e8e3de"
+let cursor     = "#e8e3de"
+
+" Colors
+let color0  = "#0c0a0a"
+let color1  = "#7F8279"
+let color2  = "#8F8678"
+let color3  = "#ADA293"
+let color4  = "#C6B9AA"
+let color5  = "#D3C5B8"
+let color6  = "#DDD3C8"
+let color7  = "#e8e3de"
+let color8  = "#a29e9b"
+let color9  = "#7F8279"
+let color10 = "#8F8678"
+let color11 = "#ADA293"
+let color12 = "#C6B9AA"
+let color13 = "#D3C5B8"
+let color14 = "#DDD3C8"
+let color15 = "#e8e3de"

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallpapers/blossem.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0d0d0d",
+        "foreground": "#e2dcdc",
+        "cursor": "#e2dcdc"
+    },
+    "colors": {
+        "color0": "#0d0d0d",
+        "color1": "#837F83",
+        "color2": "#908D91",
+        "color3": "#A49A9D",
+        "color4": "#B1AAAD",
+        "color5": "#CBB4B3",
+        "color6": "#CABFBF",
+        "color7": "#e2dcdc",
+        "color8": "#9e9a9a",
+        "color9": "#837F83",
+        "color10": "#908D91",
+        "color11": "#A49A9D",
+        "color12": "#B1AAAD",
+        "color13": "#CBB4B3",
+        "color14": "#CABFBF",
+        "color15": "#e2dcdc"
+    }
+}

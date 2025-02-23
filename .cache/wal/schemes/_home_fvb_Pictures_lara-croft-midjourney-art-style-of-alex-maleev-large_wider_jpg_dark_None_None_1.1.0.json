@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/lara-croft-midjourney-art-style-of-alex-maleev-large_wider.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0503",
+        "foreground": "#f3eee2",
+        "cursor": "#f3eee2"
+    },
+    "colors": {
+        "color0": "#0B0503",
+        "color1": "#7F817F",
+        "color2": "#DB9335",
+        "color3": "#9F8E72",
+        "color4": "#AAA18F",
+        "color5": "#CCC1AD",
+        "color6": "#DBD6C9",
+        "color7": "#f3eee2",
+        "color8": "#aaa69e",
+        "color9": "#7F817F",
+        "color10": "#DB9335",
+        "color11": "#9F8E72",
+        "color12": "#AAA18F",
+        "color13": "#CCC1AD",
+        "color14": "#DBD6C9",
+        "color15": "#f3eee2"
+    }
+}

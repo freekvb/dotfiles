@@ -7,8 +7,9 @@ export FZF_DEFAULT_OPTS='
 --height=50%
 --margin 1,0,0,4
 --no-info
---border
+--no-border
 --layout=reverse
+--color=info:-1,prompt:-1,pointer:-1,marker:-1,spinner:-1,header:-1,hl:yellow,hl+:yellow
 --prompt="man: "
 --preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null" --preview-window "right:70%"'
 

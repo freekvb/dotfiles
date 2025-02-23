@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/japanese_girl_original.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0d0c",
+        "foreground": "#e5e0db",
+        "cursor": "#e5e0db"
+    },
+    "colors": {
+        "color0": "#0f0d0c",
+        "color1": "#A1917E",
+        "color2": "#A79C8E",
+        "color3": "#B4A798",
+        "color4": "#C0B09E",
+        "color5": "#C6B8A9",
+        "color6": "#D2C5B8",
+        "color7": "#e5e0db",
+        "color8": "#a09c99",
+        "color9": "#A1917E",
+        "color10": "#A79C8E",
+        "color11": "#B4A798",
+        "color12": "#C0B09E",
+        "color13": "#C6B8A9",
+        "color14": "#D2C5B8",
+        "color15": "#e5e0db"
+    }
+}

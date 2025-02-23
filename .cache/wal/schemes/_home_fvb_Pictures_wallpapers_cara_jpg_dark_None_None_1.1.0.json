@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallpapers/cara.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#050505",
+        "foreground": "#e3e3e3",
+        "cursor": "#e3e3e3"
+    },
+    "colors": {
+        "color0": "#050505",
+        "color1": "#6F6F6F",
+        "color2": "#888888",
+        "color3": "#979797",
+        "color4": "#A7A7A7",
+        "color5": "#B8B8B8",
+        "color6": "#C8C8C8",
+        "color7": "#e3e3e3",
+        "color8": "#9e9e9e",
+        "color9": "#6F6F6F",
+        "color10": "#888888",
+        "color11": "#979797",
+        "color12": "#A7A7A7",
+        "color13": "#B8B8B8",
+        "color14": "#C8C8C8",
+        "color15": "#e3e3e3"
+    }
+}

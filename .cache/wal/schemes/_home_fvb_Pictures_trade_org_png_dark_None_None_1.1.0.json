@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/trade_org.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0a0a",
+        "foreground": "#c8cac4",
+        "cursor": "#c8cac4"
+    },
+    "colors": {
+        "color0": "#0a0a0a",
+        "color1": "#5F605A",
+        "color2": "#62635D",
+        "color3": "#6F7069",
+        "color4": "#7E8178",
+        "color5": "#83857C",
+        "color6": "#8D9086",
+        "color7": "#c8cac4",
+        "color8": "#8c8d89",
+        "color9": "#5F605A",
+        "color10": "#62635D",
+        "color11": "#6F7069",
+        "color12": "#7E8178",
+        "color13": "#83857C",
+        "color14": "#8D9086",
+        "color15": "#c8cac4"
+    }
+}

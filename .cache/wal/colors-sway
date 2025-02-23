@@ -1,0 +1,21 @@
+set $wallpaper /home/fvb/Pictures/wallpapers/japanese_girl_right.jpg
+
+set $background #0c0a0a
+set $foreground #e8e3de
+
+set $color0 #0c0a0a
+set $color1 #7F8279
+set $color2 #8F8678
+set $color3 #ADA293
+set $color4 #C6B9AA
+set $color5 #D3C5B8
+set $color6 #DDD3C8
+set $color7 #e8e3de
+set $color8 #a29e9b
+set $color9 #7F8279
+set $color10 #8F8678
+set $color11 #ADA293
+set $color12 #C6B9AA
+set $color13 #D3C5B8
+set $color14 #DDD3C8
+set $color15 #e8e3de

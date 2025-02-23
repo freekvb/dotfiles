@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/Martin Bender - B&Y - acryl lack - paper - 2020_crop.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0807",
+        "foreground": "#e9e7df",
+        "cursor": "#e9e7df"
+    },
+    "colors": {
+        "color0": "#0B0807",
+        "color1": "#F5E124",
+        "color2": "#B3994E",
+        "color3": "#F3E455",
+        "color4": "#ABA197",
+        "color5": "#C9B49D",
+        "color6": "#ECE5A7",
+        "color7": "#e9e7df",
+        "color8": "#a3a19c",
+        "color9": "#F5E124",
+        "color10": "#B3994E",
+        "color11": "#F3E455",
+        "color12": "#ABA197",
+        "color13": "#C9B49D",
+        "color14": "#ECE5A7",
+        "color15": "#e9e7df"
+    }
+}

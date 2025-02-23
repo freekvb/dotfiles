@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/usd.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0c0f",
+        "foreground": "#e8e8e4",
+        "cursor": "#e8e8e4"
+    },
+    "colors": {
+        "color0": "#0a0c0f",
+        "color1": "#93918B",
+        "color2": "#A7A596",
+        "color3": "#B4B2AA",
+        "color4": "#C1BEB4",
+        "color5": "#C9C5B9",
+        "color6": "#D2D1CB",
+        "color7": "#e8e8e4",
+        "color8": "#a2a29f",
+        "color9": "#93918B",
+        "color10": "#A7A596",
+        "color11": "#B4B2AA",
+        "color12": "#C1BEB4",
+        "color13": "#C9C5B9",
+        "color14": "#D2D1CB",
+        "color15": "#e8e8e4"
+    }
+}

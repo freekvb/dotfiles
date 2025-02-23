@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallpapers/broken_face.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1e1c1c",
+        "foreground": "#f4efda",
+        "cursor": "#f4efda"
+    },
+    "colors": {
+        "color0": "#1e1c1c",
+        "color1": "#B6AB8F",
+        "color2": "#C7B99A",
+        "color3": "#C6BFA0",
+        "color4": "#D6C7A4",
+        "color5": "#EADBB2",
+        "color6": "#EBDEB6",
+        "color7": "#f4efda",
+        "color8": "#aaa798",
+        "color9": "#B6AB8F",
+        "color10": "#C7B99A",
+        "color11": "#C6BFA0",
+        "color12": "#D6C7A4",
+        "color13": "#EADBB2",
+        "color14": "#EBDEB6",
+        "color15": "#f4efda"
+    }
+}

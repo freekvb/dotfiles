@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/fefaa436007dc786c4db5f7816f3de57_crop.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0a0a",
+        "foreground": "#dedbdc",
+        "cursor": "#dedbdc"
+    },
+    "colors": {
+        "color0": "#0b0a0a",
+        "color1": "#928D8F",
+        "color2": "#A29C9E",
+        "color3": "#B2ADB0",
+        "color4": "#C4BBBB",
+        "color5": "#BFBFC2",
+        "color6": "#C5BEC2",
+        "color7": "#dedbdc",
+        "color8": "#9b999a",
+        "color9": "#928D8F",
+        "color10": "#A29C9E",
+        "color11": "#B2ADB0",
+        "color12": "#C4BBBB",
+        "color13": "#BFBFC2",
+        "color14": "#C5BEC2",
+        "color15": "#dedbdc"
+    }
+}

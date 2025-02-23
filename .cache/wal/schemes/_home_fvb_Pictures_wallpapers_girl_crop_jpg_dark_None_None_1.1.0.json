@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallpapers/girl_crop.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0406",
+        "foreground": "#f0e9e3",
+        "cursor": "#f0e9e3"
+    },
+    "colors": {
+        "color0": "#0a0406",
+        "color1": "#AB9F96",
+        "color2": "#C6B9AE",
+        "color3": "#D2C5BA",
+        "color4": "#DBCFC5",
+        "color5": "#E6D9CE",
+        "color6": "#DFE0DB",
+        "color7": "#f0e9e3",
+        "color8": "#a8a39e",
+        "color9": "#AB9F96",
+        "color10": "#C6B9AE",
+        "color11": "#D2C5BA",
+        "color12": "#DBCFC5",
+        "color13": "#E6D9CE",
+        "color14": "#DFE0DB",
+        "color15": "#f0e9e3"
+    }
+}

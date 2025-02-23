@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/creation_of_adam.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#000000",
+        "foreground": "#9c9c9c",
+        "cursor": "#9c9c9c"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#232323",
+        "color2": "#2C2C2C",
+        "color3": "#333333",
+        "color4": "#3C3C3C",
+        "color5": "#424242",
+        "color6": "#464646",
+        "color7": "#9c9c9c",
+        "color8": "#6d6d6d",
+        "color9": "#232323",
+        "color10": "#2C2C2C",
+        "color11": "#333333",
+        "color12": "#3C3C3C",
+        "color13": "#424242",
+        "color14": "#464646",
+        "color15": "#9c9c9c"
+    }
+}

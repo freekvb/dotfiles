@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/fvb/Pictures/wallhaven-0w8676_2560x1080.png",
+    "alpha": "100",
+    "special": {
+        "background": "#070E13",
+        "foreground": "#d4dad6",
+        "cursor": "#d4dad6"
+    },
+    "colors": {
+        "color0": "#070E13",
+        "color1": "#576667",
+        "color2": "#516B6F",
+        "color3": "#897363",
+        "color4": "#708E8E",
+        "color5": "#7AB6C1",
+        "color6": "#9AAAA5",
+        "color7": "#d4dad6",
+        "color8": "#949895",
+        "color9": "#576667",
+        "color10": "#516B6F",
+        "color11": "#897363",
+        "color12": "#708E8E",
+        "color13": "#7AB6C1",
+        "color14": "#9AAAA5",
+        "color15": "#d4dad6"
+    }
+}
