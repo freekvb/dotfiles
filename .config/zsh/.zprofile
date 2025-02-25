@@ -8,7 +8,6 @@
 
 [[ -f "$HOME/.config/zsh/.zshrc" ]] && . "$HOME/.config/zsh/.zshrc"
 
-
 ## auto start x at login
 #if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #  exec startx

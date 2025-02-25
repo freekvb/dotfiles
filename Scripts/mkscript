@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# make a script
+
 printf "File Name: "
 read ans
 touch ~/Scripts/"$ans"

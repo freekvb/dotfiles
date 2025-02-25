@@ -5,24 +5,24 @@
 
     /* Special */
     --background: #0c0a0a;
-    --foreground: #e8e3de;
-    --cursor: #e8e3de;
+    --foreground: #c2c1c1;
+    --cursor: #c2c1c1;
 
     /* Colors */
     --color0: #0c0a0a;
-    --color1: #7F8279;
-    --color2: #8F8678;
-    --color3: #ADA293;
-    --color4: #C6B9AA;
-    --color5: #D3C5B8;
-    --color6: #DDD3C8;
-    --color7: #e8e3de;
-    --color8: #a29e9b;
-    --color9: #7F8279;
+    --color1: #635b51;
+    --color2: #6b645a;
+    --color3: #81786e;
+    --color4: #948a7f;
+    --color5: #9e9389;
+    --color6: #a59d96;
+    --color7: #968a8a;
+    --color8: #695656;
+    --color9: #847A6C;
     --color10: #8F8678;
-    --color11: #ADA293;
+    --color11: #ACA193;
     --color12: #C6B9AA;
-    --color13: #D3C5B8;
-    --color14: #DDD3C8;
-    --color15: #e8e3de;
+    --color13: #D3C5B7;
+    --color14: #DCD2C8;
+    --color15: #c2c1c1;
 }

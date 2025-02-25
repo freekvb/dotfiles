@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Images in fzf_preview
+# Images in fzf_preview [alias fpi]
 
 case "$(uname -a)" in
     *Darwin*) UEBERZUG_TMP_DIR="$TMPDIR" ;;

@@ -240,7 +240,7 @@ cmd openterm ${{
 
 # [bg = hyprland] set wallpaper and colorscheme (cli only)
 cmd wallpaper ${{
-    hyprwall
+    hyprwal
 }}
 
 #cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"

@@ -214,16 +214,24 @@
 
 [color]
 
-gradient = 1
+gradient = 1 
 
-#gradient_color_0 = '#0c0a0a'  #'#8FBCBB'  # Nord Frost: Polar Night
-gradient_color_1 = '#7F8279'  #'#88C0D0'  # Nord Frost: Glacier
-gradient_color_2 = '#8F8678'  #'#81A1C1'  # Nord Frost: Arctic Ocean
-gradient_color_3 = '#ADA293'  #'#5E81AC'  # Nord Frost: Deep Water
-gradient_color_4 = '#C6B9AA'  #'#D08770'  # Nord Aurora: Sunset
-gradient_color_5 = '#D3C5B8'  #'#EBCB8B'  # Nord Aurora: Golden Mist
-gradient_color_6 = '#DDD3C8'  #'#A3BE8C'  # Nord Aurora: Mountain Moss
-gradient_color_7 = '#e8e3de'  #'#B48EAD'  # Nord Aurora: Heather
+gradient_color_0 = '#0c0a0a'  #'#8FBCBB'  # Nord Frost: Polar Night
+gradient_color_1 = "#635b51"
+gradient_color_2 = "#6b645a"
+gradient_color_3 = "#81786e"
+gradient_color_4 = "#948a7f"
+gradient_color_5 = "#9e9389"
+gradient_color_6 = "#a59d96"
+gradient_color_7 = "#968a8a"
+gradient_count = 7
+; background = 
+; foreground = 
+; background =
+; foreground =
+; background =
+; background =
+; foreground =
 
 
 
