@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# set wallpaper, adjust colorscheme with pywal and set picture in fastfetch [fetch]
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers/"
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+
+# Get a random wallpaper that is not the current one
+#WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+# Select wallpaper
+WALLPAPER="$f"
+
+# Apply the selected wallpaper
+hyprctl hyprpaper reload ,"$WALLPAPER"
+
+# Set color theme
+wal -i "$WALLPAPER" --cols16
+
+# Cava get colors and reload
+wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava
+
+# Set wallpaper in 'fast'fetch
+fastfetch --logo "$WALLPAPER" --logo-type sixel --logo-width 50 --logo-height 19 --logo-padding-top 1
+
+# Load new wallpaper [cover = default] in hyprpaper.conf
+printf "preload = %s\n" $WALLPAPER > $HOME/.config/hypr/hyprpaper.conf
+printf "wallpaper = , %s\n" $WALLPAPER >> $HOME/.config/hypr/hyprpaper.conf
+

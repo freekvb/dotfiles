@@ -1,0 +1,28 @@
+{
+    "checksum": "b17b6bb19b54cd923ffc366068d83208",
+    "wallpaper": "/home/fvb/Pictures/wallpapers/girl_cropped.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090406",
+        "foreground": "#c1c0c0",
+        "cursor": "#c1c0c0"
+    },
+    "colors": {
+        "color0": "#090406",
+        "color1": "#6c635c",
+        "color2": "#807770",
+        "color3": "#948a82",
+        "color4": "#9d938b",
+        "color5": "#a49b93",
+        "color6": "#aca29a",
+        "color7": "#948989",
+        "color8": "#66535c",
+        "color9": "#91847B",
+        "color10": "#AB9F96",
+        "color11": "#C6B9AE",
+        "color12": "#D2C5BA",
+        "color13": "#DBCFC5",
+        "color14": "#E6D9CE",
+        "color15": "#c1c0c0"
+    }
+}

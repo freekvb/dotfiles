@@ -240,7 +240,12 @@ cmd openterm ${{
 
 # [bg = hyprland] set wallpaper and colorscheme (cli only)
 cmd wallpaper ${{
-    hyprwal
+    wal_hypr
+}}
+
+# [mp] play music file with moc
+cmd play_music ${{
+    moc_music
 }}
 
 #cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"
@@ -297,6 +302,7 @@ map U           unselect
 map E           extract
 map bg          wallpaper # [hyprland]
 #map bgx         set py-wallpaper # [x | dwm]
+map mp          play_music
 
 map <enter>     shell
 map V           push :!nvim<space>
@@ -344,7 +350,8 @@ map J           fzf_jump
 map gh          cd ~
 map gD          cd ~/Documents
 map gd          cd ~/Downloads
-map gm          cd ~/Media
+map gM          cd ~/Media
+map gm          cd ~/Music
 map gn          cd ~/Notes
 map gt          cd ~/Notes/trades/tp
 map gp          cd ~/Pictures
@@ -365,7 +372,8 @@ map gu          cd /usr
 map Mh          $mv "$f" ~
 map MD          $mv "$f" ~/Documents
 #map Md          $mv "$f" ~/Downloads
-map Mm          $mv "$f" ~/Media
+map MM          $mv "$f" ~/Media
+map Mm          $mv "$f" ~/Music
 map Mn          $mv "$f" ~/Notes
 map Mt          $mv "$f" ~/Notes/trades/tp
 map Mp          $mv "$f" ~/Pictures
@@ -381,7 +389,8 @@ map Ms          $mv "$f" ~/.local/share
 map Yh          $cp "$f" ~
 map YD          $cp "$f" ~/Documents
 #map Yd          $cp "$f" ~/Downloads
-map Ym          $cp "$f" ~/Media
+map YM          $cp "$f" ~/Media
+map Ym          $cp "$f" ~/Music
 map Yn          $cp "$f" ~/Notes
 map Yt          $cp "$f" ~/Notes/trades/tp
 map Yp          $cp "$f" ~/Pictures

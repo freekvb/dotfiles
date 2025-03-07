@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+pkill -USR2 mocp
+    mocp -S &&
+    mocp -c && mocp -a "$f" && mocp -p

@@ -212,28 +212,29 @@
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
 ; waveform = 0
 
+
 [color]
 
 gradient = 1 
 
 gradient_color_0 = '#0c0a0a'  #'#8FBCBB'  # Nord Frost: Polar Night
-gradient_color_1 = "#635b51"
-gradient_color_2 = "#6b645a"
-gradient_color_3 = "#81786e"
-gradient_color_4 = "#948a7f"
-gradient_color_5 = "#9e9389"
-gradient_color_6 = "#a59d96"
-gradient_color_7 = "#968a8a"
+gradient_color_1 = "#515354"
+gradient_color_2 = "#69563f"
+gradient_color_3 = "#7e6c4f"
+gradient_color_4 = "#997e40"
+gradient_color_5 = "#5a5d60"
+gradient_color_6 = "#5d6163"
+gradient_color_7 = "#8a8a96"
 gradient_count = 7
 ; background = 
 ; foreground = 
 ; background =
 ; foreground =
 ; background =
+; foreground =
+; background =
 ; background =
 ; foreground =
-
-
 
 
 [smoothing]
@@ -251,7 +252,6 @@ gradient_count = 7
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
 # DEPRECATED as of 0.8.0, use noise_reduction instead
 ; gravity = 100
-
 
 # In bar height, bars that would have been lower that this will not be drawn.
 # DEPRECATED as of 0.8.0

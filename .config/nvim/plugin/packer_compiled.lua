@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/fvb/.cache/nvim/packer_hererocks/2.1.1692616192/share/lua/5.1/?.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1692616192/share/lua/5.1/?/init.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1692616192/lib/luarocks/rocks-5.1/?.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1692616192/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/fvb/.cache/nvim/packer_hererocks/2.1.1692616192/lib/lua/5.1/?.so"
+local package_path_str = "/home/fvb/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/home/fvb/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/fvb/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,10 +84,20 @@ _G.packer_plugins = {
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["smartcolumn.nvim"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
+    url = "https://github.com/m4xshen/smartcolumn.nvim"
   },
   ["vim-instant-markdown"] = {
     loaded = true,

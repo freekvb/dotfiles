@@ -35,7 +35,7 @@ export MUSICER=$(find_alt moc mpv $OPENER)
 export PAGER=$(find_alt less more most)
 export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
 export READER=$(find_alt zathura $OPENER)
-export TERM=$(find_alt st xterm $OPENER)
+export TERM=$(find_alt foot st xterm $OPENER)
 export VISUAL=$EDITOR
 #export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 

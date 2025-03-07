@@ -1,0 +1,28 @@
+{
+    "checksum": "18ccad3862cace27983266ab3d4eb832",
+    "wallpaper": "/home/fvb/Pictures/wallpapers/scream.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0c0c",
+        "foreground": "#c2c2c2",
+        "cursor": "#c2c2c2"
+    },
+    "colors": {
+        "color0": "#0c0c0c",
+        "color1": "#6c6c6c",
+        "color2": "#787877",
+        "color3": "#848484",
+        "color4": "#90908f",
+        "color5": "#a2a2a2",
+        "color6": "#a8a7a7",
+        "color7": "#968b8b",
+        "color8": "#6a5757",
+        "color9": "#919090",
+        "color10": "#A0A09F",
+        "color11": "#B1B1B0",
+        "color12": "#C0C0BF",
+        "color13": "#D9D9D9",
+        "color14": "#E0DFDF",
+        "color15": "#c2c2c2"
+    }
+}

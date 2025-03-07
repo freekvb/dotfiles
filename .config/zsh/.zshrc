@@ -21,6 +21,13 @@
 # z smarter cd
 eval "$(zoxide init zsh)"
 
+# main opts
+setopt autocd # type a dir to cd
+setopt auto_param_slash # when a dir is completed, add a / instead of a trailing space
+setopt interactive_comments # allow comments in shell
+unsetopt prompt_sp # don't autoclean blanklines
+stty stop undef # disable accidental ctrl s
+
 #{{{ zinit
 
 # Set the directory we want to store zinit and plugins
@@ -148,7 +155,7 @@ bindkey -r '^Y'
 
 # History
 HISTSIZE=5000
-HISTFILE=~/.cache/zsh/zsh_history
+HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory

@@ -1,0 +1,28 @@
+{
+    "checksum": "a74a17835007a755e1644471cc8d48e2",
+    "wallpaper": "/home/fvb/Pictures/wallpapers/money_market.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#120d0b",
+        "foreground": "#c3c2c2",
+        "cursor": "#c3c2c2"
+    },
+    "colors": {
+        "color0": "#120d0b",
+        "color1": "#7b726c",
+        "color2": "#89817e",
+        "color3": "#99856a",
+        "color4": "#948b86",
+        "color5": "#9b928c",
+        "color6": "#928d90",
+        "color7": "#97908d",
+        "color8": "#6b5d58",
+        "color9": "#A49891",
+        "color10": "#B7ADA9",
+        "color11": "#CCB28E",
+        "color12": "#C6BAB3",
+        "color13": "#CFC3BB",
+        "color14": "#C3BDC1",
+        "color15": "#c3c2c2"
+    }
+}
