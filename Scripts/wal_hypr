@@ -20,6 +20,9 @@ wal -i "$WALLPAPER" --cols16
 # Cava get colors and reload
 wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava
 
+# Waybar get colors and restart
+killall -SIGUSR2 waybar
+
 # Set wallpaper in 'fast'fetch
 fastfetch --logo "$WALLPAPER" --logo-type sixel --logo-width 50 --logo-height 19 --logo-padding-top 1
 
