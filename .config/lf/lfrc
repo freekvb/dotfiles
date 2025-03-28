@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/lf/lfrc (archlinux @ 'silent')
 # Date:     Thu 15 Mar 2022 12:05
-# Update:   Mon 08 Jul 2024 22:04
+# Update:   Sat 15 Mar 2025 15:51
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -193,7 +193,6 @@ cmd extract ${{
     esac
 }}
 
-
 # compress current file or selected files with tar and gunzip
 cmd tar ${{
     set -f
@@ -248,7 +247,6 @@ cmd play_music ${{
     moc_music
 }}
 
-#cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f"
 # [bg = x | dwm] set wallpaper and colorscheme (cli only) when running dwm
 #cmd py-wallpaper %cp "$f" ~/.config/wall.png && wal -i "$f" && (cd $HOME/Programs/dwm && rm -f config.h ; doas make clean install) && (cd $HOME/Programs/dmenu && rm -f config.h ; doas make clean install) && xdotool key super+shift+q
 
@@ -288,7 +286,7 @@ map rt          restore_trash
 
 map DD          delete
 map cc          cut
-map yy          copy
+map y           copy
 map p           paste
 
 map md          push :mkdir<space>
@@ -321,14 +319,14 @@ map i           push A<a-b><a-b><a-f>   # before extention
 map a           push A<a-b>             # after extention
 
 # symlinks
-# yy (select for copy) and P to paste soft-link
+# y (select for copy) and P to paste soft-link
 # cc (select for cut) and P to paste hard-link
 map P           :link
 
 ## file openers
 map ch          push :!nvim<space>$HOME/.config/hypr/hyprland.conf<enter>
 map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
-map cz          push :!nvim<spade>$HOME/.config/zsh/.zshrc<enter>
+map cz          push :!nvim<space>$HOME/.config/zsh/.zshrc<enter>
 map ob          $$BROWSER "$f"
 map of          open $f
 map ol          $$PAGER "$f"

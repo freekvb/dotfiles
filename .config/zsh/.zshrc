@@ -95,7 +95,7 @@ setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
 
 # vcs info
-zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green} ●%f"              # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{yellow} ●%f"           # default 'U'
