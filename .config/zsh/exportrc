@@ -22,7 +22,7 @@ find_alt() { for i;do which "$i" >/dev/null &&
 
 export OPENER=$(find_alt xdg-open)
 
-export BROWSER=$(find_alt zen-browser firefox qutebrowser chromium $OPENER)
+export BROWSER=$(find_alt zen-browser qutebrowser chromium $OPENER)
 export BROWSERCLI=$(find_alt lynx w3m $OPENER )
 #export BROWSERTOR=$(find_alt tor-browser-en)
 export DIFFPROG="nvim -d"
@@ -49,6 +49,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_LIB_HOME=$HOME/.local/lib
 export XDG_TMP_HOME=$HOME/.local/tmp
+
+export XDG_RUNTIME_DIR="/run/user/1000"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GEM_HOME="$XDG_DATA_HOME/gem"

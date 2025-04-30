@@ -9,7 +9,7 @@
         }
     },
     "display": {
-        "separator": "    ",
+        "separator": "   ",
         "constants": [
             "─────────────────"
         ],
@@ -23,7 +23,7 @@
         {
             "type": "custom",
             "outputColor": "red",
-            "format": "┌{$1}─────────────────────────{$1}┐",
+            "format": "┌{$1}───────────────────────{$1}┐",
             "outputColor": "red"
         },
         {
@@ -73,7 +73,7 @@
         },
         {
             "type": "terminal",
-            "keyIcon": "",
+            "keyIcon": "",
             "keyColor": "blue"
         },
         {
@@ -114,7 +114,7 @@
         },
         {
             "type": "custom",
-            "format": "└{$1}─────────────────────────{$1}┘"
+            "format": "└{$1}───────────────────────{$1}┘"
         },
         "break"
     ]
