@@ -17,7 +17,7 @@ alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-dir
 alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='trash'
+alias rmt='trash'
 
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
 alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
