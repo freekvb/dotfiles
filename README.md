@@ -29,7 +29,7 @@ A new arch install deserves new .dotfiles so I created new .dotfiles (based on m
 * musicplayer:      [**moc**](https://moc.daper.net/ "moc - music on console")
 * mediaplayer:      [**mpv**](https://mpv.io/ "mpv")
 * theme:            [**pywal**](https://github.com/dylanaraps/pywal "pywal")
-* wallpaper:        [**wallpaper**](https://freekvb.github.io/fvb/hyprland/japanese_girl.jpg "japanese girl")
+* wallpaper:        [**wallpaper**](https://freekvb.github.io/fvb/hyprland/bentley.webp "bentley continental")
 
 ##### Screenshot
 arch linux hyprland @ 'silent'
