@@ -143,7 +143,6 @@ _comps=(
 'cal' '_cal'
 'calendar' '_calendar'
 'cap' '_cap'
-'cargo' '_cargo'
 'cask' '_cask'
 'cat' '_cat'
 'catchsegv' '_precommand'
@@ -1021,6 +1020,7 @@ _comps=(
 'pass' '_pass'
 'passwd' '_users'
 'paste' '_paste'
+'pastel' '_pastel'
 'pasuspender' '_pulseaudio'
 'patch' '_patch'
 'patool' '_patool'
@@ -1919,32 +1919,32 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _wg-quick _xsel _yarn _zcash-cli _zinit \
             _afew _android _archlinux-java _artisan _atach \
             _avdmanager _bat _bitcoin-cli _bootctl _bower \
-            _bundle _busctl _cap _cargo _cask \
-            _ccache _cf _chafa _checkupdates _choc \
-            _chromium _clang-check _clang-format _clang-tidy _cmake \
-            _coffee _conan _concourse _console _coredumpctl \
-            _cppcheck _curl _dad _dart _dget \
-            _dhcpcd _diana _direnv _docpad _drush \
-            _dunst _dunstctl _ecdsautil _emacs _emacsclient \
-            _emulator _envdir _exportfs _fab _fail2ban-client \
-            _fastfetch _fd _ffind _fleetctl _flutter \
-            _foot _footclient _fvm _fwupdmgr _gas \
-            _ghc _gist _git-flow _git-pulls _git-revise \
-            _git-wtf _glances _golang _google _gpgconf \
-            _grpcurl _gtk-launch _hello _hledger _homestead \
-            _hostnamectl _httpie _hyprctl _hyprpm _ibus \
-            _img2sixel _include-what-you-use _insmod _inxi _jmeter \
-            _jmeter-plugins _jonas _journalctl _jrnl _kak \
-            _kernel-install _kitchen _knife _language_codes _lf \
-            _libinput _lilypond _localectl _loginctl _lsmod \
-            _lunchy _machinectl _mc _meson _middleman \
-            _mina _mix _mkcert _mkinitcpio _mpv \
-            _mssh _mussh _mvn _nano _nanoc \
-            _neofetch _networkctl _networkQuality _nftables _ninja \
-            _node _nvm _oomctl _openssl _openvpn3 \
-            _optirun _paccache _pacdiff _paclist _paclog-pkglist \
-            _pacman _pacscripts _pacsearch _pacsort _pactree \
-            _paru _pass _patool _periscope _pgsql_utils \
+            _bundle _busctl _cap _cask _ccache \
+            _cf _chafa _checkupdates _choc _chromium \
+            _clang-check _clang-format _clang-tidy _cmake _coffee \
+            _conan _concourse _console _coredumpctl _cppcheck \
+            _curl _dad _dart _dget _dhcpcd \
+            _diana _direnv _docpad _drush _dunst \
+            _dunstctl _ecdsautil _emacs _emacsclient _emulator \
+            _envdir _exportfs _fab _fail2ban-client _fastfetch \
+            _fd _ffind _fleetctl _flutter _foot \
+            _footclient _fvm _fwupdmgr _gas _ghc \
+            _gist _git-flow _git-pulls _git-revise _git-wtf \
+            _glances _golang _google _gpgconf _grpcurl \
+            _gtk-launch _hello _hledger _homestead _hostnamectl \
+            _httpie _hyprctl _hyprpm _ibus _img2sixel \
+            _include-what-you-use _insmod _inxi _jmeter _jmeter-plugins \
+            _jonas _journalctl _jrnl _kak _kernel-install \
+            _kitchen _knife _language_codes _lf _libinput \
+            _lilypond _localectl _loginctl _lsmod _lunchy \
+            _machinectl _mc _meson _middleman _mina \
+            _mix _mkcert _mkinitcpio _mpv _mssh \
+            _mussh _mvn _nano _nanoc _neofetch \
+            _networkctl _networkQuality _nftables _ninja _node \
+            _nvm _oomctl _openssl _openvpn3 _optirun \
+            _paccache _pacdiff _paclist _paclog-pkglist _pacman \
+            _pacscripts _pacsearch _pacsort _pactree _paru \
+            _pass _pastel _patool _periscope _pgsql_utils \
             _phing _pixz _pkcon _play _playerctl \
             _pm2 _port _protoc _pulseaudio _pygmentize \
             _qmk _rails _ralio _rankmirrors _redis-cli \

@@ -110,7 +110,7 @@
         {
             "type": "colors",
             "paddingLeft": 3,
-            "symbol": "circle"
+            "symbol": "square"
         },
         {
             "type": "custom",
