@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent')
 # Date:     Sat 25 Mqy 2024 03:00
-# Update:   Mon 08 Jul 2024 21:51
+# Update:   Fri 27 Jun 2025 04:18
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -17,9 +17,6 @@
 #[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 #[ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh"
 #[ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
-
-# z smarter cd
-eval "$(zoxide init zsh)"
 
 # main opts
 setopt autocd # type a dir to cd
@@ -70,8 +67,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-#eval "$(fzf --zsh)"
-source <(fzf --zsh)
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 #}}}
@@ -243,8 +239,8 @@ show()
 
 #{{{ color
 
-# color the st (not linux) tty terminal
-#sd linux st $HOME/.cache/wal/colors-tty.sh
+# color the foot (not linux) tty terminal
+sd linux foot $HOME/.cache/wal/colors-tty.sh
 
 # color by 'wal'
 # Import colorscheme from 'wal' asynchronously
@@ -283,5 +279,4 @@ preexec() { printf "\x1b]0;%s\x07" "$1"; }
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
 #}}}
-
 
