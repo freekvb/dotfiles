@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 08 Jul 2024 22:02
+-- Update:   Sun 13 Jul 2025 22:26
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ local term_opts = { silent = true }
 -- shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
+-- modes
 --   normal_mode = 'n',
 --   insert_mode = 'i',
 --   visual_mode = 'v',
@@ -119,4 +119,15 @@ keymap("c", "w!!", [[w !sudo tee %]], opt)
 
 -- diff since last save
 keymap("n", "<leader>df", [[:w !diff % -<cr>]], opt)
+
+-- completion [plugin: vim-script/AutoComplPop]
+vim.cmd([[
+" navigate menu up [shift-tab] and down [tab]
+inoremap <expr> <s-tab> pumvisible() ? "<C-p>": "<s-tab>"
+inoremap <expr> <tab> pumvisible() ? "<C-n>": "<tab>"
+" select menu item [enter]
+inoremap <expr> <CR> pumvisible() ? "<C-y>": "<CR>"
+" cancel menu item [esc]
+inoremap <expr> <esc> pumvisible() ? "<C-e>": "<esc>"
+]])
 

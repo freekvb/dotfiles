@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/special_settings.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 08 Jul 2024 22:03
+-- Update:   Sun 13 Jul 2025 22:43
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ local term_opts = { silent = true }
 -- shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
+-- modes
 --   normal_mode = 'n',
 --   insert_mode = 'i',
 --   visual_mode = 'v',
@@ -53,7 +53,7 @@ vim.cmd([[
 ]])
 -- set proper text width for markdown files
 vim.cmd([[
-    au BufRead,BufNewFile *.md setlocal textwidth=79
+    au BufRead,BufNewFile *.md setlocal textwidth=100
 ]])
 vim.g["markdown_fenced_languages"] = { "bash=sh", "python", "vim", "lua", "c", "html" }
 
@@ -62,6 +62,10 @@ vim.g["python_host_prog"] = "/usr/bin/python"
 vim.g["python3_host_prog"] = "/usr/bin/python3"
 -- perl provider
 vim.g["loaded_perl_provider"] = 0
+-- node.js provider
+vim.g["loaded_node_provider"] = 0
+-- ruby provider
+vim.g["loaded_ruby_provider"] = 0
 
 -- set my folding format
 vim.cmd([[
@@ -70,8 +74,20 @@ vim.cmd([[
         let folded_line_num = v:foldend - v:foldstart
         let line_text = substitute(line, '^["|#]{\+', '', 'g')
         let fillcharcount = &textwidth - 21 - len(line_text) - len(folded_line_num)
-        return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num . ' lines ---- +                                                                                                                                                                                                                                                                                  '
+        return '+ '. repeat('-', 4) . line_text . ' ' . repeat('.', fillcharcount) . ' ' . folded_line_num lines ---- +                                                                                                                                                                                                                                                                                  '
     endfunction
     set foldtext=MyFoldText()
+]])
+
+-- tab completion
+vim.cmd([[
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+   endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
 ]])
 

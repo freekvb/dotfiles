@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 08 Jul 2024 22:02
+-- Update:   Sun 13 Jul 2025 22:26
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ local term_opts = { silent = true }
 -- shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
+-- modes
 --   normal_mode = 'n',
 --   insert_mode = 'i',
 --   visual_mode = 'v',
@@ -23,12 +23,11 @@ local keymap = vim.api.nvim_set_keymap
 
 -------------------------------------------------------------------------------
 
-
 -- configuration
 vim.g.netrw_keepdir = 0
 vim.g.netrw_winsize = -44
 vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 0
+vim.g.netrw_liststyle = 4
 vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_localcopydircmd = "cp -r"

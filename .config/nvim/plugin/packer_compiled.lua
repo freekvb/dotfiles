@@ -89,20 +89,10 @@ _G.packer_plugins = {
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/mini.starter",
     url = "https://github.com/echasnovski/mini.starter"
   },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/nvim-comment",
-    url = "https://github.com/terrortylor/nvim-comment"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["smartcolumn.nvim"] = {
-    loaded = true,
-    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
-    url = "https://github.com/m4xshen/smartcolumn.nvim"
   },
   ["vim-instant-markdown"] = {
     loaded = true,

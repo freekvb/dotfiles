@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')
 -- Date:     Sun 20 Nov 2022 14:23
--- Update:   Mon 08 Jul 2024 22:03
+-- Update:   Sun 13 Jul 2025 22:47
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ local term_opts = { silent = true }
 -- shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
+-- modes
 --   normal_mode = 'n',
 --   insert_mode = 'i',
 --   visual_mode = 'v',
@@ -90,13 +90,13 @@ endfun
 -- statusline highlights colors
 vim.cmd([[
 fun! StatusLineHighlights()
-    hi StatusLine           ctermbg=7     ctermfg=236
-    hi StatusLineNC         ctermbg=234   ctermfg=238
-    hi StatusLineSection    ctermbg=236   ctermfg=6    cterm=bold
-    hi StatusLineSectionI   ctermbg=236   ctermfg=5    cterm=bold
-    hi StatusLineSectionC   ctermbg=236   ctermfg=2    cterm=bold
-    hi StatusLineSectionV   ctermbg=236   ctermfg=3    cterm=bold
-    hi StatusLineSectionR   ctermbg=236   ctermfg=4    cterm=bold
+    hi StatusLine           ctermbg=7     ctermfg=238
+    hi StatusLineNC         ctermbg=240   ctermfg=236
+    hi StatusLineSection    ctermbg=238   ctermfg=6    cterm=bold
+    hi StatusLineSectionI   ctermbg=238   ctermfg=5    cterm=bold
+    hi StatusLineSectionC   ctermbg=238   ctermfg=2    cterm=bold
+    hi StatusLineSectionV   ctermbg=238   ctermfg=3    cterm=bold
+    hi StatusLineSectionR   ctermbg=238   ctermfg=4    cterm=bold
 endfun
 
 call StatusLineHighlights()
@@ -126,7 +126,6 @@ augroup vimrc
     au Colorscheme * call <SID>StatusLineHighlights()
 augroup END
 ]])
-
 
 -- status bar
 -- hide default mode text

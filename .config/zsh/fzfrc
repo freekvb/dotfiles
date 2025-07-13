@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/fzfrc  (archlinux - 'silent')
 # Date:     Thu 14 Oct 2021 17:10
-# Update:   Fri 21 Feb 2025 07:43
+# Update:   Mon 30 Jun 2025 07:34
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -16,14 +16,14 @@ command -v fzf >/dev/null 2>&1 || return 0
 
 
 # default fzf options
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} -m --color bg:-1,preview-bg:-1,info:2 --height '75%' --margin=1,0,0,4 --reverse --info=inline --color=info:-1,prompt:-1,pointer:-1,marker:-1,spinner:-1,header:-1,hl:yellow,hl+:yellow"
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --style minimal -m --color bg:-1,preview-bg:-1,info:2 --height '75%' --margin=1,0,0,4 --reverse --info=inline --color=info:-1,prompt:-1,pointer:-1,marker:-1,spinner:-1,header:-1,hl:yellow,hl+:yellow"
 # vi like navigation with J/K
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 
 ### fzf defaults
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=never --line-range :100 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --theme=base16 --color=always --line-range :100 {}'"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
@@ -120,7 +120,7 @@ fifo() {
 
 # fp - fzf preview
 fprev() {
-    fzf --preview "bat --style=plain --color=never --line-range :100 {}" --preview-window "right:50%"
+    fzf --preview "bat --style=plain --theme=base16 --color=always --line-range :100 {}" --preview-window "right:50%"
 }
 
 # fe - fzf execute pac_installed program
