@@ -1,133 +1,73 @@
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 13 Jul 2025 22:26
+-- Date:     Fri 14 Jul 2025 06:30
+-- Update:   Tue 15 Jul 2025 15:52
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-local set = vim.opt
-local opt = { noremap = true }
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-
--- shorten function name
-local keymap = vim.api.nvim_set_keymap
-
--- modes
---   normal_mode = 'n',
---   insert_mode = 'i',
---   visual_mode = 'v',
---   visual_block_mode = 'x',
---   term_mode = 't',
---   command_mode = 'c',
-
--------------------------------------------------------------------------------
+---- keymaps ----
 
 -- set comma as leader key
 vim.g.mapleader = ","
-
 -- switch colon to semicolon
-keymap("n", ";", ":", opt)
-keymap("n", ":", ";", opt)
-
--- no arrows, move the vim way
-keymap("n", "<up>", "<nop>", opts)
-keymap("n", "<down>", "<nop>", opts)
-keymap("n", "<left>", "<nop>", opts)
-keymap("n", "<right>", "<nop>", opts)
-keymap("i", "<up>", "<nop>", opts)
-keymap("i", "<down>", "<nop>", opts)
-keymap("i", "<left>", "<nop>", opts)
-keymap("i", "<right>", "<nop>", opts)
-
+vim.keymap.set("n", ";", ":")
+vim.keymap.set("n", ":", ";")
 -- lazy write / quit
-keymap("n", "<leader>w", ":w<cr>", opts)
-keymap("n", "<leader>q", ":q<cr>", opts)
-keymap("n", "<leader>wq", ":wq<cr>", opts)
-keymap("n", "<leader>W", ":w!<cr>", opts)
-keymap("n", "<leader>Q", ":q!<cr>", opts)
-keymap("n", "<leader>WQ", ":wq!<cr>", opts)
-
--- goto the start of the first line
-keymap("n", "gg", "gg0", opts)
-
--- navigate properly when lines are wrapped
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
-
--- toggle relativenumber
-keymap("n", "<leader>r", ":set invrnu<cr>", opts)
-
--- easy folding
--- toggle fold under cursor no jumping around
-keymap("n", "z", "za<space>0", opts)
-
--- maintaining visual mode after shifting > and <
-keymap("v", ">", ">gv", opts)
-keymap("v", "<", "<gv", opts)
-
--- move text up and down in visual block mode
-keymap("x", "<s-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<s-k>", ":move '<-2<CR>gv-gv", opts)
-
--- navigate buffers
-keymap("n", "<s-l>", ":bnext<cr>", opts)
-keymap("n", "<s-h>", ":bprevious<cr>", opts)
-
--- scrolling command-line history
-keymap("c", "<c-j>", "<c-n>", opts)
-keymap("c", "<c-k>", "<c-p>", opts)
-
--- open the current file in the default program
-keymap("n", "<leader>x", [[:!xdg-open %<cr><cr>]], opts)
-
--- no ex mode for me
-keymap("n", "Q", "<nop>", opts)
+vim.keymap.set("n", "<leader>w", ":w<cr>")
+vim.keymap.set("n", "<leader>q", ":q<cr>")
+vim.keymap.set("n", "<leader>wq", ":wq<cr>")
 
 -- prevent accidentally record functionality
-keymap("n", "q", "<nop>", opts)
-keymap("n", "qq", "q", opts)
+vim.keymap.set("n", "q", "<nop>", opts)
+vim.keymap.set("n", "qq", "q", opts)
 
--- redirect change operations to blackhole avoid spoiling 'y' register content
-keymap("n", "c", '"_c', opts)
-keymap("n", "C", '"_C', opts)
+-- navigate buffers
+vim.keymap.set("n", "<s-l>", ":bnext<cr>", opts)
+vim.keymap.set("n", "<s-h>", ":bprevious<cr>", opts)
 
--- toggle cursorcolumn
-keymap("n", "<leader>c", ":set cursorcolumn!<cr>", opts)
+-- split window [right, bottom]
+vim.keymap.set("n", "<leader>v", ":vsplit<cr>:vert resize 144<cr>:e<space>")
+vim.keymap.set("n", "<leader>h", ":split<cr>")
+-- window navigation
+vim.keymap.set("n", "<c-h>", "<c-w>h")
+vim.keymap.set("n", "<c-j>", "<c-w>j")
+vim.keymap.set("n", "<c-k>", "<c-w>k")
+vim.keymap.set("n", "<c-l>", "<c-w>l")
+
+-- terminal split below, resized and in insert mode
+vim.keymap.set("n", "<leader>t", ":sp<bar>resize15<bar>term<cr>")
+vim.cmd([[
+	autocmd TermOpen * startinsert
+]])
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>", {})
 
 -- toggle netrw
-keymap("n", "<leader>nd", ":Lexplore %:p:h<cr>", opts)
-keymap("n", "<leader>n", ":Lexplore<cr>", opts)
+vim.keymap.set("n", "<leader>n", ":Lexplore<cr>")
+-- open netrw in working dir
+vim.keymap.set("n", "<leader>nd", ":Lexplore %:p:h<cr>")
 
--- clear highlighting from the search
-keymap("n", "<esc>", ":nohlsearch<cr><esc>", opts)
-
--- toggle spell checking
-keymap("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
-
--- date time stamp
-keymap("n", "<leader>dt", [[i<c-r>=strftime("%a %d %Y %H:%M")<cr><space>]], opts)
+-- fuzzy find [fzf]
+vim.keymap.set("n", "<leader>f", ":FZF --no-border<cr>")
+-- clear highlights
+vim.keymap.set("n", "<leader>c", ":nohl<cr>")
 
 -- double space over word to find and replace
-keymap("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
-
+vim.keymap.set("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], opt)
 -- search and replace all
-keymap("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
+vim.keymap.set("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
 
--- write file if you forgot to give it sudo permission
-keymap("c", "w!!", [[w !sudo tee %]], opt)
+-- toggle spell checking
+vim.keymap.set("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
 
--- diff since last save
-keymap("n", "<leader>df", [[:w !diff % -<cr>]], opt)
+-- header update
+vim.keymap.set("n", "<leader>u", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]])
+-- shebang
+vim.keymap.set("n", "sb", [[i#!/bin/sh<cr><cr>]])
 
--- completion [plugin: vim-script/AutoComplPop]
-vim.cmd([[
-" navigate menu up [shift-tab] and down [tab]
-inoremap <expr> <s-tab> pumvisible() ? "<C-p>": "<s-tab>"
-inoremap <expr> <tab> pumvisible() ? "<C-n>": "<tab>"
-" select menu item [enter]
-inoremap <expr> <CR> pumvisible() ? "<C-y>": "<CR>"
-" cancel menu item [esc]
-inoremap <expr> <esc> pumvisible() ? "<C-e>": "<esc>"
-]])
+-- notes - all notes in markdown (.md)
+-- new note 'nn' in terminal [$HOME/Notes/.new_note.md]
+-- save (and quit) finished note in $HOME/Notes [title]
+vim.keymap.set("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]])
+-- blog entry
+vim.keymap.set("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]])
 

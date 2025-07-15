@@ -1,27 +1,11 @@
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/statusline.lua (archlinux @ 'silent')
--- Date:     Sun 20 Nov 2022 14:23
--- Update:   Sun 13 Jul 2025 22:47
+-- Date:     Fri 14 Jul 2025 06:30
+-- Update:   Mon 14 Jul 2025 10:59
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-local set = vim.opt
-local opt = { noremap = true }
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-
--- shorten function name
-local keymap = vim.api.nvim_set_keymap
-
--- modes
---   normal_mode = 'n',
---   insert_mode = 'i',
---   visual_mode = 'v',
---   visual_block_mode = 'x',
---   term_mode = 't',
---   command_mode = 'c',
-
--------------------------------------------------------------------------------
+---- statusline ----
 
 -- automatically leave insert mode after 'update time' milliseconds of inaction
 vim.cmd([[
@@ -33,38 +17,13 @@ vim.cmd([[
     au InsertLeave * let &updatetime=updaterestore
 ]])
 
--- paste toggle indicator (,p)
-vim.cmd([[
-function! PasteForStatusline()
-    let paste_status = &paste
-    if paste_status == 1
-        return " [paste]"
-    else
-        return ""
-    endif
-endfunction
-]])
-
--- mode colors
-vim.cmd([[
-let g:mode_colors = {
-        \ 'n'       :   'StatusLineSection',
-        \ 'i'       :   'StatusLineSectionI',
-        \ 'c'       :   'StatusLineSectionC',
-        \ 'v'       :   'StatusLineSectionV',
-        \ 'V'       :   'StatusLineSectionV',
-        \ "\<C-V>"  :   'StatusLineSectionV',
-        \ 'r'       :   'StatusLineSectionR'
-        \ }
-]])
-
 -- active statusline
 vim.cmd([[
 fun! StatusLineRenderer()
     let hl = '%#' . get(g:mode_colors, tolower(mode()), g:mode_colors.n) . '#'
     return hl
-        \ . (&modified ? '  [+]' : '')
-        \ . '  %{PasteForStatusline()}'
+        \ . '  [%n]'
+        \ . (&modified ? ' [+]' : '    ')
         \ . ' %{StatusLineFilename()}'
         \ . ' %r '
         \ . ' %#StatusLine# '
@@ -73,12 +32,10 @@ fun! StatusLineRenderer()
         \ . ' %v '
         \ . ' %l/%L '
         \ . ' %p%% '
-        \ . ' [%n] '
         \ . ' %y '
         \ . ' '
 endfun
 ]])
-
 -- selected file
 vim.cmd([[
 fun! StatusLineFilename()
@@ -87,28 +44,13 @@ fun! StatusLineFilename()
 endfun
 ]])
 
--- statusline highlights colors
-vim.cmd([[
-fun! StatusLineHighlights()
-    hi StatusLine           ctermbg=7     ctermfg=238
-    hi StatusLineNC         ctermbg=240   ctermfg=236
-    hi StatusLineSection    ctermbg=238   ctermfg=6    cterm=bold
-    hi StatusLineSectionI   ctermbg=238   ctermfg=5    cterm=bold
-    hi StatusLineSectionC   ctermbg=238   ctermfg=2    cterm=bold
-    hi StatusLineSectionV   ctermbg=238   ctermfg=3    cterm=bold
-    hi StatusLineSectionR   ctermbg=238   ctermfg=4    cterm=bold
-endfun
-
-call StatusLineHighlights()
-]])
-
 -- inactive statusline
 -- only set default statusline once on initial startup.
 -- ignored on subsequent 'so $MYVIMRC' calls to prevent
 -- active buffer statusline from being 'blurred'.
 vim.cmd([[
 if has('vim_starting')
-    let &statusline = '   %{StatusLineFilename()} %=  %v  %l/%L  %p%%  [%n]  %y  '
+    let &statusline = '[%n]   %{StatusLineFilename()} %=  %v  %l/%L  %p%%  %y  '
 endif
 ]])
 
@@ -127,15 +69,42 @@ augroup vimrc
 augroup END
 ]])
 
--- status bar
+-- mode colors
+vim.cmd([[
+let g:mode_colors = {
+        \ 'n'       :   'StatusLineSection',
+        \ 'i'       :   'StatusLineSectionI',
+        \ 'c'       :   'StatusLineSectionC',
+        \ 'v'       :   'StatusLineSectionV',
+        \ 'V'       :   'StatusLineSectionV',
+        \ "\<C-V>"  :   'StatusLineSectionV',
+        \ 'r'       :   'StatusLineSectionR'
+        \ }
+]])
+
+-- statusline highlights colors
+vim.cmd([[
+fun! StatusLineHighlights()
+    hi StatusLine           ctermbg=7     ctermfg=238
+    hi StatusLineNC         ctermbg=240   ctermfg=236
+    hi StatusLineSection    ctermbg=238   ctermfg=6    cterm=bold
+    hi StatusLineSectionI   ctermbg=238   ctermfg=5    cterm=bold
+    hi StatusLineSectionC   ctermbg=238   ctermfg=2    cterm=bold
+    hi StatusLineSectionV   ctermbg=238   ctermfg=3    cterm=bold
+    hi StatusLineSectionR   ctermbg=238   ctermfg=4    cterm=bold
+endfun
+call StatusLineHighlights()
+]])
+
+-- command bar messeges
 -- hide default mode text
-set.showmode = false
+vim.opt.showmode = false
 -- hide commands
-set.showcmd = false
+vim.opt.showcmd = false
 -- height of command bar
-set.cmdheight = 1
+vim.opt.cmdheight = 1
 -- prompt message options
-set.shortmess = "atToOFcI"
+vim.opt.shortmess = "atToOFc"
 -- disable substitution preview
-set.inccommand = ""
+vim.opt.inccommand = ""
 
