@@ -330,6 +330,7 @@ map cz          push :!nvim<space>$HOME/.config/zsh/.zshrc<enter>
 map ob          $$BROWSER "$f"
 map of          open $f
 map ol          $$PAGER "$f"
+map on          $NVIM_APPNAME=neovim nvim "$f"
 map ot          openterm
 map ov          $$EDITOR "$f"
 map odv         $doas $EDITOR "$f"

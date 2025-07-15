@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/aliasrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Mon 08 Jul 2024 21:56
+# Update:   Tue 15 Jul 2025 09:15
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -17,6 +17,7 @@ alias ls='ls -l -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-dir
 alias lsa='ls -Al -h -G --time-style=+\ %d\ %b\ %Y\ %H:%M --color=auto --group-directories-first -v'
 alias cp='cp -iv'
 alias mv='mv -iv'
+alias rm='rm -iv'
 alias tm='trash'
 
 alias al='bat $HOME/.config/zsh/aliasrc'            # list aliasses
@@ -24,7 +25,6 @@ alias be='nvim $HOME/Websites/fvb/blog.html'        # new blog entry nvim
 alias calc='rofi -show calc -modi calc -no-show-match -no-sort &'   # rofi calculator
 alias df='df -h'                                    # df humancreadable
 alias diff='nvim -d'                                # diff with nvim
-alias dkb='bat $HOME/Notes/dwm_keys.md'             # dwm keybindings
 alias doas='doas '                                  # doas and let it work with aliases
 alias du='du -ch'                                   # du total and human-readable
 alias egrep='grep -E'                               # egrep is depriciated
@@ -37,34 +37,26 @@ alias fh='hst'                                      # fzf term command history >
 alias fhx='fhx'                                     # fzf term command history execute
 alias fig='cd $HOME/Notes/.gnotes && fifo'          # fzf given string in .gnotes [github]
 alias fin='cd $HOME/Notes && fifo'                  # fzf given string in Notes
-alias firefox='$HOME/Scripts/firefox_fs'            # firefox full screen
 alias fk='fkill'                                    # fzf and kill proces
-alias fl='cat $HOME/.cache/dmenu_run | fzf'         # fzf launcher
 alias fm='macho'                                    # fzf man pages
+alias fn='nv $(fzf)'                                # fzf open with novim
 alias fo='fopen'                                    # fzf open with xdg-open
 alias fp='fprev'                                    # fzf preview
 alias fpi='fzfub'                                   # fzf preview [images]
 alias fv='vif'                                      # fzf and open in nvim
 alias grep='grep --color=auto'                      # grep color
 alias grim='sleep 5 && grim'                        # screenshot in 5 [from scratchpad]
-alias h='cd $HOME'                                  # go home in terminal
-alias history='fc -l 1'                             # history show all
-alias kb='zathura Documents/ferris_sweep/fvb_keymap.pdf'            # show ferris_sweep keymap
 alias less='less -R'                                # cause of colors
 alias lf='$HOME/Scripts/lfub'                       # lf with previews
 alias lg='lazygit'                                  # lazygit
 alias lgd='cd $HOME/.dotfiles && lazygit'           # lazygit .dotfiles
 alias lgw='cd $HOME/Websites/fvb && lazygit'        # lazygit website fvb
-alias lkb='bat $HOME/Notes/lynx_keys.md'            # lynx keybindings
 alias md='mkdir'                                    # create new directory
 alias mf='touch'                                    # create new file
 alias moc='mocp -M "$XDG_CONFIG_HOME"/moc'          # config file from .moc to .config/moc
-alias monerod='monerod --data-dir "$XDG_DATA_HOME"/bitmonero'       # losing $HOME/.bitmonero
 alias ms='$HOME/Scripts/mkscript'                   # create new script
-alias mw='monero-wallet-gui'                        # monero wallet
-alias nl='cd $HOME/Notes/trades && v $HOME/Notes/trades/-trading_checklist.md'    # new trade checklist
 alias nn='vi $HOME/Notes/.new_note.md'              # new note in I-mode, sn to save, sg to save and publish
-alias nt='cd $HOME/Notes/trades && v $HOME/Notes/trades/new.md'     # new trade note, st to save
+alias nv='NVIM_APPNAME=neovim nvim'                 # smaller nvim
 alias paccl='doas paccache -rk 1 && doas paccache -ruk0 && pacman -Qtdq | pacman -Rns -'    # clean out pacman cache
 alias pacf='pacfd'                                  # pacman fzf find pkg > clipboard
 alias pacl='pacls'                                  # pacman fzf list installed pkgs > clipboard
@@ -80,25 +72,16 @@ alias pwa='pass insert -m'                          # pass add new password
 alias pwe='pass edit'                               # pass edit password
 alias pwr='pass rm'                                 # pass remove password
 alias reboot='pamixer --allow-boost --set-volume 30 && sleep 1 && doas reboot'    # adjust volume at reboot
-alias scr='scrot -t 20 -d 5'                        # screenshot and thumbnail in 5 sec.
-alias skb='bat $HOME/Notes/nsxiv_keys.md'           # (n)sxiv keybindings
 alias suck='rm -f config.h ; doas make clean install'               # source suckless programs
 alias sudo='doas '                                  # doas
-alias sudoedit='doas nvim /etc/doas.conf '          # doas.conf
-#alias sudo='sudo '                                  # space so sudo works in scripts
 alias su='su -'                                     # real root
 alias sz='source $HOME/.config/zsh/.zshrc'          # reload zsh config (.zshrc)
-alias t='date "+%H:%M"'                             # time
-#alias td='tty-clock -C4 -c -f "%a %d %b %Y"'        # time date tty-clock
 alias td='peaclock --config-dir ~/.config/peaclock'                 # time date peaclock
 alias tmls='trash-list'                             # list files in trash
-alias um='dunstify $(date +%s)'                     # dunst unix milles (unix time in seconds)
 alias upd='pacman -Syu'                             # system upgrade
 alias v='nvim'                                      # nvim editor
 alias vd='doas nvim'                                # nvim with root privileges
-alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run the file manager
+alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run vifm file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
-alias yt='$HOME/Scripts/yt'                         # simple youtube video fzf search
-alias ytm='$HOME/Scripts/ytm'                       # simple youtube music fzf search
 

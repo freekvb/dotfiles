@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------#
 # File:     ~/.config/zsh/exportrc  (archlinux - 'silent')
 # Date:     Thu 23 Apr 2020 12:06
-# Update:   Fri 21 Feb 2025 07:44
+# Update:   Tue 15 Jul 2025 09:16
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
 
@@ -24,10 +24,8 @@ export OPENER=$(find_alt xdg-open)
 
 export BROWSER=$(find_alt zen-browser qutebrowser chromium $OPENER)
 export BROWSERCLI=$(find_alt lynx w3m $OPENER )
-#export BROWSERTOR=$(find_alt tor-browser-en)
 export DIFFPROG="nvim -d"
 export EDITOR=$(find_alt nvim vim helix $OPENER)
-#export FILEMANAGER=$(find_alt nemo $OPENER)
 export FILEMANAGERCLI=$(find_alt lf vifm ranger $OPENER)
 export IMAGEVIEWER=$(find_alt imv feh nsxiv $OPENER)
 export MANPAGER="nvim +Man!"
@@ -37,7 +35,6 @@ export PLAYER=$(find_alt mpv mplayer ffplay $OPENER)
 export READER=$(find_alt zathura $OPENER)
 export TERM=$(find_alt foot st xterm $OPENER)
 export VISUAL=$EDITOR
-#export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
 
 # }}}
 
@@ -47,8 +44,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_BIN_HOME=$HOME/.local/bin
-export XDG_LIB_HOME=$HOME/.local/lib
-export XDG_TMP_HOME=$HOME/.local/tmp
 
 export XDG_RUNTIME_DIR="/run/user/1000"
 
@@ -57,7 +52,6 @@ export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
 export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass/password-store"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
