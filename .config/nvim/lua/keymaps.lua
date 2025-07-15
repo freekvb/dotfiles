@@ -56,6 +56,10 @@ vim.keymap.set("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]], 
 -- search and replace all
 vim.keymap.set("n", "<s-s>", [[:%s//gI<Left><Left><Left>]], opt)
 
+-- easy folding
+-- toggle fold under cursor no jumping around
+vim.keymap.set("n", "z", "za<space>0", opts)
+
 -- toggle spell checking
 vim.keymap.set("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>", opts)
 

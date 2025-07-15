@@ -5,12 +5,14 @@
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
----- packer ----
+---- plugins ----
 
+-- packer
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
-    	use('dylanaraps/wal.vim')
+    use('dylanaraps/wal.vim')
 	use('~/.fzf')
+    use('nvim-lualine/lualine.nvim')
     	--use('junegunn/fzf.vim')
         --use({ 'instant-markdown/vim-instant-markdown' })
     	--use('nat-418/dbm.nvim')

@@ -9,7 +9,7 @@
 
 -- copy(y) paste(p) to/from system buffer
 vim.opt.clipboard:append("unnamed,unnamedplus")
--- set numbers
+-- numbers
 vim.opt.number = true
 -- relative number
 vim.opt.relativenumber = true
@@ -17,6 +17,19 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 20
 -- keep cursor from wobbling around
 vim.opt.virtualedit = "all"
+-- window title on
+vim.opt.title = true
+-- convert tab to spaces
+vim.opt.expandtab = true
+-- tab 4 spaces
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+-- auto indent spaces
+vim.opt.shiftwidth = 4
+
+-- split buffers
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- find
 vim.opt.wildmenu = true
@@ -44,9 +57,18 @@ endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 ]])
 
--- split buffers
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+-- folding (curly brackets)
+vim.opt.foldmethod = "marker"
+
+-- remove trailing white space
+vim.cmd([[
+    autocmd BufWritePre * %s/\s\+$//e
+]])
+
+-- return to last edit position at opening file
+vim.cmd([[
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+]])
 
 -- cursor line
 vim.opt.cursorline = true
