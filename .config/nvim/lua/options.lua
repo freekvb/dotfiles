@@ -85,10 +85,10 @@ vim.cmd([[
     autocmd InsertLeave * highlight CursorColumn ctermbg=236 ctermfg=NONE
 ]])
 
--- colorscheme
-vim.cmd[[
-    colorscheme wal
-]]
+---- colorscheme
+--vim.cmd[[
+--    colorscheme wal
+--]]
 -- make colorscheme work
 vim.opt.termguicolors = false
 -- highlights
@@ -98,6 +98,29 @@ vim.cmd([[
     hi CursorColumn ctermfg=NONE ctermbg=236
     hi EndOfBuffer ctermfg=0
 ]])
+
+-- statusline [lualine plugin]
+-- automatically leave insert mode
+vim.cmd([[
+    au CursorHoldI * stopinsert
+]])
+-- insert mode inactive time
+vim.cmd([[
+    au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
+    au InsertLeave * let &updatetime=updaterestore
+]])
+
+-- command bar
+-- mode
+vim.opt.showmode = false
+-- commands
+vim.opt.showcmd = false
+-- command bar height
+vim.opt.cmdheight = 0
+-- prompt message options
+vim.opt.shortmess = "atToOFc"
+-- disable substitution preview
+vim.opt.inccommand = ""
 
 -- providers
 -- perl provider

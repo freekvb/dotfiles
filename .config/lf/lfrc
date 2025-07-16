@@ -25,7 +25,7 @@
 
 ## basic vars ----------------------------------------------------------------#
 
-set ratios '10:15:20'
+set ratios '9:15:20'
 set hidden
 set ignorecase
 set number

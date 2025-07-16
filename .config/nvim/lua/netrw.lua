@@ -17,11 +17,6 @@ vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
 vim.g.netrw_bookmark = 1
 
--- netrw in statusline
-vim.cmd([[
-    autocmd FileType netrw setlocal statusline=netrw
-]])
-
 -- open splits the right way (brodie's hack)
 -- open to the right
 vim.cmd([[
