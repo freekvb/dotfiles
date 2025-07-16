@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 16 Jul 2025 04:55
+-- Update:   Wed 16 Jul 2025 09:23
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -9,43 +9,43 @@
 
 -- lualine
 require("lualine").setup({
-  options = {
-    icons_enabled = false,
-    theme = "pywal",
-    component_separators = "",
-    section_separators = "",
-  },
-
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch" },
-    lualine_c = { "filename" },
-    lualine_x = {
-      function()
-        local encoding = vim.o.fileencoding
-        if encoding == "" then
-          return vim.bo.fileformat .. " :: " .. vim.bo.filetype
-        else
-          return encoding .. " :: " .. vim.bo.fileformat .. " :: " .. vim.bo.filetype
-        end
-      end,
+    options = {
+        icons_enabled = false,
+        theme = "pywal",
+        component_separators = "",
+        section_separators = "",
     },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
-  },
+
+    sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
+        lualine_x = {
+            function()
+                local encoding = vim.o.fileencoding
+                if encoding == "" then
+                    return vim.bo.fileformat .. " :: " .. vim.bo.filetype
+                else
+                    return encoding .. " :: " .. vim.bo.fileformat .. " :: " .. vim.bo.filetype
+                end
+            end,
+        },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+    },
 })
 
 -- mini starter
 require('mini.starter').setup(
 {
-  autoopen = true,
-  evaluate_single = false,
-  items = nil,
-  header = " ",
-  footer = " ",
-  content_hooks = nil,
-  query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
-  silent = false,
+    autoopen = true,
+    evaluate_single = false,
+    items = nil,
+    header = " ",
+    footer = " ",
+    content_hooks = nil,
+    query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
+    silent = false,
 }
 )
 

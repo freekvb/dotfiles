@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Tue 15 Jul 2025 15:52
+-- Update:   Wed 16 Jul 2025 09:22
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ vim.opt.virtualedit = "all"
 vim.opt.title = true
 -- convert tab to spaces
 vim.opt.expandtab = true
--- tab 4 spaces
+-- tab 2 spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 -- auto indent spaces
@@ -48,11 +48,11 @@ vim.opt.pumheight = 15
 -- tab completion
 vim.cmd([[
 function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-N>"
-   endif
+    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        return "\<C-N>"
+    endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 ]])
@@ -85,10 +85,10 @@ vim.cmd([[
     autocmd InsertLeave * highlight CursorColumn ctermbg=236 ctermfg=NONE
 ]])
 
----- colorscheme
---vim.cmd[[
---    colorscheme wal
---]]
+-- colorscheme
+vim.cmd[[
+    colorscheme wal
+]]
 -- make colorscheme work
 vim.opt.termguicolors = false
 -- highlights
