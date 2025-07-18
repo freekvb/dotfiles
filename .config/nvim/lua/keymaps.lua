@@ -50,9 +50,9 @@ vim.keymap.set("n", "<leader>nd", ":Lexplore %:p:h<cr>")
 -- fuzzy find [fzf]
 vim.keymap.set("n", "<leader>f", ":FZF --no-border ~<cr>")
 
--- double space over word to find and replace
+-- search and replace word under cursor
 vim.keymap.set("n", "<space><space>", [[:%s/\<<c-r>=expand("<cword>")<cr>\>/]])
--- search and replace all
+-- search and replace all instances
 vim.keymap.set("n", "<s-s>", [[:%s//gI<Left><Left><Left>]])
 -- clear highlighting from the search
 vim.keymap.set("n", "<esc>", ":nohlsearch<cr><esc>")
@@ -68,6 +68,10 @@ vim.keymap.set("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>")
 vim.keymap.set("n", "<leader>u", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]])
 -- shebang
 vim.keymap.set("n", "sb", [[i#!/bin/sh<cr><cr>]])
+
+-- instant markdown
+vim.keymap.set("n", "md", ":InstantMarkdownPreview<cr>")
+vim.keymap.set("n", "mds", ":InstantMarkdownStop<cr>")
 
 -- notes - all notes in markdown (.md)
 -- new note 'nn' in terminal [$HOME/Notes/.new_note.md]

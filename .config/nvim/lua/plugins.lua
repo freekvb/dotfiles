@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 16 Jul 2025 09:23
+-- Update:   Wed 16 Jul 2025 10:43
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ require("lualine").setup({
 
     sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = { "branch", "diff" },
         lualine_c = { "filename" },
         lualine_x = {
             function()
@@ -30,7 +30,7 @@ require("lualine").setup({
                 end
             end,
         },
-        lualine_y = { "progress" },
+        lualine_y = { "filesize", "progress" },
         lualine_z = { "location" },
     },
 })
@@ -49,6 +49,23 @@ require('mini.starter').setup(
 }
 )
 
+-- smear cursor
+require('smear_cursor').setup({
+    smear_between_buffers = true,
+    smear_between_neighbor_lines = true,
+    scroll_buffer_space = true,
+    legacy_computing_symbols_support = false,
+    smear_insert_mode = true,
+    -- options                            -- default  range
+    stiffness = 0.8,                      -- 0.6      [0, 1]
+    trailing_stiffness = 0.5,             -- 0.4      [0, 1]
+    stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
+    trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
+    damping = 0.8,                        -- 0.65     [0, 1]
+    damping_insert_mode = 0.8,            -- 0.7      [0, 1]
+    distance_stop_animating = 0.5,        -- 0.1      > 0
+})
+
 -- packer
 require("packer").startup(function()
     use("wbthomason/packer.nvim")
@@ -57,10 +74,8 @@ require("packer").startup(function()
     use('~/.fzf')
     use('nvim-lualine/lualine.nvim')
     use('echasnovski/mini.starter')
-        --use('junegunn/fzf.vim')
-        --use({ 'instant-markdown/vim-instant-markdown' })
-        --use('nat-418/dbm.nvim')
-        --use('vim-scripts/AutoComplPop')
+    use({ 'instant-markdown/vim-instant-markdown' })
+    use('sphamba/smear-cursor.nvim')
 
     -- automatically run :PackerCompile whenever plugins.lua is updated
     vim.cmd([[

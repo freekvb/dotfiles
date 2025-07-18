@@ -32,7 +32,7 @@
     # dynamic width from 0 to 1920
     # width = (0, 1920)
     # constant width of 1920
-    width = 2560
+    width = 2544
 
     # The maximum height of a single notification, excluding the frame.
     #height = 300
@@ -41,7 +41,7 @@
     origin = bottom-left
 
     # Offset from the origin
-    offset = 0x0
+    offset = (8, 8)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -119,7 +119,7 @@
 
     ### Text ###
 
-    font = Hack 10
+    font = IosevkaTermNerdFont 11
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -296,30 +296,41 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#eeeeee"
-    timeout = 10
-    # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
+    background = "#000000"
+    foreground = "#c1c1c1"
 
 [urgency_normal]
-    background = "#222222"
-    foreground = "#eeeeee"
-    timeout = 10
-    # Icon for notifications with normal urgency, uncomment to enable
-    #icon = /path/to/icon
+    background = "#000000"
+    foreground = "#c1c1c1"
 
 [urgency_critical]
-    background = "#222222"
-    foreground = "#900000"
-    frame_color = "#ff0000"
-    timeout = 0
-    # Icon for notifications with critical urgency, uncomment to enable
-    #icon = /path/to/icon
+    background = "#8c7f78"
+    foreground = "#c1c1c1"
+
+#[urgency_low]
+#    # IMPORTANT: colors have to be defined in quotation marks.
+#    # Otherwise the "#" and following would be interpreted as a comment.
+#    background = "{background}"
+#    foreground = "{foreground}"
+#    timeout = 10
+#    # Icon for notifications with low urgency, uncomment to enable
+#    #icon = /path/to/icon
+#
+#[urgency_normal]
+#    background = "{color9}"
+#    foreground = "{foreground}"
+#    timeout = 10
+#    # Icon for notifications with normal urgency, uncomment to enable
+#    #icon = /path/to/icon
+#
+#[urgency_critical]
+#    background = "{color10}
+#    foreground = "{foreground}"
+#    frame_color = "{color0}"
+#    timeout = 0
+#    # Icon for notifications with critical urgency, uncomment to enable
+#    #icon = /path/to/icon
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

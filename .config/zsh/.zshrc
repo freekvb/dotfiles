@@ -277,4 +277,3 @@ precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
 #}}}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

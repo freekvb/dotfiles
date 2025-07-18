@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# play video from clipboard in mpv - (A-v)
-
-dunstify "Loading Video ..  wait for .. Video Start";
-#mpv "$(xclip -o)"
-#mpv $(xclip -o)
-mpv "$(xclip -selection clipboard -o)"
-

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# set color theme
+wal --theme "$f" --cols16
+
+# cava get colors and reload
+wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava
+
+# waybar get colors and restart
+killall -SIGUSR2 waybar
+

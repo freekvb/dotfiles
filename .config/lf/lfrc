@@ -132,7 +132,7 @@ cmd chmodx ${{
 
 # jump with fzf
 cmd fzf_jump ${{
-  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  res="$(find -maxdepth 3 | fzf --reverse --header='Jump to location')"
   if [ -f "$res" ]; then
     cmd="select"
   elif [ -d "$res" ]; then
@@ -237,7 +237,12 @@ cmd openterm ${{
     devour $TERM
 }}
 
-# [bg = hyprland] set wallpaper and colorscheme (cli only)
+# [bg = hyprland] set wallpaper (cli only)
+cmd wall ${{
+    wal_bg
+}}
+
+# [bgt = hyprland] set wallpaper and colortheme (cli only)
 cmd wallpaper ${{
     wal_hypr
 }}
@@ -298,7 +303,8 @@ map ch          chmod
 map x           chmodx
 map U           unselect
 map E           extract
-map bg          wallpaper # [hyprland]
+map bg          wall # [hyprland wallpaper]
+map bgt         wallpaper # [hyprland wallpaper & colortheme]
 #map bgx         set py-wallpaper # [x | dwm]
 map mp          play_music
 
@@ -319,8 +325,8 @@ map i           push A<a-b><a-b><a-f>   # before extention
 map a           push A<a-b>             # after extention
 
 # symlinks
-# y (select for copy) and P to paste soft-link
 # cc (select for cut) and P to paste hard-link
+# y (select for copy) and P to paste soft-link
 map P           :link
 
 ## file openers
@@ -352,7 +358,7 @@ map gd          cd ~/Downloads
 map gM          cd ~/Media
 map gm          cd ~/Music
 map gn          cd ~/Notes
-map gt          cd ~/Notes/trades
+map gt          cd ~/Notes/trades/tp
 map gp          cd ~/Pictures
 map gw          cd ~/Pictures/wallpapers
 map gP          cd ~/Programs

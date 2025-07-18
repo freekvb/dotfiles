@@ -218,23 +218,24 @@
 gradient = 1 
 
 gradient_color_0 = '#0c0a0a'  #'#8FBCBB'  # Nord Frost: Polar Night
-gradient_color_1 = "#5c6369"
-gradient_color_2 = "#7a7772"
-gradient_color_3 = "#877e6f"
-gradient_color_4 = "#968771"
-gradient_color_5 = "#968b7b"
-gradient_color_6 = "#a1947f"
-gradient_color_7 = "#90949a"
 gradient_count = 7
-; background = 
+; background =
+; foreground =
+gradient_color_1 = "#476565"
+gradient_color_2 = "#74695f"
+gradient_color_3 = "#695f54"
+gradient_color_4 = "#666666"
+gradient_color_5 = "#727272"
+gradient_color_6 = "#7f7f7f"
+gradient_color_7 = "#918686"
+; background =
+; foreground =
+; background =
+; foreground =
+; gradient_count =
+; background =
 ; foreground = 
-; background =
-; foreground =
-; background =
-; foreground =
-; background =
-; background =
-; foreground =
+; background = 
 
 
 [smoothing]

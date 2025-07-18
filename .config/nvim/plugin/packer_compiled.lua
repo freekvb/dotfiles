@@ -84,10 +84,30 @@ _G.packer_plugins = {
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mini.starter"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/mini.starter",
+    url = "https://github.com/echasnovski/mini.starter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["smear-cursor.nvim"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/smear-cursor.nvim",
+    url = "https://github.com/sphamba/smear-cursor.nvim"
+  },
+  ["vim-instant-markdown"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
+    url = "https://github.com/instant-markdown/vim-instant-markdown"
+  },
+  ["wal.vim"] = {
+    loaded = true,
+    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/wal.vim",
+    url = "https://github.com/dylanaraps/wal.vim"
   }
 }
 

@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
 -- Update:   Wed 16 Jul 2025 09:22
@@ -13,28 +13,52 @@ vim.opt.clipboard:append("unnamed,unnamedplus")
 vim.opt.number = true
 -- relative number
 vim.opt.relativenumber = true
+-- width 'gutter' column numbering
+--vim.opt.numberwidth = 1
 -- keep cursor away from top and bottom
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 10
 -- keep cursor from wobbling around
 vim.opt.virtualedit = "all"
 -- window title on
 vim.opt.title = true
 -- convert tab to spaces
 vim.opt.expandtab = true
--- tab 2 spaces
+-- tab 4 spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 -- auto indent spaces
 vim.opt.shiftwidth = 4
+-- wrap lines
+vim.opt.wrap = true
+-- line wrap (number of columns)
+vim.opt.textwidth = 80
+-- break line on word
+vim.opt.linebreak = true
+-- keep indentation
+vim.opt.breakindent = true
+-- emphasize broken lines by indenting them
+vim.opt.breakindentopt = "shift:2"
+
+-- markdown inbedded code highlighting
+vim.g["markdown_fenced_languages"] = { "bash=sh", "python", "vim", "lua", "c", "html" }
+
+-- instant markdown
+vim.g["instant_markdown_autostart"] = 0
+vim.g["instant_markdown_browser"] = "qutebrowser --target window"
 
 -- split buffers
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- find
-vim.opt.wildmenu = true
+-- search case insensitive
+vim.opt.ignorecase = true
+-- enable smart case search
+vim.opt.smartcase = true
+
 -- fuzzy file finding
 vim.opt.path:append("**")
+-- wildmenu
+vim.opt.wildmenu = true
 -- auto complete like shell
 vim.opt.wildmode = "longest:full,full"
 -- case insensitive
@@ -70,20 +94,22 @@ vim.cmd([[
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ]])
 
--- cursor line
+-- cursorline
 vim.opt.cursorline = true
--- cursor line disabled in insert mode
+-- cursorline disabled in insert mode
 vim.cmd([[
     autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=236 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=234 ctermfg=NONE
 ]])
--- cursor column
+-- cursorcolumn
 vim.opt.cursorcolumn = true
--- cursor column disabled in insert mode
+-- cursorcolumn disabled in insert mode
 vim.cmd([[
     autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorColumn ctermbg=236 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE
 ]])
+-- colorcolumn
+vim.opt.colorcolumn = '80'
 
 -- colorscheme
 vim.cmd[[
@@ -93,9 +119,10 @@ vim.cmd[[
 vim.opt.termguicolors = false
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=236
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=236
-    hi CursorColumn ctermfg=NONE ctermbg=236
+    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=234
+    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
+    hi CursorColumn ctermfg=NONE ctermbg=234
+    hi ColorColumn ctermbg=NONE ctermfg=233
     hi EndOfBuffer ctermfg=0
 ]])
 
@@ -118,7 +145,7 @@ vim.opt.showcmd = false
 -- command bar height
 vim.opt.cmdheight = 0
 -- prompt message options
-vim.opt.shortmess = "atToOFc"
+vim.opt.shortmess:append("acsSW")
 -- disable substitution preview
 vim.opt.inccommand = ""
 

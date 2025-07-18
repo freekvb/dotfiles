@@ -2,7 +2,7 @@
 
 *{
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Hack, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: IosevkaTermNerdFont, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
 
@@ -12,7 +12,7 @@ window#waybar {
     color: @color5;
     transition-property: background-color;
     transition-duration: .5s;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 window#waybar.hidden {

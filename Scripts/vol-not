@@ -1,0 +1,4 @@
+#!/bin/sh
+
+notify-send --hint=string:x-dunst-stack-tag:volume: $(vol)
+
