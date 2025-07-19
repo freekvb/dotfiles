@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/keymaps.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 16 Jul 2025 09:22
+-- Update:   Sat 19 Jul 2025 15:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -64,11 +64,6 @@ vim.keymap.set("n", "z", "za<space>0")
 -- toggle spell checking
 vim.keymap.set("n", "<leader>s", ":setlocal spell! spelllang=en_us,nl<cr>")
 
--- header update
-vim.keymap.set("n", "<leader>u", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]])
--- shebang
-vim.keymap.set("n", "sb", [[i#!/bin/sh<cr><cr>]])
-
 -- instant markdown
 vim.keymap.set("n", "md", ":InstantMarkdownPreview<cr>")
 vim.keymap.set("n", "mds", ":InstantMarkdownStop<cr>")
@@ -80,4 +75,9 @@ vim.keymap.set("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]])
 
 -- blog entry
 vim.keymap.set("n", "<leader>be", [[:/#<cr><cr><cr>jO<c-r>=strftime("%a %d %b %Y %H:%M")<cr><cr><cr><esc>2ko]])
+
+-- header update
+vim.keymap.set("n", "<leader>u", [[gg/Update<cr>2wc$<c-r>=strftime("%a %d %b %Y %H:%M")<cr><esc>03j:nohlsearch<cr>]])
+-- shebang
+vim.keymap.set("n", "sb", [[i#!/bin/sh<cr><cr>]])
 

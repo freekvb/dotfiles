@@ -1,14 +1,18 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 16 Jul 2025 09:22
+-- Update:   Sat 19 Jul 2025 15:29
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 ---- options ----
 
+-- window title on
+vim.opt.title = true
+
 -- copy(y) paste(p) to/from system buffer
 vim.opt.clipboard:append("unnamed,unnamedplus")
+
 -- numbers
 vim.opt.number = true
 -- relative number
@@ -17,8 +21,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
 -- keep cursor from wobbling around
 vim.opt.virtualedit = "all"
--- window title on
-vim.opt.title = true
+
 -- convert tab to spaces
 vim.opt.expandtab = true
 -- tab 4 spaces
@@ -62,9 +65,12 @@ vim.opt.wildmode = "longest:full,full"
 -- case insensitive
 vim.opt.wildignorecase = true
 
+-- dash is part of word
+vim.opt.iskeyword:append("-")
+
 -- completion
 vim.opt.complete:append("kspell")
-vim.opt.completeopt = "menu,menuone,popup"
+vim.opt.completeopt = "menu,menuone,noselect,popup"
 vim.opt.completeopt:append("fuzzy")
 vim.opt.pumheight = 15
 -- tab completion
@@ -92,35 +98,39 @@ vim.cmd([[
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ]])
 
--- cursorline
-vim.opt.cursorline = true
--- cursorline disabled in insert mode
-vim.cmd([[
-    autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorLine cterm=bold ctermbg=234 ctermfg=NONE
-]])
--- cursorcolumn
-vim.opt.cursorcolumn = true
--- cursorcolumn disabled in insert mode
-vim.cmd([[
-    autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE
-]])
--- colorcolumn
-vim.opt.colorcolumn = '80'
-
 -- colorscheme
 vim.cmd[[
     colorscheme wal
 ]]
 -- make colorscheme work
 vim.opt.termguicolors = false
+
+-- cursorline
+vim.opt.cursorline = true
+-- cursorcolumn
+vim.opt.cursorcolumn = true
+-- colorcolumn
+vim.opt.colorcolumn = '80'
+
+-- cursorline disabled in insert mode
+vim.cmd([[
+    autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE
+]])
+-- cursorcolumn disabled in insert mode
+vim.cmd([[
+    autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
+    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE
+]])
+
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold,italic ctermfg=NONE ctermbg=234
+    hi CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE
     hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
     hi CursorColumn ctermfg=NONE ctermbg=234
-    hi ColorColumn ctermbg=NONE ctermfg=233
+    hi ColorColumn ctermfg=233 ctermbg=NONE
+    hi Pmenu ctermbg=0 ctermfg=4
+    hi PmenuSel ctermbg=0 ctermfg=12
     hi EndOfBuffer ctermfg=0
 ]])
 
@@ -154,3 +164,4 @@ vim.g["loaded_perl_provider"] = 0
 vim.g["loaded_node_provider"] = 0
 -- ruby provider
 vim.g["loaded_ruby_provider"] = 0
+
