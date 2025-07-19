@@ -1,11 +1,57 @@
 #!/bin/sh
 
-# set color theme
-wal --theme "$f" --cols16
+# base16-black-metal colorthemes
+# choose color theme
+# set theme, restart cava and waybar
 
-# cava get colors and reload
-wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava
-
-# waybar get colors and restart
-killall -SIGUSR2 waybar
+echo "choose your colortheme\n"
+echo "  1) metal"
+echo "  2) bathory"
+echo "  3) burzum"
+echo "  4) funeral"
+echo "  5) gorgoroth"
+echo "  6) immortal"
+echo "  7) khold"
+echo "  8) marduk"
+echo "  9) mayhem"
+echo "  10) nile"
+echo "  11) venom\n"
+echo "theme number: "
+read n
+case $n in
+  1) wal --theme base16-black-metal --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  2) wal --theme base16-black-metal-bathory --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  3) wal --theme base16-black-metal-burzum --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  4) wal --theme base16-black-metal-funeral --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  5) wal --theme base16-black-metal-gorgoroth --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  6) wal --theme base16-black-metal-immortal --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  7) wal --theme base16-black-metal-khold --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  8) wal --theme base16-black-metal-marduk --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  9) wal --theme base16-black-metal-mayhem --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  10) wal --theme base16-black-metal-nile --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  11) wal --theme base16-black-metal-venom --cols16 &&
+      wal_cava -c ~/.config/cava/config -G 7 -i ~/.cache/wal/colors.json && pkill -USR2 cava &&
+      killall -SIGUSR2 waybar;;
+  *) echo "invalid option";;
+esac
 

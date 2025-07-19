@@ -13,8 +13,6 @@ vim.opt.clipboard:append("unnamed,unnamedplus")
 vim.opt.number = true
 -- relative number
 vim.opt.relativenumber = true
--- width 'gutter' column numbering
---vim.opt.numberwidth = 1
 -- keep cursor away from top and bottom
 vim.opt.scrolloff = 10
 -- keep cursor from wobbling around
