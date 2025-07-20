@@ -1,14 +1,14 @@
 configuration {
 
 /*	modes: "window,drun,run,ssh";*/
-	font: "Hack 10";
+	font: "IosevkaTermNerdFont-Regular 10";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 /*	show-icons: true;*/
 /*	terminal: "rofi-sensible-terminal";*/
-	terminal: "st";
+	terminal: "foot";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
