@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/.fzf",
     url = "/home/fvb/.fzf"
   },
-  ["black-metal-theme-neovim"] = {
-    loaded = true,
-    path = "/home/fvb/.local/share/nvim/site/pack/packer/start/black-metal-theme-neovim",
-    url = "https://github.com/metalelf0/black-metal-theme-neovim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/fvb/.local/share/nvim/site/pack/packer/start/lualine.nvim",

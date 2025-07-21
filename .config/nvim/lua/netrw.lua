@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Sat 19 Jul 2025 15:29
+-- Update:   Wed 16 Jul 2025 09:22
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -11,7 +11,7 @@
 vim.g.netrw_keepdir = 0
 vim.g.netrw_winsize = -44
 vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 4
 vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
