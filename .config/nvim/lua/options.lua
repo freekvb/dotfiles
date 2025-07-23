@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Sat 19 Jul 2025 15:29
+-- Update:   Wed 23 Jul 2025 04:44
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -100,10 +100,8 @@ vim.cmd([[
 
 -- colorscheme
 vim.cmd[[
-    colorscheme wal
+    colorscheme pywal16
 ]]
--- make colorscheme work
-vim.opt.termguicolors = false
 
 -- cursorline
 vim.opt.cursorline = true
@@ -114,24 +112,25 @@ vim.opt.colorcolumn = '80'
 
 -- cursorline disabled in insert mode
 vim.cmd([[
-    autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE
+    autocmd InsertEnter * highlight CursorLine cterm=NONE ctermbg=0 ctermfg=NONE guibg=0 guifg=NONE
+    autocmd InsertLeave * highlight CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
 ]])
 -- cursorcolumn disabled in insert mode
 vim.cmd([[
-    autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE
-    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE
+    autocmd InsertEnter * highlight CursorColumn ctermbg=0 ctermfg=NONE guibg=0 guifg=NONE
+    autocmd InsertLeave * highlight CursorColumn ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
 ]])
 
 -- highlights
 vim.cmd([[
-    hi CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE
-    hi CursorLineNR cterm=bold ctermfg=NONE ctermbg=234
-    hi CursorColumn ctermfg=NONE ctermbg=234
-    hi ColorColumn ctermfg=233 ctermbg=NONE
-    hi Pmenu ctermbg=0 ctermfg=4
-    hi PmenuSel ctermbg=0 ctermfg=12
-    hi EndOfBuffer ctermfg=0
+    hi CursorLine cterm=bold,italic ctermbg=234 ctermfg=NONE gui=bold,italic guibg=grey11 guifg=NONE
+    hi CursorLineNR cterm=bold ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
+    hi CursorColumn ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
+    hi ColorColumn ctermbg=NONE ctermfg=233 guibg=grey3 guifg=NONE
+    hi Pmenu ctermbg=0 ctermfg=4 guibg=grey7 guifg=foreground
+    hi PmenuSel ctermbg=0 ctermfg=12 guibg=grey35 guifg=foreground
+    hi SpellBad cterm=underline gui=underline
+    hi EndOfBuffer ctermfg=0 guifg=black
 ]])
 
 -- statusline [lualine plugin]
@@ -158,6 +157,8 @@ vim.opt.shortmess:append("acsSW")
 vim.opt.inccommand = ""
 
 -- providers
+-- python provider
+vim.g["python3_host_prog"] = "/usr/bin/python3"
 -- perl provider
 vim.g["loaded_perl_provider"] = 0
 -- node.js provider

@@ -8,6 +8,7 @@
 ---- plugins ----
 
 -- lualine
+
 require("lualine").setup({
     options = {
         icons_enabled = false,
@@ -15,7 +16,6 @@ require("lualine").setup({
         component_separators = "",
         section_separators = "",
     },
-
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff" },
@@ -36,8 +36,7 @@ require("lualine").setup({
 })
 
 -- mini starter
-require('mini.starter').setup(
-{
+require('mini.starter').setup({
     autoopen = true,
     evaluate_single = false,
     items = nil,
@@ -46,8 +45,7 @@ require('mini.starter').setup(
     content_hooks = nil,
     query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
     silent = false,
-}
-)
+})
 
 -- smear cursor
 require('smear_cursor').setup({
@@ -66,23 +64,27 @@ require('smear_cursor').setup({
     distance_stop_animating = 0.5,        -- 0.1      > 0
 })
 
--- packer
-require("packer").startup(function()
-    use("wbthomason/packer.nvim")
-
-    use('dylanaraps/wal.vim')
-    use('~/.fzf')
-    use('nvim-lualine/lualine.nvim')
-    use('echasnovski/mini.starter')
-    use({ 'instant-markdown/vim-instant-markdown' })
-    use('sphamba/smear-cursor.nvim')
-
-    -- automatically run :PackerCompile whenever plugins.lua is updated
-    vim.cmd([[
-        augroup packer_user_config
-            autocmd!
-            autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-        augroup end
-    ]])
-end)
+-- pckr
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
+  vim.opt.rtp:prepend(pckr_path)
+end
+bootstrap_pckr()
+require('pckr').add{
+    {'uZer/pywal16.nvim', as = 'pywal16'};
+    '~/.fzf';
+    'nvim-lualine/lualine.nvim';
+    'echasnovski/mini.starter';
+    'instant-markdown/vim-instant-markdown';
+    'sphamba/smear-cursor.nvim';
+}
 

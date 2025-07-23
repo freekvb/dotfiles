@@ -43,6 +43,7 @@ alias fpi='fzfub'                                   # fzf preview [images]
 alias fv='vif'                                      # fzf and open in nvim
 alias grep='grep --color=auto'                      # grep color
 alias grim='sleep 5 && grim'                        # screenshot in 5 [from scratchpad]
+alias hx='helix'                                    # hx for helix
 alias less='less -R'                                # cause of colors
 alias lf='$HOME/Scripts/lfub'                       # lf with previews
 alias lg='lazygit'                                  # lazygit
