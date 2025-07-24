@@ -356,7 +356,7 @@ map gD          cd ~/Documents
 map gd          cd ~/Downloads
 map gM          cd ~/Media
 map gm          cd ~/Music
-map gn          cd ~/Notes
+map gn          cd ~/Notes/notes
 map gt          cd ~/Notes/trades/tp
 map gp          cd ~/Pictures
 map gw          cd ~/Pictures/wallpapers

@@ -3,7 +3,7 @@
 # save new note in $HOME/Notes as 'title.md'
 
 file=$(awk 'NR==1 {$1=""; print substr($0,2)}' "$HOME"/Notes/.new_note.md)
-newfile=$HOME/Notes/$file
+newfile=$HOME/Notes/notes/$file
 mv "$HOME"/Notes/.new_note.md "$newfile".md
 
 dunstify "note saved"

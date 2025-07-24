@@ -1,14 +1,13 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 16 Jul 2025 10:43
+-- Update:   Wed 23 Jul 2025 20:04
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
 ---- plugins ----
 
 -- lualine
-
 require("lualine").setup({
     options = {
         icons_enabled = false,

@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 23 Jul 2025 04:44
+-- Update:   Wed 23 Jul 2025 20:03
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -21,6 +21,10 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
 -- keep cursor from wobbling around
 vim.opt.virtualedit = "all"
+-- disable backup and swap files
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
 
 -- convert tab to spaces
 vim.opt.expandtab = true
@@ -42,7 +46,6 @@ vim.opt.breakindentopt = "shift:2"
 
 -- markdown inbedded code highlighting
 vim.g["markdown_fenced_languages"] = { "bash=sh", "python", "vim", "lua", "c", "html" }
-
 -- instant markdown
 vim.g["instant_markdown_autostart"] = 0
 vim.g["instant_markdown_browser"] = "qutebrowser --target window"
@@ -73,6 +76,7 @@ vim.opt.complete:append("kspell")
 vim.opt.completeopt = "menu,menuone,noselect,popup"
 vim.opt.completeopt:append("fuzzy")
 vim.opt.pumheight = 15
+
 -- tab completion
 vim.cmd([[
 function! CleverTab()
@@ -129,6 +133,7 @@ vim.cmd([[
     hi ColorColumn ctermbg=NONE ctermfg=233 guibg=grey3 guifg=NONE
     hi Pmenu ctermbg=0 ctermfg=4 guibg=grey7 guifg=foreground
     hi PmenuSel ctermbg=0 ctermfg=12 guibg=grey35 guifg=foreground
+    hi Search guibg=gray15 guifg=foreground gui=underline
     hi SpellBad cterm=underline gui=underline
     hi EndOfBuffer ctermfg=0 guifg=black
 ]])
