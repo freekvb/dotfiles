@@ -131,11 +131,18 @@ vim.cmd([[
     hi CursorLineNR cterm=bold ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
     hi CursorColumn ctermbg=234 ctermfg=NONE guibg=grey11 guifg=NONE
     hi ColorColumn ctermbg=NONE ctermfg=233 guibg=grey3 guifg=NONE
-    hi Pmenu ctermbg=0 ctermfg=4 guibg=grey7 guifg=foreground
-    hi PmenuSel ctermbg=0 ctermfg=12 guibg=grey35 guifg=foreground
-    hi Search guibg=gray15 guifg=foreground gui=underline
-    hi SpellBad cterm=underline gui=underline
+    hi DiffText gui=bold guibg=#506150  guifg=#ececec
+    hi DiffAdd guibg=#615050 guifg=#ececec
+    hi DiffChange guibg=#505061 guifg=#ececec
+    hi DiffDelete guibg=#615950 guifg=#ececec
     hi EndOfBuffer ctermfg=0 guifg=black
+    hi MatchParen guibg=gray35 guifg=fb
+    hi Pmenu ctermbg=0 ctermfg=4 guibg=grey7 guifg=fb
+    hi PmenuSel ctermbg=0 ctermfg=12 guibg=grey35 guifg=fb
+    hi QuickfixLine guibg=#b29951 guifg=grey3
+    hi Search guibg=gray15 guifg=fb gui=underline
+    hi SpellBad cterm=underline gui=underline
+    hi Visual guibg=#2f2f27 guifg=#ececec
 ]])
 
 -- statusline [lualine plugin]

@@ -82,6 +82,10 @@ vim.keymap.set("n", "<n>", "]s")
 vim.keymap.set("n", "md", ":InstantMarkdownPreview<cr>")
 vim.keymap.set("n", "mds", ":InstantMarkdownStop<cr>")
 
+-- render markdown
+vim.keymap.set("n", "rd", ":RenderMarkdown enable<cr>")
+vim.keymap.set("n", "rds", ":RenderMarkdown disable<cr>")
+
 -- new note (nn) save (and quit) finished $HOME/Notes/notes/[title]
 vim.keymap.set("n", "sn", [[:w<cr>:!save_note<cr>:q<cr>]])
 -- shebang

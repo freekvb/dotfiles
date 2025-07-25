@@ -23,7 +23,7 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --bind 'J:down,K:up,Q:cancel'"
 ### fzf defaults
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --theme=base16 --color=always --line-range :100 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=plain --theme=base16 --color=always --line-range :100 {}'"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 

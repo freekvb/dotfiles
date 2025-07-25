@@ -63,6 +63,13 @@ require('smear_cursor').setup({
     distance_stop_animating = 0.5,        -- 0.1      > 0
 })
 
+-- render markdown
+require('render-markdown').setup({
+    enabled = true,
+    render_modes = true,
+})
+
+
 -- pckr
 local function bootstrap_pckr()
   local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
@@ -85,5 +92,7 @@ require('pckr').add{
     'echasnovski/mini.starter';
     'instant-markdown/vim-instant-markdown';
     'sphamba/smear-cursor.nvim';
+    {'MeanderingProgrammer/render-markdown.nvim',
+        requires = { 'echasnovski/mini.icons', opt = true }};
 }
 

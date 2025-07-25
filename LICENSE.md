@@ -1,9 +1,12 @@
-MIT License
+
+# LICENSE
+
+## MIT licence
 
 
-copyleft fvb
-freekvb@gmail.com
-https://freekvb.github.io/fvb/
+- copyleft fvb
+- freekvb@gmail.com
+- https://freekvb.github.io/fvb/
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
