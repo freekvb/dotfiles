@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 23 Jul 2025 20:04
+-- Update:   Wed 30 Jul 2025 21:21
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -11,7 +11,7 @@
 require("lualine").setup({
     options = {
         icons_enabled = false,
-        theme = "pywal",
+        theme = "auto",
         component_separators = "",
         section_separators = "",
     },
@@ -63,12 +63,12 @@ require('smear_cursor').setup({
     distance_stop_animating = 0.5,        -- 0.1      > 0
 })
 
--- render markdown
-require('render-markdown').setup({
-    enabled = true,
-    render_modes = true,
+-- colorscheme
+require("black-metal").setup({
+  -- theme: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
+  theme = "mayhem",
 })
-
+require("black-metal").load()
 
 -- pckr
 local function bootstrap_pckr()
@@ -86,13 +86,11 @@ local function bootstrap_pckr()
 end
 bootstrap_pckr()
 require('pckr').add{
-    {'uZer/pywal16.nvim', as = 'pywal16'};
     '~/.fzf';
     'nvim-lualine/lualine.nvim';
     'echasnovski/mini.starter';
     'instant-markdown/vim-instant-markdown';
     'sphamba/smear-cursor.nvim';
-    {'MeanderingProgrammer/render-markdown.nvim',
-        requires = { 'echasnovski/mini.icons', opt = true }};
+    'metalelf0/black-metal-theme-neovim';
 }
 

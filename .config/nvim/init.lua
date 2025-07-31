@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/init.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Mon 14 Jul 2025 10:59
+-- Update:   Wed 30 Jul 2025 21:22
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 --

@@ -14,6 +14,7 @@
 
 # DESC: check and choose the first program in the array installed as the default
 # find alternative apps if it is installed on your system
+
 find_alt() { for i;do which "$i" >/dev/null &&
     { echo "$i"; return 0; };done;return 1; }
 
@@ -25,7 +26,7 @@ export OPENER=$(find_alt xdg-open)
 export BROWSER=$(find_alt zen-browser qutebrowser chromium $OPENER)
 export BROWSERCLI=$(find_alt lynx w3m $OPENER )
 export DIFFPROG="nvim -d"
-export EDITOR=$(find_alt nvim vim helix $OPENER)
+export EDITOR=$(find_alt nv nvim helix nextvi $OPENER)
 export FILEMANAGERCLI=$(find_alt lf vifm ranger $OPENER)
 export IMAGEVIEWER=$(find_alt imv feh nsxiv $OPENER)
 export MANPAGER="nvim +Man!"
@@ -44,7 +45,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_BIN_HOME=$HOME/.local/bin
-
 export XDG_RUNTIME_DIR="/run/user/1000"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
@@ -56,38 +56,41 @@ export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass/password-store"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
+
 # }}}
 
 # {{{ paths
 
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
 if [[ ! "$PATH" == */bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/bin"
+    export PATH="${PATH:+${PATH}:}/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.local/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.local/bin"
+    export PATH="${PATH:+${PATH}:}/home/fvb/.local/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.local/share/go/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/go/bin"
+    export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/go/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/Scripts* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/Scripts"
+    export PATH="${PATH:+${PATH}:}/home/fvb/Scripts"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.local/share/gem/ruby/3.0.0/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/gem/ruby/3.0.0/bin"
+    export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/gem/ruby/3.0.0/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.local/share/cargo/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/cargo/bin"
+    export PATH="${PATH:+${PATH}:}/home/fvb/.local/share/cargo/bin"
 fi
 
 if [[ ! "$PATH" == */home/fvb/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/fvb/.fzf/bin"
+    export PATH="${PATH:+${PATH}:}/home/fvb/.fzf/bin"
 fi
 
-
 # }}}
+
 

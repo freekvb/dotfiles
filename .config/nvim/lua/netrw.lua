@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
 -- Date:     Fri 14 Jul 2025 06:30
--- Update:   Wed 23 Jul 2025 20:01
+-- Update:   Wed 30 Jul 2025 21:15
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
@@ -17,8 +17,7 @@ vim.g.netrw_use_errorwindow = 1
 vim.g.netrw_bufsettings = "noma nu nowrap ro"
 vim.g.netrw_bookmark = 1
 
--- open splits the right way (brodie's hack)
--- open to the right
+-- open in split to the right
 vim.cmd([[
 function! OpenToRight()
 	:normal v
@@ -28,7 +27,8 @@ function! OpenToRight()
 	:normal <c-w>l
 endfunction
 ]])
--- open below
+
+-- open in split below
 vim.cmd([[
 function! OpenBelow()
 	:normal v
@@ -60,6 +60,7 @@ augroup END
 vim.cmd([[
     autocmd FileType netrw setl bufhidden=delete
 ]])
+
 -- close netrw if it's the only buffer open
 vim.cmd([[
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif

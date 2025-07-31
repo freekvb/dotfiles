@@ -1,6 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/fvb/.dotfiles/.config/nvim/lua'
+let g:netrw_dirhist_0='/home/fvb'
+let g:netrw_dirhist_9='/home/fvb/.dotfiles/.config/nvim/lua'
+let g:netrw_dirhist_8='/home/fvb'
+let g:netrw_dirhist_7='/home/fvb/Websites/fvb'
+let g:netrw_dirhist_6='/home/fvb'
+let g:netrw_dirhist_5='/home/fvb/Websites/fvb'
 let g:netrw_dirhist_4='/home/fvb/Scripts'
 let g:netrw_dirhist_3='/home/fvb/.local/share/neovim/site/pack/pckr/opt/mini.starter/lua/mini'
 let g:netrw_dirhist_2='/home/fvb/.local/share/neovim/site/pack/pckr/opt/mini.starter/lua'
-let g:netrw_dirhist_1='/home/fvb/.local/share/neovim/site/pack/pckr/opt/mini.starter'

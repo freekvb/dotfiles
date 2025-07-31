@@ -335,6 +335,7 @@ map cv          push :!nvim<space>$HOME/.config/lf/lfrc<enter>
 map cz          push :!nvim<space>$HOME/.config/zsh/.zshrc<enter>
 map ob          $$BROWSER "$f"
 map of          open $f
+map oh          $helix "$f"
 map ol          $$PAGER "$f"
 map ot          openterm
 map ov          $$EDITOR "$f"
