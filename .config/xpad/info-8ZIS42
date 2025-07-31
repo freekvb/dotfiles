@@ -1,0 +1,12 @@
+width 400
+height 300
+x 0
+y 0
+follow_font 1
+follow_color 1
+sticky 0
+hidden 1
+back rgb(238,238,236)
+text rgb(24,28,27)
+fontname Hack 10
+content content-T2IS42

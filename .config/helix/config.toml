@@ -1,0 +1,66 @@
+theme = "base16_terminal"
+
+[keys.normal]
+# semicolon as colon
+";" = "command_mode"
+# use system clipboard
+y = "yank_main_selection_to_clipboard"
+p = "paste_clipboard_before"
+# escape working with multiple cursors
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.normal.","]
+# lazy write quit
+w = ":write"
+q = ":quit"
+# lazygit integration
+g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+# lf integration
+l = [":new", ":insert-output lfub", ":buffer-close!", ":redraw"]
+
+[editor]
+# highlight all lines with a cursor
+cursorline = true
+# use relative line numbers
+line-number = "relative"
+# number of lines of padding around the edge of the screen when scrolling
+scrolloff = 10
+# middle click paste
+middle-click-paste = true
+# color modes
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "version-control",
+  "read-only-indicator",
+  "file-name",
+  "file-modification-indicator",
+]
+right = [
+  "diagnostics",
+  "spacer",
+  "file-encoding",
+  "file-type",
+  "spacer",
+  "spacer",
+  "position-percentage",
+  "position",
+]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.gutters.line-numbers]
+min-width = 1
+
+

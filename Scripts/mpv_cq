@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dunstify "Loading Video ...";
+mpv $(copyq read)
+

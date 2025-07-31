@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# screenshot and a 20% thumb in one shot
+
+sleep 5 && grim && sleep 1 && grim -s 0.2
+
