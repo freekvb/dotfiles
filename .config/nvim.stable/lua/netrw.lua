@@ -1,26 +1,23 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/netrw.lua (archlinux @ 'silent')
--- Date:     Fri 01 Aug 2025 21:30
--- Update:   Sat 02 Aug 2025 02:26
+-- Date:     Fri 14 Jul 2025 06:30
+-- Update:   Wed 30 Jul 2025 21:15
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 ---- netrw ----
 
+-- setttings
 vim.g.netrw_keepdir = 0
-vim.g.netrw_winsize = -62
+vim.g.netrw_winsize = -44
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 4
-vim.g.netrw_alto = 1
-vim.g.netrw_altv = 1
 vim.g.netrw_browse_split = 4
 vim.g.netrw_use_errorwindow = 1
-vim.g.netrw_bufsettings = "nu rnu"
+vim.g.netrw_bufsettings = "noma nu nowrap ro"
 vim.g.netrw_bookmark = 1
 
--- open splits the right way (brodie's hack)
--- open to the right
+-- open in split to the right
 vim.cmd([[
 function! OpenToRight()
 	:normal v
@@ -30,7 +27,8 @@ function! OpenToRight()
 	:normal <c-w>l
 endfunction
 ]])
--- open below
+
+-- open in split below
 vim.cmd([[
 function! OpenBelow()
 	:normal v
@@ -46,8 +44,6 @@ vim.cmd([[
 function! NetrwMappings()
     " Hack fix to make ctrl-l work properly
     noremap <buffer> <c-l> <c-w>l
-    noremap <buffer> V :call OpenToRight()<cr>:vert resize 144<cr>
-    noremap <buffer> S :call OpenBelow()<cr>
     " make h and l work as intended
     nmap <buffer> h u
     nmap <buffer> l <cr>
@@ -60,11 +56,6 @@ augroup netrw_mappings
 augroup END
 ]])
 
---
-vim.cmd([[
-    autocmd FileType netrw set nolist
-]])
-
 -- close hidden buffer
 vim.cmd([[
     autocmd FileType netrw setl bufhidden=delete
@@ -73,47 +64,5 @@ vim.cmd([[
 -- close netrw if it's the only buffer open
 vim.cmd([[
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
-]])
-
--- no dubble netrw buffers
-vim.cmd([[
-let g:NetrwIsOpen=0
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-]])
-
-
--- close after opening file
-vim.cmd([[
-let g:netrw_fastbrowse = 0
-autocmd FileType netrw setl bufhidden=wipe
-function! CloseNetrw() abort
-  for bufn in range(1, bufnr('$'))
-    if bufexists(bufn) && getbufvar(bufn, '&filetype') ==# 'netrw'
-      silent! execute 'bwipeout ' . bufn
-      if getline(2) =~# '^" Netrw '
-        silent! bwipeout
-      endif
-      return
-    endif
-  endfor
-endfunction
-augroup closeOnOpen
-  autocmd!
-  autocmd BufWinEnter * if getbufvar(winbufnr(winnr()), "&filetype") != "netrw"|call CloseNetrw()|endif
-aug END
 ]])
 

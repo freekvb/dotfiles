@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/init.lua (archlinux @ 'silent')
--- Date:     Fri 01 Aug 2025 21:30
--- Update:   Sat 02 Aug 2025 01:48
+-- Date:     Fri 14 Jul 2025 06:30
+-- Update:   Wed 30 Jul 2025 21:22
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 --
 --
 --           ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
@@ -15,12 +15,11 @@
 --
 -------------------------------------------------------------------------------
 
+require("keymaps")
 
-require('keymaps')
+require("netrw")
 
-require('netrw')
+require("options")
 
-require('options')
-
-require('plugins')
+require("plugins")
 

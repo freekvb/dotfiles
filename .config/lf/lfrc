@@ -304,7 +304,7 @@ map x           chmodx
 map U           unselect
 map E           extract
 map bg          wall # [hyprland wallpaper]
-map bgt         wallpaper # [hyprland wallpaper & colortheme]
+map bt          wallpaper # [hyprland wallpaper & colortheme]
 #map bgx         set py-wallpaper # [x | dwm]
 map mp          play_music
 

@@ -1,31 +1,11 @@
 ------------------------------------------------------------------------------
 -- File:     ~/.config/nvim/lua/plugins.lua (archlinux @ 'silent')
--- Date:     Fri 01 Aug 2025 21:30
--- Update:   Sat 02 Aug 2025 01:47
+-- Date:     Fri 14 Jul 2025 06:30
+-- Update:   Wed 30 Jul 2025 21:21
 -- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
 
-
 ---- plugins ----
-
-vim.pack.add({
-	{ src = 'https://github.com/metalelf0/black-metal-theme-neovim' },
-	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
-    { src = 'https://github.com/echasnovski/mini.starter' },
-    { src = 'https://github.com/instant-markdown/vim-instant-markdown' },
-    { src = 'https://github.com/sphamba/smear-cursor.nvim' },
-})
-
-
----- plugin options ----
-
--- black metal colortheme
-require('black-metal').setup({
-	-- theme: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
-	theme = 'mayhem',
-})
-require('black-metal').load()
---vim.cmd(":hi statusline guibg=grey3")
 
 -- lualine
 require("lualine").setup({
@@ -82,3 +62,35 @@ require('smear_cursor').setup({
     damping_insert_mode = 0.8,            -- 0.7      [0, 1]
     distance_stop_animating = 0.5,        -- 0.1      > 0
 })
+
+-- colorscheme
+require("black-metal").setup({
+  -- theme: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
+  theme = "mayhem",
+})
+require("black-metal").load()
+
+-- pckr
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
+  vim.opt.rtp:prepend(pckr_path)
+end
+bootstrap_pckr()
+require('pckr').add{
+    '~/.fzf';
+    'nvim-lualine/lualine.nvim';
+    'echasnovski/mini.starter';
+    'instant-markdown/vim-instant-markdown';
+    'sphamba/smear-cursor.nvim';
+    'metalelf0/black-metal-theme-neovim';
+}
+
