@@ -81,5 +81,6 @@ alias v='nvim' 									    # nvim
 alias vd='doas nvim'                                # nvim with root privileges
 alias vf='$HOME/.config/vifm/scripts/vifmrun'       # run vifm file manager
 alias vi='nvim -c startinsert'                      # start nvim in insert mode
+alias vx='$HOME/Programs/nextvi/vi' 				# nextvi
 alias vz='nvim $HOME/.config/zsh/.zshrc'            # open zsh config (.zshrc)
 

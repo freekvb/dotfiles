@@ -78,8 +78,7 @@ vim.opt.iskeyword:append("-")
 
 -- completion
 vim.opt.complete:append("kspell")
-vim.opt.completeopt = "menu,menuone,noselect,popup"
-vim.opt.completeopt:append("fuzzy")
+vim.opt.completeopt = "menu,menuone,noselect,popup,fuzzy"
 vim.o.pumheight = 15
 
 -- tab completion

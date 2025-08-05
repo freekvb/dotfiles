@@ -32,9 +32,9 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 export FZF_COMPLETION_TRIGGER='**'
 
 # completion options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
+export FZF_COMPLETION_OPTS='--no-border --info=inline'
 
-alias clipbd="xclip -r -selection clipboard"
+alias clipbd="wl-copy -r -selection clipboard"
 alias devar="unset var"
 
 

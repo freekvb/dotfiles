@@ -1,28 +1,25 @@
 -------------------------------------------------------------------------------
--- File:     ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
--- Date:     Fri 01 Aug 2025 21:30
--- Update:   Sat 02 Aug 2025 01:47
--- Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
+-- File:    ~/.config/nvim/lua/options.lua (archlinux @ 'silent')
+-- Date:    Fri 01 Aug 2025 21:30
+-- Update:  Mon 04 Aug 2025 09:56
+-- Owner:   fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 -------------------------------------------------------------------------------
-
 
 ---- options ----
 
-vim.o.clipboard = 'unnamed,unnamedplus'
+vim.o.clipboard = "unnamed,unnamedplus"
 
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.smartindent = true
 vim.o.swapfile = false
+vim.o.undofile = true
 vim.o.scrolloff = 10
 vim.o.virtualedit = "all"
-vim.opt.fillchars = { eob = " "}
-
--- markdown
-vim.cmd([[
-    au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-]])
+vim.opt.fillchars = {eob = " "}
 
 -- split buffers
 vim.o.splitright = true
@@ -46,21 +43,22 @@ vim.opt.iskeyword:append("-")
 
 -- completion
 vim.opt.complete:append("kspell")
-vim.opt.completeopt = "menu,menuone,noselect,popup"
-vim.opt.completeopt:append("fuzzy")
+vim.opt.completeopt = "menu,menuone,noselect,popup,fuzzy"
 vim.o.pumheight = 15
 
 -- tab completion
-vim.cmd([[
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
-]])
+vim.cmd(
+    [[
+    function! CleverTab()
+        if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+            return '\<Tab>'
+        else
+            return '\<C-N>'
+        endif
+    endfunction
+    inoremap <Tab> <C-R>=CleverTab()<CR>
+]]
+)
 
 -- folding (curly brackets)
 vim.o.foldmethod = "marker"
@@ -81,18 +79,22 @@ vim.o.cursorline = true
 vim.o.cursorcolumn = true
 
 -- cursorline disabled in insert mode
-vim.cmd([[
+vim.cmd(
+    [[
     autocmd VimEnter * highlight CursorLine gui=bold,italic guibg=grey3 guifg=NONE
     autocmd InsertEnter * highlight CursorLine guibg=0 guifg=NONE
     autocmd InsertLeave * highlight CursorLine gui=bold,italic guibg=grey3 guifg=NONE
-]])
+]]
+)
 
 -- cursorcolumn disabled in insert mode
-vim.cmd([[
+vim.cmd(
+    [[
     autocmd VimEnter * highlight CursorColumn guibg=grey3 guifg=NONE
     autocmd InsertEnter * highlight CursorColumn guibg=0 guifg=NONE
     autocmd InsertLeave * highlight CursorColumn guibg=grey3 guifg=NONE
-]])
+]]
+)
 
 -- automatically leave insert mode
 vim.cmd([[
@@ -100,10 +102,21 @@ vim.cmd([[
 ]])
 
 -- insert mode inactive time
-vim.cmd([[
+vim.cmd(
+    [[
     au InsertEnter * let updaterestore=&updatetime | set updatetime=5000
     au InsertLeave * let &updatetime=updaterestore
+]]
+)
+
+-- markdown
+vim.cmd([[
+    au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 ]])
+
+-- instant markdown
+vim.g["instant_markdown_autostart"] = 0
+vim.g["instant_markdown_browser"] = "qutebrowser --target window"
 
 -- command line
 vim.o.showmode = false

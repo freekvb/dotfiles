@@ -2,8 +2,18 @@
 
 # save new note in $HOME/Notes as 'title.md'
 
-file=$(awk 'NR==2 {$1=""; print substr($0,2)}' "$HOME"/Notes/notes/.new_note.md)
+file=$(awk 'NR==1 {$1=""; print substr($0,2)}' "$HOME"/Notes/notes/.new_note.md)
 newfile=$HOME/Notes/notes/$file
 mv "$HOME"/Notes/notes/.new_note.md "$newfile".md
 
-dunstify "note saved"
+dunstify "note saved .."
+
+## and publish on github
+#dir=$(pwd)
+#cd "$HOME"/Notes/notes || exit
+#   git add .
+#   git commit -m "$title"
+#   git push -q
+#cd "$dir" || exit
+#
+#dunstify "note saved and published .."
