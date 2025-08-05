@@ -48,14 +48,14 @@ vim.cmd(
 vim.cmd(
     [[
     function! NetrwMappings()
-        ' Hack fix to make ctrl-l work properly
+        " Hack fix to make ctrl-l work properly
             noremap <buffer> <c-l> <c-w>l
             noremap <buffer> V :call OpenToRight()<cr>:vert resize 144<cr>
             noremap <buffer> S :call OpenBelow()<cr>
-        ' make h and l work as intended
+        " make h and l work as intended
             nmap <buffer> h u
             nmap <buffer> l <cr>
-        ' close netrw
+        " close netrw
             nmap <buffer> <Leader>dd :Lexplore<CR>
     endfunction
     augroup netrw_mappings
@@ -66,9 +66,11 @@ vim.cmd(
 )
 
 -- close hidden buffer
-vim.cmd([[
+vim.cmd(
+    [[
     autocmd FileType netrw setl bufhidden=delete
-]])
+]]
+)
 
 -- close netrw if it's the only buffer open
 vim.cmd(
@@ -108,7 +110,7 @@ vim.cmd(
         for bufn in range(1, bufnr('$'))
             if bufexists(bufn) && getbufvar(bufn, '&filetype') ==# 'netrw'
                 silent! execute 'bwipeout ' . bufn
-            if getline(2) =~# '^' Netrw '
+            if getline(2) =~# '^" Netrw '
                 silent! bwipeout
             endif
                 return

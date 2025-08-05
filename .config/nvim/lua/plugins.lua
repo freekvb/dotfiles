@@ -9,33 +9,38 @@
 
 vim.pack.add(
     {
-        {src = "file:///home/fvb/.fzf"},
-        {src = "https://github.com/metalelf0/black-metal-theme-neovim"},
-        {src = "https://github.com/nvim-lualine/lualine.nvim"},
-        {src = "https://github.com/echasnovski/mini.starter"},
-        {src = "https://github.com/instant-markdown/vim-instant-markdown"},
-        {src = "https://github.com/sphamba/smear-cursor.nvim"}
+        { src = "file:///home/fvb/.fzf" },
+        --{ src = "https://github.com/metalelf0/black-metal-theme-neovim" },
+        { src = "https://github.com/uZer/pywal16.nvim", as = "pywal16" },
+        { src = "https://github.com/nvim-lualine/lualine.nvim" },
+        { src = "https://github.com/echasnovski/mini.starter" },
+        { src = "https://github.com/instant-markdown/vim-instant-markdown" },
+        { src = "https://github.com/sphamba/smear-cursor.nvim" }
     }
 )
 
 ---- plugin options ----
 
--- black metal colortheme
-require("black-metal").setup(
-    {
-        -- theme: bathory | black-metal-day | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
-        theme = "mayhem"
-    }
-)
-require("black-metal").load()
-vim.cmd(":hi statusline guibg=grey3")
+---- black metal colortheme
+--require("black-metal").setup(
+--    {
+--        -- theme: bathory | black-metal-day | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
+--        theme = "mayhem"
+--    }
+--)
+--require("black-metal").load()
+--vim.cmd(":hi statusline guibg=grey3")
+
+-- pywal16
+local pywal16 = require('pywal16')
+pywal16.setup()
 
 -- lualine
 require("lualine").setup(
     {
         options = {
             icons_enabled = false,
-            theme = "auto",
+            theme = "pywal16-nvim",
             component_separators = "",
             section_separators = " "
         },

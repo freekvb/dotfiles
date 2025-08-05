@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/fvb/.dotfiles/.config/nvim/lua'
+let g:netrw_dirhist_6='/home/fvb'
 let g:netrw_dirhist_5='/home/fvb/Documents'
 let g:netrw_dirhist_4='/home/fvb/.dotfiles/.config/nvim/lua'
 let g:netrw_dirhist_3='/home/fvb'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_1='/'
 let g:netrw_dirhist_0='/home'
 let g:netrw_dirhist_9='/home/fvb'
 let g:netrw_dirhist_8='/home/fvb/.dotfiles'
-let g:netrw_dirhist_7='/home/fvb/.dotfiles/.config'
-let g:netrw_dirhist_6='/home/fvb/.dotfiles/.config/nvim'
