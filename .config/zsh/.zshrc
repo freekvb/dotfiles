@@ -1,10 +1,9 @@
 #-----------------------------------------------------------------------------#
 # File:     ~.config/zsh/.zshrc (archlinux @ 'silent')
 # Date:     Sat 25 Mqy 2024 03:00
-# Update:   Fri 27 Jun 2025 04:18
+# Update:   Tue 05 Aug 2025 09:58
 # Owner:    fvb - freekvb@gmail.com - https://freekvb.github.io/fvb/
 #-----------------------------------------------------------------------------#
-
 
 # load aliases and shortcuts if existent
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
@@ -64,8 +63,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
 
 #}}}
 
@@ -105,7 +104,6 @@ function +vi-git-untracked() {
 }
 
 # nvim mode indicator for in right prompt
-# updates editor information when the keymap changes
 function zle-keymap-select() {
   zle reset-prompt
   zle -R
@@ -135,19 +133,11 @@ bindkey -a '^d' exit
 bindkey -a u undo
 bindkey -a '^R' redo
 
-# edit line in nvim with ctrl-o
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^o' edit-command-line
-
-# unbind ctrl-e and ctrl-y
-bindkey -r '^E'
-bindkey -r '^Y'
-
 #}}}
 
 #{{{ history
 
-# History
+# history
 HISTSIZE=5000
 HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
 SAVEHIST=$HISTSIZE
@@ -165,7 +155,6 @@ setopt hist_find_no_dups
 #{{{ archives
 
 ## extract all compressed files with 'extract'
-## usage: extract <file>
 extract ()
 {
         if [[ -f "$1" ]]
@@ -194,7 +183,6 @@ extract ()
 }
 
 # compress files or a directory (defaults to tar.gz)
-# usage: compress <file> (<type>)
 compress()
 {
 if [ '$2' ]; then
@@ -214,7 +202,6 @@ fi
 }
 
 # show archive without extracting
-# usage: show <archive>
 show()
 {
         if [[ -f $1 ]]
@@ -240,12 +227,9 @@ show()
 sd linux foot $HOME/.cache/wal/colors-tty.sh
 
 # color by 'wal'
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background
-# ( ) #  hide shell job control messages
 (cat $HOME/.cache/wal/sequences & )
 
-# To add support for TTYs this line can be optionally added.
+# tty terminal
 source $HOME/.cache/wal/colors-tty.sh
 
 #}}}
@@ -272,7 +256,7 @@ lxg () {
 # set window title to command just before running it
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
-# set window title to terminal (st) after returning from a command
+# set window title to terminal after returning from a command
 precmd() { printf "\x1b]0;%s\x07" "$TERM" }
 
 #}}}

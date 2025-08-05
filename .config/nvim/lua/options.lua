@@ -109,11 +109,6 @@ vim.cmd(
 ]]
 )
 
--- markdown
-vim.cmd([[
-    au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-]])
-
 -- instant markdown
 vim.g["instant_markdown_autostart"] = 0
 vim.g["instant_markdown_browser"] = "qutebrowser --target window"
