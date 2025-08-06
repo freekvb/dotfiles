@@ -78,7 +78,7 @@ promptinit
 NEWLINE=$'\n'
 
 # left prompt
-PROMPT='${NEWLINE}%B%~%b %F{yellow}%B%(1j.*.)%(?..!)%b%f%  '
+PROMPT='${NEWLINE}%B%~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f%   '
 
 # right prompt
 autoload -Uz vcs_info
